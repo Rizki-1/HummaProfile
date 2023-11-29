@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\PengaturanController;
 
@@ -41,3 +42,7 @@ Route::delete('/sosmed.delete/{id}', [PengaturanController::class, 'Sosmeddestro
 Route::post('/layanan.store', [PengaturanController::class, 'LayananStore'])->name('layanan.store');
 Route::put('/layanan.update', [PengaturanController::class, 'LayananUpdate'])->name('layanan.update');
 Route::delete('/layanan.delete', [PengaturanController::class, 'Layanandelete'])->name('layanan.delete');
+//produk
+Route::post('/produk.store', [ProdukController::class, 'Produkstore'])->name('produk.store');
+Route::put('/produk.update', [ProdukController::class, 'Produkupdate'])->name('produk.update');
+Route::delete('/produk.delete', [ProdukController::class, 'Produkdestroy'])->name('produk.delete');

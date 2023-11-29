@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Produk;
+use Illuminate\Http\Request;
 use App\Http\Requests\ProdukStoreRequest;
 use App\Http\Requests\ProdukUpdateRequest;
-use Illuminate\Http\Request;
 
 class ProdukController extends Controller
 {
@@ -27,9 +28,18 @@ class ProdukController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(ProdukStoreRequest $request)
+    public function Produkstore(ProdukStoreRequest $request)
     {
-        //
+        $foto_produk = $request->file('foto_produk');
+        $foto_name = $foto_produk->hasname();
+        $foto_produk->storeAs('public/produk/'. $foto_name);
+        Produk::create([
+            'nama_produk' => $request->nama_produk,
+            'foto_produk' => $foto_name,
+            'keterangan_produk' => $request->keterangan_produk,
+            'dibuat' => $request->dibuat,
+        ]);
+        return redirect()->back();
     }
 
     /**
@@ -51,16 +61,33 @@ class ProdukController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(ProdukUpdateRequest $request, string $id)
+    public function Produkupdate(ProdukUpdateRequest $request, string $id)
     {
-        //
+        try {
+            $produk = Produk::findOrFail($id);
+            $produk->update([
+                'nama_produk' => $request->nama_produk,
+                'foto_produk' => $foto_name,
+                'keterangan_produk' => $request->keterangan_produk,
+                'dibuat' => $request->dibuat,
+            ]);
+            return redirect()->back();
+        } catch (\Throwable $th) {
+            return redirect()->back();
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function Produkdestroy(string $id)
     {
-        //
+        try {
+            $produk = Produk::findOrFail($id);
+            $produk->delete();
+            return redirect()->back();
+        } catch (\Throwable $th) {
+            return redirect()->back();
+        }
     }
 }
