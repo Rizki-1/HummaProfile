@@ -37,22 +37,22 @@ class PersetujuanController extends Controller
 
     public function terimaIndustri($id)
     {
-        // try {
+        try {
             $industri = KelasIndustri::findOrFail($id);
-            $industri->status = 'di terima';
+            $industri->status = 'diterima';
             $industri->save();
             //kirim email
             return redirect()->back();
-        // } catch (\Throwable $th) {
-        //     return redirect()->back();
-        // }
+        } catch (\Throwable $th) {
+            return redirect()->back();
+        }
     }
 
     public function tolakIndustri($id)
     {
         try {
             $industri = KelasIndustri::findOrFail($id);
-            $industri->status = 'di tolak';
+            $industri->status = 'ditolak';
             $industri->save();
             //kirim email
             return redirect()->back();
