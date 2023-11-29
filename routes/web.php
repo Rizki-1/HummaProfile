@@ -20,10 +20,11 @@ Route::get('/', function () {
 });
 
 // Auth::routes();
-Route::get('/login-admin', [\App\Http\Controllers\Auth\LoginController::class,'showLoginForm']);
-Route::post('/login-admin', [\App\Http\Controllers\Auth\LoginController::class,'login'])->name('login');
 
 Route::prefix('/admin')->group(function () {
+    Route::get('/login', [\App\Http\Controllers\Auth\LoginController::class,'showLoginForm']);
+    Route::post('/login', [\App\Http\Controllers\Auth\LoginController::class,'login'])->name('login');
+    Route::post('/logout', [\App\Http\Controllers\Auth\LoginController::class,'logout'])->name('logout');
     Route::get('/persetujuan', );
 });
 
