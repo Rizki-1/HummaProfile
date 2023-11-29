@@ -46,3 +46,5 @@ Route::delete('/layanan.delete', [PengaturanController::class, 'Layanandelete'])
 Route::post('/produk.store', [ProdukController::class, 'Produkstore'])->name('produk.store');
 Route::put('/produk.update', [ProdukController::class, 'Produkupdate'])->name('produk.update');
 Route::delete('/produk.delete', [ProdukController::class, 'Produkdestroy'])->name('produk.delete');
+//siswa
+Route::post('/siswa.store', [HomeController::class, 'SiswaMagangStore'])->name('siswa.store');
