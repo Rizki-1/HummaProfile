@@ -64,7 +64,6 @@ class BeritaController extends Controller
             ]);
         } catch (\Exception $e) {
             DB::rollBack();
-            dd($e);
             return back()->with('message', [
                 'icon' => 'error',
                 'title' => 'Gagal!',

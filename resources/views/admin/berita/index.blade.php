@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-</head>
-
-<body>
-
+@section('content')
     <div class="container mt-4">
         <div class="row">
 
@@ -30,21 +23,4 @@
 
         </div>
     </div>
-
-    <!-- Bootstrap JS and Popper.js (required for Bootstrap) -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    @if (session('message'))
-        <script>
-            Swal.fire({
-                title: "{{ session('message')['title'] ?? 'Tidak di isi' }}",
-                text: "{{ session('message')['text'] ?? 'Tesk tidak di isi' }}",
-                icon: "{{ session('message')['icon'] ?? 'question' }}"
-            });
-        </script>
-    @endif
-</body>
-
-</html>
+@endsection

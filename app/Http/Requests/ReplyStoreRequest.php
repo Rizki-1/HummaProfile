@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class InboxRequest extends FormRequest
+class ReplyStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,7 +22,9 @@ class InboxRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'email' => 'required|email:rfc,dns|exists:inboxes,email',
+            'subject' => 'required|string|max:200',
+            'message'=> 'required|max:10000',
         ];
     }
 }

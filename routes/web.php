@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\InboxController;
 use App\Http\Controllers\PengaturanController;
 use App\Http\Controllers\PersetujuanController;
 use App\Http\Controllers\KategoriBeritaController;
@@ -32,6 +33,8 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
     });
     Route::resource("/berita",BeritaController::class);
     Route::resource("/category-berita",KategoriBeritaController::class);
+    Route::resource("/inbox",InboxController::class)->except(['destroy', 'edit', 'update']);
+    Route::post('/inbox/reply/{id}', [InboxController::class,'reply'])->name('inbox.reply');
     //produk
     Route::post('/produk.store', [ProdukController::class, 'Produkstore'])->name('produk.store');
     Route::put('/produk.update', [ProdukController::class, 'Produkupdate'])->name('produk.update');

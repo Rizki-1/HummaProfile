@@ -12,7 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('inboxes', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
+            $table->string('name');
+            $table->string('email');
+            $table->text('message');
+            $table->enum('status', ['1','2'])->default('1')->comment('1=belum di balas,2=sudah di balas');
             $table->timestamps();
         });
     }
