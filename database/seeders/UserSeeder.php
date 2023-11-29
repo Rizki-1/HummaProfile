@@ -3,9 +3,10 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\TargetLayanan;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class UserSeeder extends Seeder
 {
@@ -18,6 +19,12 @@ class UserSeeder extends Seeder
             "name"=> "Admin",
             "email"=> "hummaprofile@gmail.com",
             "password"=> Hash::make('admin-ini'),
+        ]);
+        TargetLayanan::create([
+            'target' => "siswa"
+        ]);
+        TargetLayanan::create([
+            'target' => "industri"
         ]);
     }
 }

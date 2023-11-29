@@ -2,8 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Logo;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Sosmed extends Model
 {
@@ -11,7 +14,16 @@ class Sosmed extends Model
     protected $table = 'sosmeds';
     protected $fillable = [
         'nama_sosmed',
-        'logo',
         'link',
     ];
+
+    /**
+     * Get the logo associated with the Sosmed
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function logo(): HasOne
+    {
+        return $this->hasOne(Logo::class);
+    }
 }

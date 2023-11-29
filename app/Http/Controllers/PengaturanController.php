@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Logo;
 use App\Models\Sosmed;
 use Illuminate\Http\Request;
 use App\Models\ProfileCompany;
@@ -44,21 +45,28 @@ class PengaturanController extends Controller
 
     public function SosmedStore(Request $request)
     {
-        foreach ($request as $sosmed) {
-            $logo_name = $request->file('logo')->hashName();
-            $logo = $request->file('logo')->storeAs('sosmed'.$logo_name);
+        foreach ($request['category-group'] as $category) {
+            $logoFile = $category['logo'];
+            $logo_name = $logoFile->hashName();
+            $logo = $logoFile->storeAs('sosmed', $logo_name);
             $sosmedStore = [
-                'nama_sosmed' => $sosmed->nama_sosmed,
-                'logo' => $logo_name,
-                'link' => $sosmed->link
+                'nama_sosmed' => $category['nama_sosmed'],
+                'link' => $category['link']
             ];
-            Sosmed::create($sosmedStore);
+           $sosmed =  Sosmed::create($sosmedStore);
+           $logo = [
+            'sosmed_id' => $sosmed->id,
+            'foto_logo' => $logo_name
+           ];
+           Logo::create($logo);
         }
         return redirect()->back();
+
     }
 
     public function LayananStore(Request $request,)
     {
+        // dd($request->all());
         foreach ($request['category-group'] as $key ) {
            $layanan = [
             'target_layanan_id' =>  $request->target_id,
@@ -106,42 +114,80 @@ class PengaturanController extends Controller
         }
     }
 
-    public function SosmedUpdate(SosmedRequest $request)
+    public function SosmedUpdate(Request $request)
     {
         try {
             $sosmedModels = Sosmed::all();
-            foreach ($sosmedModels as $sosmed_logo) {
-                Storage::delete('public/sosmed/' . $sosmed_logo->logo);
-            }
-            Sosmed::truncate();
+
             foreach ($request['category-group'] as $key => $sosmed) {
-                $logo = $request->file('logo')[$key];
-                $logo_name = $logo->hasName();
-                $logo->storeAs('public/sosmed/', $logo_name);
+                $logo_name = ''; // Inisialisasi variabel logo_name
 
-                $sosmedStore = [
-                    'nama_sosmed' => $sosmed['nama_sosmed'],
-                    'logo' => $logo_name,
-                    'link' => $sosmed['link'],
-                ];
+                // Periksa apakah kunci ada di $sosmedModels
+                if (isset($sosmedModels[$key])) {
+                    $sosmedkey = $sosmedModels[$key];
+                    $logo_foto = Logo::where('sosmed_id', $sosmedkey->id)->first();
+                    $sosmeddata = Sosmed::where('id', $sosmedkey->id)->first();
 
-                Sosmed::create($sosmedStore);
+                    // Jika ada inputan foto baru, gunakan foto baru
+                    if ($request->hasFile('logo') && $request->file('logo')[$key]->isValid()) {
+                        // Hapus logo yang sudah ada
+                        Storage::delete('sosmed/' . $logo_foto->foto_logo);
+
+                        // Upload logo baru
+                        $logo = $request->file('logo')[$key];
+                        $logo_name = $logo->hashName();
+                        $logo->storeAs('sosmed', $logo_name);
+                    } else {
+                        // Jika tidak ada inputan foto baru, gunakan foto lama
+                        $logo_name = $logo_foto->foto_logo;
+                    }
+
+                    // Perbarui data Sosmed yang sudah ada
+                    $sosmeddata->update([
+                        'nama_sosmed' => $sosmed['nama_sosmed'],
+                        'link' => $sosmed['link'],
+                    ]);
+                } else {
+                    // Jika tidak ada data yang sudah ada, buat data Sosmed baru
+                    $sosmedstore = Sosmed::create([
+                        'nama_sosmed' => $sosmed['nama_sosmed'],
+                        'link' => $sosmed['link'],
+                    ]);
+
+                    // Jika ada inputan foto baru, buat data Logo baru
+                    if ($request->hasFile('logo') && $request->file('logo')[$key]->isValid()) {
+                        $logo = $request->file('logo')[$key];
+                        $logo_name = $logo->hashName();
+                        $logo->storeAs('sosmed', $logo_name);
+
+                        Logo::create([
+                            'sosmed_id' => $sosmedstore->id,
+                            'foto_logo' => $logo_name,
+                        ]);
+                    }
+                }
             }
+
             return redirect()->back();
         } catch (\Throwable $th) {
+            dd('error');
             return redirect()->back();
         }
     }
+
+
 
     public function LayananUpdate(Request $request, $id)
     {
         try {
             $layanan = LayananPerusahaan::where('target_layanan_id', $id)->delete();
             foreach ($request['category-group'] as $key) {
+                // dd($key['layanan']);
                 $layanan = [
                     'target_layanan_id' => $id,
                     'layanan' => $key['layanan'],
                 ];
+                LayananPerusahaan::create($layanan);
             }
             return redirect()->back();
         } catch (\Throwable $th) {
@@ -157,7 +203,8 @@ class PengaturanController extends Controller
     {
         try {
             $sosmed = Sosmed::findOrFail($id);
-            Storage::delete('public/logo'.$sosmed->logo);
+            $foto_name = Logo::where('sosmed_id', $id)->first();
+            Storage::delete('sosmed/'.$foto_name->foto_logo);
             $sosmed->delete();
             return redirect()->back();
         } catch (\Throwable $th) {
