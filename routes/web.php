@@ -17,10 +17,10 @@ use App\Http\Controllers\HomeController;
 */
 
 // Auth::routes();
+Route::get('/login', [LoginController::class, 'showLoginForm']);
+Route::post('/login', [LoginController::class, 'login'])->name('login');
 
 Route::prefix('/admin')->middleware(['auth'])->group(function () {
-    Route::get('/login', [LoginController::class, 'showLoginForm']);
-    Route::post('/login', [LoginController::class, 'login'])->name('login');
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
     Route::get('/persetujuan', function () {
         echo "Hello";
