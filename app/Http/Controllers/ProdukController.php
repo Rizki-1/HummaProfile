@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Produk;
 use Illuminate\Http\Request;
+use App\Http\Requests\ProdukRequest;
 use App\Http\Requests\ProdukStoreRequest;
 use App\Http\Requests\ProdukUpdateRequest;
 
@@ -28,7 +29,7 @@ class ProdukController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function Produkstore(ProdukStoreRequest $request)
+    public function Produkstore(ProdukRequest $request)
     {
         $foto_produk = $request->file('foto_produk');
         $foto_name = $foto_produk->hasname();
