@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\SiswaMagang;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -11,6 +12,10 @@ class HomeController extends Controller
         return view('welcome');
     }
 
+    public function home()
+    {
+        return view('home');
+    }
     public function SiswaMagangStore(Request $request)
     {
         SiswaMagang::create([

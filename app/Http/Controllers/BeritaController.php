@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Berita;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\ValidationException;
 use App\Http\Requests\StoreBeritaRequest;
 use App\Http\Requests\UpdateBeritaRequest;
+use App\Models\KategoriBerita;
+use App\Models\PivotBerita;
 
 class BeritaController extends Controller
 {
@@ -13,7 +17,9 @@ class BeritaController extends Controller
      */
     public function index()
     {
-        //
+        $berita = Berita::with('kategori')->paginate(10);
+        // dd($berita);
+        return view("admin.berita.index", compact("berita"));
     }
 
     /**
@@ -21,7 +27,8 @@ class BeritaController extends Controller
      */
     public function create()
     {
-        //
+        $kategoriBerita = KategoriBerita::all();
+        return view("admin.berita.create", compact("kategoriBerita"));
     }
 
     /**
@@ -29,7 +36,41 @@ class BeritaController extends Controller
      */
     public function store(StoreBeritaRequest $request)
     {
-        //
+        // dd($request->all());
+        try {
+            // Begin database transaction
+            DB::beginTransaction();
+
+            $berita = new Berita;
+            $berita->title = $request->title;
+            $berita->description = $request->description;
+
+            $thumbnailName = $request->file("thumbnail")->hashName();
+            $path = $request->file("thumbnail")->storeAs('thumbnail_berita', $thumbnailName);
+
+            $berita->thumbnail = $path;
+            $berita->save();
+
+            $kategoriIds = $request->category;
+            $berita->kategori()->attach($kategoriIds);
+
+            // Commit the database transaction
+            DB::commit();
+
+            return to_route('berita.index')->with('message', [
+                'icon' => 'success',
+                'title' => 'Berhasil!',
+                'text' => 'Berhasil membuat berita!'
+            ]);
+        } catch (\Exception $e) {
+            DB::rollBack();
+            dd($e);
+            return back()->with('message', [
+                'icon' => 'error',
+                'title' => 'Gagal!',
+                'text' => 'Ada kesalahan saat membuat berita!'
+            ]);
+        }
     }
 
     /**

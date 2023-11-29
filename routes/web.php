@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\KategoriBeritaController;
 use App\Http\Controllers\PengaturanController;
 
 /*
@@ -27,9 +29,12 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
     Route::get('/persetujuan', function () {
         echo "Hello";
     });
+    Route::resource("/berita",BeritaController::class);
+    Route::resource("/category-berita",KategoriBeritaController::class);
 });
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'home'])->name('home');
 
 // profile
 Route::post('/profile.store', [PengaturanController::class, 'Profilestore'])->name('profile.store');
