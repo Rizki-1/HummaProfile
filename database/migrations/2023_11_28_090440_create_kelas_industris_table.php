@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('kelas_industris', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_industri');
+            $table->string('jenis_industri');
+            $table->string('email');
+            $table->string('alamat');
+            $table->string('status')->default('menunggu');
             $table->timestamps();
         });
     }

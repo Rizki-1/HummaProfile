@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('kelas');
             $table->string('alamat');
             $table->string('email');
-            $table->string('status')->default('nonactive');
+            $table->string('status')->default('menunggu');
             $table->timestamps();
         });
     }

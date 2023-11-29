@@ -31,7 +31,7 @@ class PengaturanController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function Profilestore(ProfileRequest $request)
+    public function Profilestore(Request $request)
     {
         ProfileCompany::create([
             'nama_company' => $request->nama_company,
@@ -42,13 +42,11 @@ class PengaturanController extends Controller
         return redirect()->back();
     }
 
-    public function SosmedStore(SosmedRequest $request)
+    public function SosmedStore(Request $request)
     {
-
         foreach ($request as $sosmed) {
-            $logo = $request->file('logo');
-            $logo_name = $logo->hasName();
-            $logo->storeAs('public/sosmed/'.$logo_name);
+            $logo_name = $request->file('logo')->hashName();
+            $logo = $request->file('logo')->storeAs('sosmed'.$logo_name);
             $sosmedStore = [
                 'nama_sosmed' => $sosmed->nama_sosmed,
                 'logo' => $logo_name,
@@ -90,11 +88,13 @@ class PengaturanController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function Profileupdate(ProfileRequest $request, string $id)
+    public function Profileupdate(Request $request, string $id)
     {
+        // dd($request->email);
         try {
             $profile = ProfileCompany::findOrFail($id);
-            $profie->update([
+
+            $profile->update([
                 'nama_company' => $request->nama_company,
                 'alamat' => $request->alamat,
                 'detail' => $request->detail,

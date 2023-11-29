@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Produk;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProdukRequest;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\ProdukStoreRequest;
 use App\Http\Requests\ProdukUpdateRequest;
 
@@ -29,17 +30,18 @@ class ProdukController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function Produkstore(ProdukRequest $request)
+    public function Produkstore(Request $request)
     {
-        $foto_produk = $request->file('foto_produk');
-        $foto_name = $foto_produk->hasname();
-        $foto_produk->storeAs('public/produk/'. $foto_name);
+        // dd($request->foto_produk);
+        $foto_name = $request->file('foto_produk')->hashName();
+        $foto_produk = $request->file('foto_produk')->storeAs('produk', $foto_name);
         Produk::create([
             'nama_produk' => $request->nama_produk,
             'foto_produk' => $foto_name,
             'keterangan_produk' => $request->keterangan_produk,
             'dibuat' => $request->dibuat,
         ]);
+
         return redirect()->back();
     }
 
@@ -62,21 +64,32 @@ class ProdukController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function Produkupdate(ProdukUpdateRequest $request, string $id)
+    public function Produkupdate(Request $request, string $id)
     {
         try {
             $produk = Produk::findOrFail($id);
+            $foto_name = $produk->foto_produk;
+
+            if ($request->hasFile('foto_produk')) {
+                $foto_name = $request->file('foto_produk')->hashName();
+                $foto_produk = $request->file('foto_produk')->storeAs('produk', $foto_name);
+                Storage::delete('produk/' . $produk->foto_produk);
+            }
+
             $produk->update([
                 'nama_produk' => $request->nama_produk,
                 'foto_produk' => $foto_name,
                 'keterangan_produk' => $request->keterangan_produk,
                 'dibuat' => $request->dibuat,
             ]);
+
             return redirect()->back();
         } catch (\Throwable $th) {
+
             return redirect()->back();
         }
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -85,6 +98,7 @@ class ProdukController extends Controller
     {
         try {
             $produk = Produk::findOrFail($id);
+            Storage::delete('produk/'.$produk->foto_produk);
             $produk->delete();
             return redirect()->back();
         } catch (\Throwable $th) {

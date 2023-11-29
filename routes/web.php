@@ -3,11 +3,12 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\BeritaController;
-use App\Http\Controllers\KategoriBeritaController;
 use App\Http\Controllers\PengaturanController;
+use App\Http\Controllers\PersetujuanController;
+use App\Http\Controllers\KategoriBeritaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,14 +32,23 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
     });
     Route::resource("/berita",BeritaController::class);
     Route::resource("/category-berita",KategoriBeritaController::class);
+    //produk
+    Route::post('/produk.store', [ProdukController::class, 'Produkstore'])->name('produk.store');
+    Route::put('/produk.update', [ProdukController::class, 'Produkupdate'])->name('produk.update');
+    Route::delete('/produk.delete', [ProdukController::class, 'Produkdestroy'])->name('produk.delete');
+    // profile
+    Route::post('/profile.store', [PengaturanController::class, 'Profilestore'])->name('profile.store');
+    Route::put('/profile.update/{id}', [PengaturanController::class, 'Profileupdate'])->name('profile.update');
+    //terima dan tolak kelas industri dan siswa magang
+    Route::patch('/terimasiswa/{id}', [PersetujuanController::class, 'setujuSiswaMagang'])->name('setujusiswa');
+    Route::patch('/tolaksiswa/{id}', [PersetujuanController::class, 'tolakSiswaMagang'])->name('tolakSiswa');
+    Route::patch('/terimaindustri/{id}', [PersetujuanController::class, 'terimaIndustri'])->name('terimaIndustri');
+    Route::patch('/tolakindustri/{id}', [PersetujuanController::class, 'tolakIndustri'])->name('tolakindustri');
 });
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('homeindex');
 Route::get('/home', [HomeController::class, 'home'])->name('home');
 
-// profile
-Route::post('/profile.store', [PengaturanController::class, 'Profilestore'])->name('profile.store');
-Route::put('/profile.update/{id}', [PengaturanController::class, 'Profileupdate'])->name('profile.update');
 //sosmed
 Route::post('/sosmed.store', [PengaturanController::class, 'SosmedStore'])->name('sosmed.store');
 Route::put('/sosmed.update', [PengaturanController::class, 'SosmedUpdate'])->name('sosmed.update');
@@ -47,9 +57,9 @@ Route::delete('/sosmed.delete/{id}', [PengaturanController::class, 'Sosmeddestro
 Route::post('/layanan.store', [PengaturanController::class, 'LayananStore'])->name('layanan.store');
 Route::put('/layanan.update', [PengaturanController::class, 'LayananUpdate'])->name('layanan.update');
 Route::delete('/layanan.delete', [PengaturanController::class, 'Layanandelete'])->name('layanan.delete');
-//produk
-Route::post('/produk.store', [ProdukController::class, 'Produkstore'])->name('produk.store');
-Route::put('/produk.update', [ProdukController::class, 'Produkupdate'])->name('produk.update');
-Route::delete('/produk.delete', [ProdukController::class, 'Produkdestroy'])->name('produk.delete');
-//siswa
-Route::post('/siswa.store', [HomeController::class, 'SiswaMagangStore'])->name('siswa.store');
+
+
+//formLandingPage
+Route::post('/siswa.store', [FormController::class, 'SiswaMagangStore'])->name('siswa.store');
+Route::post('/industri.store', [FormController::class, 'IndustriStore'])->name('industri.store');
+
