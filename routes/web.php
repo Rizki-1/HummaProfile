@@ -35,5 +35,9 @@ Route::post('/profile.store', [PengaturanController::class, 'Profilestore'])->na
 Route::put('/profile.update/{id}', [PengaturanController::class, 'Profileupdate'])->name('profile.update');
 //sosmed
 Route::post('/sosmed.store', [PengaturanController::class, 'SosmedStore'])->name('sosmed.store');
-Route::post('/sosmed.update', [PengaturanController::class, 'SosmedUpdate'])->name('sosmed.update');
+Route::put('/sosmed.update', [PengaturanController::class, 'SosmedUpdate'])->name('sosmed.update');
 Route::delete('/sosmed.delete/{id}', [PengaturanController::class, 'Sosmeddestroy'])->name('sosmed.delete');
+//layanan perusahaan
+Route::post('/layanan.store', [PengaturanController::class, 'LayananStore'])->name('layanan.store');
+Route::put('/layanan.update', [PengaturanController::class, 'LayananUpdate'])->name('layanan.update');
+Route::delete('/layanan.delete', [PengaturanController::class, 'Layanandelete'])->name('layanan.delete');
