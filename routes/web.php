@@ -2,8 +2,9 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\PengaturanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +29,11 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
 });
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+// profile
+Route::post('/profile.store', [PengaturanController::class, 'Profilestore'])->name('profile.store');
+Route::put('/profile.update/{id}', [PengaturanController::class, 'Profileupdate'])->name('profile.update');
+//sosmed
+Route::post('/sosmed.store', [PengaturanController::class, 'SosmedStore'])->name('sosmed.store');
+Route::post('/sosmed.update', [PengaturanController::class, 'SosmedUpdate'])->name('sosmed.update');
+Route::delete('/sosmed.delete/{id}', [PengaturanController::class, 'Sosmeddestroy'])->name('sosmed.delete');
