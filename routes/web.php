@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,17 +16,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 // Auth::routes();
+Route::get('/login', [LoginController::class, 'showLoginForm']);
+Route::post('/login', [LoginController::class, 'login'])->name('login');
 
-Route::prefix('/admin')->group(function () {
-    Route::get('/login', [\App\Http\Controllers\Auth\LoginController::class,'showLoginForm']);
-    Route::post('/login', [\App\Http\Controllers\Auth\LoginController::class,'login'])->name('login');
-    Route::post('/logout', [\App\Http\Controllers\Auth\LoginController::class,'logout'])->name('logout');
-    Route::get('/persetujuan', );
+Route::prefix('/admin')->middleware(['auth'])->group(function () {
+    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+    Route::get('/persetujuan', function () {
+        echo "Hello";
+    });
 });
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
