@@ -39,6 +39,9 @@
 
   <!-- JQuery -->
   <script src="{{ asset('cssAdmin/js/jquery-ini.js') }}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- core:js -->
+  <script src="{{ asset('cssAdmin/vendors/core/core.js') }}"></script>
 
   <link rel="shortcut icon" href="{{ asset('cssAdmin/images/favicon.png') }}" />
 </head>
@@ -72,12 +75,6 @@
             <a class="nav-link" href="{{ route('inbox.index') }}">
               <i class="link-icon" data-feather="mail"></i>
               <span class="link-title">Email</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="pages/apps/chat.html" class="nav-link">
-              <i class="link-icon" data-feather="message-square"></i>
-              <span class="link-title">Chat</span>
             </a>
           </li>
           <li class="nav-item">
@@ -118,10 +115,10 @@
             <div class="collapse" id="berita">
               <ul class="nav sub-menu">
                 <li class="nav-item">
-                  <a href="#" class="nav-link">Berita</a>
+                  <a href="{{ route('berita.index') }}" class="nav-link">Berita</a>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link">Kategori Berita</a>
+                  <a href="{{ route('category-berita.index') }}" class="nav-link">Kategori Berita</a>
                 </li>
               </ul>
             </div>
@@ -157,7 +154,7 @@
                   <a href="#" class="nav-link">Pengaturan Profile</a>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link">Layanan Perusahaan</a>
+                  <a href="{{ route('layanan-perusahaan.index') }}" class="nav-link">Layanan Perusahaan</a>
                 </li>
               </ul>
             </div>
@@ -380,8 +377,6 @@
     </div>
   </div>
 
-  <!-- core:js -->
-  <script src="{{ asset('cssAdmin/vendors/core/core.js') }}"></script>
   <!-- endinject -->
 
   <!-- Plugin js for this page -->

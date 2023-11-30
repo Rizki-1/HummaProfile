@@ -109,25 +109,6 @@ class PengaturanController extends Controller
     }
 
 
-
-    public function LayananUpdate(LayananRequest $request, $id)
-    {
-        // dd($request->all());
-        try {
-            $layanan = LayananPerusahaan::where('target_layanan_id', $id)->delete();
-            foreach ($request['category-group'] as $key) {
-                $layanan = [
-                    'target_layanan_id' => $request->target_layanan_id,
-                    'layanan' => $key['layanan'],
-                ];
-                LayananPerusahaan::create($layanan);
-            }
-            return redirect()->back();
-        } catch (\Throwable $th) {
-            return redirect()->back();
-        }
-    }
-
     public function Sosmeddestroy(string $id)
     {
         try {

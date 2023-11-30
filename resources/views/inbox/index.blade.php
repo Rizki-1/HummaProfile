@@ -27,7 +27,9 @@
                                             <a class="nav-link d-flex align-items-center" href="{{ route('inbox.index') }}">
                                                 <i data-feather="inbox" class="icon-lg me-2"></i>
                                                 Inbox
-                                                <span class="badge bg-danger fw-bolder ms-auto">{{ $total }}
+                                                @if ($total > 0)
+                                                    <span class="badge bg-danger fw-bolder ms-auto">{{ $total }}
+                                                @endif
                                             </a>
                                         </li>
                                         <li class="nav-item {{ request('hasRead') ? 'active' : '' }}">
@@ -48,7 +50,7 @@
                                                 <div class="d-flex align-items-end mb-2 mb-md-0">
                                                     <i data-feather="inbox" class="text-muted me-2"></i>
                                                     <h4 class="me-1">Inbox</h4>
-                                                    <span class="text-muted">({{ count($inboxes) }} new messages)</span>
+                                                    <span class="text-muted">({{ $total > 0 ? $total . ' new messages' : $total . ' message' }})</span>
                                                 </div>
                                             </div>
                                         @endif

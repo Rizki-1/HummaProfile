@@ -11,6 +11,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\PengaturanController;
 use App\Http\Controllers\PersetujuanController;
 use App\Http\Controllers\KategoriBeritaController;
+use App\Http\Controllers\LayananPerusahaanController;
 use App\Http\Controllers\ViewController;
 
 /*
@@ -54,6 +55,7 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
     Route::patch('/terimaindustri/{id}', [PersetujuanController::class, 'terimaIndustri'])->name('terimaIndustri');
     Route::patch('/tolakindustri/{id}', [PersetujuanController::class, 'tolakIndustri'])->name('tolakindustri');
     //layanan perusahaan
+    Route::resource('layanan-perusahaan', LayananPerusahaanController::class)->except(['show', 'edit']);
     Route::post('/layanan.store', [PengaturanController::class, 'LayananStore'])->name('layanan.store');
     Route::delete('/layanan.delete/{id}', [PengaturanController::class, 'Layanandelete'])->name('layanan.delete');
     Route::post('/layanan.update/{id}', [PengaturanController::class, 'LayananUpdate'])->name('layanan.update');
@@ -75,8 +77,6 @@ Route::post('/industri.store', [FormController::class, 'IndustriStore'])->name('
 //route testing
 Route::get('/test', [HomeController::class, 'test'])->name('test');
 Route::get('/updatesosmed', [HomeController::class, 'update'])->name('updatesosmed');
-Route::get('/layanan', [HomeController::class, 'layanan'])->name('layanan');
-Route::get('/layan/{id}', [HomeController::class, 'editlayanan'])->name('layan');
 Route::get('/dashboard', function () {
     return view('admin.dashboard.index');
 });

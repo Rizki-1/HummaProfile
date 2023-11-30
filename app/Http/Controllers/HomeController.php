@@ -45,19 +45,4 @@ class HomeController extends Controller
         // dd($sosmed);
         return view('admin.editsosmed', compact('sosmed'));
     }
-
-    public function layanan()
-    {
-        $targets = TargetLayanan::all();
-        $layanan = LayananPerusahaan::all();
-        return view('admin.createlayanan', compact('targets','layanan'));
-    }
-
-    public function editlayanan($id)
-    {
-        $targetsid = TargetLayanan::where('id', $id)->first();
-        $targets = TargetLayanan::all();
-        $layanan = LayananPerusahaan::where('target_layanan_id', $id)->get();
-        return view('admin.editlayanan', compact('targets', 'targetsid', 'layanan'));
-    }
 }

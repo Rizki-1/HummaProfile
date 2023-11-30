@@ -27,7 +27,9 @@
                                             <a class="nav-link d-flex align-items-center" href="{{ route('inbox.index') }}">
                                                 <i data-feather="inbox" class="icon-lg me-2"></i>
                                                 Inbox
-                                                <span class="badge bg-danger fw-bolder ms-auto">{{ $total }}
+                                                @if ($total > 0)
+                                                    <span class="badge bg-danger fw-bolder ms-auto">{{ $total }}
+                                                @endif
                                             </a>
                                         </li>
                                         <li class="nav-item {{ request('hasRead') ? 'active' : '' }}">

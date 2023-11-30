@@ -17,14 +17,14 @@ class InboxController extends Controller
      */
     public function index(Request $request)
     {
-        $inboxes = Inbox::where('status', is_null($request->hasRead) ? '1' : '2')->orderBy("created_at", "desc");
+        $inboxes = Inbox::orderBy("created_at", "desc");
 
         if ($request->input('query')) {
             $inboxes->where("email", $request->input('query'))
                 ->orWhere('name', 'LIKE', '%' . $request->input('query') . '%');
         }
 
-        $inboxes = $inboxes->paginate(10);
+        $inboxes = $inboxes->where('status', is_null($request->hasRead) ? '1' : '2')->paginate(10);
         $total = Inbox::where('status', '1')->count();
 
         return view("inbox.index", compact("inboxes", "total"));
