@@ -2,11 +2,12 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FormController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\InboxController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\InboxController;
 use App\Http\Controllers\PengaturanController;
 use App\Http\Controllers\PersetujuanController;
 use App\Http\Controllers\KategoriBeritaController;
@@ -54,13 +55,13 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
     //sosmed
     Route::delete('/sosmed.delete/{id}', [PengaturanController::class, 'Sosmeddestroy'])->name('sosmed.delete');
     Route::post('/sosmed.store', [PengaturanController::class, 'SosmedStore'])->name('sosmed.store');
+    Route::put('/sosmed.update/{id}', [PengaturanController::class, 'SosmedUpdate'])->name('sosmed.update');
 });
 
 Route::get('/', [HomeController::class, 'index'])->name('homeindex');
 Route::get('/home', [HomeController::class, 'home'])->name('home');
 
-//sosmed (belum bisa)
-Route::put('/sosmed.update/{id}', [PengaturanController::class, 'SosmedUpdate'])->name('sosmed.update');
+
 
 //formLandingPage
 Route::post('/siswa.store', [FormController::class, 'SiswaMagangStore'])->name('siswa.store');
