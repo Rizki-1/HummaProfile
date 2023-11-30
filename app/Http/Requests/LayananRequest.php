@@ -22,17 +22,17 @@ class LayananRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'category-group.*.target_layanan_id' => 'required|exists:target_layanans,id|int',
+            'target_layanan_id' => 'required|exists:target_layanans,id|int',
             'category-group.*.layanan' => 'required|min:10|max:255|string',
         ];
     }
 
-    public function message(): array
+    public function messages(): array
     {
         return [
-            'category-group.*.target_layanan_id.required' => 'target layanan harus di isi',
-            'category-group.*.target_layanan_id.exists' => 'target layanan tidak valid',
-            'category-group.*.target_layanan_id.int' => 'target layanan tidak valid',
+            'target_layanan_id.required' => 'target layanan harus di isi',
+            'target_layanan_id.exists' => 'target layanan tidak valid',
+            'target_layanan_id.int' => 'target layanan tidak valid',
             'category-group.*.layanan.required' => 'layanan harus di isi',
             'category-group.*.layanan.min' => 'layanan minimal :min',
             'category-group.*.layanan.max' => 'layanan maksimal :max',

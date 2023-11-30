@@ -28,7 +28,7 @@ class SosmedRequest extends FormRequest
         ];
     }
 
-    public function message(): array
+    public function messages(): array
     {
         return [
             'category-group.*.nama_sosmed.required' => 'nama sosmed harus di isi',
