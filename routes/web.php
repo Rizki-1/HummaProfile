@@ -32,10 +32,13 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
     Route::get('/persetujuan', function () {
         echo "Hello";
     });
-    Route::resource("/berita",BeritaController::class);
-    Route::resource("/category-berita",KategoriBeritaController::class);
-    Route::resource("/inbox",InboxController::class)->except(['destroy', 'edit', 'update']);
-    Route::post('/inbox/reply/{id}', [InboxController::class,'reply'])->name('inbox.reply');
+    Route::resource("/berita", BeritaController::class);
+    Route::resource("/category-berita", KategoriBeritaController::class);
+    Route::resource("/inbox", InboxController::class)->except(['destroy', 'edit', 'update']);
+    Route::post('/inbox/reply/{id}', [InboxController::class, 'reply'])->name('inbox.reply');
+    // persetujuan
+    Route::get('/persetujuan/siswa', [ViewController::class, 'persetujuanSiswa'])->name('persetujuan.siswa');
+    Route::get('/persetujuan/industri', [ViewController::class, 'persetujuanIndustri'])->name('persetujuan.industri');
     //produk
     Route::post('/produk.store', [ProdukController::class, 'Produkstore'])->name('produk.store');
     Route::put('/produk.update', [ProdukController::class, 'Produkupdate'])->name('produk.update');
@@ -75,4 +78,3 @@ Route::get('/layan/{id}', [HomeController::class, 'editlayanan'])->name('layan')
 Route::get('/dashboard', function () {
     return view('admin.dashboard.index');
 });
-
