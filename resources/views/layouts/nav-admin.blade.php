@@ -1,596 +1,691 @@
-<!doctype html>
+<!DOCTYPE html>
+<!--
+Template Name: NobleUI - HTML Bootstrap 5 Admin Dashboard Template
+Author: NobleUI
+Website: https://www.nobleui.com
+Portfolio: https://themeforest.net/user/nobleui/portfolio
+Contact: nobleui123@gmail.com
+Purchase: https://1.envato.market/nobleui_admin
+License: For each use you must have a valid license purchased only from above link in order to legally use the theme for your project.
+-->
 <html lang="en">
 
+<!-- Mirrored from www.nobleui.com/html/template/demo1/dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 30 Nov 2023 04:08:56 GMT -->
+
 <head>
-
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
-  <meta content="Themesbrand" name="author">
-  <!-- App favicon -->
-  <link rel="shortcut icon" href="{{ asset('cssAdmin/images/favicon.ico') }}">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Responsive HTML Admin Dashboard Template based on Bootstrap 5">
+  <meta name="author" content="NobleUI">
+  <meta name="keywords" content="nobleui, bootstrap, bootstrap 5, bootstrap5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
-  <link href="{{ asset('cssAdmin/libs/chartist/chartist.min.css') }}" rel="stylesheet">
+  <title>NobleUI - HTML Bootstrap 5 Admin Dashboard Template</title>
 
-  <!-- Bootstrap Css -->
-  <link href="{{ asset('cssAdmin/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css">
-  <!-- Icons Css -->
-  <link href="{{ asset('cssAdmin/css/icons.min.css') }}" rel="stylesheet" type="text/css">
-  <!-- App Css-->
-  <link href="{{ asset('cssAdmin/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="{{ asset('cssAdmin/css/dashboard/dashboard.css') }}">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet">
+  <!-- End fonts -->
 
+  <!-- core:css -->
+  <link rel="stylesheet" href="{{ asset('cssAdmin/vendors/core/core.css') }}">
+  <!-- endinject -->
+
+  <!-- Plugin css for this page -->
+  <link rel="stylesheet" href="{{ asset('cssAdmin/vendors/flatpickr/flatpickr.min.css') }}">
+  <!-- End plugin css for this page -->
+
+  <!-- inject:css -->
+  <link rel="stylesheet" href="{{ asset('cssAdmin/fonts/feather-font/css/iconfont.css') }}">
+  <link rel="stylesheet" href="{{ asset('cssAdmin/vendors/flag-icon-css/css/flag-icon.min.css') }}">
+  <!-- endinject -->
+
+  <!-- Layout styles -->
+  <link rel="stylesheet" href="{{ asset('cssAdmin/css/demo1/style.min.css') }}">
+  <!-- End layout styles -->
+
+  <link rel="shortcut icon" href="{{ asset('cssAdmin/images/favicon.png') }}" />
 </head>
 
-<body data-sidebar="dark">
+<body>
+  <div class="main-wrapper">
 
-  <!-- Begin page -->
-  <div id="layout-wrapper">
-
-    <header id="page-topbar">
-      <div class="navbar-header">
-        <div class="d-flex sidebar-switcher">
-          <!-- LOGO -->
-          {{-- <div class="navbar-brand-box">
-            <a href="index.html" class="logo logo-dark">
-              <span class="logo-sm">
-                <img src="{{ asset('cssAdmin/images/logo-sm.png') }}" alt="" height="22">
-              </span>
-              <span class="logo-lg">
-                <img src="{{ asset('cssAdmin/images/logo-dark.png') }}" alt="" height="17">
-              </span>
+    <!-- partial:partials/_sidebar.html -->
+    <nav class="sidebar">
+      <div class="sidebar-header">
+        <a href="#" class="sidebar-brand">
+          Noble<span>UI</span>
+        </a>
+        <div class="sidebar-toggler not-active">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <div class="sidebar-body">
+        <ul class="nav">
+          <li class="nav-item nav-category">Main</li>
+          <li class="nav-item">
+            <a href="dashboard.html" class="nav-link">
+              <i class="link-icon" data-feather="box"></i>
+              <span class="link-title">Dashboard</span>
             </a>
-
-            <a href="index.html" class="logo logo-light">
-              <span class="logo-sm">
-                <img src="{{ asset('cssAdmin/images/logo-sm.png') }}" alt="" height="22">
-              </span>
-              <span class="logo-lg">
-                <img src="{{ asset('cssAdmin/images/logo-light.png') }}" alt="" height="18">
-              </span>
+          </li>
+          <li class="nav-item nav-category">web apps</li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#emails" role="button" aria-expanded="false" aria-controls="emails">
+              <i class="link-icon" data-feather="mail"></i>
+              <span class="link-title">Email</span>
+              <i class="link-arrow" data-feather="chevron-down"></i>
             </a>
-          </div> --}}
-
-          <button type="button" class="btn btn-sm px-3 font-size-24 header-item " id="vertical-menu-btn">
-            <i class="mdi mdi-menu"></i>
-          </button>
-
-          <div class="d-none d-sm-block">
-            <div class="dropdown pt-3 d-inline-block">
-
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Separated link</a>
-              </div>
+            <div class="collapse" id="emails">
+              <ul class="nav sub-menu">
+                <li class="nav-item">
+                  <a href="pages/email/inbox.html" class="nav-link">Inbox</a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/email/read.html" class="nav-link">Read</a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/email/compose.html" class="nav-link">Compose</a>
+                </li>
+              </ul>
             </div>
+          </li>
+          <li class="nav-item">
+            <a href="pages/apps/chat.html" class="nav-link">
+              <i class="link-icon" data-feather="message-square"></i>
+              <span class="link-title">Chat</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="pages/apps/calendar.html" class="nav-link">
+              <i class="link-icon" data-feather="calendar"></i>
+              <span class="link-title">Calendar</span>
+            </a>
+          </li>
+          <li class="nav-item nav-category">Components</li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#uiComponents" role="button" aria-expanded="false" aria-controls="uiComponents">
+              <i class="link-icon" data-feather="feather"></i>
+              <span class="link-title">UI Kit</span>
+              <i class="link-arrow" data-feather="chevron-down"></i>
+            </a>
+            <div class="collapse" id="uiComponents">
+              <ul class="nav sub-menu">
+                <li class="nav-item">
+                  <a href="pages/ui-components/accordion.html" class="nav-link">Accordion</a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/ui-components/alerts.html" class="nav-link">Alerts</a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/ui-components/badges.html" class="nav-link">Badges</a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/ui-components/breadcrumbs.html" class="nav-link">Breadcrumbs</a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/ui-components/buttons.html" class="nav-link">Buttons</a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/ui-components/button-group.html" class="nav-link">Button group</a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/ui-components/cards.html" class="nav-link">Cards</a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/ui-components/carousel.html" class="nav-link">Carousel</a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/ui-components/collapse.html" class="nav-link">Collapse</a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/ui-components/dropdowns.html" class="nav-link">Dropdowns</a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/ui-components/list-group.html" class="nav-link">List group</a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/ui-components/media-object.html" class="nav-link">Media object</a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/ui-components/modal.html" class="nav-link">Modal</a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/ui-components/navs.html" class="nav-link">Navs</a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/ui-components/navbar.html" class="nav-link">Navbar</a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/ui-components/pagination.html" class="nav-link">Pagination</a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/ui-components/popover.html" class="nav-link">Popovers</a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/ui-components/progress.html" class="nav-link">Progress</a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/ui-components/scrollbar.html" class="nav-link">Scrollbar</a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/ui-components/scrollspy.html" class="nav-link">Scrollspy</a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/ui-components/spinners.html" class="nav-link">Spinners</a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/ui-components/tabs.html" class="nav-link">Tabs</a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/ui-components/tooltips.html" class="nav-link">Tooltips</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#advancedUI" role="button" aria-expanded="false" aria-controls="advancedUI">
+              <i class="link-icon" data-feather="anchor"></i>
+              <span class="link-title">Advanced UI</span>
+              <i class="link-arrow" data-feather="chevron-down"></i>
+            </a>
+            <div class="collapse" id="advancedUI">
+              <ul class="nav sub-menu">
+                <li class="nav-item">
+                  <a href="pages/advanced-ui/cropper.html" class="nav-link">Cropper</a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/advanced-ui/owl-carousel.html" class="nav-link">Owl carousel</a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/advanced-ui/sortablejs.html" class="nav-link">SortableJs</a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/advanced-ui/sweet-alert.html" class="nav-link">Sweet Alert</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#forms" role="button" aria-expanded="false" aria-controls="forms">
+              <i class="link-icon" data-feather="inbox"></i>
+              <span class="link-title">Forms</span>
+              <i class="link-arrow" data-feather="chevron-down"></i>
+            </a>
+            <div class="collapse" id="forms">
+              <ul class="nav sub-menu">
+                <li class="nav-item">
+                  <a href="pages/forms/basic-elements.html" class="nav-link">Basic Elements</a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/forms/advanced-elements.html" class="nav-link">Advanced Elements</a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/forms/editors.html" class="nav-link">Editors</a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/forms/wizard.html" class="nav-link">Wizard</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#charts" role="button" aria-expanded="false" aria-controls="charts">
+              <i class="link-icon" data-feather="pie-chart"></i>
+              <span class="link-title">Charts</span>
+              <i class="link-arrow" data-feather="chevron-down"></i>
+            </a>
+            <div class="collapse" id="charts">
+              <ul class="nav sub-menu">
+                <li class="nav-item">
+                  <a href="pages/charts/apex.html" class="nav-link">Apex</a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/charts/chartjs.html" class="nav-link">ChartJs</a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/charts/flot.html" class="nav-link">Flot</a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/charts/peity.html" class="nav-link">Peity</a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/charts/sparkline.html" class="nav-link">Sparkline</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#tables" role="button" aria-expanded="false" aria-controls="tables">
+              <i class="link-icon" data-feather="layout"></i>
+              <span class="link-title">Table</span>
+              <i class="link-arrow" data-feather="chevron-down"></i>
+            </a>
+            <div class="collapse" id="tables">
+              <ul class="nav sub-menu">
+                <li class="nav-item">
+                  <a href="pages/tables/basic-table.html" class="nav-link">Basic Tables</a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/tables/data-table.html" class="nav-link">Data Table</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#icons" role="button" aria-expanded="false" aria-controls="icons">
+              <i class="link-icon" data-feather="smile"></i>
+              <span class="link-title">Icons</span>
+              <i class="link-arrow" data-feather="chevron-down"></i>
+            </a>
+            <div class="collapse" id="icons">
+              <ul class="nav sub-menu">
+                <li class="nav-item">
+                  <a href="pages/icons/feather-icons.html" class="nav-link">Feather Icons</a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/icons/flag-icons.html" class="nav-link">Flag Icons</a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/icons/mdi-icons.html" class="nav-link">Mdi Icons</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item nav-category">Pages</li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#general-pages" role="button" aria-expanded="false" aria-controls="general-pages">
+              <i class="link-icon" data-feather="book"></i>
+              <span class="link-title">Special pages</span>
+              <i class="link-arrow" data-feather="chevron-down"></i>
+            </a>
+            <div class="collapse" id="general-pages">
+              <ul class="nav sub-menu">
+                <li class="nav-item">
+                  <a href="pages/general/blank-page.html" class="nav-link">Blank page</a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/general/faq.html" class="nav-link">Faq</a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/general/invoice.html" class="nav-link">Invoice</a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/general/profile.html" class="nav-link">Profile</a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/general/pricing.html" class="nav-link">Pricing</a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/general/timeline.html" class="nav-link">Timeline</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#authPages" role="button" aria-expanded="false" aria-controls="authPages">
+              <i class="link-icon" data-feather="unlock"></i>
+              <span class="link-title">Authentication</span>
+              <i class="link-arrow" data-feather="chevron-down"></i>
+            </a>
+            <div class="collapse" id="authPages">
+              <ul class="nav sub-menu">
+                <li class="nav-item">
+                  <a href="pages/auth/login.html" class="nav-link">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/auth/register.html" class="nav-link">Register</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#errorPages" role="button" aria-expanded="false" aria-controls="errorPages">
+              <i class="link-icon" data-feather="cloud-off"></i>
+              <span class="link-title">Error</span>
+              <i class="link-arrow" data-feather="chevron-down"></i>
+            </a>
+            <div class="collapse" id="errorPages">
+              <ul class="nav sub-menu">
+                <li class="nav-item">
+                  <a href="pages/error/404.html" class="nav-link">404</a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/error/500.html" class="nav-link">500</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item nav-category">Docs</li>
+          <li class="nav-item">
+            <a href="https://www.nobleui.com/html/documentation/docs.html" target="_blank" class="nav-link">
+              <i class="link-icon" data-feather="hash"></i>
+              <span class="link-title">Documentation</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <nav class="settings-sidebar">
+      <div class="sidebar-body">
+        <a href="#" class="settings-sidebar-toggler">
+          <i data-feather="settings"></i>
+        </a>
+        <h6 class="text-muted mb-2">Sidebar:</h6>
+        <div class="mb-3 pb-3 border-bottom">
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="sidebarThemeSettings" id="sidebarLight" value="sidebar-light" checked>
+            <label class="form-check-label" for="sidebarLight">
+              Light
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="sidebarThemeSettings" id="sidebarDark" value="sidebar-dark">
+            <label class="form-check-label" for="sidebarDark">
+              Dark
+            </label>
           </div>
         </div>
+        <div class="theme-wrapper">
+          <h6 class="text-muted mb-2">Light Theme:</h6>
+          <a class="theme-item active" href="dashboard.html">
+            <img src="{{ asset('cssAdmin/images/screenshots/light.jpg') }}" alt="light theme">
+          </a>
+          <h6 class="text-muted mb-2">Dark Theme:</h6>
+          <a class="theme-item" href="https://www.nobleui.com/html/template/demo2/dashboard.html">
+            <img src="{{ asset('cssAdmin/images/screenshots/dark.jpg') }}" alt="light theme">
+          </a>
+        </div>
+      </div>
+    </nav>
+    <!-- partial -->
 
-        <div class="d-flex">
-          <!-- App Search-->
+    <div class="page-wrapper">
 
-          <div class="dropdown d-inline-block d-lg-none ms-2">
-            <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-search-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="mdi mdi-magnify"></i>
-            </button>
-            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0" aria-labelledby="page-header-search-dropdown">
-
-              <form class="p-3">
-                <div class="form-group m-0">
-                  <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
-                    <div class="input-group-append">
-                      <button class="btn btn-primary" type="submit"><i class="mdi mdi-magnify"></i></button>
-                    </div>
-                  </div>
-                </div>
-              </form>
+      <!-- partial:partials/_navbar.html -->
+      <nav class="navbar">
+        <a href="#" class="sidebar-toggler">
+          <i data-feather="menu"></i>
+        </a>
+        <div class="navbar-content">
+          <form class="search-form">
+            <div class="input-group">
+              <div class="input-group-text">
+                <i data-feather="search"></i>
+              </div>
+              <input type="text" class="form-control" id="navbarForm" placeholder="Search here...">
             </div>
-          </div>
-
-          <div class="dropdown d-none d-lg-inline-block">
-            <button type="button" class="btn header-item noti-icon waves-effect" data-bs-toggle="fullscreen">
-              <i class="mdi mdi-fullscreen"></i>
-            </button>
-          </div>
-
-          <div class="dropdown d-inline-block">
-            <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="mdi mdi-bell-outline"></i>
-              <span class="badge bg-danger rounded-pill">3</span>
-            </button>
-            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0" aria-labelledby="page-header-notifications-dropdown">
-              <div class="p-3">
-                <div class="row align-items-center">
-                  <div class="col">
-                    <h5 class="m-0 font-size-16"> Notifications (258) </h5>
+          </form>
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="flag-icon flag-icon-us mt-1" title="us"></i> <span class="ms-1 me-1 d-none d-md-inline-block">English</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="languageDropdown">
+                <a href="javascript:;" class="dropdown-item py-2"><i class="flag-icon flag-icon-us" title="us" id="us"></i> <span class="ms-1"> English </span></a>
+                <a href="javascript:;" class="dropdown-item py-2"><i class="flag-icon flag-icon-fr" title="fr" id="fr"></i> <span class="ms-1"> French </span></a>
+                <a href="javascript:;" class="dropdown-item py-2"><i class="flag-icon flag-icon-de" title="de" id="de"></i> <span class="ms-1"> German </span></a>
+                <a href="javascript:;" class="dropdown-item py-2"><i class="flag-icon flag-icon-pt" title="pt" id="pt"></i> <span class="ms-1"> Portuguese </span></a>
+                <a href="javascript:;" class="dropdown-item py-2"><i class="flag-icon flag-icon-es" title="es" id="es"></i> <span class="ms-1"> Spanish </span></a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="appsDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i data-feather="grid"></i>
+              </a>
+              <div class="dropdown-menu p-0" aria-labelledby="appsDropdown">
+                <div class="px-3 py-2 d-flex align-items-center justify-content-between border-bottom">
+                  <p class="mb-0 fw-bold">Web Apps</p>
+                  <a href="javascript:;" class="text-muted">Edit</a>
+                </div>
+                <div class="row g-0 p-1">
+                  <div class="col-3 text-center">
+                    <a href="pages/apps/chat.html" class="dropdown-item d-flex flex-column align-items-center justify-content-center wd-70 ht-70"><i data-feather="message-square" class="icon-lg mb-1"></i>
+                      <p class="tx-12">Chat</p>
+                    </a>
+                  </div>
+                  <div class="col-3 text-center">
+                    <a href="pages/apps/calendar.html" class="dropdown-item d-flex flex-column align-items-center justify-content-center wd-70 ht-70"><i data-feather="calendar" class="icon-lg mb-1"></i>
+                      <p class="tx-12">Calendar</p>
+                    </a>
+                  </div>
+                  <div class="col-3 text-center">
+                    <a href="pages/email/inbox.html" class="dropdown-item d-flex flex-column align-items-center justify-content-center wd-70 ht-70"><i data-feather="mail" class="icon-lg mb-1"></i>
+                      <p class="tx-12">Email</p>
+                    </a>
+                  </div>
+                  <div class="col-3 text-center">
+                    <a href="pages/general/profile.html" class="dropdown-item d-flex flex-column align-items-center justify-content-center wd-70 ht-70"><i data-feather="instagram" class="icon-lg mb-1"></i>
+                      <p class="tx-12">Profile</p>
+                    </a>
                   </div>
                 </div>
+                <div class="px-3 py-2 d-flex align-items-center justify-content-center border-top">
+                  <a href="javascript:;">View all</a>
+                </div>
               </div>
-              <div data-simplebar style="max-height: 230px;">
-                <a href="#" class="text-reset notification-item">
-                  <div class="d-flex">
-                    <div class="flex-shrink-0 me-3">
-                      <div class="avatar-xs">
-                        <span class="avatar-title bg-success rounded-circle font-size-16">
-                          <i class="mdi mdi-cart-outline"></i>
-                        </span>
-                      </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="messageDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i data-feather="mail"></i>
+              </a>
+              <div class="dropdown-menu p-0" aria-labelledby="messageDropdown">
+                <div class="px-3 py-2 d-flex align-items-center justify-content-between border-bottom">
+                  <p>9 New Messages</p>
+                  <a href="javascript:;" class="text-muted">Clear all</a>
+                </div>
+                <div class="p-1">
+                  <a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
+                    <div class="me-3">
+                      <img class="wd-30 ht-30 rounded-circle" src="{{ asset('cssAdmin/images/faces/face2.jpg') }}" alt="userr">
                     </div>
-                    <div class="flex-grow-1">
-                      <h6 class="mb-1">Your order is placed</h6>
-                      <div class="font-size-12 text-muted">
-                        <p class="mb-1">Dummy text of the printing and typesetting industry.</p>
+                    <div class="d-flex justify-content-between flex-grow-1">
+                      <div class="me-4">
+                        <p>Leonardo Payne</p>
+                        <p class="tx-12 text-muted">Project status</p>
                       </div>
+                      <p class="tx-12 text-muted">2 min ago</p>
                     </div>
-                  </div>
-                </a>
-
-                <a href="#" class="text-reset notification-item">
-                  <div class="d-flex">
-                    <div class="flex-shrink-0 me-3">
-                      <div class="avatar-xs">
-                        <span class="avatar-title bg-warning rounded-circle font-size-16">
-                          <i class="mdi mdi-message-text-outline"></i>
-                        </span>
+                  </a>
+                  <a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
+                    <div class="me-3">
+                      <img class="wd-30 ht-30 rounded-circle" src="{{ asset('cssAdmin/images/faces/face3.jpg') }}" alt="userr">
+                    </div>
+                    <div class="d-flex justify-content-between flex-grow-1">
+                      <div class="me-4">
+                        <p>Carl Henson</p>
+                        <p class="tx-12 text-muted">Client meeting</p>
                       </div>
+                      <p class="tx-12 text-muted">30 min ago</p>
                     </div>
-                    <div class="flex-grow-1">
-                      <h6 class="mb-1">New Message received</h6>
-                      <div class="font-size-12 text-muted">
-                        <p class="mb-1">You have 87 unread messages</p>
+                  </a>
+                  <a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
+                    <div class="me-3">
+                      <img class="wd-30 ht-30 rounded-circle" src="{{ asset('cssAdmin/images/faces/face4.jpg') }}" alt="userr">
+                    </div>
+                    <div class="d-flex justify-content-between flex-grow-1">
+                      <div class="me-4">
+                        <p>Jensen Combs</p>
+                        <p class="tx-12 text-muted">Project updates</p>
                       </div>
+                      <p class="tx-12 text-muted">1 hrs ago</p>
                     </div>
-                  </div>
-                </a>
-
-                <a href="#" class="text-reset notification-item">
-                  <div class="d-flex">
-                    <div class="flex-shrink-0 me-3">
-                      <div class="avatar-xs">
-                        <span class="avatar-title bg-info rounded-circle font-size-16">
-                          <i class="mdi mdi-glass-cocktail"></i>
-                        </span>
+                  </a>
+                  <a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
+                    <div class="me-3">
+                      <img class="wd-30 ht-30 rounded-circle" src="{{ asset('cssAdmin/images/faces/face5.jpg') }}" alt="userr">
+                    </div>
+                    <div class="d-flex justify-content-between flex-grow-1">
+                      <div class="me-4">
+                        <p>Amiah Burton</p>
+                        <p class="tx-12 text-muted">Project deatline</p>
                       </div>
+                      <p class="tx-12 text-muted">2 hrs ago</p>
                     </div>
-                    <div class="flex-grow-1">
-                      <h6 class="mb-1">Your item is shipped</h6>
-                      <div class="font-size-12 text-muted">
-                        <p class="mb-1">It is a long established fact that a reader will</p>
+                  </a>
+                  <a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
+                    <div class="me-3">
+                      <img class="wd-30 ht-30 rounded-circle" src="{{ asset('cssAdmin/images/faces/face6.jpg') }}" alt="userr">
+                    </div>
+                    <div class="d-flex justify-content-between flex-grow-1">
+                      <div class="me-4">
+                        <p>Yaretzi Mayo</p>
+                        <p class="tx-12 text-muted">New record</p>
                       </div>
+                      <p class="tx-12 text-muted">5 hrs ago</p>
                     </div>
-                  </div>
-                </a>
-
-                <a href="#" class="text-reset notification-item">
-                  <div class="d-flex">
-                    <div class="flex-shrink-0 me-3">
-                      <div class="avatar-xs">
-                        <span class="avatar-title bg-primary rounded-circle font-size-16">
-                          <i class="mdi mdi-cart-outline"></i>
-                        </span>
-                      </div>
-                    </div>
-                    <div class="flex-grow-1">
-                      <h6 class="mb-1">Your order is placed</h6>
-                      <div class="font-size-12 text-muted">
-                        <p class="mb-1">Dummy text of the printing and typesetting industry.</p>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-
-                <a href="#" class="text-reset notification-item">
-                  <div class="d-flex">
-                    <div class="flex-shrink-0 me-3">
-                      <div class="avatar-xs">
-                        <span class="avatar-title bg-danger rounded-circle font-size-16">
-                          <i class="mdi mdi-message-text-outline"></i>
-                        </span>
-                      </div>
-                    </div>
-                    <div class="flex-grow-1">
-                      <h6 class="mb-1">New Message received</h6>
-                      <div class="font-size-12 text-muted">
-                        <p class="mb-1">You have 87 unread messages</p>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="p-2 border-top">
-                <div class="d-grid">
-                  <a class="btn btn-sm btn-link font-size-14 text-center" href="javascript:void(0)">
-                    View all
                   </a>
                 </div>
+                <div class="px-3 py-2 d-flex align-items-center justify-content-center border-top">
+                  <a href="javascript:;">View all</a>
+                </div>
               </div>
-            </div>
-          </div>
-
-          <div class="dropdown d-inline-block">
-            <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <img class="rounded-circle header-profile-user" src="{{ asset('cssAdmin/images/users/user-4.jpg') }}" alt="Header Avatar">
-            </button>
-            <div class="dropdown-menu dropdown-menu-end">
-              <!-- item-->
-              <a class="dropdown-item text-danger" href="#"><i class="bx bx-power-off font-size-17 align-middle me-1 text-danger"></i> Logout</a>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </header>
-
-    <!-- ========== Left Sidebar Start ========== -->
-    <div class="vertical-menu">
-
-      <div data-simplebar class="h-100">
-
-        <!--- Sidemenu -->
-        <div id="sidebar-menu">
-          <!-- Left Menu Start -->
-          <ul class="metismenu list-unstyled" id="side-menu">
-            <li class="menu-title">Main</li>
-
-            <li>
-              <a href="#" class="waves-effect">
-                <i class="ti-home"></i><span class="badge rounded-pill bg-primary float-end">1</span>
-                <span>Dashboard</span>
-              </a>
             </li>
-
-            <li class="menu-title">Persetujuan</li>
-
-            <li>
-              <a href="index.html" class="waves-effect">
-                <i class="ti-home"></i><span class="badge rounded-pill bg-primary float-end">1</span>
-                <span>Siswa Magang</span>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="notificationDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i data-feather="bell"></i>
+                <div class="indicator">
+                  <div class="circle"></div>
+                </div>
               </a>
+              <div class="dropdown-menu p-0" aria-labelledby="notificationDropdown">
+                <div class="px-3 py-2 d-flex align-items-center justify-content-between border-bottom">
+                  <p>6 New Notifications</p>
+                  <a href="javascript:;" class="text-muted">Clear all</a>
+                </div>
+                <div class="p-1">
+                  <a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
+                    <div class="wd-30 ht-30 d-flex align-items-center justify-content-center bg-primary rounded-circle me-3">
+                      <i class="icon-sm text-white" data-feather="gift"></i>
+                    </div>
+                    <div class="flex-grow-1 me-2">
+                      <p>New Order Recieved</p>
+                      <p class="tx-12 text-muted">30 min ago</p>
+                    </div>
+                  </a>
+                  <a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
+                    <div class="wd-30 ht-30 d-flex align-items-center justify-content-center bg-primary rounded-circle me-3">
+                      <i class="icon-sm text-white" data-feather="alert-circle"></i>
+                    </div>
+                    <div class="flex-grow-1 me-2">
+                      <p>Server Limit Reached!</p>
+                      <p class="tx-12 text-muted">1 hrs ago</p>
+                    </div>
+                  </a>
+                  <a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
+                    <div class="wd-30 ht-30 d-flex align-items-center justify-content-center bg-primary rounded-circle me-3">
+                      <img class="wd-30 ht-30 rounded-circle" src="{{ asset('cssAdmin/images/faces/face6.jpg') }}" alt="userr">
+                    </div>
+                    <div class="flex-grow-1 me-2">
+                      <p>New customer registered</p>
+                      <p class="tx-12 text-muted">2 sec ago</p>
+                    </div>
+                  </a>
+                  <a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
+                    <div class="wd-30 ht-30 d-flex align-items-center justify-content-center bg-primary rounded-circle me-3">
+                      <i class="icon-sm text-white" data-feather="layers"></i>
+                    </div>
+                    <div class="flex-grow-1 me-2">
+                      <p>Apps are ready for update</p>
+                      <p class="tx-12 text-muted">5 hrs ago</p>
+                    </div>
+                  </a>
+                  <a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
+                    <div class="wd-30 ht-30 d-flex align-items-center justify-content-center bg-primary rounded-circle me-3">
+                      <i class="icon-sm text-white" data-feather="download"></i>
+                    </div>
+                    <div class="flex-grow-1 me-2">
+                      <p>Download completed</p>
+                      <p class="tx-12 text-muted">6 hrs ago</p>
+                    </div>
+                  </a>
+                </div>
+                <div class="px-3 py-2 d-flex align-items-center justify-content-center border-top">
+                  <a href="javascript:;">View all</a>
+                </div>
+              </div>
             </li>
-
-            <li>
-              <a href="index.html" class="waves-effect">
-                <i class="ti-home"></i><span class="badge rounded-pill bg-primary float-end">1</span>
-                <span>Kelas Industri</span>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img class="wd-30 ht-30 rounded-circle" src="{{ asset('cssAdmin/images/faces/face1.jpg') }}" alt="profile">
               </a>
+              <div class="dropdown-menu p-0" aria-labelledby="profileDropdown">
+                <div class="d-flex flex-column align-items-center border-bottom px-5 py-3">
+                  <div class="mb-3">
+                    <img class="wd-80 ht-80 rounded-circle" src="{{ asset('cssAdmin/images/faces/face1.jpg') }}" alt="">
+                  </div>
+                  <div class="text-center">
+                    <p class="tx-16 fw-bolder">Amiah Burton</p>
+                    <p class="tx-12 text-muted">amiahburton@gmail.com</p>
+                  </div>
+                </div>
+                <ul class="list-unstyled p-1">
+                  <li class="dropdown-item py-2">
+                    <a href="pages/general/profile.html" class="text-body ms-0">
+                      <i class="me-2 icon-md" data-feather="user"></i>
+                      <span>Profile</span>
+                    </a>
+                  </li>
+                  <li class="dropdown-item py-2">
+                    <a href="javascript:;" class="text-body ms-0">
+                      <i class="me-2 icon-md" data-feather="edit"></i>
+                      <span>Edit Profile</span>
+                    </a>
+                  </li>
+                  <li class="dropdown-item py-2">
+                    <a href="javascript:;" class="text-body ms-0">
+                      <i class="me-2 icon-md" data-feather="repeat"></i>
+                      <span>Switch User</span>
+                    </a>
+                  </li>
+                  <li class="dropdown-item py-2">
+                    <a href="javascript:;" class="text-body ms-0">
+                      <i class="me-2 icon-md" data-feather="log-out"></i>
+                      <span>Log Out</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </li>
-
-            <li class="menu-title">Persetujuan</li>
-
-            <li>
-              <a href="index.html" class="waves-effect">
-                <i class="ti-home"></i><span class="badge rounded-pill bg-primary float-end">1</span>
-                <span>Berita</span>
-              </a>
-            </li>
-
-            <li>
-              <a href="index.html" class="waves-effect">
-                <i class="ti-home"></i><span class="badge rounded-pill bg-primary float-end">1</span>
-                <span>Kategori Berita</span>
-              </a>
-            </li>
-
-            <li class="menu-title">Later Used</li>
-
-            <li>
-              <a href="javascript: void(0);" class="has-arrow waves-effect">
-                <i class="ti-email"></i>
-                <span>Email</span>
-              </a>
-              <ul class="sub-menu" aria-expanded="false">
-                <li><a href="email-inbox.html">Inbox</a></li>
-                <li><a href="email-read.html">Email Read</a></li>
-                <li><a href="email-compose.html">Email Compose</a></li>
-              </ul>
-            </li>
-
-            <li>
-              <a href="javascript: void(0);" class="has-arrow waves-effect">
-                <i class="ti-package"></i>
-                <span>UI Elements</span>
-              </a>
-              <ul class="sub-menu" aria-expanded="false">
-                <li><a href="ui-alerts.html">Alerts</a></li>
-                <li><a href="ui-buttons.html">Buttons</a></li>
-                <li><a href="ui-cards.html">Cards</a></li>
-                <li><a href="ui-carousel.html">Carousel</a></li>
-                <li><a href="ui-dropdowns.html">Dropdowns</a></li>
-                <li><a href="ui-grid.html">Grid</a></li>
-                <li><a href="ui-images.html">Images</a></li>
-                <li><a href="ui-lightbox.html">Lightbox</a></li>
-                <li><a href="ui-modals.html">Modals</a></li>
-                <li><a href="ui-offcanvas.html">Offcanvas</a></li>
-                <li><a href="ui-rangeslider.html">Range Slider</a></li>
-                <li><a href="ui-session-timeout.html">Session Timeout</a></li>
-                <li><a href="ui-progressbars.html">Progress Bars</a></li>
-                <li><a href="ui-sweet-alert.html">SweetAlert 2</a></li>
-                <li><a href="ui-tabs-accordions.html">Tabs &amp; Accordions</a></li>
-                <li><a href="ui-typography.html">Typography</a></li>
-                <li><a href="ui-video.html">Video</a></li>
-                <li><a href="ui-general.html">General</a></li>
-                <li><a href="ui-colors.html">Colors</a></li>
-                <li><a href="ui-rating.html">Rating</a></li>
-                <li><a href="ui-utilities.html">Utilities</a></li>
-              </ul>
-            </li>
-
-            <li>
-              <a href="javascript: void(0);" class="waves-effect">
-                <i class="ti-receipt"></i>
-                <span class="badge rounded-pill bg-success float-end">9</span>
-                <span>Forms</span>
-              </a>
-              <ul class="sub-menu" aria-expanded="false">
-                <li><a href="form-elements.html">Form Elements</a></li>
-                <li><a href="form-validation.html">Form Validation</a></li>
-                <li><a href="form-advanced.html">Form Advanced</a></li>
-                <li><a href="form-editors.html">Form Editors</a></li>
-                <li><a href="form-uploads.html">Form File Upload</a></li>
-                <li><a href="form-xeditable.html">Form Xeditable</a></li>
-                <li><a href="form-repeater.html">Form Repeater</a></li>
-                <li><a href="form-wizard.html">Form Wizard</a></li>
-                <li><a href="form-mask.html">Form Mask</a></li>
-              </ul>
-            </li>
-
-            <li>
-              <a href="javascript: void(0);" class="has-arrow waves-effect">
-                <i class="ti-pie-chart"></i>
-                <span>Charts</span>
-              </a>
-              <ul class="sub-menu" aria-expanded="false">
-                <li><a href="charts-morris.html">Morris Chart</a></li>
-                <li><a href="charts-chartist.html">Chartist Chart</a></li>
-                <li><a href="charts-chartjs.html">Chartjs Chart</a></li>
-                <li><a href="charts-flot.html">Flot Chart</a></li>
-                <li><a href="charts-knob.html">Jquery Knob Chart</a></li>
-                <li><a href="charts-sparkline.html">Sparkline Chart</a></li>
-              </ul>
-            </li>
-
-            <li>
-              <a href="javascript: void(0);" class="has-arrow waves-effect">
-                <i class="ti-view-grid"></i>
-                <span>Tables</span>
-              </a>
-              <ul class="sub-menu" aria-expanded="false">
-                <li><a href="tables-basic.html">Basic Tables</a></li>
-                <li><a href="tables-datatable.html">Data Tables</a></li>
-                <li><a href="tables-responsive.html">Responsive Tables</a></li>
-                <li><a href="tables-editable.html">Editable Tables</a></li>
-              </ul>
-            </li>
-
-            <li>
-              <a href="javascript: void(0);" class="has-arrow waves-effect">
-                <i class="ti-face-smile"></i>
-                <span>Icons</span>
-              </a>
-              <ul class="sub-menu" aria-expanded="false">
-                <li><a href="icons-material.html">Material Design</a></li>
-                <li><a href="icons-fontawesome.html">Font Awesome</a></li>
-                <li><a href="icons-ion.html">Ion Icons</a></li>
-                <li><a href="icons-themify.html">Themify Icons</a></li>
-                <li><a href="icons-dripicons.html">Dripicons</a></li>
-                <li><a href="icons-typicons.html">Typicons Icons</a></li>
-              </ul>
-            </li>
-
-            <li>
-              <a href="javascript: void(0);" class="waves-effect">
-                <i class="ti-location-pin"></i>
-                <span class="badge rounded-pill bg-danger float-end">2</span>
-                <span>Maps</span>
-              </a>
-              <ul class="sub-menu" aria-expanded="false">
-                <li><a href="maps-google.html"> Google Map</a></li>
-                <li><a href="maps-vector.html"> Vector Map</a></li>
-              </ul>
-            </li>
-
-            <li>
-              <a href="javascript: void(0);" class="has-arrow waves-effect">
-                <i class="ti-layout"></i>
-                <span>Layouts</span>
-              </a>
-              <ul class="sub-menu" aria-expanded="true">
-                <li>
-                  <a href="javascript: void(0);" class="has-arrow">Vertical</a>
-                  <ul class="sub-menu" aria-expanded="true">
-                    <li><a href="layouts-light-sidebar.html">Light Sidebar</a></li>
-                    <li><a href="layouts-compact-sidebar.html">Compact Sidebar</a></li>
-                    <li><a href="layouts-icon-sidebar.html">Icon Sidebar</a></li>
-                    <li><a href="layouts-boxed.html">Boxed Layout</a></li>
-                    <li><a href="layouts-colored-sidebar.html">Colored Sidebar</a></li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="javascript: void(0);" class="has-arrow">Horizontal</a>
-                  <ul class="sub-menu" aria-expanded="true">
-                    <li><a href="layouts-horizontal.html">Horizontal</a></li>
-                    <li><a href="layouts-hori-topbar-light.html">Light Topbar</a></li>
-                    <li><a href="layouts-hori-boxed.html">Boxed Layout</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-
-            <li>
-              <a href="javascript: void(0);" class="has-arrow waves-effect">
-                <i class="ti-archive"></i>
-                <span> Authentication </span>
-              </a>
-              <ul class="sub-menu" aria-expanded="false">
-                <li><a href="pages-login.html">Login 1</a></li>
-                <li><a href="pages-login-2.html">Login 2</a></li>
-                <li><a href="pages-register.html">Register 1</a></li>
-                <li><a href="pages-register-2.html">Register 2</a></li>
-                <li><a href="pages-recoverpw.html">Recover Password 1</a></li>
-                <li><a href="pages-recoverpw-2.html">Recover Password 2</a></li>
-                <li><a href="pages-lock-screen.html">Lock Screen 1</a></li>
-                <li><a href="pages-lock-screen-2.html">Lock Screen 2</a></li>
-              </ul>
-            </li>
-
-            <li>
-              <a href="javascript: void(0);" class="has-arrow waves-effect">
-                <i class="ti-support"></i>
-                <span> Extra Pages </span>
-              </a>
-              <ul class="sub-menu" aria-expanded="false">
-                <li><a href="pages-timeline.html">Timeline</a></li>
-                <li><a href="pages-invoice.html">Invoice</a></li>
-                <li><a href="pages-directory.html">Directory</a></li>
-                <li><a href="pages-starter.html">Starter Page</a></li>
-                <li><a href="pages-404.html">Error 404</a></li>
-                <li><a href="pages-500.html">Error 500</a></li>
-                <li><a href="pages-pricing.html">Pricing</a></li>
-                <li><a href="pages-gallery.html">Gallery</a></li>
-                <li><a href="pages-profile.html">Profile</a></li>
-                <li><a href="pages-maintenance.html">Maintenance</a></li>
-                <li><a href="pages-comingsoon.html">Coming Soon</a></li>
-                <li><a href="pages-faq.html">FAQs</a></li>
-              </ul>
-            </li>
-
-            <li>
-              <a href="javascript: void(0);" class="has-arrow waves-effect">
-                <i class="ti-bookmark-alt"></i>
-                <span> Email Templates </span>
-              </a>
-              <ul class="sub-menu" aria-expanded="false">
-                <li><a href="email-template-basic.html">Basic Action Email</a></li>
-                <li><a href="email-template-alert.html">Alert Email</a></li>
-                <li><a href="email-template-billing.html">Billing Email</a></li>
-              </ul>
-            </li>
-
-            <li>
-              <a href="javascript: void(0);" class="has-arrow waves-effect">
-                <i class="ti-more"></i>
-                <span>Multi Level</span>
-              </a>
-              <ul class="sub-menu" aria-expanded="true">
-                <li><a href="javascript: void(0);">Level 1.1</a></li>
-                <li><a href="javascript: void(0);" class="has-arrow">Level 1.2</a>
-                  <ul class="sub-menu" aria-expanded="true">
-                    <li><a href="javascript: void(0);">Level 2.1</a></li>
-                    <li><a href="javascript: void(0);">Level 2.2</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-
           </ul>
         </div>
-        <!-- Sidebar -->
-      </div>
-    </div>
-    <!-- Left Sidebar End -->
+      </nav>
+      <!-- partial -->
 
-    <!-- ============================================================== -->
-    <!-- Start right Content here -->
-    <!-- ============================================================== -->
-    <div class="main-content">
       <div class="page-content">
-        <div class="container-fluid">
-          @yield('content')
-        </div>
+        @yield('content')
       </div>
-      <!-- End Page-content -->
 
-      <footer class="footer">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-12">
-              ©
-              <script>
-                document.write(new Date().getFullYear())
-              </script> Veltrix<span class="d-none d-sm-inline-block"> - Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand.</span>
-            </div>
-          </div>
-        </div>
+      <!-- partial:partials/_footer.html -->
+      <footer class="footer d-flex flex-column flex-md-row align-items-center justify-content-between px-4 py-3 border-top small">
+        <p class="text-muted mb-1 mb-md-0">Copyright © 2022 <a href="https://www.nobleui.com/" target="_blank">NobleUI</a>.</p>
+        <p class="text-muted">Handcrafted With <i class="mb-1 text-primary ms-1 icon-sm" data-feather="heart"></i></p>
       </footer>
+      <!-- partial -->
 
     </div>
-    <!-- end main content-->
-
   </div>
-  <!-- END layout-wrapper -->
 
-  <!-- Right Sidebar -->
-  <div class="right-bar">
-    <div data-simplebar class="h-100">
-      <div class="rightbar-title px-3 py-4">
-        <a href="javascript:void(0);" class="right-bar-toggle float-end">
-          <i class="mdi mdi-close noti-icon"></i>
-        </a>
-        <h5 class="m-0">Settings</h5>
-      </div>
+  <!-- core:js -->
+  <script src="{{ asset('cssAdmin/vendors/core/core.js') }}"></script>
+  <!-- endinject -->
 
-      <!-- Settings -->
-      <hr class="mt-0" />
-      <h6 class="text-center">Choose Layouts</h6>
+  <!-- Plugin js for this page -->
+  <script src="{{ asset('cssAdmin/vendors/flatpickr/flatpickr.min.js') }}"></script>
+  <script src="{{ asset('cssAdmin/vendors/apexcharts/apexcharts.min.js') }}"></script>
+  <!-- End plugin js for this page -->
 
-      <div class="p-4">
-        <div class="mb-2">
-          <img src="{{ asset('cssAdmin/images/layouts/layout-1.jpg') }}" class="img-fluid img-thumbnail" alt="">
-        </div>
-        <div class="form-check form-switch mb-3">
-          <input type="checkbox" class="form-check-input theme-choice" id="light-mode-switch" checked />
-          <label class="form-check-label" for="light-mode-switch">Light Mode</label>
-        </div>
+  <!-- inject:js -->
+  <script src="{{ asset('cssAdmin/vendors/feather-icons/feather.min.js') }}"></script>
+  <script src="{{ asset('cssAdmin/js/template.js') }}"></script>
+  <!-- endinject -->
 
-        <div class="mb-2">
-          <img src="{{ asset('cssAdmin/images/layouts/layout-2.jpg') }}" class="img-fluid img-thumbnail" alt="">
-        </div>
-        <div class="form-check form-switch mb-3">
-          <input type="checkbox" class="form-check-input theme-choice" id="dark-mode-switch" data-bsStyle="asset/css/bootstrap-dark.min.html" data-appStyle="asset/css/app-dark.min.html" />
-          <label class="form-check-label" for="dark-mode-switch">Dark Mode</label>
-        </div>
-
-        <div class="mb-2">
-          <img src="{{ asset('cssAdmin/images/layouts/layout-3.jpg') }}" class="img-fluid img-thumbnail" alt="">
-        </div>
-        <div class="form-check form-switch mb-5">
-          <input type="checkbox" class="form-check-input theme-choice" id="rtl-mode-switch" data-appStyle="asset/css/app-rtl.min.css" />
-          <label class="form-check-label" for="rtl-mode-switch">RTL Mode</label>
-        </div>
-        <div class="d-grid">
-          <a href="https://1.envato.market/grNDB" class="btn btn-primary mt-3" target="_blank"><i class="mdi mdi-cart me-1"></i> Purchase Now</a>
-        </div>
-      </div>
-
-    </div>
-    <!-- end slimscroll-menu-->
-  </div>
-  <!-- /Right-bar -->
-
-  <!-- Right bar overlay-->
-  <div class="rightbar-overlay"></div>
-
-  <!-- JAVASCRIPT -->
-  <script src="{{ asset('cssAdmin/libs/jquery/jquery.min.js') }}"></script>
-  <script src="{{ asset('cssAdmin/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-  <script src="{{ asset('cssAdmin/libs/metismenu/metisMenu.min.js') }}"></script>
-  <script src="{{ asset('cssAdmin/libs/simplebar/simplebar.min.js') }}"></script>
-  <script src="{{ asset('cssAdmin/libs/node-waves/waves.min.js') }}"></script>
-
-  <!-- Peity chart-->
-  <script src="{{ asset('cssAdmin/libs/peity/jquery.peity.min.js') }}"></script>
-
-  <!-- Plugin Js-->
-  <script src="{{ asset('cssAdmin/libs/chartist/chartist.min.js') }}"></script>
-  <script src="{{ asset('cssAdmin/libs/chartist-plugin-tooltips/chartist-plugin-tooltip.min.js') }}"></script>
-
-  <script src="{{ asset('cssAdmin/js/pages/dashboard.init.js') }}"></script>
-
-  <script src="{{ asset('cssAdmin/js/app.js') }}"></script>
+  <!-- Custom js for this page -->
+  <script src="{{ asset('cssAdmin/js/dashboard-light.js') }}"></script>
+  <!-- End custom js for this page -->
 
 </body>
 

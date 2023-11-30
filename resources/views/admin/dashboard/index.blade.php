@@ -1,479 +1,412 @@
 @extends('layouts.nav-admin')
 
 @section('content')
-  <!-- start page title -->
-  <title>Admin - Dashboard</title>
-  <div class="page-title-box">
-    <div class="row align-items-center">
-      <div class="col-md-8">
-        <h6 class="page-title">Dashboard</h6>
-        <ol class="breadcrumb m-0">
-          <li class="breadcrumb-item active">Welcome to Veltrix Dashboard</li>
-        </ol>
+  <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
+    <div>
+      <h4 class="mb-3 mb-md-0">Welcome to Dashboard</h4>
+    </div>
+    <div class="d-flex align-items-center flex-wrap text-nowrap">
+      <div class="input-group flatpickr wd-200 me-2 mb-2 mb-md-0" id="dashboardDate">
+        <span class="input-group-text input-group-addon bg-transparent border-primary" data-toggle><i data-feather="calendar" class="text-primary"></i></span>
+        <input type="text" class="form-control bg-transparent border-primary" placeholder="Select date" data-input>
       </div>
-      <div class="col-md-4">
-        <div class="float-end d-none d-md-block">
-          <div class="dropdown">
-            <button class="btn btn-primary  dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="mdi mdi-cog me-2"></i> Settings
-            </button>
-            <div class="dropdown-menu dropdown-menu-end">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Separated link</a>
-            </div>
-          </div>
-        </div>
-      </div>
+      <button type="button" class="btn btn-outline-primary btn-icon-text me-2 mb-2 mb-md-0">
+        <i class="btn-icon-prepend" data-feather="printer"></i>
+        Print
+      </button>
+      <button type="button" class="btn btn-primary btn-icon-text mb-2 mb-md-0">
+        <i class="btn-icon-prepend" data-feather="download-cloud"></i>
+        Download Report
+      </button>
     </div>
   </div>
-  <!-- end page title -->
 
   <div class="row">
-    <div class="col-xl-3 col-md-6">
-      <div class="card mini-stat bg-primary text-white">
-        <div class="card-body">
-          <div class="mb-4">
-            <div class="float-start mini-stat-img me-4">
-              <img src="{{ asset('cssAdmin/images/services-icon/01.png') }}" alt="">
-            </div>
-            <h5 class="font-size-16 text-uppercase text-white-50">Orders</h5>
-            <h4 class="fw-medium font-size-24">1,685 <i class="mdi mdi-arrow-up text-success ms-2"></i></h4>
-            <div class="mini-stat-label bg-success">
-              <p class="mb-0">+ 12%</p>
-            </div>
-          </div>
-          <div class="pt-2">
-            <div class="float-end">
-              <a href="#" class="text-white-50"><i class="mdi mdi-arrow-right h5 text-white-50"></i></a>
-            </div>
-
-            <p class="text-white-50 mb-0 mt-1">Since last month</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-xl-3 col-md-6">
-      <div class="card mini-stat bg-primary text-white">
-        <div class="card-body">
-          <div class="mb-4">
-            <div class="float-start mini-stat-img me-4">
-              <img src="{{ asset('cssAdmin/images/services-icon/02.png') }}" alt="">
-            </div>
-            <h5 class="font-size-16 text-uppercase text-white-50">Revenue</h5>
-            <h4 class="fw-medium font-size-24">52,368 <i class="mdi mdi-arrow-down text-danger ms-2"></i></h4>
-            <div class="mini-stat-label bg-danger">
-              <p class="mb-0">- 28%</p>
-            </div>
-          </div>
-          <div class="pt-2">
-            <div class="float-end">
-              <a href="#" class="text-white-50"><i class="mdi mdi-arrow-right h5 text-white-50"></i></a>
-            </div>
-
-            <p class="text-white-50 mb-0 mt-1">Since last month</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-xl-3 col-md-6">
-      <div class="card mini-stat bg-primary text-white">
-        <div class="card-body">
-          <div class="mb-4">
-            <div class="float-start mini-stat-img me-4">
-              <img src="{{ asset('cssAdmin/images/services-icon/03.png') }}" alt="">
-            </div>
-            <h5 class="font-size-16 text-uppercase text-white-50">Average Price</h5>
-            <h4 class="fw-medium font-size-24">15.8 <i class="mdi mdi-arrow-up text-success ms-2"></i></h4>
-            <div class="mini-stat-label bg-info">
-              <p class="mb-0"> 00%</p>
-            </div>
-          </div>
-          <div class="pt-2">
-            <div class="float-end">
-              <a href="#" class="text-white-50"><i class="mdi mdi-arrow-right h5 text-white-50"></i></a>
-            </div>
-
-            <p class="text-white-50 mb-0 mt-1">Since last month</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-xl-3 col-md-6">
-      <div class="card mini-stat bg-primary text-white">
-        <div class="card-body">
-          <div class="mb-4">
-            <div class="float-start mini-stat-img me-4">
-              <img src="{{ asset('cssAdmin/images/services-icon/04.png') }}" alt="">
-            </div>
-            <h5 class="font-size-16 text-uppercase text-white-50">Product Sold</h5>
-            <h4 class="fw-medium font-size-24">2436 <i class="mdi mdi-arrow-up text-success ms-2"></i></h4>
-            <div class="mini-stat-label bg-warning">
-              <p class="mb-0">+ 84%</p>
-            </div>
-          </div>
-          <div class="pt-2">
-            <div class="float-end">
-              <a href="#" class="text-white-50"><i class="mdi mdi-arrow-right h5 text-white-50"></i></a>
-            </div>
-
-            <p class="text-white-50 mb-0 mt-1">Since last month</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- end row -->
-
-  <div class="row">
-    <div class="col-xl-9">
-      <div class="card">
-        <div class="card-body">
-          <h4 class="card-title mb-4">Monthly Earning</h4>
-          <div class="row">
-            <div class="col-lg-7">
-              <div>
-                <div id="chart-with-area" class="ct-chart earning ct-golden-section">
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-5">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="text-center">
-                    <p class="text-muted mb-4">This month</p>
-                    <h3>$34,252</h3>
-                    <p class="text-muted mb-5">It will be as simple as in fact it will be occidental.</p>
-                    <span class="peity-donut" data-peity='{ "fill": ["#02a499", "#f2f2f2"], "innerRadius": 28, "radius": 32 }' data-width="72" data-height="72">4/5</span>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="text-center">
-                    <p class="text-muted mb-4">Last month</p>
-                    <h3>$36,253</h3>
-                    <p class="text-muted mb-5">It will be as simple as in fact it will be occidental.</p>
-                    <span class="peity-donut" data-peity='{ "fill": ["#02a499", "#f2f2f2"], "innerRadius": 28, "radius": 32 }' data-width="72" data-height="72">3/5</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- end row -->
-        </div>
-      </div>
-      <!-- end card -->
-    </div>
-
-    <div class="col-xl-3">
-      <div class="card">
-        <div class="card-body">
-          <div>
-            <h4 class="card-title mb-4">Sales Analytics</h4>
-          </div>
-          <div class="wid-peity mb-4">
-            <div class="row">
-              <div class="col-md-6">
-                <div>
-                  <p class="text-muted">Online</p>
-                  <h5 class="mb-4">1,542</h5>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="mb-4">
-                  <span class="peity-line" data-width="100%" data-peity='{ "fill": ["rgba(2, 164, 153,0.3)"],"stroke": ["rgba(2, 164, 153,0.8)"]}' data-height="60">6,2,8,4,3,8,1,3,6,5,9,2,8,1,4,8,9,8,2,1</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="wid-peity mb-4">
-            <div class="row">
-              <div class="col-md-6">
-                <div>
-                  <p class="text-muted">Offline</p>
-                  <h5 class="mb-4">6,451</h5>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="mb-4">
-                  <span class="peity-line" data-width="100%" data-peity='{ "fill": ["rgba(2, 164, 153,0.3)"],"stroke": ["rgba(2, 164, 153,0.8)"]}' data-height="60">6,2,8,4,-3,8,1,-3,6,-5,9,2,-8,1,4,8,9,8,2,1</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="">
-            <div class="row">
-              <div class="col-md-6">
-                <div>
-                  <p class="text-muted">Marketing</p>
-                  <h5>84,574</h5>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="mb-4">
-                  <span class="peity-line" data-width="100%" data-peity='{ "fill": ["rgba(2, 164, 153,0.3)"],"stroke": ["rgba(2, 164, 153,0.8)"]}' data-height="60">6,2,8,4,3,8,1,3,6,5,9,2,8,1,4,8,9,8,2,1</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- end row -->
-
-  <div class="row">
-    <div class="col-xl-3">
-      <div class="card">
-        <div class="card-body">
-          <h4 class="card-title mb-4">Sales Report</h4>
-
-          <div class="cleafix">
-            <p class="float-start"><i class="mdi mdi-calendar me-1 text-primary"></i> Jan 01 - Jan 31</p>
-            <h5 class="font-18 text-end">$4230</h5>
-          </div>
-
-          <div id="ct-donut" class="ct-chart wid"></div>
-
-          <div class="mt-4">
-            <table class="table mb-0">
-              <tbody>
-                <tr>
-                  <td><span class="badge bg-primary">Desk</span></td>
-                  <td>Desktop</td>
-                  <td class="text-end">54.5%</td>
-                </tr>
-                <tr>
-                  <td><span class="badge bg-success">Mob</span></td>
-                  <td>Mobile</td>
-                  <td class="text-end">28.0%</td>
-                </tr>
-                <tr>
-                  <td><span class="badge bg-warning">Tab</span></td>
-                  <td>Tablets</td>
-                  <td class="text-end">17.5%</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-
-    </div>
-    <div class="col-xl-4">
-      <div class="card">
-        <div class="card-body">
-          <h4 class="card-title mb-4">Activity</h4>
-          <ol class="activity-feed">
-            <li class="feed-item">
-              <div class="feed-item-list">
-                <span class="date">Jan 22</span>
-                <span class="activity-text">Responded to need “Volunteer
-                  Activities”</span>
-              </div>
-            </li>
-            <li class="feed-item">
-              <div class="feed-item-list">
-                <span class="date">Jan 20</span>
-                <span class="activity-text">At vero eos et accusamus et iusto odio
-                  dignissimos ducimus qui deleniti atque...<a href="#" class="text-success">Read more</a></span>
-              </div>
-            </li>
-            <li class="feed-item">
-              <div class="feed-item-list">
-                <span class="date">Jan 19</span>
-                <span class="activity-text">Joined the group “Boardsmanship
-                  Forum”</span>
-              </div>
-            </li>
-            <li class="feed-item">
-              <div class="feed-item-list">
-                <span class="date">Jan 17</span>
-                <span class="activity-text">Responded to need “In-Kind
-                  Opportunity”</span>
-              </div>
-            </li>
-            <li class="feed-item">
-              <div class="feed-item-list">
-                <span class="date">Jan 16</span>
-                <span class="activity-text">Sed ut perspiciatis unde omnis iste natus
-                  error sit rem.</span>
-              </div>
-            </li>
-          </ol>
-          <div class="text-center">
-            <a href="#" class="btn btn-primary">Load More</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-xl-5">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="card text-center">
-            <div class="card-body">
-              <div class="py-4">
-                <i class="ion ion-ios-checkmark-circle-outline display-4 text-success"></i>
-
-                <h5 class="text-primary mt-4">Order Successful</h5>
-                <p class="text-muted">Thanks you so much for your order.</p>
-                <div class="mt-4">
-                  <a href="#" class="btn btn-primary btn-sm">Chack Status</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <div class="col-md-6">
-          <div class="card bg-primary product-sale">
-            <div class="card-body">
-              <div class="text-center text-white py-4">
-                <h5 class="mb-4 text-white-50 font-size-16">Top Product Sale</h5>
-                <h1>1452</h1>
-                <p class="font-size-14 pt-1">Computer</p>
-                <p class="text-white-50 mb-0">At solmen va esser necessi far uniform myth... <a href="#" class="text-white">View more</a></p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
+    <div class="col-12 col-xl-12 stretch-card">
+      <div class="row flex-grow-1">
+        <div class="col-md-4 grid-margin stretch-card">
           <div class="card">
             <div class="card-body">
-              <h4 class="card-title mb-4">Client Reviews</h4>
-              <p class="text-muted mb-3 pb-4">" Everyone realizes why a new common language would be desirable one could refuse to pay expensive translators it would be necessary. "</p>
-              <div class="float-end mt-2">
-                <a href="#" class="text-primary">
-                  <i class="mdi mdi-arrow-right fs-5"></i>
-                </a>
+              <div class="d-flex justify-content-between align-items-baseline">
+                <h6 class="card-title mb-0">New Customers</h6>
+                <div class="dropdown mb-2">
+                  <a type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="eye" class="icon-sm me-2"></i> <span class="">View</span></a>
+                    <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="edit-2" class="icon-sm me-2"></i> <span class="">Edit</span></a>
+                    <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="trash" class="icon-sm me-2"></i> <span class="">Delete</span></a>
+                    <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="printer" class="icon-sm me-2"></i> <span class="">Print</span></a>
+                    <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="download" class="icon-sm me-2"></i> <span class="">Download</span></a>
+                  </div>
+                </div>
               </div>
-              <h6 class="mb-0"><img src="{{ asset('cssAdmin/images/users/user-3.jpg') }}" alt="" class="avatar-sm rounded-circle me-2"> James Athey</h6>
+              <div class="row">
+                <div class="col-6 col-md-12 col-xl-5">
+                  <h3 class="mb-2">3,897</h3>
+                  <div class="d-flex align-items-baseline">
+                    <p class="text-success">
+                      <span>+3.3%</span>
+                      <i data-feather="arrow-up" class="icon-sm mb-1"></i>
+                    </p>
+                  </div>
+                </div>
+                <div class="col-6 col-md-12 col-xl-7">
+                  <div id="customersChart" class="mt-md-3 mt-xl-0"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-baseline">
+                <h6 class="card-title mb-0">New Orders</h6>
+                <div class="dropdown mb-2">
+                  <a type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="eye" class="icon-sm me-2"></i> <span class="">View</span></a>
+                    <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="edit-2" class="icon-sm me-2"></i> <span class="">Edit</span></a>
+                    <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="trash" class="icon-sm me-2"></i> <span class="">Delete</span></a>
+                    <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="printer" class="icon-sm me-2"></i> <span class="">Print</span></a>
+                    <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="download" class="icon-sm me-2"></i> <span class="">Download</span></a>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6 col-md-12 col-xl-5">
+                  <h3 class="mb-2">35,084</h3>
+                  <div class="d-flex align-items-baseline">
+                    <p class="text-danger">
+                      <span>-2.8%</span>
+                      <i data-feather="arrow-down" class="icon-sm mb-1"></i>
+                    </p>
+                  </div>
+                </div>
+                <div class="col-6 col-md-12 col-xl-7">
+                  <div id="ordersChart" class="mt-md-3 mt-xl-0"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-baseline">
+                <h6 class="card-title mb-0">Growth</h6>
+                <div class="dropdown mb-2">
+                  <a type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                    <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="eye" class="icon-sm me-2"></i> <span class="">View</span></a>
+                    <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="edit-2" class="icon-sm me-2"></i> <span class="">Edit</span></a>
+                    <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="trash" class="icon-sm me-2"></i> <span class="">Delete</span></a>
+                    <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="printer" class="icon-sm me-2"></i> <span class="">Print</span></a>
+                    <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="download" class="icon-sm me-2"></i> <span class="">Download</span></a>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6 col-md-12 col-xl-5">
+                  <h3 class="mb-2">89.87%</h3>
+                  <div class="d-flex align-items-baseline">
+                    <p class="text-success">
+                      <span>+2.8%</span>
+                      <i data-feather="arrow-up" class="icon-sm mb-1"></i>
+                    </p>
+                  </div>
+                </div>
+                <div class="col-6 col-md-12 col-xl-7">
+                  <div id="growthChart" class="mt-md-3 mt-xl-0"></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <!-- end row -->
+  </div> <!-- row -->
 
   <div class="row">
-    <div class="col-xl-8">
+    <div class="col-12 col-xl-12 grid-margin stretch-card">
+      <div class="card overflow-hidden">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-baseline mb-4 mb-md-3">
+            <h6 class="card-title mb-0">Revenue</h6>
+            <div class="dropdown">
+              <a type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+                <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="eye" class="icon-sm me-2"></i> <span class="">View</span></a>
+                <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="edit-2" class="icon-sm me-2"></i> <span class="">Edit</span></a>
+                <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="trash" class="icon-sm me-2"></i> <span class="">Delete</span></a>
+                <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="printer" class="icon-sm me-2"></i> <span class="">Print</span></a>
+                <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="download" class="icon-sm me-2"></i> <span class="">Download</span></a>
+              </div>
+            </div>
+          </div>
+          <div class="row align-items-start">
+            <div class="col-md-7">
+              <p class="text-muted tx-13 mb-3 mb-md-0">Revenue is the income that a business has from its normal business activities, usually from the sale of goods and services to customers.</p>
+            </div>
+            <div class="col-md-5 d-flex justify-content-md-end">
+              <div class="btn-group mb-3 mb-md-0" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-outline-primary">Today</button>
+                <button type="button" class="btn btn-outline-primary d-none d-md-block">Week</button>
+                <button type="button" class="btn btn-primary">Month</button>
+                <button type="button" class="btn btn-outline-primary">Year</button>
+              </div>
+            </div>
+          </div>
+          <div id="revenueChart"></div>
+        </div>
+      </div>
+    </div>
+  </div> <!-- row -->
+
+  <div class="row">
+    <div class="col-lg-7 col-xl-8 grid-margin stretch-card">
       <div class="card">
         <div class="card-body">
-          <h4 class="card-title mb-4">Latest Transaction</h4>
+          <div class="d-flex justify-content-between align-items-baseline mb-2">
+            <h6 class="card-title mb-0">Monthly sales</h6>
+            <div class="dropdown mb-2">
+              <a type="button" id="dropdownMenuButton4" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
+                <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="eye" class="icon-sm me-2"></i> <span class="">View</span></a>
+                <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="edit-2" class="icon-sm me-2"></i> <span class="">Edit</span></a>
+                <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="trash" class="icon-sm me-2"></i> <span class="">Delete</span></a>
+                <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="printer" class="icon-sm me-2"></i> <span class="">Print</span></a>
+                <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="download" class="icon-sm me-2"></i> <span class="">Download</span></a>
+              </div>
+            </div>
+          </div>
+          <p class="text-muted">Sales are activities related to selling or the number of goods or services sold in a given time period.</p>
+          <div id="monthlySalesChart"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-5 col-xl-4 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-baseline">
+            <h6 class="card-title mb-0">Cloud storage</h6>
+            <div class="dropdown mb-2">
+              <a type="button" id="dropdownMenuButton5" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton5">
+                <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="eye" class="icon-sm me-2"></i> <span class="">View</span></a>
+                <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="edit-2" class="icon-sm me-2"></i> <span class="">Edit</span></a>
+                <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="trash" class="icon-sm me-2"></i> <span class="">Delete</span></a>
+                <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="printer" class="icon-sm me-2"></i> <span class="">Print</span></a>
+                <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="download" class="icon-sm me-2"></i> <span class="">Download</span></a>
+              </div>
+            </div>
+          </div>
+          <div id="storageChart"></div>
+          <div class="row mb-3">
+            <div class="col-6 d-flex justify-content-end">
+              <div>
+                <label class="d-flex align-items-center justify-content-end tx-10 text-uppercase fw-bolder">Total storage <span class="p-1 ms-1 rounded-circle bg-secondary"></span></label>
+                <h5 class="fw-bolder mb-0 text-end">8TB</h5>
+              </div>
+            </div>
+            <div class="col-6">
+              <div>
+                <label class="d-flex align-items-center tx-10 text-uppercase fw-bolder"><span class="p-1 me-1 rounded-circle bg-primary"></span> Used storage</label>
+                <h5 class="fw-bolder mb-0">~5TB</h5>
+              </div>
+            </div>
+          </div>
+          <div class="d-grid">
+            <button class="btn btn-primary">Upgrade storage</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> <!-- row -->
+
+  <div class="row">
+    <div class="col-lg-5 col-xl-4 grid-margin grid-margin-xl-0 stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-baseline mb-2">
+            <h6 class="card-title mb-0">Inbox</h6>
+            <div class="dropdown mb-2">
+              <a type="button" id="dropdownMenuButton6" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton6">
+                <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="eye" class="icon-sm me-2"></i> <span class="">View</span></a>
+                <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="edit-2" class="icon-sm me-2"></i> <span class="">Edit</span></a>
+                <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="trash" class="icon-sm me-2"></i> <span class="">Delete</span></a>
+                <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="printer" class="icon-sm me-2"></i> <span class="">Print</span></a>
+                <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="download" class="icon-sm me-2"></i> <span class="">Download</span></a>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex flex-column">
+            <a href="javascript:;" class="d-flex align-items-center border-bottom pb-3">
+              <div class="me-3">
+                <img src="{{ asset('cssAdmin/images/faces/face2.jpg') }}" class="rounded-circle wd-35" alt="user">
+              </div>
+              <div class="w-100">
+                <div class="d-flex justify-content-between">
+                  <h6 class="text-body mb-2">Leonardo Payne</h6>
+                  <p class="text-muted tx-12">12.30 PM</p>
+                </div>
+                <p class="text-muted tx-13">Hey! there I'm available...</p>
+              </div>
+            </a>
+            <a href="javascript:;" class="d-flex align-items-center border-bottom py-3">
+              <div class="me-3">
+                <img src="{{ asset('cssAdmin/images/faces/face3.jpg') }}" class="rounded-circle wd-35" alt="user">
+              </div>
+              <div class="w-100">
+                <div class="d-flex justify-content-between">
+                  <h6 class="text-body mb-2">Carl Henson</h6>
+                  <p class="text-muted tx-12">02.14 AM</p>
+                </div>
+                <p class="text-muted tx-13">I've finished it! See you so..</p>
+              </div>
+            </a>
+            <a href="javascript:;" class="d-flex align-items-center border-bottom py-3">
+              <div class="me-3">
+                <img src="{{ asset('cssAdmin/images/faces/face4.jpg') }}" class="rounded-circle wd-35" alt="user">
+              </div>
+              <div class="w-100">
+                <div class="d-flex justify-content-between">
+                  <h6 class="text-body mb-2">Jensen Combs</h6>
+                  <p class="text-muted tx-12">08.22 PM</p>
+                </div>
+                <p class="text-muted tx-13">This template is awesome!</p>
+              </div>
+            </a>
+            <a href="javascript:;" class="d-flex align-items-center border-bottom py-3">
+              <div class="me-3">
+                <img src="{{ asset('cssAdmin/images/faces/face5.jpg') }}" class="rounded-circle wd-35" alt="user">
+              </div>
+              <div class="w-100">
+                <div class="d-flex justify-content-between">
+                  <h6 class="text-body mb-2">Amiah Burton</h6>
+                  <p class="text-muted tx-12">05.49 AM</p>
+                </div>
+                <p class="text-muted tx-13">Nice to meet you</p>
+              </div>
+            </a>
+            <a href="javascript:;" class="d-flex align-items-center border-bottom py-3">
+              <div class="me-3">
+                <img src="{{ asset('cssAdmin/images/faces/face6.jpg') }}" class="rounded-circle wd-35" alt="user">
+              </div>
+              <div class="w-100">
+                <div class="d-flex justify-content-between">
+                  <h6 class="text-body mb-2">Yaretzi Mayo</h6>
+                  <p class="text-muted tx-12">01.19 AM</p>
+                </div>
+                <p class="text-muted tx-13">Hey! there I'm available...</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-7 col-xl-8 stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-baseline mb-2">
+            <h6 class="card-title mb-0">Projects</h6>
+            <div class="dropdown mb-2">
+              <a type="button" id="dropdownMenuButton7" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton7">
+                <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="eye" class="icon-sm me-2"></i> <span class="">View</span></a>
+                <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="edit-2" class="icon-sm me-2"></i> <span class="">Edit</span></a>
+                <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="trash" class="icon-sm me-2"></i> <span class="">Delete</span></a>
+                <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="printer" class="icon-sm me-2"></i> <span class="">Print</span></a>
+                <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i data-feather="download" class="icon-sm me-2"></i> <span class="">Download</span></a>
+              </div>
+            </div>
+          </div>
           <div class="table-responsive">
-            <table class="table table-hover table-centered table-nowrap mb-0">
+            <table class="table table-hover mb-0">
               <thead>
                 <tr>
-                  <th scope="col">(#) Id</th>
-                  <th scope="col">Name</th>
-                  <th scope="col">Date</th>
-                  <th scope="col">Amount</th>
-                  <th scope="col" colspan="2">Status</th>
+                  <th class="pt-0">#</th>
+                  <th class="pt-0">Project Name</th>
+                  <th class="pt-0">Start Date</th>
+                  <th class="pt-0">Due Date</th>
+                  <th class="pt-0">Status</th>
+                  <th class="pt-0">Assign</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <th scope="row">#14256</th>
-                  <td>
-                    <div>
-                      <img src="{{ asset('cssAdmin/images/users/user-2.jpg') }}" alt="" class="avatar-xs rounded-circle me-2"> Philip Smead
-                    </div>
-                  </td>
-                  <td>15/1/2018</td>
-                  <td>$94</td>
-                  <td><span class="badge bg-success">Delivered</span></td>
-                  <td>
-                    <div>
-                      <a href="#" class="btn btn-primary btn-sm">Edit</a>
-                    </div>
-                  </td>
+                  <td>1</td>
+                  <td>NobleUI jQuery</td>
+                  <td>01/01/2022</td>
+                  <td>26/04/2022</td>
+                  <td><span class="badge bg-danger">Released</span></td>
+                  <td>Leonardo Payne</td>
                 </tr>
                 <tr>
-                  <th scope="row">#14257</th>
-                  <td>
-                    <div>
-                      <img src="{{ asset('cssAdmin/images/users/user-3.jpg') }}" alt="" class="avatar-xs rounded-circle me-2"> Brent Shipley
-                    </div>
-                  </td>
-                  <td>16/1/2019</td>
-                  <td>$112</td>
-                  <td><span class="badge bg-warning">Pending</span></td>
-                  <td>
-                    <div>
-                      <a href="#" class="btn btn-primary btn-sm">Edit</a>
-                    </div>
-                  </td>
+                  <td>2</td>
+                  <td>NobleUI Angular</td>
+                  <td>01/01/2022</td>
+                  <td>26/04/2022</td>
+                  <td><span class="badge bg-success">Review</span></td>
+                  <td>Carl Henson</td>
                 </tr>
                 <tr>
-                  <th scope="row">#14258</th>
-                  <td>
-                    <div>
-                      <img src="{{ asset('cssAdmin/images/users/user-4.jpg') }}" alt="" class="avatar-xs rounded-circle me-2"> Robert Sitton
-                    </div>
-                  </td>
-                  <td>17/1/2019</td>
-                  <td>$116</td>
-                  <td><span class="badge bg-success">Delivered</span></td>
-                  <td>
-                    <div>
-                      <a href="#" class="btn btn-primary btn-sm">Edit</a>
-                    </div>
-                  </td>
+                  <td>3</td>
+                  <td>NobleUI ReactJs</td>
+                  <td>01/05/2022</td>
+                  <td>10/09/2022</td>
+                  <td><span class="badge bg-info">Pending</span></td>
+                  <td>Jensen Combs</td>
                 </tr>
                 <tr>
-                  <th scope="row">#14259</th>
-                  <td>
-                    <div>
-                      <img src="{{ asset('cssAdmin/images/users/user-5.jpg') }}" alt="" class="avatar-xs rounded-circle me-2"> Alberto Jackson
-                    </div>
+                  <td>4</td>
+                  <td>NobleUI VueJs</td>
+                  <td>01/01/2022</td>
+                  <td>31/11/2022</td>
+                  <td><span class="badge bg-warning">Work in Progress</span>
                   </td>
-                  <td>18/1/2019</td>
-                  <td>$109</td>
-                  <td><span class="badge bg-danger">Cancel</span></td>
-                  <td>
-                    <div>
-                      <a href="#" class="btn btn-primary btn-sm">Edit</a>
-                    </div>
-                  </td>
+                  <td>Amiah Burton</td>
                 </tr>
                 <tr>
-                  <th scope="row">#14260</th>
-                  <td>
-                    <div>
-                      <img src="{{ asset('cssAdmin/images/users/user-6.jpg') }}" alt="" class="avatar-xs rounded-circle me-2"> David Sanchez
-                    </div>
-                  </td>
-                  <td>19/1/2019</td>
-                  <td>$120</td>
-                  <td><span class="badge bg-success">Delivered</span></td>
-                  <td>
-                    <div>
-                      <a href="#" class="btn btn-primary btn-sm">Edit</a>
-                    </div>
-                  </td>
+                  <td>5</td>
+                  <td>NobleUI Laravel</td>
+                  <td>01/01/2022</td>
+                  <td>31/12/2022</td>
+                  <td><span class="badge bg-danger">Coming soon</span></td>
+                  <td>Yaretzi Mayo</td>
                 </tr>
                 <tr>
-                  <th scope="row">#14261</th>
-                  <td>
-                    <div>
-                      <img src="{{ asset('cssAdmin/images/users/user-2.jpg') }}" alt="" class="avatar-xs rounded-circle me-2"> Philip Smead
-                    </div>
-                  </td>
-                  <td>15/1/2018</td>
-                  <td>$94</td>
-                  <td><span class="badge bg-warning">Pending</span></td>
-                  <td>
-                    <div>
-                      <a href="#" class="btn btn-primary btn-sm">Edit</a>
-                    </div>
-                  </td>
+                  <td>6</td>
+                  <td>NobleUI NodeJs</td>
+                  <td>01/01/2022</td>
+                  <td>31/12/2022</td>
+                  <td><span class="badge bg-primary">Coming soon</span></td>
+                  <td>Carl Henson</td>
+                </tr>
+                <tr>
+                  <td class="border-bottom">3</td>
+                  <td class="border-bottom">NobleUI EmberJs</td>
+                  <td class="border-bottom">01/05/2022</td>
+                  <td class="border-bottom">10/11/2022</td>
+                  <td class="border-bottom"><span class="badge bg-info">Pending</span></td>
+                  <td class="border-bottom">Jensen Combs</td>
                 </tr>
               </tbody>
             </table>
@@ -481,97 +414,5 @@
         </div>
       </div>
     </div>
-    <div class="col-xl-4">
-      <div class="card">
-        <div class="card-body">
-          <h4 class="card-title mb-4">Chat</h4>
-          <div class="chat-conversation">
-            <ul class="conversation-list" data-simplebar style="max-height: 367px;">
-              <li class="clearfix">
-                <div class="chat-avatar">
-                  <img src="{{ asset('cssAdmin/images/users/user-2.jpg') }}" class="avatar-xs rounded-circle" alt="male">
-                  <span class="time">10:00</span>
-                </div>
-                <div class="conversation-text">
-                  <div class="ctext-wrap">
-                    <span class="user-name">John Deo</span>
-                    <p>
-                      Hello!
-                    </p>
-                  </div>
-                </div>
-              </li>
-              <li class="clearfix odd">
-                <div class="chat-avatar">
-                  <img src="{{ asset('cssAdmin/images/users/user-3.jpg') }}" class="avatar-xs rounded-circle" alt="Female">
-                  <span class="time">10:01</span>
-                </div>
-                <div class="conversation-text">
-                  <div class="ctext-wrap">
-                    <span class="user-name">Smith</span>
-                    <p>
-                      Hi, How are you? What about our next meeting?
-                    </p>
-                  </div>
-                </div>
-              </li>
-              <li class="clearfix">
-                <div class="chat-avatar">
-                  <img src="{{ asset('cssAdmin/images/users/user-2.jpg') }}" class="avatar-xs rounded-circle" alt="male">
-                  <span class="time">10:04</span>
-                </div>
-                <div class="conversation-text">
-                  <div class="ctext-wrap">
-                    <span class="user-name">John Deo</span>
-                    <p>
-                      Yeah everything is fine
-                    </p>
-                  </div>
-                </div>
-              </li>
-              <li class="clearfix odd">
-                <div class="chat-avatar">
-                  <img src="{{ asset('cssAdmin/images/users/user-3.jpg') }}" class="avatar-xs rounded-circle" alt="male">
-                  <span class="time">10:05</span>
-                </div>
-                <div class="conversation-text">
-                  <div class="ctext-wrap">
-                    <span class="user-name">Smith</span>
-                    <p>
-                      Wow that's great
-                    </p>
-                  </div>
-                </div>
-              </li>
-              <li class="clearfix odd">
-                <div class="chat-avatar">
-                  <img src="{{ asset('cssAdmin/images/users/user-3.jpg') }}" class="avatar-xs rounded-circle" alt="male">
-                  <span class="time">10:08</span>
-                </div>
-                <div class="conversation-text">
-                  <div class="ctext-wrap">
-                    <span class="user-name mb-2">Smith</span>
-
-                    <img src="{{ asset('cssAdmin/images/small/img-1.jpg') }}" alt="" height="48" class="rounded me-2">
-                    <img src="{{ asset('cssAdmin/images/small/img-2.jpg') }}" alt="" height="48" class="rounded">
-                  </div>
-                </div>
-              </li>
-            </ul>
-            <div class="row">
-              <div class="col-sm-9 col-8 chat-inputbar">
-                <input type="text" class="form-control chat-input" placeholder="Enter your text">
-              </div>
-              <div class="col-sm-3 col-4 chat-send">
-                <div class="d-grid">
-                  <button type="submit" class="btn btn-success">Send</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- end row -->
+  </div> <!-- row -->
 @endsection
