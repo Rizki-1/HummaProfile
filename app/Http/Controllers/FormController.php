@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\SiswaMagang;
 use Illuminate\Http\Request;
 use App\Models\KelasIndustri;
+use App\Http\Requests\IndustriStore;
+use App\Http\Requests\SiswaMagangStore;
 
 class FormController extends Controller
 {
-    public function SiswaMagangStore(Request $request)
+    public function SiswaMagangStore(SiswaMagangStore $request)
     {
 
         SiswaMagang::create([
@@ -23,7 +25,7 @@ class FormController extends Controller
         return redirect()->back();
     }
 
-    public function IndustriStore(Request $request)
+    public function IndustriStore(IndustriStore $request)
     {
 
         KelasIndustri::create([

@@ -8,31 +8,14 @@ use Illuminate\Http\Request;
 use App\Models\ProfileCompany;
 use App\Models\LayananPerusahaan;
 use App\Http\Requests\SosmedRequest;
+use App\Http\Requests\LayananRequest;
 use App\Http\Requests\ProfileRequest;
 use Illuminate\Support\Facades\Storage;
 
 class PengaturanController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function Profilestore(Request $request)
+    public function Profilestore(ProfileRequest $request)
     {
         ProfileCompany::create([
             'nama_company' => $request->nama_company,
@@ -43,8 +26,9 @@ class PengaturanController extends Controller
         return redirect()->back();
     }
 
-    public function SosmedStore(Request $request)
+    public function SosmedStore(SosmedRequest $request)
     {
+
         foreach ($request['category-group'] as $category) {
             $logoFile = $category['logo'];
             $logo_name = $logoFile->hashName();
@@ -64,9 +48,8 @@ class PengaturanController extends Controller
 
     }
 
-    public function LayananStore(Request $request,)
+    public function LayananStore(LayananRequest $request,)
     {
-        // dd($request->all());
         foreach ($request['category-group'] as $key ) {
            $layanan = [
             'target_layanan_id' =>  $request->target_id,
@@ -77,26 +60,7 @@ class PengaturanController extends Controller
         return redirect()->back();
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function Profileupdate(Request $request, string $id)
+    public function Profileupdate(ProfileRequest $request, string $id)
     {
         // dd($request->email);
         try {
@@ -114,60 +78,28 @@ class PengaturanController extends Controller
         }
     }
 
-    public function SosmedUpdate(Request $request)
+    public function SosmedUpdate(SosmedRequest $request, $id)
     {
+
         try {
-            $sosmedModels = Sosmed::all();
-
-            foreach ($request['category-group'] as $key => $sosmed) {
-                $logo_name = ''; // Inisialisasi variabel logo_name
-
-                // Periksa apakah kunci ada di $sosmedModels
-                if (isset($sosmedModels[$key])) {
-                    $sosmedkey = $sosmedModels[$key];
-                    $logo_foto = Logo::where('sosmed_id', $sosmedkey->id)->first();
-                    $sosmeddata = Sosmed::where('id', $sosmedkey->id)->first();
-
-                    // Jika ada inputan foto baru, gunakan foto baru
-                    if ($request->hasFile('logo') && $request->file('logo')[$key]->isValid()) {
-                        // Hapus logo yang sudah ada
-                        Storage::delete('sosmed/' . $logo_foto->foto_logo);
-
-                        // Upload logo baru
-                        $logo = $request->file('logo')[$key];
-                        $logo_name = $logo->hashName();
-                        $logo->storeAs('sosmed', $logo_name);
-                    } else {
-                        // Jika tidak ada inputan foto baru, gunakan foto lama
-                        $logo_name = $logo_foto->foto_logo;
-                    }
-
-                    // Perbarui data Sosmed yang sudah ada
-                    $sosmeddata->update([
-                        'nama_sosmed' => $sosmed['nama_sosmed'],
-                        'link' => $sosmed['link'],
-                    ]);
-                } else {
-                    // Jika tidak ada data yang sudah ada, buat data Sosmed baru
-                    $sosmedstore = Sosmed::create([
-                        'nama_sosmed' => $sosmed['nama_sosmed'],
-                        'link' => $sosmed['link'],
-                    ]);
-
-                    // Jika ada inputan foto baru, buat data Logo baru
-                    if ($request->hasFile('logo') && $request->file('logo')[$key]->isValid()) {
-                        $logo = $request->file('logo')[$key];
-                        $logo_name = $logo->hashName();
-                        $logo->storeAs('sosmed', $logo_name);
-
-                        Logo::create([
-                            'sosmed_id' => $sosmedstore->id,
-                            'foto_logo' => $logo_name,
-                        ]);
-                    }
-                }
+            $sosmed = Sosmed::findOrFail($id);
+            $logo = Logo::where('sosmed_id', $id)->first();
+            if($request->hasFile('logo') && $request->file('logo')->isValid())
+            {
+                Storage::delete('sosmed/'. $logo->foto_logo);
+                $logo_name = $request->file('logo')->hashName();
+                $logo_foto = $request->file('logo')->storeAs('sosmed', $logo_name);
+            }else{
+                $logo_name = $logo->foto_logo;
             }
-
+            $sosmed->update([
+                'nama_sosmed' => $request->nama_sosmed,
+                'link' => $request->link,
+            ]);
+            $logo->update([
+                'user_id' => $sosmed->id,
+                'foto_logo' => $logo_name,
+            ]);
             return redirect()->back();
         } catch (\Throwable $th) {
             dd('error');
@@ -177,12 +109,11 @@ class PengaturanController extends Controller
 
 
 
-    public function LayananUpdate(Request $request, $id)
+    public function LayananUpdate(LayananRequest $request, $id)
     {
         try {
             $layanan = LayananPerusahaan::where('target_layanan_id', $id)->delete();
             foreach ($request['category-group'] as $key) {
-                // dd($key['layanan']);
                 $layanan = [
                     'target_layanan_id' => $id,
                     'layanan' => $key['layanan'],
@@ -195,10 +126,6 @@ class PengaturanController extends Controller
         }
     }
 
-
-    /**
-     * Remove the specified resource from storage.
-     */
     public function Sosmeddestroy(string $id)
     {
         try {
