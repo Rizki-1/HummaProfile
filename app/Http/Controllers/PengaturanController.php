@@ -13,25 +13,7 @@ use Illuminate\Support\Facades\Storage;
 
 class PengaturanController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function Profilestore(Request $request)
     {
         ProfileCompany::create([
@@ -66,7 +48,6 @@ class PengaturanController extends Controller
 
     public function LayananStore(Request $request,)
     {
-        // dd($request->all());
         foreach ($request['category-group'] as $key ) {
            $layanan = [
             'target_layanan_id' =>  $request->target_id,
@@ -77,25 +58,6 @@ class PengaturanController extends Controller
         return redirect()->back();
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function Profileupdate(Request $request, string $id)
     {
         // dd($request->email);
@@ -116,8 +78,8 @@ class PengaturanController extends Controller
 
     public function SosmedUpdate(Request $request, $id)
     {
-        // dd($request->all());
-        // try {
+
+        try {
             $sosmed = Sosmed::findOrFail($id);
             $logo = Logo::where('sosmed_id', $id)->first();
             if($request->hasFile('logo') && $request->file('logo')->isValid())
@@ -137,10 +99,10 @@ class PengaturanController extends Controller
                 'foto_logo' => $logo_name,
             ]);
             return redirect()->back();
-        // } catch (\Throwable $th) {
-        //     dd('error');
-        //     return redirect()->back();
-        // }
+        } catch (\Throwable $th) {
+            dd('error');
+            return redirect()->back();
+        }
     }
 
 
@@ -150,7 +112,6 @@ class PengaturanController extends Controller
         try {
             $layanan = LayananPerusahaan::where('target_layanan_id', $id)->delete();
             foreach ($request['category-group'] as $key) {
-                // dd($key['layanan']);
                 $layanan = [
                     'target_layanan_id' => $id,
                     'layanan' => $key['layanan'],
@@ -163,10 +124,6 @@ class PengaturanController extends Controller
         }
     }
 
-
-    /**
-     * Remove the specified resource from storage.
-     */
     public function Sosmeddestroy(string $id)
     {
         try {
