@@ -11,6 +11,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\PengaturanController;
 use App\Http\Controllers\PersetujuanController;
 use App\Http\Controllers\KategoriBeritaController;
+use App\Http\Controllers\ViewController;
 
 /*
 |--------------------------------------------------------------------------
