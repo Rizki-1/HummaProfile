@@ -8,13 +8,14 @@ use Illuminate\Http\Request;
 use App\Models\ProfileCompany;
 use App\Models\LayananPerusahaan;
 use App\Http\Requests\SosmedRequest;
+use App\Http\Requests\LayananRequest;
 use App\Http\Requests\ProfileRequest;
 use Illuminate\Support\Facades\Storage;
 
 class PengaturanController extends Controller
 {
 
-    public function Profilestore(Request $request)
+    public function Profilestore(ProfileRequest $request)
     {
         ProfileCompany::create([
             'nama_company' => $request->nama_company,
@@ -25,8 +26,9 @@ class PengaturanController extends Controller
         return redirect()->back();
     }
 
-    public function SosmedStore(Request $request)
+    public function SosmedStore(SosmedRequest $request)
     {
+
         foreach ($request['category-group'] as $category) {
             $logoFile = $category['logo'];
             $logo_name = $logoFile->hashName();
@@ -46,7 +48,7 @@ class PengaturanController extends Controller
 
     }
 
-    public function LayananStore(Request $request,)
+    public function LayananStore(LayananRequest $request,)
     {
         foreach ($request['category-group'] as $key ) {
            $layanan = [
@@ -58,7 +60,7 @@ class PengaturanController extends Controller
         return redirect()->back();
     }
 
-    public function Profileupdate(Request $request, string $id)
+    public function Profileupdate(ProfileRequest $request, string $id)
     {
         // dd($request->email);
         try {
@@ -76,7 +78,7 @@ class PengaturanController extends Controller
         }
     }
 
-    public function SosmedUpdate(Request $request, $id)
+    public function SosmedUpdate(SosmedRequest $request, $id)
     {
 
         try {
@@ -107,7 +109,7 @@ class PengaturanController extends Controller
 
 
 
-    public function LayananUpdate(Request $request, $id)
+    public function LayananUpdate(LayananRequest $request, $id)
     {
         try {
             $layanan = LayananPerusahaan::where('target_layanan_id', $id)->delete();
