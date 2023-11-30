@@ -62,7 +62,6 @@ Route::get('/home', [HomeController::class, 'home'])->name('home');
 //sosmed (belum bisa)
 Route::put('/sosmed.update/{id}', [PengaturanController::class, 'SosmedUpdate'])->name('sosmed.update');
 
-
 //formLandingPage
 Route::post('/siswa.store', [FormController::class, 'SiswaMagangStore'])->name('siswa.store');
 Route::post('/industri.store', [FormController::class, 'IndustriStore'])->name('industri.store');
@@ -72,3 +71,7 @@ Route::get('/test', [HomeController::class, 'test'])->name('test');
 Route::get('/updatesosmed', [HomeController::class, 'update'])->name('updatesosmed');
 Route::get('/layanan', [HomeController::class, 'layanan'])->name('layanan');
 Route::get('/layan/{id}', [HomeController::class, 'editlayanan'])->name('layan');
+Route::get('/dashboard', function () {
+    return view('admin.dashboard.index');
+});
+
