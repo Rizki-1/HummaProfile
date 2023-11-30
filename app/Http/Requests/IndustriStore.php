@@ -29,7 +29,7 @@ class IndustriStore extends FormRequest
         ];
     }
 
-    public function message(): array
+    public function messages(): array
     {
         return [
             'nama_industri.required' => 'nama industri harus di isi',

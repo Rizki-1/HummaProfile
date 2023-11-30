@@ -11,6 +11,7 @@ use App\Http\Requests\SosmedRequest;
 use App\Http\Requests\LayananRequest;
 use App\Http\Requests\ProfileRequest;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\LayananUpdateRequest;
 
 class PengaturanController extends Controller
 {
@@ -48,11 +49,11 @@ class PengaturanController extends Controller
 
     }
 
-    public function LayananStore(LayananRequest $request,)
+    public function LayananStore(LayananRequest $request)
     {
         foreach ($request['category-group'] as $key ) {
            $layanan = [
-            'target_layanan_id' =>  $request->target_id,
+            'target_layanan_id' =>  $request->target_layanan_id,
             'layanan' => $key['layanan']
            ];
            LayananPerusahaan::create($layanan);
@@ -111,11 +112,12 @@ class PengaturanController extends Controller
 
     public function LayananUpdate(LayananRequest $request, $id)
     {
+        // dd($request->all());
         try {
             $layanan = LayananPerusahaan::where('target_layanan_id', $id)->delete();
             foreach ($request['category-group'] as $key) {
                 $layanan = [
-                    'target_layanan_id' => $id,
+                    'target_layanan_id' => $request->target_layanan_id,
                     'layanan' => $key['layanan'],
                 ];
                 LayananPerusahaan::create($layanan);

@@ -31,7 +31,7 @@ class SiswaMagangStore extends FormRequest
         ];
     }
 
-    public function message(): array
+    public function messages(): array
     {
         return [
             'nama.required' => 'nama harus di isi',

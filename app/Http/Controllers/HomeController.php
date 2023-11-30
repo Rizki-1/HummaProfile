@@ -57,7 +57,7 @@ class HomeController extends Controller
     {
         $targetsid = TargetLayanan::where('id', $id)->first();
         $targets = TargetLayanan::all();
-        $layanan = LayananPerusahaan::all();
+        $layanan = LayananPerusahaan::where('target_layanan_id', $id)->get();
         return view('admin.editlayanan', compact('targets', 'targetsid', 'layanan'));
     }
 }

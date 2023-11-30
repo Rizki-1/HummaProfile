@@ -11,14 +11,11 @@
 <script src="{{ asset('js/formRepeater.js') }}"></script>
 </head>
 <body>
+    @foreach ($errors->all() as $error)
+    <p>{{ $error }}</p>
+@endforeach
 <form action="{{ route('layanan.update', $targetsid->id) }}" method="post" enctype="multipart/form-data">
     @csrf
-    <select name="target_id" id="your_select" style="text-align: center">
-        <option value="{{ $targetsid->id }}" disabled selected>{{ $targetsid->target }}</option>
-        @foreach($targets as $item)
-            <option value="{{ $item->id }}">{{ $item->target }}</option>
-        @endforeach
-    </select>
     <div class="repeater">
         <div data-repeater-list="category-group" class="row g-3">
             @foreach ($layanan as $lay)
@@ -50,6 +47,12 @@
                 value="+ Tambah" />
         </div>
     </div>
+    <select name="target_layanan_id" id="your_select" style="text-align: center">
+        <option value="{{ $targetsid->id }}" disabled selected>{{ $targetsid->target }}</option>
+        @foreach($targets as $item)
+            <option value="{{ $item->id }}">{{ $item->target }}</option>
+        @endforeach
+    </select>
     <button type="submit" class="btn btn-success">tambah</button>
 </form>
 

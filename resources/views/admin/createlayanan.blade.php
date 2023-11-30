@@ -11,9 +11,12 @@
 <script src="{{ asset('js/formRepeater.js') }}"></script>
 </head>
 <body>
-<form action="{{ route('layanan.store') }}" method="post" enctype="multipart/form-data">
+    @foreach ($errors->all() as $error)
+    <p>{{ $error }}</p>
+@endforeach
+<form id="yourFormId" action="{{ route('layanan.store') }}" method="post" enctype="multipart/form-data">
     @csrf
-    <select name="target_id" id="your_select" style="text-align: center">
+    <select name="target_layanan_id" id="your_select" style="text-align: center">
         @foreach($targets as $item)
             <option value="{{ $item->id }}">{{ $item->target }}</option>
         @endforeach
@@ -50,13 +53,39 @@
     <button type="submit" class="btn btn-success">tambah</button>
 </form>
 @foreach ($layanan as $laya )
-<form action="{{ route('layanan.delete', $laya->id) }}" method="post">
+<form class="formDelete" id="formDelete{{ $laya->id }}" action="{{ route('layanan.delete', $laya->id) }}" method="post">
     @method('delete')
     @csrf
     <button type="submit" class="btn btn-danger">hapus</button>
 </form>
-
 @endforeach
 
 </body>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var form = document.querySelector('#yourFormId');
+        var submitButton = form.querySelector('button[type="submit"]');
+
+        form.addEventListener('submit', function () {
+            submitButton.disabled = true;
+            submitButton.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...';
+            var tambahButton = form.querySelector('input[data-repeater-create]');
+            if (tambahButton) {
+                tambahButton.disabled = true;
+            }
+        });
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        @foreach ($layanan as $laya )
+        var form{{ $laya->id }} = document.querySelector('#formDelete{{ $laya->id }}');
+        var submitbut{{ $laya->id }} = form{{ $laya->id }}.querySelector('button[type=submit]');
+        form{{ $laya->id }}.addEventListener('submit', function () {
+            submitbut{{ $laya->id }}.disabled = true;
+            submitbut{{ $laya->id }}.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...';
+        });
+        @endforeach
+    });
+</script>
 </html>
