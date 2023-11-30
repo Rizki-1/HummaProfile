@@ -114,65 +114,33 @@ class PengaturanController extends Controller
         }
     }
 
-    public function SosmedUpdate(Request $request)
+    public function SosmedUpdate(Request $request, $id)
     {
-        try {
-            $sosmedModels = Sosmed::all();
-
-            foreach ($request['category-group'] as $key => $sosmed) {
-                $logo_name = ''; // Inisialisasi variabel logo_name
-
-                // Periksa apakah kunci ada di $sosmedModels
-                if (isset($sosmedModels[$key])) {
-                    $sosmedkey = $sosmedModels[$key];
-                    $logo_foto = Logo::where('sosmed_id', $sosmedkey->id)->first();
-                    $sosmeddata = Sosmed::where('id', $sosmedkey->id)->first();
-
-                    // Jika ada inputan foto baru, gunakan foto baru
-                    if ($request->hasFile('logo') && $request->file('logo')[$key]->isValid()) {
-                        // Hapus logo yang sudah ada
-                        Storage::delete('sosmed/' . $logo_foto->foto_logo);
-
-                        // Upload logo baru
-                        $logo = $request->file('logo')[$key];
-                        $logo_name = $logo->hashName();
-                        $logo->storeAs('sosmed', $logo_name);
-                    } else {
-                        // Jika tidak ada inputan foto baru, gunakan foto lama
-                        $logo_name = $logo_foto->foto_logo;
-                    }
-
-                    // Perbarui data Sosmed yang sudah ada
-                    $sosmeddata->update([
-                        'nama_sosmed' => $sosmed['nama_sosmed'],
-                        'link' => $sosmed['link'],
-                    ]);
-                } else {
-                    // Jika tidak ada data yang sudah ada, buat data Sosmed baru
-                    $sosmedstore = Sosmed::create([
-                        'nama_sosmed' => $sosmed['nama_sosmed'],
-                        'link' => $sosmed['link'],
-                    ]);
-
-                    // Jika ada inputan foto baru, buat data Logo baru
-                    if ($request->hasFile('logo') && $request->file('logo')[$key]->isValid()) {
-                        $logo = $request->file('logo')[$key];
-                        $logo_name = $logo->hashName();
-                        $logo->storeAs('sosmed', $logo_name);
-
-                        Logo::create([
-                            'sosmed_id' => $sosmedstore->id,
-                            'foto_logo' => $logo_name,
-                        ]);
-                    }
-                }
+        // dd($request->all());
+        // try {
+            $sosmed = Sosmed::findOrFail($id);
+            $logo = Logo::where('sosmed_id', $id)->first();
+            if($request->hasFile('logo') && $request->file('logo')->isValid())
+            {
+                Storage::delete('sosmed/'. $logo->foto_logo);
+                $logo_name = $request->file('logo')->hashName();
+                $logo_foto = $request->file('logo')->storeAs('sosmed', $logo_name);
+            }else{
+                $logo_name = $logo->foto_logo;
             }
-
+            $sosmed->update([
+                'nama_sosmed' => $request->nama_sosmed,
+                'link' => $request->link,
+            ]);
+            $logo->update([
+                'user_id' => $sosmed->id,
+                'foto_logo' => $logo_name,
+            ]);
             return redirect()->back();
-        } catch (\Throwable $th) {
-            dd('error');
-            return redirect()->back();
-        }
+        // } catch (\Throwable $th) {
+        //     dd('error');
+        //     return redirect()->back();
+        // }
     }
 
 

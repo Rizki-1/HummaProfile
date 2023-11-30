@@ -60,7 +60,7 @@ Route::get('/', [HomeController::class, 'index'])->name('homeindex');
 Route::get('/home', [HomeController::class, 'home'])->name('home');
 
 //sosmed (belum bisa)
-Route::post('/sosmed.update', [PengaturanController::class, 'SosmedUpdate'])->name('sosmed.update');
+Route::put('/sosmed.update/{id}', [PengaturanController::class, 'SosmedUpdate'])->name('sosmed.update');
 
 
 //formLandingPage

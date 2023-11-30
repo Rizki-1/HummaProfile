@@ -95,6 +95,14 @@
     <button type="submit" class="btn btn-success">tambah</button>
 </form>
 @foreach ($sosmeds as $sosmed)
+<form action="{{ route('sosmed.update', $sosmed->id) }}" method="post" enctype="multipart/form-data">
+    @method('put')
+    @csrf
+    <input type="text" name="nama_sosmed" class="form-control" value="{{ $sosmed->nama_sosmed }}">
+    <input type="text" name="link" class="form-control" value="{{ $sosmed->link }}">
+    <input type="file" name="logo" class="form-control">
+    <button type="submit" class="btn btn-primary">edit</button>
+</form>
 <form action="{{ route('sosmed.delete',$sosmed->id) }}" method="post">
     @method('delete')
     @csrf
