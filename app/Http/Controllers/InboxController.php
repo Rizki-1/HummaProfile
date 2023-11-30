@@ -15,11 +15,21 @@ class InboxController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $inboxes = Inbox::orderBy("created_at", "desc")->paginate(10);
-        return view("inbox.index", compact("inboxes"));
+        $inboxes = Inbox::where('status', is_null($request->hasRead) ? '1' : '2')->orderBy("created_at", "desc");
+
+        if ($request->input('query')) {
+            $inboxes->where("email", $request->input('query'))
+                ->orWhere('name', 'LIKE', '%' . $request->input('query') . '%');
+        }
+
+        $inboxes = $inboxes->paginate(10);
+        $total = Inbox::where('status', '1')->count();
+
+        return view("inbox.index", compact("inboxes", "total"));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -62,6 +72,7 @@ class InboxController extends Controller
     public function show(string $id)
     {
         $inbox = Inbox::where('id', $id)->first();
+        $total = Inbox::where('status', '1')->count();
         if (!$inbox) {
             return back()->with('message', [
                 'icon' => 'error',
@@ -70,7 +81,22 @@ class InboxController extends Controller
             ]);
         }
 
-        return view('inbox.show', compact('inbox'));
+        return view('inbox.show', compact('inbox', 'total'));
+    }
+
+    public function replyShow(string $id)
+    {
+        $inbox = Inbox::where('id', $id)->first();
+        $total = Inbox::where('status', '1')->count();
+        if (!$inbox) {
+            return back()->with('message', [
+                'icon' => 'error',
+                'title' => 'Gagal',
+                'text' => 'ID inbox tidak di temukan!'
+            ]);
+        }
+
+        return view('inbox.reply', compact('inbox', 'total'));
     }
     public function reply(ReplyStoreRequest $request, string $id)
     {

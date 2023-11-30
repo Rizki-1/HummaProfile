@@ -33,11 +33,12 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
     Route::get('/persetujuan', function () {
         echo "Hello";
     });
-    Route::resource("/berita", BeritaController::class);
-    Route::resource("/category-berita", KategoriBeritaController::class);
-    Route::resource("/inbox", InboxController::class)->except(['destroy', 'edit', 'update']);
-    Route::post('/inbox/reply/{id}', [InboxController::class, 'reply'])->name('inbox.reply');
-    // persetujuan
+    Route::resource("/berita",BeritaController::class);
+    Route::resource("/category-berita",KategoriBeritaController::class);
+    Route::resource("/inbox",InboxController::class)->except(['destroy', 'edit', 'update']);
+    Route::get('/inbox/reply/{id}', [InboxController::class,'replyShow'])->name('inbox.reply.show');
+    Route::post('/inbox/reply/{id}', [InboxController::class,'reply'])->name('inbox.reply.post');
+        // persetujuan
     Route::get('/persetujuan/siswa', [ViewController::class, 'persetujuanSiswa'])->name('persetujuan.siswa');
     Route::get('/persetujuan/industri', [ViewController::class, 'persetujuanIndustri'])->name('persetujuan.industri');
     //produk

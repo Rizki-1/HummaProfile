@@ -16,8 +16,8 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com/">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&amp;display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.3.67/css/materialdesignicons.min.css" integrity="sha512-nRzny9w0V2Y1/APe+iEhKAwGAc+K8QYCw4vJek3zXhdn92HtKt226zHs9id8eUq+uYJKaH2gPyuLcaG/dE5c7A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- End fonts -->
 
   <!-- core:css -->
@@ -36,6 +36,9 @@
   <!-- Layout styles -->
   <link rel="stylesheet" href="{{ asset('cssAdmin/css/demo1/style.min.css') }}">
   <!-- End layout styles -->
+
+  <!-- JQuery -->
+  <script src="{{ asset('cssAdmin/js/jquery-ini.js') }}"></script>
 
   <link rel="shortcut icon" href="{{ asset('cssAdmin/images/favicon.png') }}" />
 </head>
@@ -66,9 +69,15 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="link-icon" data-feather="user"></i>
-              <span class="link-title">Siswa Magang</span>
+            <a class="nav-link" href="{{ route('inbox.index') }}">
+              <i class="link-icon" data-feather="mail"></i>
+              <span class="link-title">Email</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="pages/apps/chat.html" class="nav-link">
+              <i class="link-icon" data-feather="message-square"></i>
+              <span class="link-title">Chat</span>
             </a>
           </li>
           <li class="nav-item">

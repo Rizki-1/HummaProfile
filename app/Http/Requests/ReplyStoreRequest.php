@@ -24,7 +24,7 @@ class ReplyStoreRequest extends FormRequest
         return [
             'email' => 'required|email:rfc,dns|exists:inboxes,email',
             'subject' => 'required|string|max:200',
-            'message'=> 'required|max:10000',
+            'message'=> 'required',
         ];
     }
 }
