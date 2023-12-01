@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('kelas');
             $table->string('alamat');
             $table->string('email');
+            $table->string('document');
             $table->string('status')->default('menunggu');
             $table->timestamps();
         });

@@ -11,7 +11,7 @@ class IndustriStore extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,9 +23,10 @@ class IndustriStore extends FormRequest
     {
         return [
             'nama_industri' => 'required|min:5|max:100|unique:kelas_industris,nama_industri',
-            'jenis' => 'required|min:5|max:10',
+            'jenis_industri' => 'required|min:5|max:20',
             'email' => 'required|email:rfc,dns|max:100',
             'alamat' => 'required|min:10|max:100',
+            'document' => 'required|image|mimes:pdf',
         ];
     }
 

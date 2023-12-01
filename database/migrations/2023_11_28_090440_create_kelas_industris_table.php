@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('jenis_industri');
             $table->string('email');
             $table->string('alamat');
+            $table->string('document');
             $table->string('status')->default('menunggu');
             $table->timestamps();
         });

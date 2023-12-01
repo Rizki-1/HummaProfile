@@ -15,6 +15,7 @@ class SiswaMagang extends Model
         'jurusan',
         'kelas',
         'alamat',
+        'document',
         'email',
     ];
 }

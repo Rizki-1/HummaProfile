@@ -14,6 +14,7 @@ class KelasIndustri extends Model
         'jenis_industri',
         'email',
         'alamat',
+        'document',
         'status'
     ];
 }
