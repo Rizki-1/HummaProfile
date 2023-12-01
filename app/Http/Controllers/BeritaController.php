@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Berita;
+use App\Models\PivotBerita;
+use Illuminate\Http\Request;
+use App\Models\KategoriBerita;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreBeritaRequest;
 use App\Http\Requests\UpdateBeritaRequest;
-use App\Models\KategoriBerita;
-use App\Models\PivotBerita;
+use Illuminate\Validation\ValidationException;
 
 class BeritaController extends Controller
 {
@@ -91,9 +93,36 @@ class BeritaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateBeritaRequest $request, Berita $berita)
+    public function update(Request $request, Berita $berita)
     {
-        //
+        try {
+            $berita->title = $request->title;
+            $berita->description = $request->description;
+            if ($request->hasFile('thumbnail') && $request->file('thumbnail')->isValid()) {
+                Storage::delete('thumbnail/'.$berita->thumbnail);
+                $thumbnailName = $request->file('thumbnail')->hashName();
+                $thumbnail = $request->file('thumbnail')->storeAs('thumbnail', $thumbnailName);
+            }else{
+                $thumbnailName = $berita->thumbnail;
+            }
+            $berita->thumbnail = $thumbnailName;
+            $berita->save();
+
+            $categoryId = $request->category;
+            $berita->kategori->attach($categoryId);
+
+            return to_route('berita.index')->with('message', [
+                'icon' => 'success',
+                'title' => 'Berhasil!',
+                'text' => 'Berhasil mengupdate berita!'
+            ]);
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('message', [
+                'icon' => 'warning',
+                'title' => 'gagal!',
+                'text' => 'ada kesalahan  server!',
+            ]);
+        }
     }
 
     /**
@@ -101,6 +130,20 @@ class BeritaController extends Controller
      */
     public function destroy(Berita $berita)
     {
-        //
+        try {
+            Storage::delete('thumbnail/'.$berita->thumbnail);
+            $berita->delete();
+            return to_route('berita.index')->with('message', [
+                'icon' => 'success',
+                'title' => 'Berhasil!',
+                'text' => 'Berhasil mengupdate berita!'
+            ]);
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('message', [
+                'icon' => 'warning',
+                'title' => 'gagal!',
+                'text' => 'ada kesalahan  server!',
+            ]);
+        }
     }
 }
