@@ -42,7 +42,7 @@
                   <form action="#" method="POST">
                     @csrf
                     @method('DELETE')
-                    <i class="link-icon trash-icon" data-feather="trash"></i>
+                    <button type="submit" class="button-delete"><i class="link-icon trash-icon" data-feather="trash"></i></button>
                   </form>
                 </div>
               </div>
@@ -50,6 +50,9 @@
           </div>
         </div>
       @endforeach
+      <div>
+        {{ $berita->links('pagination::bootstrap-5') }}
+      </div>
     </div>
   </div>
 @endsection

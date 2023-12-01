@@ -44,7 +44,7 @@
 
 .detail-container {
     position: absolute;
-    width: 75%;
+    width: 65%;
     bottom: -47px;
     left: 10px;
     transition: all 0.6s;
@@ -122,4 +122,9 @@
 
 .trash-icon:hover {
     color: red;
+}
+
+.button-delete {
+    background-color: transparent;
+    border: none;
 }

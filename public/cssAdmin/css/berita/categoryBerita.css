@@ -1,0 +1,75 @@
+.category-text {
+    font-weight: 700;
+    font-size: 16px;
+    color: rgb(141, 141, 141);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    text-align: center;
+}
+
+.category-container {
+    overflow: hidden;
+}
+
+.row .card {
+    overflow: hidden;
+}
+
+.row .card:hover .category-hover {
+    left: 0;
+}
+
+.category-item {
+    margin-left: 0;
+    transition: 1s;
+    width: 100%;
+    overflow: hidden;
+}
+
+.row .card:hover .category-item {
+    margin-left: 72px;
+    width: 70%;
+}
+
+.category-hover {
+    left: -120px;
+    top: 0;
+    border-radius: 5px;
+    position: absolute;
+    height: 100%;
+    width: 100px;
+    background-color: rgb(0, 102, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: 0.8s;
+}
+
+.edit-icon {
+    color: white;
+    transition: color 0.6s;
+}
+
+.trash-icon {
+    color: white;
+    cursor: pointer;
+    transition: color 0.6s;
+}
+
+.edit-icon:hover {
+    color: yellow;
+}
+
+.trash-icon:hover {
+    color: red;
+}
+
+.button-delete {
+    background-color: transparent;
+    border: none;
+}

@@ -13,7 +13,8 @@ class KategoriBeritaController extends Controller
      */
     public function index()
     {
-        //
+        $category = KategoriBerita::all();
+        return view('admin.berita.category.index', compact('category'));
     }
 
     /**
@@ -81,6 +82,7 @@ class KategoriBeritaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $category = KategoriBerita::findOrFail($id)->delete();
+        return back();
     }
 }
