@@ -20532,13 +20532,12 @@ div.tox .buy-now-wrapper .tox-button svg {
     transition: opacity .5s ease;
     font-weight: 700;
     font-size: 25px;
-    color: #000865;
+    color: #00b1f0;
     direction: ltr
 }
 
 .sidebar .sidebar-header .sidebar-brand span {
-    color: #6571ff;
-    font-weight: 300
+    color: #000000;
 }
 
 .sidebar .sidebar-header .sidebar-toggler {
