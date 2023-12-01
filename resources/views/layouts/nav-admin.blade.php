@@ -16,8 +16,12 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com/">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.3.67/css/materialdesignicons.min.css" integrity="sha512-nRzny9w0V2Y1/APe+iEhKAwGAc+K8QYCw4vJek3zXhdn92HtKt226zHs9id8eUq+uYJKaH2gPyuLcaG/dE5c7A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&amp;display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.3.67/css/materialdesignicons.min.css"
+    integrity="sha512-nRzny9w0V2Y1/APe+iEhKAwGAc+K8QYCw4vJek3zXhdn92HtKt226zHs9id8eUq+uYJKaH2gPyuLcaG/dE5c7A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- End fonts -->
 
   <!-- core:css -->
@@ -37,11 +41,17 @@
   <link rel="stylesheet" href="{{ asset('cssAdmin/css/demo1/style.min.css') }}">
   <!-- End layout styles -->
 
+  {{-- Dropify --}}
+  <link rel="stylesheet" href="{{ asset('cssAdmin/vendors/dropify/dist/dropify.min.css') }}">
+
   <!-- JQuery -->
   <script src="{{ asset('cssAdmin/js/jquery-ini.js') }}"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <!-- core:js -->
+  <!-- core:js -->
   <script src="{{ asset('cssAdmin/vendors/core/core.js') }}"></script>
+
+  {{-- CSS PERSETUJUAN --}}
+  <link rel="stylesheet" href="{{ asset('cssAdmin/css/persetujuan/persetujuan.css') }}">
 
   <link rel="shortcut icon" href="{{ asset('cssAdmin/images/favicon.png') }}" />
 </head>
@@ -66,7 +76,7 @@
           {{-- Sidebar start here --}}
           <li class="nav-item nav-category">Main</li>
           <li class="nav-item">
-            <a href="dashboard.html" class="nav-link">
+            <a href="#" class="nav-link">
               <i class="link-icon" data-feather="home"></i>
               <span class="link-title">Dashboard</span>
             </a>
@@ -134,7 +144,7 @@
 
           <li class="nav-item nav-category">Produk</li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ route('produk.index') }}" class="nav-link">
               <i class="link-icon" data-feather="box"></i>
               <span class="link-title">Produk</span>
             </a>
@@ -393,6 +403,9 @@
   <script src="{{ asset('cssAdmin/js/dashboard-light.js') }}"></script>
   <!-- End custom js for this page -->
 
+  {{-- Dropify --}}
+  <script src="{{ asset('cssAdmin/vendors/dropify/dist/dropify.min.js') }}"></script>
+  <script src="{{ asset('cssAdmin/js/dropify.js') }}"></script>
 </body>
 
 </html>
