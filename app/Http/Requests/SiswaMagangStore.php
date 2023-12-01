@@ -27,7 +27,7 @@ class SiswaMagangStore extends FormRequest
             'jurusan' => 'in:rpl,tkj,tataboga,mm,stm,ph,akl,pplg|required|min:1',
             'kelas' => 'in:7,8,9,10,11,12|int|required',
             'alamat' => 'required|min:5|max:100',
-            'document' => 'required|image|mimes:pdf',
+            'document' => 'required|mimes:pdf',
             'email' => 'required|email:rfc,dns|max:100',
         ];
     }

@@ -26,7 +26,7 @@ class IndustriStore extends FormRequest
             'jenis_industri' => 'required|min:5|max:20',
             'email' => 'required|email:rfc,dns|max:100',
             'alamat' => 'required|min:10|max:100',
-            'document' => 'required|image|mimes:pdf',
+            'document' => 'required|mimes:pdf',
         ];
     }
 

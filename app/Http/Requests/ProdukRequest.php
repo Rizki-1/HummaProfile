@@ -25,7 +25,7 @@ class ProdukStoreRequest extends FormRequest
             'nama_produk' => 'required|string|min:5|max:50|unique:produks,nama_produk',
             'foto_produk' => 'required|image|mimes:png,jpg,jpeg',
             'keterangan_produk' => 'required|string|min:10|max:255',
-            'dibuat' => 'required|string|min:1|max:10',
+            'dibuat' => 'required|string|min:1|max:10|date',
         ];
     }
 
@@ -45,6 +45,7 @@ class ProdukStoreRequest extends FormRequest
             'dibuat.required' => 'di buat harus di isi',
             'dibuat.min' => 'di buat minimal :min',
             'dibuat.max' => 'di buat maksimal :max',
+            'dibuat.date' => 'data harus berbentuk tanggal',
         ];
     }
 }

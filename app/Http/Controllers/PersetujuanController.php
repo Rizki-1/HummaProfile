@@ -16,9 +16,17 @@ class PersetujuanController extends Controller
             $siswa->status = 'diterima';
             $siswa->save();
             //kirim email
-            return redirect()->back();
+            return back()->with('message', [
+                'icon' => 'success',
+                'title' => 'Berhasi!!',
+                'text' => "Berhasil menerima Siswa"
+            ]);
         } catch (\Throwable $th) {
-            return redirect()->back();
+            return back()->with('message', [
+                'icon' => 'error',
+                'title' => 'Gagal!',
+                'text' => "Ada kesalahan server, gagal menerima siswa"
+            ]);
         }
     }
 
@@ -29,9 +37,17 @@ class PersetujuanController extends Controller
             $siswa->status = 'ditolak';
             $siswa->save();
             //kirim email
-            return redirect()->back();
+            return back()->with('message', [
+                'icon' => 'succedd',
+                'title' => 'Berhasil!!',
+                'text' => "Berhasil menolak Siswa"
+            ]);
         } catch (\Throwable $th) {
-            return redirect()->back();
+            return back()->with('message', [
+                'icon' => 'error',
+                'title' => 'Gagal!',
+                'text' => "Ada kesalahan server, gagal menolak Siswa"
+            ]);
         }
     }
 
@@ -42,9 +58,17 @@ class PersetujuanController extends Controller
             $industri->status = 'diterima';
             $industri->save();
             //kirim email
-            return redirect()->back();
+            return back()->with('message', [
+                'icon' => 'success',
+                'title' => 'Berhasil!!',
+                'text' => "Berhasil menerima Industri"
+            ]);
         } catch (\Throwable $th) {
-            return redirect()->back();
+            return back()->with('message', [
+                'icon' => 'error',
+                'title' => 'Gagal!',
+                'text' => "Ada kesalahan server, gagal menerima industri"
+            ]);
         }
     }
 
@@ -55,9 +79,17 @@ class PersetujuanController extends Controller
             $industri->status = 'ditolak';
             $industri->save();
             //kirim email
-            return redirect()->back();
+            return back()->with('message', [
+                'icon' => 'success',
+                'title' => 'Berhasil!',
+                'text' => "Berhasil menolak Industri"
+            ]);
         } catch (\Throwable $th) {
-            return redirect()->back();
+            return back()->with('message', [
+                'icon' => 'error',
+                'title' => 'Gagal!',
+                'text' => "Ada kesalahan server, gagal menolak industri"
+            ]);
         }
     }
 }

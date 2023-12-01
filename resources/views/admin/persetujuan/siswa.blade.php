@@ -30,19 +30,19 @@
                 <td class="scroll-custome" style="max-width: 200px; overflow: auto">{{ $data->alamat }}</td>
                 <td class="d-flex align-items-center gap-2">
                   {{-- Terima --}}
-                  <form action="{{ route('setujusiswa', $data->id) }}" method="POST">
+                  <form class="formTerima" action="{{ route('setujusiswa', $data->id) }}" method="POST">
                     @method('PATCH')
                     @csrf
                     <button type="submit" class="btn btn-primary btn-icon"><i class="link-icon" data-feather="check"></i></button>
                   </form>
                   {{-- Tolak --}}
-                  <form action="{{ route('tolakSiswa', $data->id) }}" method="POST">
+                  <form class="formTolak" action="{{ route('tolakSiswa', $data->id) }}" method="POST">
                     @method('PATCH')
                     @csrf
                     <button type="submit" class="btn btn-danger btn-icon"><i class="link-icon" data-feather="x"></i></button>
                   </form>
                   {{-- Modal Document --}}
-                  <button type="submit" class="btn btn-success btn-icon" data-bs-toggle="modal" data-bs-target="#documentModal"><i class="link-icon" data-feather="file-text"></i></button>
+                  <button type="submit" class="btn btn-success btn-icon" data-bs-toggle="modal" data-bs-target="#documentModal--{{ $data->id }}"><i class="link-icon" data-feather="file-text"></i></button>
                 </td>
               </tr>
             @endforeach
@@ -55,17 +55,61 @@
     </div>
   </div>
 
-  {{-- Modal Document --}}
-  <div class="modal fade" tabindex="-1" id="documentModal" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+  @foreach ($siswas as $key => $data )
+  <div class="modal fade" tabindex="-1" id="documentModal--{{ $data->id }}" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
         </div>
-        <div class="modal-body">
-          {{-- Content Modal Disini! --}}
+        <div class="modal-body" style="height: 600px;">
+            <embed style="height: 100%; width: 100%" src="{{ asset('storage/siswa/' . $data->document) }}" type="application/pdf"> {{-- Content Modal Disini! --}}
         </div>
       </div>
     </div>
   </div>
+  @endforeach
+
+  <script>
+     document.querySelectorAll('.formTolak').forEach(function(form) {
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            Swal.fire({
+                title: 'Apa anda yakin',
+                text: 'Tindakan ini tidak dapat di batalkan',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                cancelButtonText: 'batalkan',
+                confirmButtonText: 'lanjutkan'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit();
+                }
+            });
+        });
+    });
+    document.querySelectorAll('.formTerima').forEach(function(form) {
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            Swal.fire({
+                title: 'Apa anda yakin',
+                text: 'Tindakan ini tidak dapat di batalkan',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                cancelButtonText: 'batalkan',
+                confirmButtonText: 'lanjutkan'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit();
+                }
+            });
+        });
+    });
+  </script>
 @endsection
