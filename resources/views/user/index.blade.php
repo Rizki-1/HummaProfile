@@ -1,64 +1,9 @@
 @extends('layouts.nav-user')
 
 @section('content')
-  <!-- Offcanvas Start-->
-  <div class="offcanvas offcanvas-start" id="offcanvasExample">
-    <div class="offcanvas-header">
-      <!-- Offcanvas Logo Start -->
-      <div class="offcanvas-logo">
-        <a href="index.html"><img src="{{  }}" alt=""></a>
-      </div>
-      <!-- Offcanvas Logo End -->
-      <button type="button" class="close-btn" data-bs-dismiss="offcanvas"><i class="flaticon-close"></i></button>
-    </div>
-
-    <!-- Offcanvas Body Start -->
-    <div class="offcanvas-body">
-      <div class="offcanvas-menu">
-        <ul class="main-menu">
-          <li class="active-menu">
-            <a href="index.html">Home</a>
-            <ul class="sub-menu">
-              <li class="active"><a href="index.html">Home Main</a></li>
-              <li><a href="index-2.html">AI Solutions</a></li>
-              <li><a href="index-3.html">Cyber Security</a></li>
-              <li><a href="index-4.html">IT Solutions</a></li>
-              <li><a href="index-5.html">Software Company</a></li>
-              <li><a href="index-6.html">IT Agency</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="about.html">Aboute Us</a>
-          </li>
-          <li><a href="#">Pages</a>
-            <ul class="sub-menu">
-              <li><a href="team.html">Our Team</a></li>
-              <li><a href="service.html">Service</a></li>
-              <li><a href="choose-us.html">Why Choose Us</a></li>
-              <li><a href="testimonial.html">Testimonial</a></li>
-              <li><a href="pricing.html">Pricing</a></li>
-              <li><a href="login-register.html">Login & Register</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Blog</a>
-            <ul class="sub-menu">
-              <li><a href="blog.html">Blog Grid</a></li>
-              <li><a href="blog-standard.html">Blog List</a></li>
-              <li><a href="blog-details.html">Blog Single</a></li>
-            </ul>
-          </li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-    <!-- Offcanvas Body End -->
-  </div>
-  <!-- Offcanvas End -->
-
-
   <!-- Hero Start -->
   <div class="section techwix-hero-section-03 d-flex align-items-center"
-    style="background-image: url(assets/images/hero-bg3.jpg);">
+    style="background-image: url({{ asset('cssUser/images/hero-bg3.jpg') }});">
     <div class="shape-1">
       <svg xmlns="http://www.w3.org/2000/svg" width="944px" height="894px">
         <defs>
@@ -124,7 +69,8 @@
   <!-- Hero End -->
 
   <!-- Service Start -->
-  <div class="section techwix-service-section-03" style="background-image: url(assets/images/bg/service-bg3.jpg);">
+  <div class="section techwix-service-section-03"
+    style="background-image: url({{ asset('cssUser/images/bg/service-bg3') }}.jpg);">
     <div class="container">
       <!-- Service Wrap Start -->
       <div class="service-wrap-03">
@@ -133,7 +79,7 @@
             <!-- Service Item Start -->
             <div class="service-item-03">
               <div class="service-img">
-                <img src="assets/images/ser-icon9.png" alt="">
+                <img src="{{ asset('cssUser/images/ser-icon9.png') }}" alt="">
               </div>
               <div class="service-content">
                 <h3 class="title"><a href="service.html">Infrastructure Technology</a></h3>
@@ -150,7 +96,7 @@
             <!-- Service Item Start -->
             <div class="service-item-03">
               <div class="service-img">
-                <img src="assets/images/ser-icon10.png" alt="">
+                <img src="{{ asset('cssUser/images/ser-icon10.png') }}" alt="">
               </div>
               <div class="service-content">
                 <h3 class="title"><a href="service.html">IT Consultancy & solution</a></h3>
@@ -167,7 +113,7 @@
             <!-- Service Item Start -->
             <div class="service-item-03">
               <div class="service-img">
-                <img src="assets/images/ser-icon11.png" alt="">
+                <img src="{{ asset('cssUser/images/ser-icon11.png') }}" alt="">
               </div>
               <div class="service-content">
                 <h3 class="title"><a href="service.html">Cloud managed services</a></h3>
@@ -184,7 +130,7 @@
             <!-- Service Item Start -->
             <div class="service-item-03">
               <div class="service-img">
-                <img src="assets/images/ser-icon12.png" alt="">
+                <img src="{{ asset('cssUser/images/ser-icon12.png') }}" alt="">
               </div>
               <div class="service-content">
                 <h3 class="title"><a href="service.html">Blockchain technology</a></h3>
@@ -223,7 +169,7 @@
               <!-- About Author Info Wrap Start -->
               <div class="about-author-info-wrap">
                 <div class="about-author">
-                  <img src="assets/images/sign.png" alt="">
+                  <img src="{{ asset('cssUser/images/sign.png"') }} alt="">
                   <h3 class="name">Alen Morno sin</h3>
                   <span class="designation">CEO, Techmax</span>
                 </div>
@@ -244,10 +190,10 @@
                     class="fas fa-play"></i></a>
               </div>
               <div class="about-img about-img-big">
-                <img src="assets/images/about-big2.jpg" alt="">
+                <img src="{{ asset('cssUser/images/about-big2.jpg') }}" alt="">
               </div>
               <div class="about-img about-img-sm">
-                <img src="assets/images/about-sm2.jpg" alt="">
+                <img src="{{ asset('cssUser/images/about-sm2.jpg') }}" alt="">
               </div>
             </div>
             <!-- About Image Wrap End -->
@@ -268,7 +214,7 @@
             <!-- Single Counter Start -->
             <div class="single-counter">
               <div class="counter-img">
-                <img src="assets/images/counter-1.png" alt="">
+                <img src="{{ asset('cssUser/images/counter-1.png') }}" alt="">
               </div>
               <div class="counter-content">
                 <span class="counter">1790</span>
@@ -281,7 +227,7 @@
             <!-- Single Counter Start -->
             <div class="single-counter">
               <div class="counter-img">
-                <img src="assets/images/counter-2.png" alt="">
+                <img src="{{ asset('cssUser/images/counter-2.png') }}" alt="">
               </div>
               <div class="counter-content">
                 <span class="counter">491</span>
@@ -294,7 +240,7 @@
             <!-- Single Counter Start -->
             <div class="single-counter">
               <div class="counter-img">
-                <img src="assets/images/counter-3.png" alt="">
+                <img src="{{ asset('cssUser/images/counter-3.png') }}" alt="">
               </div>
               <div class="counter-content">
                 <span class="counter">245</span>
@@ -307,7 +253,7 @@
             <!-- Single Counter Start -->
             <div class="single-counter single-counter-4">
               <div class="counter-img">
-                <img src="assets/images/counter-1.png" alt="">
+                <img src="{{ asset('cssUser/images/counter-1.png') }}" alt="">
               </div>
               <div class="counter-content">
                 <span class="counter">1090</span>
@@ -324,7 +270,7 @@
 
   <!-- Choose Us Start -->
   <div class="section techwix-choose-us-section section-padding"
-    style="background-image: url(assets/images/bg/choose-us-bg.jpg);">
+    style="background-image: url({{ asset('cssUser/images/bg/choose-us') }}-bg.jpg);">
     <div class="container">
       <!-- Choose Us Wrap Start -->
       <div class="choose-us-wrap">
@@ -338,7 +284,7 @@
               <!-- Choose Us Item Start -->
               <div class="choose-us-item">
                 <div class="choose-us-img">
-                  <a href="choose-us.html"><img src="assets/images/choose-us1.jpg" alt=""></a>
+                  <a href="choose-us.html"><img src="{{ asset('cssUser/images/choose-us1.jpg') }}" alt=""></a>
                   <div class="choose-us-content">
                     <h3 class="title">Information managemnet system</h3>
                     <p>Accelerate innovation with world-class tech teams We’ll match you to an entire remote team of
@@ -352,7 +298,7 @@
               <!-- Choose Us Item Start -->
               <div class="choose-us-item">
                 <div class="choose-us-img">
-                  <a href="choose-us.html"><img src="assets/images/choose-us2.jpg" alt=""></a>
+                  <a href="choose-us.html"><img src="{{ asset('cssUser/images/choose-us2.jpg') }}" alt=""></a>
                   <div class="choose-us-content">
                     <h3 class="title">Information Database Security</h3>
                     <p>Accelerate innovation with world-class tech teams We’ll match you to an entire remote team of
@@ -366,7 +312,7 @@
               <!-- Choose Us Item Start -->
               <div class="choose-us-item">
                 <div class="choose-us-img">
-                  <a href="choose-us.html"><img src="assets/images/choose-us3.jpg" alt=""></a>
+                  <a href="choose-us.html"><img src="{{ asset('cssUser/images/choose-us3.jpg') }}" alt=""></a>
                   <div class="choose-us-content">
                     <h3 class="title">Multifunctional Technology</h3>
                     <p>Accelerate innovation with world-class tech teams We’ll match you to an entire remote team of
@@ -482,7 +428,7 @@
 
   <!-- Case Study Start -->
   <div class="section techwix-case-study-section-02 section-padding"
-    style="background-image: url(assets/images/bg/case-study-bg.jpg);">
+    style="background-image: url({{ asset('cssUser/images/bg/case-study') }}-bg.jpg);">
     <div class="container">
       <div class="case-study-wrap">
         <div class="section-title text-center">
@@ -499,7 +445,7 @@
             <!-- Single Case Study Start -->
             <div class="single-case-study-02">
               <div class="case-study-img">
-                <a href="#"><img src="assets/images/case-4.jpg" alt=""></a>
+                <a href="#"><img src="{{ asset('cssUser/images/case-4.jpg') }}" alt=""></a>
               </div>
               <div class="case-study-content">
                 <p class="sub-title">Database Security</p>
@@ -515,7 +461,7 @@
             <!-- Single Case Study Start -->
             <div class="single-case-study-02">
               <div class="case-study-img">
-                <a href="#"><img src="assets/images/case-5.jpg" alt=""></a>
+                <a href="#"><img src="{{ asset('cssUser/images/case-5.jpg') }}" alt=""></a>
               </div>
               <div class="case-study-content">
                 <p class="sub-title">Database Security</p>
@@ -531,7 +477,7 @@
             <!-- Single Case Study Start -->
             <div class="single-case-study-02">
               <div class="case-study-img">
-                <a href="#"><img src="assets/images/case-6.jpg" alt=""></a>
+                <a href="#"><img src="{{ asset('cssUser/images/case-6.jpg') }}" alt=""></a>
               </div>
               <div class="case-study-content">
                 <p class="sub-title">Database Security</p>
@@ -569,10 +515,10 @@
                 <!--  Single Testimonial Start  -->
                 <div class="single-testimonial-02">
                   <div class="testimonial-thumb">
-                    <img src="assets/images/testi-3.jpg" alt="">
+                    <img src="{{ asset('cssUser/images/testi-3.jpg') }}" alt="">
                   </div>
                   <div class="testimonial-content">
-                    <img src="assets/images/testi-icon.png" alt="">
+                    <img src="{{ asset('cssUser/images/testi-icon.png') }}" alt="">
                     <p>Accelerate innovation with world-class tech teams Beyond more stoic this along goodness hey
                       this this wow manatee </p>
                     <span class="name">Mike Holder </span>
@@ -585,10 +531,10 @@
                 <!--  Single Testimonial Start  -->
                 <div class="single-testimonial-02">
                   <div class="testimonial-thumb">
-                    <img src="assets/images/testi-4.jpg" alt="">
+                    <img src="{{ asset('cssUser/images/testi-4.jpg') }}" alt="">
                   </div>
                   <div class="testimonial-content">
-                    <img src="assets/images/testi-icon.png" alt="">
+                    <img src="{{ asset('cssUser/images/testi-icon.png') }}" alt="">
                     <p>Accelerate innovation with world-class tech teams Beyond more stoic this along goodness hey
                       this this wow manatee </p>
                     <span class="name">Mike Fermalin </span>
@@ -601,10 +547,10 @@
                 <!--  Single Testimonial Start  -->
                 <div class="single-testimonial-02">
                   <div class="testimonial-thumb">
-                    <img src="assets/images/testi-3.jpg" alt="">
+                    <img src="{{ asset('cssUser/images/testi-3.jpg') }}" alt="">
                   </div>
                   <div class="testimonial-content">
-                    <img src="assets/images/testi-icon.png" alt="">
+                    <img src="{{ asset('cssUser/images/testi-icon.png') }}" alt="">
                     <p>Accelerate innovation with world-class tech teams Beyond more stoic this along goodness hey
                       this this wow manatee </p>
                     <span class="name">Mike Holder </span>
@@ -637,32 +583,32 @@
             <div class="swiper-wrapper">
               <!-- Single Brand Start -->
               <div class="swiper-slide single-brand">
-                <img src="assets/images/brand/brand-1.png" alt="Brand">
+                <img src="{{ asset('cssUser/images/brand/brand-1') }}.png" alt="Brand">
               </div>
               <!-- Single Brand End -->
               <!-- Single Brand Start -->
               <div class="swiper-slide single-brand">
-                <img src="assets/images/brand/brand-2.png" alt="Brand">
+                <img src="{{ asset('cssUser/images/brand/brand-2') }}.png" alt="Brand">
               </div>
               <!-- Single Brand End -->
               <!-- Single Brand Start -->
               <div class="swiper-slide single-brand">
-                <img src="assets/images/brand/brand-3.png" alt="Brand">
+                <img src="{{ asset('cssUser/images/brand/brand-3') }}.png" alt="Brand">
               </div>
               <!-- Single Brand End -->
               <!-- Single Brand Start -->
               <div class="swiper-slide single-brand">
-                <img src="assets/images/brand/brand-4.png" alt="Brand">
+                <img src="{{ asset('cssUser/images/brand/brand-4') }}.png" alt="Brand">
               </div>
               <!-- Single Brand End -->
               <!-- Single Brand Start -->
               <div class="swiper-slide single-brand">
-                <img src="assets/images/brand/brand-5.png" alt="Brand">
+                <img src="{{ asset('cssUser/images/brand/brand-5') }}.png" alt="Brand">
               </div>
               <!-- Single Brand End -->
               <!-- Single Brand Start -->
               <div class="swiper-slide single-brand">
-                <img src="assets/images/brand/brand-2.png" alt="Brand">
+                <img src="{{ asset('cssUser/images/brand/brand-2') }}.png" alt="Brand">
               </div>
               <!-- Single Brand End -->
             </div>
@@ -692,7 +638,7 @@
                 <!-- Single Team Start -->
                 <div class="single-team">
                   <div class="team-img">
-                    <a href="team.html"><img src="assets/images/team/team-1.jpg" alt=""></a>
+                    <a href="team.html"><img src="{{ asset('cssUser/images/team/team-1') }}.jpg" alt=""></a>
                   </div>
                   <div class="team-content">
                     <h3 class="name"><a href="team.html">Andrew <br> Max Fetcher</a></h3>
@@ -713,7 +659,7 @@
                 <!-- Single Team Start -->
                 <div class="single-team">
                   <div class="team-img">
-                    <a href="team.html"><img src="assets/images/team/team-2.jpg" alt=""></a>
+                    <a href="team.html"><img src="{{ asset('cssUser/images/team/team-2') }}.jpg" alt=""></a>
                   </div>
                   <div class="team-content">
                     <h3 class="name"><a href="team.html">Arnold <br> human</a></h3>
@@ -734,7 +680,7 @@
                 <!-- Single Team Start -->
                 <div class="single-team">
                   <div class="team-img">
-                    <a href="team.html"><img src="assets/images/team/team-3.jpg" alt=""></a>
+                    <a href="team.html"><img src="{{ asset('cssUser/images/team/team-3') }}.jpg" alt=""></a>
                   </div>
                   <div class="team-content">
                     <h3 class="name"><a href="team.html">Mike <br> Holder</a></h3>
@@ -755,7 +701,7 @@
                 <!-- Single Team Start -->
                 <div class="single-team">
                   <div class="team-img">
-                    <a href="team.html"><img src="assets/images/team/team-4.jpg" alt=""></a>
+                    <a href="team.html"><img src="{{ asset('cssUser/images/team/team-4') }}.jpg" alt=""></a>
                   </div>
                   <div class="team-content">
                     <h3 class="name"><a href="team.html">Joakim <br> Ken</a></h3>
@@ -800,7 +746,8 @@
             <!-- Single Blog Start -->
             <div class="single-blog">
               <div class="blog-image">
-                <a href="blog-details.html"><img src="assets/images/blog/blog-1.jpg" alt=""></a>
+                <a href="blog-details.html"><img src="{{ asset('cssUser/images/blog/blog-1') }}.jpg"
+                    alt=""></a>
                 <div class="top-meta">
                   <span class="date"><span>08</span>Aug</span>
                 </div>
@@ -823,7 +770,8 @@
             <!-- Single Blog Start -->
             <div class="single-blog">
               <div class="blog-image">
-                <a href="blog-details.html"><img src="assets/images/blog/blog-2.jpg" alt=""></a>
+                <a href="blog-details.html"><img src="{{ asset('cssUser/images/blog/blog-2') }}.jpg"
+                    alt=""></a>
                 <div class="top-meta">
                   <span class="date"><span>10</span>Aug</span>
                 </div>
@@ -846,7 +794,8 @@
             <!-- Single Blog Start -->
             <div class="single-blog">
               <div class="blog-image">
-                <a href="blog-details.html"><img src="assets/images/blog/blog-3.jpg" alt=""></a>
+                <a href="blog-details.html"><img src="{{ asset('cssUser/images/blog/blog-3') }}.jpg"
+                    alt=""></a>
                 <div class="top-meta">
                   <span class="date"><span>12</span>Aug</span>
                 </div>
@@ -870,158 +819,4 @@
     </div>
   </div>
   <!-- Blog End -->
-
-  <!-- Cta Start -->
-  <div class="section techwix-cta-section-02">
-    <div class="container">
-      <!-- Cta Wrap Start -->
-      <div class="cta-wrap" style="background-image: url(assets/images/bg/cta-bg.jpg);">
-        <div class="row align-items-center">
-          <div class="col-xl-9 col-lg-8">
-            <!-- Cta Content Start -->
-            <div class="cta-content">
-              <div class="cta-icon">
-                <img src="assets/images/cta-icon2.png" alt="">
-              </div>
-              <p>We’re Delivering the best customer Experience</p>
-            </div>
-            <!-- Cta Content End -->
-          </div>
-          <div class="col-xl-3 col-lg-4">
-            <!-- Cta Button Start -->
-            <div class="cta-btn">
-              <a class="btn btn-white" href="#">+44 920 090 505</a>
-            </div>
-            <!-- Cta Button End -->
-          </div>
-        </div>
-      </div>
-      <!-- Cta Wrap End -->
-    </div>
-  </div>
-  <!-- Cta End -->
-
-
-  <!-- Footer Section Start -->
-  <div class="section footer-section footer-section-03" style="background-image: url(assets/images/bg/footer-bg.jpg);">
-
-    <div class="container">
-      <!-- Footer Widget Wrap Start -->
-      <div class="footer-widget-wrap">
-        <div class="row">
-          <div class="col-lg-3 col-sm-6">
-            <!-- Footer Widget Start -->
-            <div class="footer-widget-about">
-              <a class="footer-logo" href="index.html"><img src="assets/images/logo-white.png" alt="Logo"></a>
-              <p>Accelerate innovation with world-class tech teams We’ll match you to an entire remote team of
-                incredible freelance talent.</p>
-              <div class="footer-social">
-                <ul class="social">
-                  <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                  <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                  <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                </ul>
-              </div>
-            </div>
-            <!-- Footer Widget End -->
-          </div>
-          <div class="col-lg-3 col-sm-6">
-            <!-- Footer Widget Start -->
-            <div class="footer-widget">
-              <h4 class="footer-widget-title">Useful Links</h4>
-
-              <div class="widget-link">
-                <ul class="link">
-                  <li><a href="#">Terms & Conditions</a></li>
-                  <li><a href="#">About Company</a></li>
-                  <li><a href="#">Payment Gatway</a></li>
-                  <li><a href="#">Policy</a></li>
-                </ul>
-              </div>
-            </div>
-            <!-- Footer Widget End -->
-          </div>
-          <div class="col-lg-3 col-sm-6">
-            <!-- Footer Widget Start -->
-            <div class="footer-widget">
-              <h4 class="footer-widget-title">Our Services</h4>
-
-              <div class="widget-link">
-                <ul class="link">
-                  <li><a href="#">Data Security</a></li>
-                  <li><a href="#">IT Managment</a></li>
-                  <li><a href="#">Outsourcing</a></li>
-                  <li><a href="#">Networking</a></li>
-                </ul>
-              </div>
-            </div>
-            <!-- Footer Widget End -->
-          </div>
-          <div class="col-lg-3 col-sm-6">
-            <!-- Footer Widget Start -->
-            <div class="footer-widget">
-              <h4 class="footer-widget-title">Contact Information</h4>
-
-              <div class="widget-info">
-                <ul>
-                  <li>
-                    <div class="info-icon">
-                      <i class="flaticon-phone-call"></i>
-                    </div>
-                    <div class="info-text">
-                      <span><a href="#">+91 458 654 528</a></span>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="info-icon">
-                      <i class="far fa-envelope-open"></i>
-                    </div>
-                    <div class="info-text">
-                      <span><a href="#">info@example.com</a></span>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="info-icon">
-                      <i class="flaticon-pin"></i>
-                    </div>
-                    <div class="info-text">
-                      <span>60 East 65th Street, NY</span>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <!-- Footer Widget End -->
-          </div>
-        </div>
-      </div>
-      <!-- Footer Widget Wrap End -->
-    </div>
-
-    <!-- Footer Copyright Start -->
-    <div class="footer-copyright-area">
-      <div class="container">
-        <div class="footer-copyright-wrap">
-          <div class="row align-items-center">
-            <div class="col-lg-12">
-              <!-- Footer Copyright Text Start -->
-              <div class="copyright-text text-center">
-                <p>© Copyrights 2022 techwix All rights reserved. </p>
-              </div>
-              <!-- Footer Copyright Text End -->
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Footer Copyright End -->
-  </div>
-  <!-- Footer Section End -->
-
-  <!-- back to top start -->
-  <div class="progress-wrap">
-    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-      <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
-    </svg>
-  </div>
 @endsection

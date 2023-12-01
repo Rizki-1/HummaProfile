@@ -64,9 +64,12 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
     Route::resource('/profile-perusahaan', ProfilePerusahaanController::class)->only(['index', 'update']);
 });
 
+// User Page
 Route::get('/', [HomeController::class, 'index'])->name('homeindex');
 Route::get('/home', [HomeController::class, 'home'])->name('home');
-
+Route::get('/pendidikan/siswa', [HomeController::class, 'indexSiswa'])->name('home.siswaIndex');
+Route::get('/pendidikan/industri', [HomeController::class, 'indexIndustri'])->name('home.industriIndex');
+Route::get('/produk', [HomeController::class, 'indexProduk'])->name('produkIndex');
 
 
 //formLandingPage
