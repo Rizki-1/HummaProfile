@@ -45,12 +45,7 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
     Route::get('/persetujuan/siswa', [ViewController::class, 'persetujuanSiswa'])->name('persetujuan.siswa');
     Route::get('/persetujuan/industri', [ViewController::class, 'persetujuanIndustri'])->name('persetujuan.industri');
     //produk
-    Route::get('/produk', [ProdukController::class, 'Produkindex'])->name('produk.index');
-    Route::get('/produk/create', [ProdukController::class, 'Produkcreate'])->name('produk.create');
-    Route::post('/produk.store', [ProdukController::class, 'Produkstore'])->name('produk.store');
-    Route::post('/produk/edit/{id}', [ProdukController::class, 'Produkedit'])->name('produk.edit');
-    Route::put('/produk.update', [ProdukController::class, 'Produkupdate'])->name('produk.update');
-    Route::delete('/produk.delete', [ProdukController::class, 'Produkdestroy'])->name('produk.delete');
+    Route::resource('/produk', ProdukController::class);
     // profile
     Route::post('/profile.store', [PengaturanController::class, 'Profilestore'])->name('profile.store');
     Route::put('/profile.update/{id}', [PengaturanController::class, 'Profileupdate'])->name('profile.update');
@@ -78,6 +73,3 @@ Route::post('/industri.store', [FormController::class, 'IndustriStore'])->name('
 
 //route testing
 Route::get('/test', [HomeController::class, 'test'])->name('test');
-Route::get('/dashboard', function () {
-    return view('admin.dashboard.index');
-});

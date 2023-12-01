@@ -51,7 +51,7 @@ class PersetujuanController extends Controller
             //kirim email
             Mail::to($email)->send(new TolakSiswaMail($nama, $type));
             return back()->with('message', [
-                'icon' => 'succedd',
+                'icon' => 'success',
                 'title' => 'Berhasil!!',
                 'text' => "Berhasil menolak Siswa"
             ]);

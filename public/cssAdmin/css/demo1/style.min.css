@@ -23941,3 +23941,8 @@ div.tox .tox-dialog__body {
     border-radius: 5px;
     cursor: pointer;
 }
+
+#button-logout {
+    border: none;
+    background: none;
+}

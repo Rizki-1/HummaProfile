@@ -42,7 +42,7 @@
             </div>
             <div>
               <label class="form-label" for="description">Deskripsi Berita</label>
-              <textarea class="form-control" id="description" placeholder="Deskripsi Berita" name="description">{{ old('description') }}</textarea>
+              <textarea class="form-control" id="description" placeholder="Deskripsi Berita" name="description" rows="6">{{ old('description') }}</textarea>
             </div>
           </div>
           <div class="col-md-6">

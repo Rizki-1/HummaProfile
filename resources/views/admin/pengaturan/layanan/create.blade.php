@@ -1,9 +1,6 @@
 @extends('layouts.nav-admin')
 
 @section('content')
-@foreach ($errors->all() as $error)
-<p>{{ $error }}</p>
-@endforeach
     <div class="row">
         <div class="col-md-12 grid-margin stretch-card">
             <div class="card">
@@ -29,16 +26,18 @@
                                                 @enderror
                                             </div>
                                             <div class="col-6 mb-4 ps-2">
-                                                <label for="unknown" class="form-label">Jam
-                                                    Pelajaran</label>
-                                                <div class="d-flex justify-content-between">
-                                                    <div style="width: 100%">
+                                                <label for="target_layanan" class="form-label">Target Layanan</label>
+                                                <div class="d-flex">
+                                                    <div class="flex-column w-100">
                                                         <select name="target_layanan_id" id="target_layanan"
-                                                            class="form-select form-select-sm">
-                                                            <option value="" disabled selected>--Pilih Target Layanan--</option>
-                                                           @foreach ($categoris as $item)
-                                                           <option value="{{ $item->id }}">{{ $item->target }}</option>
-                                                           @endforeach
+                                                            class="form-select form-select-sm @error('layanan-group.' . $i . '.target_layanan_id') is-invalid @enderror">
+                                                            <option value="" disabled selected>--Pilih Target
+                                                                Layanan--</option>
+                                                            @foreach ($categoris as $item)
+                                                                <option value="{{ $item->id }}"
+                                                                    {{ isset($category['target_layanan_id']) ? $category['target_layanan_id'] == $item->id ? 'selected' : '' : ''}}>
+                                                                    {{ $item->target }}</option>
+                                                            @endforeach
                                                         </select>
                                                         @error('layanan-group.' . $i++ . '.target_layanan_id')
                                                             <div class="invalid-feedback">
@@ -66,16 +65,15 @@
                                                     placeholder="Nama Layanan baru" name="layanan" value="" required>
                                             </div>
                                             <div class="col-6 mb-4 ps-2">
-                                                <label for="unknown" class="form-label">Jam
-                                                    Pelajaran</label>
+                                                <label for="target_layanan" class="form-label">Target Layanan</label>
                                                 <div class="d-flex">
-                                                    <label for="target_layanan"></label>
                                                     <select name="target_layanan_id" id="target_layanan"
                                                         class="form-select form-select-sm">
                                                         <option value="" disabled selected>--Pilih Target Layanan--
                                                         </option>
-                                                        <option value="1">Siswa</option>
-                                                        <option value="2">Industri</option>
+                                                        @foreach ($categoris as $item)
+                                                            <option value="{{ $item->id }}">{{ $item->target }}</option>
+                                                        @endforeach
                                                     </select>
                                                     <input required id="button-hapus-detail"
                                                         class="btn btn-outline-danger waves-effect waves-light ms-3 d-flex justify-content-center align-items-center"
