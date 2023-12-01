@@ -34,16 +34,19 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
     Route::get('/persetujuan', function () {
         echo "Hello";
     });
-    Route::resource("/berita",BeritaController::class);
-    Route::resource("/category-berita",KategoriBeritaController::class);
-    Route::resource("/inbox",InboxController::class)->except(['destroy', 'edit', 'update']);
-    Route::get('/inbox/reply/{id}', [InboxController::class,'replyShow'])->name('inbox.reply.show');
-    Route::post('/inbox/reply/{id}', [InboxController::class,'reply'])->name('inbox.reply.post');
-        // persetujuan
+    Route::resource("/berita", BeritaController::class);
+    Route::resource("/category-berita", KategoriBeritaController::class);
+    Route::resource("/inbox", InboxController::class)->except(['destroy', 'edit', 'update']);
+    Route::get('/inbox/reply/{id}', [InboxController::class, 'replyShow'])->name('inbox.reply.show');
+    Route::post('/inbox/reply/{id}', [InboxController::class, 'reply'])->name('inbox.reply.post');
+    // persetujuan
     Route::get('/persetujuan/siswa', [ViewController::class, 'persetujuanSiswa'])->name('persetujuan.siswa');
     Route::get('/persetujuan/industri', [ViewController::class, 'persetujuanIndustri'])->name('persetujuan.industri');
     //produk
+    Route::get('/produk', [ProdukController::class, 'Produkindex'])->name('produk.index');
+    Route::get('/produk/create', [ProdukController::class, 'Produkcreate'])->name('produk.create');
     Route::post('/produk.store', [ProdukController::class, 'Produkstore'])->name('produk.store');
+    Route::post('/produk/edit/{id}', [ProdukController::class, 'Produkedit'])->name('produk.edit');
     Route::put('/produk.update', [ProdukController::class, 'Produkupdate'])->name('produk.update');
     Route::delete('/produk.delete', [ProdukController::class, 'Produkdestroy'])->name('produk.delete');
     // profile

@@ -14,17 +14,19 @@ class ProdukController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function Produkindex()
     {
-        //
+        $produks = Produk::paginate(5);
+
+        return view('admin.produk.index', compact('produks'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function Produkcreate()
     {
-        //
+        return view('admin.produk.create');
     }
 
     /**
@@ -56,9 +58,9 @@ class ProdukController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function Produkedit(string $id)
     {
-        //
+        return view('admin.produk.edit');
     }
 
     /**
@@ -98,7 +100,7 @@ class ProdukController extends Controller
     {
         try {
             $produk = Produk::findOrFail($id);
-            Storage::delete('produk/'.$produk->foto_produk);
+            Storage::delete('produk/' . $produk->foto_produk);
             $produk->delete();
             return redirect()->back();
         } catch (\Throwable $th) {

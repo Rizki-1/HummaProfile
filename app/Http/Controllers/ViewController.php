@@ -10,14 +10,14 @@ class ViewController extends Controller
 {
     public function persetujuanSiswa()
     {
-        $siswas = SiswaMagang::where('status', 'menunggu')->get();
+        $siswas = SiswaMagang::where('status', 'menunggu')->paginate(5);
 
         return view('admin.persetujuan.siswa', compact('siswas'));
     }
 
     public function persetujuanIndustri()
     {
-        $industris = KelasIndustri::where('status', 'menunggu')->get();
+        $industris = KelasIndustri::where('status', 'menunggu')->paginate(5);
 
         return view('admin.persetujuan.industri', compact('industris'));
     }
