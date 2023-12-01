@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('profile_companies', function (Blueprint $table) {
+        Schema::create('sosmeds', function (Blueprint $table) {
             $table->id();
-            $table->text('tentang');
-            $table->string('alamat');
-            $table->string('no_telp');
-            $table->string('email');
+            $table->string('name');
+            $table->string('link');
+            $table->string('logo');
             $table->timestamps();
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('profile_companies');
+        Schema::dropIfExists('sosmeds');
     }
 };

@@ -6,20 +6,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="description" content="Responsive HTML Admin Dashboard Template based on Bootstrap 5">
-  <meta name="author" content="NobleUI">
-  <meta name="keywords"
-    content="nobleui, bootstrap, bootstrap 5, bootstrap5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com/">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&amp;display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.3.67/css/materialdesignicons.min.css"
-    integrity="sha512-nRzny9w0V2Y1/APe+iEhKAwGAc+K8QYCw4vJek3zXhdn92HtKt226zHs9id8eUq+uYJKaH2gPyuLcaG/dE5c7A=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.3.67/css/materialdesignicons.min.css" integrity="sha512-nRzny9w0V2Y1/APe+iEhKAwGAc+K8QYCw4vJek3zXhdn92HtKt226zHs9id8eUq+uYJKaH2gPyuLcaG/dE5c7A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- End fonts -->
 
   <!-- core:css -->
@@ -80,7 +73,7 @@
           {{-- Sidebar start here --}}
           <li class="nav-item nav-category">Main</li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ route('dashboard') }}" class="nav-link">
               <i class="link-icon" data-feather="home"></i>
               <span class="link-title">Dashboard</span>
             </a>
@@ -150,7 +143,7 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ route('inbox.index') }}">
               <i class="link-icon" data-feather="mail"></i>
-              <span class="link-title">Email</span>
+              <span class="link-title">Inbox</span>
             </a>
           </li>
 
@@ -173,7 +166,7 @@
             <div class="collapse" id="pengaturan">
               <ul class="nav sub-menu">
                 <li class="nav-item">
-                  <a href="#" class="nav-link">Pengaturan Profile</a>
+                  <a href="{{ route('profile-perusahaan.index') }}" class="nav-link">Pengaturan Profile</a>
                 </li>
                 <li class="nav-item">
                   <a href="{{ route('layanan-perusahaan.index') }}" class="nav-link">Layanan Perusahaan</a>
@@ -400,7 +393,15 @@
   </div>
 
   <!-- endinject -->
-
+    @if (session('message'))
+    <script>
+        Swal.fire({
+        icon: "{{ session('message')['icon'] ?? 'question' }}",
+        title: "{{ session('message')['title'] ?? 'Tidak ada keteerangan' }}",
+        text: "{{ session('message')['text'] ?? 'Tidak ada keterangan' }}",
+        })
+    </script>
+    @endif
   <!-- Plugin js for this page -->
   <script src="{{ asset('cssAdmin/vendors/flatpickr/flatpickr.min.js') }}"></script>
   <script src="{{ asset('cssAdmin/vendors/apexcharts/apexcharts.min.js') }}"></script>
