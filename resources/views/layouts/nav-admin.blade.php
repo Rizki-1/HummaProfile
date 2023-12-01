@@ -8,7 +8,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="description" content="Responsive HTML Admin Dashboard Template based on Bootstrap 5">
   <meta name="author" content="NobleUI">
-  <meta name="keywords" content="nobleui, bootstrap, bootstrap 5, bootstrap5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+  <meta name="keywords"
+    content="nobleui, bootstrap, bootstrap 5, bootstrap5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com/">
@@ -38,6 +39,10 @@
   <link rel="stylesheet" href="{{ asset('cssAdmin/css/demo1/style.min.css') }}">
   <!-- End layout styles -->
 
+  {{-- Date Picker --}}
+  <link rel="stylesheet" href="{{ asset('cssAdmin/vendors/pickr/themes/classic.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('cssAdmin/vendors/flatpickr/flatpickr.min.css') }}">
+
   {{-- Dropify --}}
   <link rel="stylesheet" href="{{ asset('cssAdmin/vendors/dropify/dist/dropify.min.css') }}">
 
@@ -49,6 +54,9 @@
 
   {{-- CSS PERSETUJUAN --}}
   <link rel="stylesheet" href="{{ asset('cssAdmin/css/persetujuan/persetujuan.css') }}">
+
+  {{-- CSS PRODUK --}}
+  <link rel="stylesheet" href="{{ asset('cssAdmin/css/produk/produk.css') }}">
 
   <link rel="shortcut icon" href="{{ asset('cssAdmin/images/favicon.png') }}" />
 </head>
@@ -80,7 +88,8 @@
 
           <li class="nav-item nav-category">List</li>
           <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#list" role="button" aria-expanded="false" aria-controls="berita">
+            <a class="nav-link" data-bs-toggle="collapse" href="#list" role="button" aria-expanded="false"
+              aria-controls="berita">
               <i class="link-icon" data-feather="grid"></i>
               <span class="link-title">List</span>
               <i class="link-arrow" data-feather="chevron-down"></i>
@@ -99,7 +108,8 @@
 
           <li class="nav-item nav-category">Persetujuan</li>
           <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#persetujuan" role="button" aria-expanded="false" aria-controls="persetujuan">
+            <a class="nav-link" data-bs-toggle="collapse" href="#persetujuan" role="button" aria-expanded="false"
+              aria-controls="persetujuan">
               <i class="link-icon" data-feather="check-square"></i>
               <span class="link-title">Persetujuan</span>
               <i class="link-arrow" data-feather="chevron-down"></i>
@@ -118,7 +128,8 @@
 
           <li class="nav-item nav-category">Berita</li>
           <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#berita" role="button" aria-expanded="false" aria-controls="berita">
+            <a class="nav-link" data-bs-toggle="collapse" href="#berita" role="button" aria-expanded="false"
+              aria-controls="berita">
               <i class="link-icon" data-feather="copy"></i>
               <span class="link-title">Berita</span>
               <i class="link-arrow" data-feather="chevron-down"></i>
@@ -153,7 +164,8 @@
 
           <li class="nav-item nav-category">Pengaturan</li>
           <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#pengaturan" role="button" aria-expanded="false" aria-controls="pengaturan">
+            <a class="nav-link" data-bs-toggle="collapse" href="#pengaturan" role="button" aria-expanded="false"
+              aria-controls="pengaturan">
               <i class="link-icon" data-feather="settings"></i>
               <span class="link-title">Pengaturan</span>
               <i class="link-arrow" data-feather="chevron-down"></i>
@@ -185,7 +197,8 @@
         <div class="navbar-content">
           <ul class="navbar-nav">
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="messageDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="#" id="messageDropdown" role="button"
+                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i data-feather="mail"></i>
               </a>
               <div class="dropdown-menu p-0" aria-labelledby="messageDropdown">
@@ -196,7 +209,8 @@
                 <div class="p-1">
                   <a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
                     <div class="me-3">
-                      <img class="wd-30 ht-30 rounded-circle" src="{{ asset('cssAdmin/images/faces/face2.jpg') }}" alt="userr">
+                      <img class="wd-30 ht-30 rounded-circle" src="{{ asset('cssAdmin/images/faces/face2.jpg') }}"
+                        alt="userr">
                     </div>
                     <div class="d-flex justify-content-between flex-grow-1">
                       <div class="me-4">
@@ -208,7 +222,8 @@
                   </a>
                   <a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
                     <div class="me-3">
-                      <img class="wd-30 ht-30 rounded-circle" src="{{ asset('cssAdmin/images/faces/face3.jpg') }}" alt="userr">
+                      <img class="wd-30 ht-30 rounded-circle" src="{{ asset('cssAdmin/images/faces/face3.jpg') }}"
+                        alt="userr">
                     </div>
                     <div class="d-flex justify-content-between flex-grow-1">
                       <div class="me-4">
@@ -220,7 +235,8 @@
                   </a>
                   <a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
                     <div class="me-3">
-                      <img class="wd-30 ht-30 rounded-circle" src="{{ asset('cssAdmin/images/faces/face4.jpg') }}" alt="userr">
+                      <img class="wd-30 ht-30 rounded-circle" src="{{ asset('cssAdmin/images/faces/face4.jpg') }}"
+                        alt="userr">
                     </div>
                     <div class="d-flex justify-content-between flex-grow-1">
                       <div class="me-4">
@@ -232,7 +248,8 @@
                   </a>
                   <a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
                     <div class="me-3">
-                      <img class="wd-30 ht-30 rounded-circle" src="{{ asset('cssAdmin/images/faces/face5.jpg') }}" alt="userr">
+                      <img class="wd-30 ht-30 rounded-circle" src="{{ asset('cssAdmin/images/faces/face5.jpg') }}"
+                        alt="userr">
                     </div>
                     <div class="d-flex justify-content-between flex-grow-1">
                       <div class="me-4">
@@ -244,7 +261,8 @@
                   </a>
                   <a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
                     <div class="me-3">
-                      <img class="wd-30 ht-30 rounded-circle" src="{{ asset('cssAdmin/images/faces/face6.jpg') }}" alt="userr">
+                      <img class="wd-30 ht-30 rounded-circle" src="{{ asset('cssAdmin/images/faces/face6.jpg') }}"
+                        alt="userr">
                     </div>
                     <div class="d-flex justify-content-between flex-grow-1">
                       <div class="me-4">
@@ -261,7 +279,8 @@
               </div>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="notificationDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="#" id="notificationDropdown" role="button"
+                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i data-feather="bell"></i>
                 <div class="indicator">
                   <div class="circle"></div>
@@ -274,7 +293,8 @@
                 </div>
                 <div class="p-1">
                   <a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
-                    <div class="wd-30 ht-30 d-flex align-items-center justify-content-center bg-primary rounded-circle me-3">
+                    <div
+                      class="wd-30 ht-30 d-flex align-items-center justify-content-center bg-primary rounded-circle me-3">
                       <i class="icon-sm text-white" data-feather="gift"></i>
                     </div>
                     <div class="flex-grow-1 me-2">
@@ -283,7 +303,8 @@
                     </div>
                   </a>
                   <a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
-                    <div class="wd-30 ht-30 d-flex align-items-center justify-content-center bg-primary rounded-circle me-3">
+                    <div
+                      class="wd-30 ht-30 d-flex align-items-center justify-content-center bg-primary rounded-circle me-3">
                       <i class="icon-sm text-white" data-feather="alert-circle"></i>
                     </div>
                     <div class="flex-grow-1 me-2">
@@ -292,8 +313,10 @@
                     </div>
                   </a>
                   <a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
-                    <div class="wd-30 ht-30 d-flex align-items-center justify-content-center bg-primary rounded-circle me-3">
-                      <img class="wd-30 ht-30 rounded-circle" src="{{ asset('cssAdmin/images/faces/face6.jpg') }}" alt="userr">
+                    <div
+                      class="wd-30 ht-30 d-flex align-items-center justify-content-center bg-primary rounded-circle me-3">
+                      <img class="wd-30 ht-30 rounded-circle" src="{{ asset('cssAdmin/images/faces/face6.jpg') }}"
+                        alt="userr">
                     </div>
                     <div class="flex-grow-1 me-2">
                       <p>New customer registered</p>
@@ -301,7 +324,8 @@
                     </div>
                   </a>
                   <a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
-                    <div class="wd-30 ht-30 d-flex align-items-center justify-content-center bg-primary rounded-circle me-3">
+                    <div
+                      class="wd-30 ht-30 d-flex align-items-center justify-content-center bg-primary rounded-circle me-3">
                       <i class="icon-sm text-white" data-feather="layers"></i>
                     </div>
                     <div class="flex-grow-1 me-2">
@@ -310,7 +334,8 @@
                     </div>
                   </a>
                   <a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
-                    <div class="wd-30 ht-30 d-flex align-items-center justify-content-center bg-primary rounded-circle me-3">
+                    <div
+                      class="wd-30 ht-30 d-flex align-items-center justify-content-center bg-primary rounded-circle me-3">
                       <i class="icon-sm text-white" data-feather="download"></i>
                     </div>
                     <div class="flex-grow-1 me-2">
@@ -325,13 +350,16 @@
               </div>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img class="wd-30 ht-30 rounded-circle" src="{{ asset('cssAdmin/images/faces/face1.jpg') }}" alt="profile">
+              <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button"
+                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img class="wd-30 ht-30 rounded-circle" src="{{ asset('cssAdmin/images/faces/face1.jpg') }}"
+                  alt="profile">
               </a>
               <div class="dropdown-menu p-0" aria-labelledby="profileDropdown">
                 <div class="d-flex flex-column align-items-center border-bottom px-5 py-3">
                   <div class="mb-3">
-                    <img class="wd-80 ht-80 rounded-circle" src="{{ asset('cssAdmin/images/faces/face1.jpg') }}" alt="">
+                    <img class="wd-80 ht-80 rounded-circle" src="{{ asset('cssAdmin/images/faces/face1.jpg') }}"
+                      alt="">
                   </div>
                   <div class="text-center">
                     <p class="tx-16 fw-bolder">Hummatech</p>
@@ -358,11 +386,13 @@
       </div>
 
       <!-- partial:partials/_footer.html -->
-      <footer class="footer d-flex flex-column flex-md-row align-items-center justify-content-between px-4 py-3 border-top small">
+      <footer
+        class="footer d-flex flex-column flex-md-row align-items-center justify-content-between px-4 py-3 border-top small">
         <p class="text-muted mb-1 mb-md-0">Copyright © 2023 <a
             href="https://www.google.com/search?q=hummatech&rlz=1C1FKPE_idID1058ID1058&oq=hummatech&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIPCAEQLhgKGMcBGNEDGIAEMgkIAhAAGAoYgAQyBggDEEUYPDIGCAQQRRg8MgYIBRBFGDzSAQgxNzIxajBqN6gCALACAA&sourceid=chrome&ie=UTF-8"
             target="_blank">Hummatech</a>.</p>
-        <p class="text-muted">Di buat oleh Hummaprofile <i class="mb-1 text-primary ms-1 icon-sm" data-feather="heart"></i></p>
+        <p class="text-muted">Di buat oleh Hummaprofile <i class="mb-1 text-primary ms-1 icon-sm"
+            data-feather="heart"></i></p>
       </footer>
       <!-- partial -->
 
@@ -388,6 +418,10 @@
   {{-- Dropify --}}
   <script src="{{ asset('cssAdmin/vendors/dropify/dist/dropify.min.js') }}"></script>
   <script src="{{ asset('cssAdmin/js/dropify.js') }}"></script>
+
+  {{-- Data Picker --}}
+  <script src="{{ asset('vendors/flatpickr/flatpickr.min.js') }}"></script>
+  <script src="{{ asset('cssAdmin/js/flatpickr.js') }}"></script>
 </body>
 
 </html>
