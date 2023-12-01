@@ -20,6 +20,10 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function dashboard(){
+        return view('admin.dashboard');
+    }
     public function SiswaMagangStore(Request $request)
     {
         SiswaMagang::create([

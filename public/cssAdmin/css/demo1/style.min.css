@@ -23932,3 +23932,12 @@ div.tox .tox-dialog__body {
 .buy-now-wrapper {
     display: none !important;
 }
+
+.custom-file-label {
+    margin-left: 5px;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}

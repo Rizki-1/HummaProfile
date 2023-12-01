@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="row">
-        <div class="col-md-12 grid-margin stretch-card">
+        <div class="col-md-12 grid-margin stretch-card" style="">
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex justify-content-between">
@@ -11,7 +11,7 @@
                             onclick="window.location.href = '{{ route('layanan-perusahaan.create') }}'"><i
                                 class="mdi mdi-plus-circle"></i> Tambah</button>
                     </div>
-                    <div class="table-responsive">
+                    <div class="table-responsive" style="">
                         <div id="dataTableExample_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
                             <div class="row">
                                 <div class="col-sm-12 col-md-6">
