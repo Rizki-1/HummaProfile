@@ -6,7 +6,7 @@
   <meta name="x-apple-disable-message-reformatting">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta content="telephone=no" name="format-detection">
-  <title>reject-(kelasindustri/magang)</title><!--[if (mso 16)]>
+  <title>reject-{{ $type }}</title><!--[if (mso 16)]>
     <style type="text/css">
     a {text-decoration: none;}
     </style>
@@ -107,16 +107,16 @@ a[x-apple-data-detectors] {
                   <td valign="top" align="center" style="padding:0;Margin:0;width:540px">
                    <table width="100%" cellspacing="0" cellpadding="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
                      <tr style="border-collapse:collapse">
-                      <td align="center" style="padding:0;Margin:0;padding-bottom:25px"><h2 style="Margin:0;line-height:24px;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:20px;font-style:normal;font-weight:normal;color:#333333"><strong>Pemberitahuan Pendaftaran</strong></h2><h2 style="Margin:0;line-height:24px;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:20px;font-style:normal;font-weight:normal;color:#333333"><strong>(Kelas Industri/Magang)</strong></h2></td>
+                      <td align="center" style="padding:0;Margin:0;padding-bottom:25px"><h2 style="Margin:0;line-height:24px;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:20px;font-style:normal;font-weight:normal;color:#333333"><strong>Pemberitahuan Pendaftaran</strong></h2><h2 style="Margin:0;line-height:24px;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:20px;font-style:normal;font-weight:normal;color:#333333"><strong>{{ $type }}</strong></h2></td>
                      </tr>
                      <tr style="border-collapse:collapse">
-                      <td align="left" style="padding:0;Margin:0"><h3 style="Margin:0;line-height:22px;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:18px;font-style:normal;font-weight:normal;color:#5d5d5d"><strong>Halo ---,</strong></h3></td>
+                      <td align="left" style="padding:0;Margin:0"><h3 style="Margin:0;line-height:22px;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:18px;font-style:normal;font-weight:normal;color:#5d5d5d"><strong>Halo {{ $nama }},</strong></h3></td>
                      </tr>
                      <tr style="border-collapse:collapse">
-                      <td align="left" style="padding:0;Margin:0;padding-top:40px"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#5d5d5d;font-size:14px">Terima kasih atas minat Anda untuk mendaftar dalam (kelas industri/program magang) di perusahaan kami. Kami menghargai waktu dan upaya yang telah Anda berikan dalam proses pendaftaran.</p></td>
+                      <td align="left" style="padding:0;Margin:0;padding-top:40px"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#5d5d5d;font-size:14px">Terima kasih atas minat Anda untuk mendaftar dalam {{ $type }} di perusahaan kami. Kami menghargai waktu dan upaya yang telah Anda berikan dalam proses pendaftaran.</p></td>
                      </tr>
                      <tr style="border-collapse:collapse">
-                      <td align="left" style="padding:0;Margin:0;padding-top:15px"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#5d5d5d;font-size:14px">Setelah melalui evaluasi menyeluruh, dengan menyesal kami sampaikan bahwa pendaftaran Anda untuk (kelas industri/magang) di Hummatech telah <strong>ditolak.</strong> Keputusan ini diambil setelah mempertimbangkan berbagai faktor, seperti kapasitas penerimaan peserta, dan kriteria lainnya.</p></td>
+                      <td align="left" style="padding:0;Margin:0;padding-top:15px"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#5d5d5d;font-size:14px">Setelah melalui evaluasi menyeluruh, dengan menyesal kami sampaikan bahwa pendaftaran Anda untuk {{ $type }} di Hummatech telah <strong>ditolak.</strong> Keputusan ini diambil setelah mempertimbangkan berbagai faktor, seperti kapasitas penerimaan peserta, dan kriteria lainnya.</p></td>
                      </tr>
                      <tr style="border-collapse:collapse">
                       <td align="left" style="padding:0;Margin:0;padding-top:15px"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#5d5d5d;font-size:14px">Keputusan ini tidak berarti bahwa kami meragukan potensi dan kemampuan Anda. Kami yakin bahwa Anda memiliki potensi yang besar, dan kami mengharapkan Anda untuk tetap bersemangat dalam mengejar kesempatan lain yang mungkin muncul di masa depan</p></td>

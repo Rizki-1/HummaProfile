@@ -1,6 +1,9 @@
 @extends('layouts.nav-admin')
 
 @section('content')
+@foreach ($errors->all() as $error)
+<p>{{ $error }}</p>
+@endforeach
     <div class="row">
         <div class="col-md-12 grid-margin stretch-card">
             <div class="card">
@@ -33,12 +36,9 @@
                                                         <select name="target_layanan_id" id="target_layanan"
                                                             class="form-select form-select-sm">
                                                             <option value="" disabled selected>--Pilih Target Layanan--</option>
-                                                            <option value="1"
-                                                                {{ $category['target_layanan_id'][0] == 1 ? 'selected' : '' }}>
-                                                                Siswa</option>
-                                                            <option value="2"
-                                                                {{ $category['target_layanan_id'][1] === 2 ? 'selected' : '' }}>
-                                                                Industri</option>
+                                                           @foreach ($categoris as $item)
+                                                           <option value="{{ $item->id }}">{{ $item->target }}</option>
+                                                           @endforeach
                                                         </select>
                                                         @error('layanan-group.' . $i++ . '.target_layanan_id')
                                                             <div class="invalid-feedback">

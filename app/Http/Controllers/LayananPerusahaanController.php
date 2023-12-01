@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\LayananPerusahaan;
-use App\Models\TargetLayanan;
 use Illuminate\Http\Request;
+use App\Models\TargetLayanan;
+use App\Models\LayananPerusahaan;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\LayananRequest;
 
 class LayananPerusahaanController extends Controller
 {
@@ -23,7 +24,7 @@ class LayananPerusahaanController extends Controller
         $targetLayananId = is_null($request->ct) ? 1 : 2;
         $layanan->where('target_layanan_id', $targetLayananId);
 
-        $layanan = $layanan->paginate(1);
+        $layanan = $layanan->paginate(10);
 
         return view('admin.pengaturan.layanan.index', compact('layanan'));
     }
@@ -34,13 +35,14 @@ class LayananPerusahaanController extends Controller
      */
     public function create()
     {
-        return view('admin.pengaturan.layanan.create');
+        $categoris = TargetLayanan::all();
+        return view('admin.pengaturan.layanan.create', compact('categoris'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(LayananRequest $request)
     {
         // dd($request->all());
         try {
