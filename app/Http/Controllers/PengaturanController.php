@@ -36,14 +36,10 @@ class PengaturanController extends Controller
             $logo = $logoFile->storeAs('sosmed', $logo_name);
             $sosmedStore = [
                 'nama_sosmed' => $category['nama_sosmed'],
+                'logo' => $logo_name,
                 'link' => $category['link']
             ];
            $sosmed =  Sosmed::create($sosmedStore);
-           $logo = [
-            'sosmed_id' => $sosmed->id,
-            'foto_logo' => $logo_name
-           ];
-           Logo::create($logo);
         }
         return redirect()->back();
 
@@ -84,22 +80,18 @@ class PengaturanController extends Controller
 
         try {
             $sosmed = Sosmed::findOrFail($id);
-            $logo = Logo::where('sosmed_id', $id)->first();
             if($request->hasFile('logo') && $request->file('logo')->isValid())
             {
-                Storage::delete('sosmed/'. $logo->foto_logo);
+                Storage::delete('sosmed/'. $sosmed->logo);
                 $logo_name = $request->file('logo')->hashName();
                 $logo_foto = $request->file('logo')->storeAs('sosmed', $logo_name);
             }else{
-                $logo_name = $logo->foto_logo;
+                $logo_name = $sosmed->logo;
             }
             $sosmed->update([
                 'nama_sosmed' => $request->nama_sosmed,
+                'logo' => $logo_name,
                 'link' => $request->link,
-            ]);
-            $logo->update([
-                'user_id' => $sosmed->id,
-                'foto_logo' => $logo_name,
             ]);
             return redirect()->back();
         } catch (\Throwable $th) {
@@ -113,8 +105,7 @@ class PengaturanController extends Controller
     {
         try {
             $sosmed = Sosmed::findOrFail($id);
-            $foto_name = Logo::where('sosmed_id', $id)->first();
-            Storage::delete('sosmed/'.$foto_name->foto_logo);
+            Storage::delete('sosmed/'.$sosmed->logo);
             $sosmed->delete();
             return redirect()->back();
         } catch (\Throwable $th) {

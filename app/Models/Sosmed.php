@@ -14,16 +14,9 @@ class Sosmed extends Model
     protected $table = 'sosmeds';
     protected $fillable = [
         'nama_sosmed',
+        'logo',
         'link',
     ];
 
-    /**
-     * Get the logo associated with the Sosmed
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function logo(): HasOne
-    {
-        return $this->hasOne(Logo::class);
-    }
+
 }
