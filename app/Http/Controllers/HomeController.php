@@ -13,7 +13,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('welcome');
+        return view('user.index');
     }
 
     public function home()
@@ -21,9 +21,26 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function dashboard(){
+    public function indexSiswa()
+    {
+        return view('user.pendidikan.siswa');
+    }
+
+    public function indexIndustri()
+    {
+        return view('user.pendidikan.industri');
+    }
+
+    public function indexProduk()
+    {
+        return view('user.produk.index');
+    }
+
+    public function dashboard()
+    {
         return view('admin.dashboard');
     }
+
     public function SiswaMagangStore(Request $request)
     {
         SiswaMagang::create([
