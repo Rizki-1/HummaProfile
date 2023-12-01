@@ -38,7 +38,7 @@ class KategoriBeritaController extends Controller
                 $kategoriBerita->name = $row['category_name'];
                 $kategoriBerita->save();
             }
-            return back()->with('message', [
+            return to_route('category-berita.index')->with('message', [
                 'icon' => 'success',
                 'title' => 'Berhasil!',
                 'text' => 'Berhasil membuat kategori berita!'
@@ -66,7 +66,8 @@ class KategoriBeritaController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $category = KategoriBerita::findOrFail($id);
+        return view('admin.berita.category.edit', compact('category'));
     }
 
     /**
@@ -82,7 +83,6 @@ class KategoriBeritaController extends Controller
      */
     public function destroy(string $id)
     {
-        $category = KategoriBerita::findOrFail($id)->delete();
-        return back();
+
     }
 }

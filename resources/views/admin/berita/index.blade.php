@@ -31,10 +31,12 @@
                   <div class="second-title">
                     <p class="card-text">{{ $row->description }}</p>
                   </div>
-                  <div class="third-detail">
-                    @foreach ($row->kategori as $kategori)
-                      <p>{{ $kategori->name }}</p>
-                    @endforeach
+                  <div>
+                    <p class="third-detail">
+                      @foreach ($row->kategori as $kategori)
+                        {{ $kategori->name }}
+                      @endforeach
+                    </p>
                   </div>
                 </div>
                 <div class="action-container">

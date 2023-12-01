@@ -25,7 +25,7 @@
                 <div class="d-flex flex-row">
                   <div class="col-6 mb-4 pe-3">
                     <label for="unknown" class="form-label">Kategori Berita</label>
-                    <input required type="text" class="form-control @error('category-group.' . $i . '.category_name') is-invalid @enderror" placeholder="category_name" name="category_name" value="{{ $category['category_name'] }}" required>
+                    <input required type="text" class="form-control @error('category-group.' . $i . '.category_name') is-invalid @enderror" placeholder="Kategori Berita" name="category_name" value="{{ $category['category_name'] }}" required>
                     @error('category-group.' . $i . '.category_name')
                       <div class="invalid-feedback">
                         <p>{{ $message }}</p>

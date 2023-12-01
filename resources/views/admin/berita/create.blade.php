@@ -17,15 +17,12 @@
     <div class="card-body">
       <form action="{{ route('berita.store') }}" method="POST" class="forms-sample row" enctype="multipart/form-data">
         @csrf
-        @foreach ($errors->all() as $error)
-          <p>{{ $error }}</p>
-        @endforeach
         <div class="col-md-12 row mb-3">
           <div class="col-md-6">
             <div class="mb-3">
               <div class="form-group">
                 <label class="form-label">Kategori Berita</label>
-                <select class="select2 form-control select2-multiple form-select" multiple="multiple" id="category" name="category[]" multiple data-placeholder="Choose ..." multiple>
+                <select class="select2 form-control select2-multiple form-select" multiple="multiple" id="category" name="category[]" multiple data-placeholder="Kategori Berita" multiple>
                   <optgroup>
                     @foreach ($kategoriBerita as $category)
                       <option value="{{ $category->id }}" {{ in_array($category->id, old('category', [])) ? 'selected' : '' }}>
@@ -34,6 +31,9 @@
                     @endforeach
                   </optgroup>
                 </select>
+                @error('category')
+                    <p></p>
+                @enderror
               </div>
             </div>
             <div class="mb-3">
@@ -46,7 +46,7 @@
             </div>
           </div>
           <div class="col-md-6">
-            <label for="myDropify" class="form-label">Upload Gambar Produk</label>
+            <label for="myDropify" class="form-label">Upload Gambar Berita</label>
             <input name="thumbnail" type="file" id="myDropify" />
           </div>
           <div class="col-md-6 col-12 mt-4">

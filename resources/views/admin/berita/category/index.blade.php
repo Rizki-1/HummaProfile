@@ -24,7 +24,7 @@
                 <p class="category-text text-center">{{ $item->name }}</p>
               </div>
               <div class="category-hover">
-                <a href="#"><i class="link-icon edit-icon" data-feather="edit"></i></a>
+                <a href="{{ route('category-berita.edit', $item->id) }}"><i class="link-icon edit-icon" data-feather="edit"></i></a>
                 <form action="{{ route('category-berita.destroy', $item->id) }}" method="POST">
                   @csrf
                   @method('DELETE')
@@ -35,7 +35,7 @@
           </div>
         </div>
       @empty
-        <p>Data empty</p>
+        <p class="fw-bold text-center">Tidak ada kategori berita. <a href="{{ route('category-berita.create') }}">Tambah!</a></p>
       @endforelse
     </div>
   </div>
