@@ -12,6 +12,7 @@ use App\Http\Controllers\PengaturanController;
 use App\Http\Controllers\PersetujuanController;
 use App\Http\Controllers\KategoriBeritaController;
 use App\Http\Controllers\LayananPerusahaanController;
+use App\Http\Controllers\ListController;
 use App\Http\Controllers\ProfilePerusahaanController;
 use App\Http\Controllers\ViewController;
 
@@ -58,7 +59,10 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
     Route::resource('/layanan-perusahaan', LayananPerusahaanController::class)->except(['show', 'edit']);
     Route::resource('/profile-perusahaan', ProfilePerusahaanController::class)->only(['index', 'update']);
     // List
-    Route::get('/list-siswa-magang', );
+    Route::get('/list-siswa-magang', [ListController::class, 'siswaMagang'])->name('list.siswa_magang');
+    Route::delete('/list-siswa-magang/{id}', [ListController::class, 'siswaMagangDel'])->name('list.siswa_magang.del');
+    Route::get('/list-kelas-industri', [ListController::class, 'kelasIndustri'])->name('list.kelas_industri');
+    Route::delete('/list-kelas-industri/{id}', [ListController::class, 'kelasIndustriDel'])->name('list.kelas_industri.del');
 });
 
 // User Page

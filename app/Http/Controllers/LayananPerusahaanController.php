@@ -93,7 +93,7 @@ class LayananPerusahaanController extends Controller
         } catch (\Throwable $th) {
             DB::rollBack();
 
-            return response()->json(['response' => ['success' => false, 'message' => $th->getMessage()]]);
+            return response()->json(['response' => ['success' => false, 'message' => 'ada kesalahan server']]);
         }
     }
 
