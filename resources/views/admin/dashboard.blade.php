@@ -1,6 +1,7 @@
 @extends('layouts.nav-admin')
 
 @section('content')
+  <title>{{ config('app.name', 'Laravel') }} - Dashboard</title>
   <div class="row justify-content-center flex-wrap">
     <div class="col-md-4">
       <div class="card text-white bg-primary h-100 d-flex flex-row align-items-center">

@@ -1,6 +1,7 @@
 @extends('layouts.nav-admin')
 
 @section('content')
+  <title>{{ config('app.name', 'Laravel') }} - Berita</title>
   <link rel="stylesheet" href="{{ asset('cssAdmin/css/berita/berita.css') }}">
   <div class="card px-4 py-3 mb-4 flex-row justify-content-between align-items-center">
     <div>
@@ -59,29 +60,29 @@
       </div>
     </div>
   </div>
-<script>
-  if(document.querySelectorAll('.berita').length > 0){
-    document.querySelectorAll('.berita').forEach(function(form) {
-      form.addEventListener('submit', function(event) {
-        event.preventDefault();
-        var nameberita = form.getAttribute('nameberita');
-        Swal.fire({
-          title: 'Apakah anda yakin?',
-          text: "Ingin menghapus berita '" + nameberita + "'?",
-          icon: "warning",
-          showCancelButton: true,
-          confirmButtonText: "Ya, Hapus!",
-          cancelButtonText: "Batal",
-          background: 'var(--bs-body-bg)',
-          confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
-        }).then((result) => {
-          if (result.isConfirmed) {
-            form.submit();
-          }
+  <script>
+    if (document.querySelectorAll('.berita').length > 0) {
+      document.querySelectorAll('.berita').forEach(function(form) {
+        form.addEventListener('submit', function(event) {
+          event.preventDefault();
+          var nameberita = form.getAttribute('nameberita');
+          Swal.fire({
+            title: 'Apakah anda yakin?',
+            text: "Ingin menghapus berita '" + nameberita + "'?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Ya, Hapus!",
+            cancelButtonText: "Batal",
+            background: 'var(--bs-body-bg)',
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              form.submit();
+            }
+          });
         });
       });
-    });
-  }
-</script>
+    }
+  </script>
 @endsection

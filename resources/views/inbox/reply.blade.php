@@ -3,6 +3,7 @@
     @extends('layouts.nav-admin')
 
     @section('content')
+    <title>{{ config('app.name', 'Laravel') }} - Inbox</title>
       <link rel="stylesheet" href="{{ asset('cssAdmin/vendors/easymde/easymde.min.css') }}">
       @foreach ($errors->all() as $error)
         <p>{{ $error }}</p>

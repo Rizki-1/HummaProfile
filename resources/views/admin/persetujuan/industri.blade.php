@@ -1,6 +1,7 @@
 @extends('layouts.nav-admin')
 
 @section('content')
+  <title>{{ config('app.name', 'Laravel') }} - Persetujuan Kelas Industry</title>
   <div class="card">
     <div class="card-body">
       <h6 class="card-title">Data Persetujuan Sekolah Industri</h6>
@@ -29,19 +30,15 @@
                   <form class="formTerima" action="{{ route('terimaIndustri', $data->id) }}" method="POST">
                     @method('PATCH')
                     @csrf
-                    <button type="submit" class="btn btn-primary btn-icon"><i class="link-icon"
-                        data-feather="check"></i></button>
+                    <button type="submit" class="btn btn-primary btn-icon"><i class="link-icon" data-feather="check"></i></button>
                   </form>
                   {{-- Tolak --}}
                   <form class="formTolak" action="{{ route('tolakindustri', $data->id) }}" method="POST">
                     @method('PATCH')
                     @csrf
-                    <button type="submit" class="btn btn-danger btn-icon"><i class="link-icon"
-                        data-feather="x"></i></button>
+                    <button type="submit" class="btn btn-danger btn-icon"><i class="link-icon" data-feather="x"></i></button>
                   </form>
-                  <button type="submit" class="btn btn-success btn-icon" data-bs-toggle="modal"
-                    data-bs-target="#documentModal-{{ $data->id }}"><i class="link-icon"
-                      data-feather="file-text"></i></button>
+                  <button type="submit" class="btn btn-success btn-icon" data-bs-toggle="modal" data-bs-target="#documentModal-{{ $data->id }}"><i class="link-icon" data-feather="file-text"></i></button>
                 </td>
               </tr>
             @endforeach
@@ -55,8 +52,7 @@
   </div>
 
   @foreach ($industris as $key => $data)
-    <div class="modal fade" tabindex="-1" id="documentModal-{{ $data->id }}" aria-labelledby="myExtraLargeModalLabel"
-      aria-hidden="true">
+    <div class="modal fade" tabindex="-1" id="documentModal-{{ $data->id }}" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-xl">
         <div class="modal-content">
           <div class="modal-header">

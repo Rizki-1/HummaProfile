@@ -3,6 +3,7 @@
 @extends('layouts.nav-admin')
 
 @section('content')
+  <title>{{ config('app.name', 'Laravel') }} - Inbox</title>
   <div class="row inbox-wrapper">
     <div class="col-lg-12">
       <div class="card">

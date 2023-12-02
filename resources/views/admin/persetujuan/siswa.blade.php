@@ -1,6 +1,7 @@
 @extends('layouts.nav-admin')
 
 @section('content')
+  <title>{{ config('app.name', 'Laravel') }} - Persetujuan Siswa Magang</title>
   <div class="card">
     <div class="card-body">
       <h6 class="card-title">Data Persetujuan Siswa Magang</h6>
@@ -55,61 +56,61 @@
     </div>
   </div>
 
-  @foreach ($siswas as $key => $data )
-  <div class="modal fade" tabindex="-1" id="documentModal--{{ $data->id }}" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
-        </div>
-        <div class="modal-body" style="height: 600px;">
+  @foreach ($siswas as $key => $data)
+    <div class="modal fade" tabindex="-1" id="documentModal--{{ $data->id }}" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
+          </div>
+          <div class="modal-body" style="height: 600px;">
             <embed style="height: 100%; width: 100%" src="{{ asset('storage/siswa/' . $data->document) }}" type="application/pdf"> {{-- Content Modal Disini! --}}
+          </div>
         </div>
       </div>
     </div>
-  </div>
   @endforeach
 
   <script>
-     document.querySelectorAll('.formTolak').forEach(function(form) {
-        form.addEventListener('submit', function (e) {
-            e.preventDefault();
+    document.querySelectorAll('.formTolak').forEach(function(form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
 
-            Swal.fire({
-                title: 'Apa anda yakin',
-                text: 'Tindakan ini tidak dapat di batalkan',
-                icon: 'question',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                cancelButtonText: 'batalkan',
-                confirmButtonText: 'lanjutkan'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    form.submit();
-                }
-            });
+        Swal.fire({
+          title: 'Apa anda yakin',
+          text: 'Tindakan ini tidak dapat di batalkan',
+          icon: 'question',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          cancelButtonText: 'batalkan',
+          confirmButtonText: 'lanjutkan'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            form.submit();
+          }
         });
+      });
     });
     document.querySelectorAll('.formTerima').forEach(function(form) {
-        form.addEventListener('submit', function (e) {
-            e.preventDefault();
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
 
-            Swal.fire({
-                title: 'Apa anda yakin',
-                text: 'Tindakan ini tidak dapat di batalkan',
-                icon: 'question',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                cancelButtonText: 'batalkan',
-                confirmButtonText: 'lanjutkan'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    form.submit();
-                }
-            });
+        Swal.fire({
+          title: 'Apa anda yakin',
+          text: 'Tindakan ini tidak dapat di batalkan',
+          icon: 'question',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          cancelButtonText: 'batalkan',
+          confirmButtonText: 'lanjutkan'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            form.submit();
+          }
         });
+      });
     });
   </script>
 @endsection

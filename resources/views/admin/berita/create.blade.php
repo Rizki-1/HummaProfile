@@ -1,6 +1,7 @@
 @extends('layouts.nav-admin')
 
 @section('content')
+  <title>{{ config('app.name', 'Laravel') }} - Berita</title>
   <link rel="stylesheet" href="{{ asset('cssAdmin/vendors/select2/select2.min.css') }}">
   <script src="{{ asset('cssAdmin/js/select2.js') }}"></script>
   <script src="{{ asset('cssAdmin/vendors/select2/select2.min.js') }}"></script>
@@ -48,7 +49,7 @@
             </div>
             <div>
               <label class="form-label" for="description">Deskripsi Berita</label>
-              <textarea required class="form-control @error('description') is-invalid @enderror" id="description" placeholder="Deskripsi Berita" name="description" rows="6">{{ old('description') }}</textarea>
+              <textarea required class="form-control @error('description') is-invalid @enderror" id="description" placeholder="Deskripsi Berita" name="description" rows="2">{{ old('description') }}</textarea>
               @error('description')
                 <div class="invalid-feedback">
                   <p>{{ $message }}</p>

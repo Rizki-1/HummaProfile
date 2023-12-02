@@ -48,7 +48,7 @@
   {{-- CSS PERSETUJUAN --}}
   <link rel="stylesheet" href="{{ asset('cssAdmin/css/persetujuan/persetujuan.css') }}">
 
-  <link rel="shortcut icon" href="{{ asset('cssAdmin/images/favicon.png') }}" />
+  <link rel="shortcut icon" href="{{ asset('ImageGlobal/HummaTech-Logo.png') }}" />
 </head>
 
 <body>

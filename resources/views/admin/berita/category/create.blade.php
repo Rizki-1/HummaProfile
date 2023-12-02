@@ -1,11 +1,12 @@
 @extends('layouts.nav-admin')
 
 @section('content')
+  <title>{{ config('app.name', 'Laravel') }} - Kategori Berita</title>
   <div class="card p-4 mb-4 flex-row justify-content-between align-items-center">
     <div>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb breadcrumb-dot mb-0">
-            <li class="breadcrumb-item"><a href="{{ route('category-berita.index') }}">Kategori</a></li>
+          <li class="breadcrumb-item"><a href="{{ route('category-berita.index') }}">Kategori</a></li>
           <li class="breadcrumb-item active" aria-current="page">Create</li>
         </ol>
       </nav>
