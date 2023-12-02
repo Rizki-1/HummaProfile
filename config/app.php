@@ -4,9 +4,6 @@ use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
 
 return [
-    'email' => env('MAIL_FROM_ADDRESS'),
-    'phone' => '+62 851 7677 7785',
-
     /*
     |--------------------------------------------------------------------------
     | Application Name

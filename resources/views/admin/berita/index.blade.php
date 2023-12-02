@@ -20,7 +20,7 @@
         <div class="col-md-4 mb-4">
           <div class="card">
             <div class="image-container">
-              <img src="{{ asset('storage/' . $row->thumbnail) }}" class="image-content" alt="Thumbnail {{ $row->id }}">
+              <img src="{{ asset('storage/' . $row->thumbnail) }}" class="image-content" alt="Thumbnail {{ $row->name }}">
             </div>
             <div class="image-hover">
               <div class="image-detail">
@@ -40,8 +40,8 @@
                   </div>
                 </div>
                 <div class="action-container">
-                  <a href="#"><i class="link-icon edit-icon" data-feather="edit"></i></a>
-                  <form action="#" method="POST">
+                  <a href="{{ route('berita.edit', $row->id) }}"><i class="link-icon edit-icon" data-feather="edit"></i></a>
+                  <form nameberita="{{ $row->title }}" action="{{ route('berita.destroy', $row->id) }}" method="POST" class="berita">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="button-delete"><i class="link-icon trash-icon" data-feather="trash"></i></button>
@@ -57,4 +57,29 @@
       </div>
     </div>
   </div>
+<script>
+  if(document.querySelectorAll('.berita').length > 0){
+    document.querySelectorAll('.berita').forEach(function(form) {
+      form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        var nameberita = form.getAttribute('nameberita');
+        Swal.fire({
+          title: 'Apakah anda yakin?',
+          text: "Ingin menghapus berita '" + nameberita + "'?",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonText: "Ya, Hapus!",
+          cancelButtonText: "Batal",
+          background: 'var(--bs-body-bg)',
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            form.submit();
+          }
+        });
+      });
+    });
+  }
+</script>
 @endsection

@@ -203,7 +203,7 @@
                   </div>
                   <div class="text-center">
                     <p class="tx-16 fw-bolder">{{ config('app.name') }}</p>
-                    <p class="tx-12 text-muted">{{ config('app.email') }}</p>
+                    <p class="tx-12 text-muted">{{ \App\Models\ProfileCompany::get('email')[0]->email }}</p>
                   </div>
                 </div>
                 <ul class="list-unstyled p-1">
@@ -233,7 +233,7 @@
         class="footer d-flex flex-column flex-md-row align-items-center justify-content-between px-4 py-3 border-top small">
         <p class="text-muted mb-1 mb-md-0">Copyright © 2023 <a
             href="https://www.google.com/search?q=hummatech&rlz=1C1FKPE_idID1058ID1058&oq=hummatech&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIPCAEQLhgKGMcBGNEDGIAEMgkIAhAAGAoYgAQyBggDEEUYPDIGCAQQRRg8MgYIBRBFGDzSAQgxNzIxajBqN6gCALACAA&sourceid=chrome&ie=UTF-8"
-            target="_blank">Hummatech</a>.</p>
+            target="_blank">{{ config('app.name') }}</a>.</p>
         <p class="text-muted">Di buat oleh Hummaprofile <i class="mb-1 text-primary ms-1 icon-sm"
             data-feather="heart"></i></p>
       </footer>

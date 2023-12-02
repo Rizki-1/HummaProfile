@@ -12,13 +12,15 @@ use Illuminate\Queue\SerializesModels;
 class InboxMail extends Mailable
 {
     use Queueable, SerializesModels;
-    public $data;
+    public $data, $email, $phone;
     /**
      * Create a new message instance.
      */
     public function __construct($data)
     {
         $this->data = $data;
+        $this->email = \App\Models\ProfileCompany::get('email')[0]->email;
+        $this->phone = \App\Models\ProfileCompany::get('no_telp')[0]->no_telp;
     }
 
     /**

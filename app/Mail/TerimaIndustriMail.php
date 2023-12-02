@@ -12,7 +12,7 @@ use Illuminate\Queue\SerializesModels;
 class TerimaIndustriMail extends Mailable
 {
     use Queueable, SerializesModels;
-    public $type, $nama;
+    public $type, $nama,$email,$phone;
     /**
      * Create a new message instance.
      */
@@ -20,6 +20,8 @@ class TerimaIndustriMail extends Mailable
     {
         $this->nama = $nama;
         $this->type = $type;
+        $this->email = \App\Models\ProfileCompany::get('email')[0]->email;
+        $this->phone = \App\Models\ProfileCompany::get('no_telp')[0]->no_telp;
     }
 
     /**

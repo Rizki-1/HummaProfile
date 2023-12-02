@@ -57,6 +57,8 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
     //layanan perusahaan
     Route::resource('/layanan-perusahaan', LayananPerusahaanController::class)->except(['show', 'edit']);
     Route::resource('/profile-perusahaan', ProfilePerusahaanController::class)->only(['index', 'update']);
+    // List
+    Route::get('/list-siswa-magang', );
 });
 
 // User Page

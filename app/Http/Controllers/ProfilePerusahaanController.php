@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\ProfileCompany;
 use App\Models\Sosmed;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class ProfilePerusahaanController extends Controller
 {
@@ -41,6 +40,7 @@ class ProfilePerusahaanController extends Controller
             $profile->tentang = $request->tentang;
             $profile->save();
 
+
             Sosmed::truncate();
             foreach($dataRequest['sosmed-group'] as $row){
                 $newSosmed = new Sosmed;
@@ -59,7 +59,7 @@ class ProfilePerusahaanController extends Controller
             return back()->with("message", [
                 'icon' => 'error',
                 'title' => "Gagal!",
-                'text' => "Ada kesalahan saat meupdate data! $e"
+                'text' => "Ada kesalahan saat meupdate data!"
             ]);
         }
     }

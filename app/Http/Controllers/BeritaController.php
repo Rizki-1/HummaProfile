@@ -95,12 +95,13 @@ class BeritaController extends Controller
     public function update(Request $request, Berita $berita)
     {
         try {
+            DB::beginTransaction();
             $berita->title = $request->title;
             $berita->description = $request->description;
             if ($request->hasFile('thumbnail') && $request->file('thumbnail')->isValid()) {
                 Storage::delete('thumbnail/'.$berita->thumbnail);
                 $thumbnailName = $request->file('thumbnail')->hashName();
-                $thumbnail = $request->file('thumbnail')->storeAs('thumbnail', $thumbnailName);
+                $request->file('thumbnail')->storeAs('thumbnail', $thumbnailName);
             }else{
                 $thumbnailName = $berita->thumbnail;
             }
@@ -110,12 +111,14 @@ class BeritaController extends Controller
             $categoryId = $request->category;
             $berita->kategori->attach($categoryId);
 
+            DB::commit();
             return to_route('berita.index')->with('message', [
                 'icon' => 'success',
                 'title' => 'Berhasil!',
                 'text' => 'Berhasil mengupdate berita!'
             ]);
         } catch (\Throwable $th) {
+            DB::rollBack();
             return redirect()->back()->with('message', [
                 'icon' => 'warning',
                 'title' => 'gagal!',
@@ -127,21 +130,36 @@ class BeritaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Berita $berita)
+    public function destroy(string $id)
     {
         try {
-            Storage::delete('thumbnail/'.$berita->thumbnail);
+            DB::beginTransaction();
+
+            $berita = Berita::where('id', $id)->first();
+
+            if(!$berita){
+                return redirect()->back()->with('message', [
+                    'icon' => 'warning',
+                    'title' => 'gagal!',
+                    'text' => 'ada kesalahan gagal menhapus berita, id tidak ditemukan!',
+                ]);
+            }
+
+            Storage::delete($berita->thumbnail);
             $berita->delete();
+            DB::commit();
+
             return to_route('berita.index')->with('message', [
                 'icon' => 'success',
                 'title' => 'Berhasil!',
-                'text' => 'Berhasil mengupdate berita!'
+                'text' => 'Berhasil menghapus berita!'
             ]);
         } catch (\Throwable $th) {
+            DB::rollBack();
             return redirect()->back()->with('message', [
                 'icon' => 'warning',
                 'title' => 'gagal!',
-                'text' => 'ada kesalahan  server!',
+                'text' => 'ada kesalahan server!',
             ]);
         }
     }
