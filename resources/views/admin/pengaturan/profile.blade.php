@@ -1,6 +1,6 @@
 @extends('layouts.nav-admin')
 @section('content')
-    <div class="container rounded bg-white mt-5 mb-5">
+    <div class="container rounded bg-white">
         <form action="{{ route('profile-perusahaan.update', 1) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')

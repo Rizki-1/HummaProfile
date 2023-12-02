@@ -48,9 +48,6 @@
   {{-- CSS PERSETUJUAN --}}
   <link rel="stylesheet" href="{{ asset('cssAdmin/css/persetujuan/persetujuan.css') }}">
 
-  {{-- CSS PRODUK --}}
-  <link rel="stylesheet" href="{{ asset('cssAdmin/css/produk/produk.css') }}">
-
   <link rel="shortcut icon" href="{{ asset('cssAdmin/images/favicon.png') }}" />
 </head>
 

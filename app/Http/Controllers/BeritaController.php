@@ -86,7 +86,7 @@ class BeritaController extends Controller
      */
     public function edit(Berita $berita)
     {
-        //
+        
     }
 
     /**
@@ -99,10 +99,10 @@ class BeritaController extends Controller
             $berita->title = $request->title;
             $berita->description = $request->description;
             if ($request->hasFile('thumbnail') && $request->file('thumbnail')->isValid()) {
-                Storage::delete('thumbnail/'.$berita->thumbnail);
+                Storage::delete('thumbnail/' . $berita->thumbnail);
                 $thumbnailName = $request->file('thumbnail')->hashName();
-                $request->file('thumbnail')->storeAs('thumbnail', $thumbnailName);
-            }else{
+                $thumbnail = $request->file('thumbnail')->storeAs('thumbnail', $thumbnailName);
+            } else {
                 $thumbnailName = $berita->thumbnail;
             }
             $berita->thumbnail = $thumbnailName;

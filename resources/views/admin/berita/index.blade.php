@@ -16,7 +16,7 @@
   </div>
   <div class="card p-4">
     <div class="row">
-      @foreach ($berita as $row)
+      @forelse ($berita as $row)
         <div class="col-md-4 mb-4">
           <div class="card">
             <div class="image-container">
@@ -51,7 +51,9 @@
             </div>
           </div>
         </div>
-      @endforeach
+      @empty
+        <p class="fw-bold text-center">Tidak ada berita. <a href="{{ route('berita.create') }}">Tambah!</a></p>
+      @endforelse
       <div>
         {{ $berita->links('pagination::bootstrap-5') }}
       </div>

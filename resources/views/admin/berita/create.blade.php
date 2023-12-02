@@ -8,7 +8,8 @@
     <div>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb breadcrumb-dot mb-0">
-          <li class="breadcrumb-item active" aria-current="page">Berita</li>
+          <li class="breadcrumb-item"><a href="{{ route('berita.index') }}">Berita</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Create</li>
         </ol>
       </nav>
     </div>
@@ -32,7 +33,7 @@
                   </optgroup>
                 </select>
                 @error('category')
-                    <p></p>
+                  <p></p>
                 @enderror
               </div>
             </div>
