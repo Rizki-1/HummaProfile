@@ -1,11 +1,13 @@
 @extends('layouts.nav-admin')
 
 @section('content')
+  <link rel="stylesheet" href="{{ asset('cssAdmin/css/produk/produk.css') }}">
   <div class="card mb-4 p-4">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb breadcrumb-dot mb-0">
         <li class="breadcrumb-item"><a href="{{ route('produk.index') }}">Produk</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Create</li>
+        <li class="breadcrumb-item active" aria-current="page">Edit</li>
+        <li class="breadcrumb-item active" aria-current="page">{{ $produks->nama_produk }}</li>
       </ol>
     </nav>
   </div>
@@ -26,17 +28,17 @@
             </div>
             <div class="mb-3">
               <label for="keterangan" class="form-label">Keterangan Produk</label>
-              <textarea required name="keterangan_produk" value="{{ $produks->keterangan_produk }}" class="form-control @error('keterangan_produk') is-invalid @enderror" id="keterangan" rows="2" placeholder="Keterangan Produk"></textarea>
+              <textarea required name="keterangan_produk" class="form-control @error('keterangan_produk') is-invalid @enderror" id="keterangan" rows="2" placeholder="Keterangan Produk">{{ $produks->keterangan_produk }}</textarea>
               @error('keterangan_produk')
                 <div class="invalid-feedback">
                   <p>{{ $message }}</p>
                 </div>
               @enderror
             </div>
-            <div>
+            <div class="mb-3">
               <label for="tanggal" class="form-label">Tanggal Dibuat</label>
               <div class="input-group flatpickr mb-3" id="flatpickr-date">
-                <input required name="dibuat" type="text" class="form-control @error('dibuat') is-invalid @enderror" id="tanggal" placeholder="Select date" data-input>
+                <input required name="dibuat" value="{{ $produks->dibuat }}" type="text" class="form-control @error('dibuat') is-invalid @enderror" id="tanggal" placeholder="Select date" data-input>
                 @error('dibuat')
                   <div class="invalid-feedback">
                     <p>{{ $message }}</p>
@@ -48,10 +50,15 @@
           </div>
           <div class="col-md-6">
             <label for="myDropify" class="form-label">Upload Gambar Produk</label>
-            <input required name="foto_produk" class="@error('foto_produk') is-invalid @enderror" type="file" id="myDropify" />
-            @error('foto_produk')
-              <p class="text-danger mt-2">{{ $message }}</p>
-            @enderror
+            <div class="drag-and-drop">
+              <div class="product-picture-container" id="picture">
+                <img class="product-picture-old" src="{{ asset('storage/produk/' . $produks->foto_produk) }}" alt="Foto produk">
+              </div>
+              <input required name="foto_produk" class="@error('foto_produk') is-invalid @enderror" type="file" id="myDropify" />
+              @error('foto_produk')
+                <p class="text-danger mt-2">{{ $message }}</p>
+              @enderror
+            </div>
           </div>
         </div>
         <div class="col-md-6 col-12">

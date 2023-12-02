@@ -130,3 +130,28 @@
     background-color: transparent;
     border: none;
 }
+
+.product-picture-old {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.drag-and-drop {
+    overflow: hidden;
+}
+
+.product-picture-container {
+    margin: 10px 0 0 10px;
+    z-index: 1;
+    cursor: pointer;
+    position: absolute;
+    width: 14%;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 1s;
+}
+
+.drag-and-drop:hover .product-picture-container {
+    opacity: 0;
+}
