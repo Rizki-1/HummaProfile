@@ -53,7 +53,7 @@ class PersetujuanController extends Controller
             return back()->with('message', [
                 'icon' => 'success',
                 'title' => 'Berhasil!!',
-                'text' => "Berhasil menolak Siswa"
+                'text' => "Penolakan siswa magang berhasil"
             ]);
         } catch (\Throwable $th) {
             return back()->with('message', [
@@ -77,7 +77,7 @@ class PersetujuanController extends Controller
             return back()->with('message', [
                 'icon' => 'success',
                 'title' => 'Berhasil!!',
-                'text' => "Berhasil menerima Industri"
+                'text' => "Penerimaan kelas industri berhasil"
             ]);
         } catch (\Throwable $th) {
             return back()->with('message', [
@@ -101,7 +101,7 @@ class PersetujuanController extends Controller
             return back()->with('message', [
                 'icon' => 'success',
                 'title' => 'Berhasil!',
-                'text' => "Berhasil menolak Industri"
+                'text' => "Penolakan kelas industri berhasil"
             ]);
         } catch (\Throwable $th) {
             return back()->with('message', [

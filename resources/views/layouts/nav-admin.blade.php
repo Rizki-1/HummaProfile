@@ -87,7 +87,7 @@
             <div class="collapse" id="list">
               <ul class="nav sub-menu">
                 <li class="nav-item">
-                  <a href="#" class="nav-link">Siswa Magang</a>
+                  <a href="{{ route('list.siswa_magang') }}" class="nav-link">Siswa Magang</a>
                 </li>
                 <li class="nav-item">
                   <a href="#" class="nav-link">Kelas Industri</a>

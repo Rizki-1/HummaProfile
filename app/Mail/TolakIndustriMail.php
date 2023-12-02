@@ -30,7 +30,7 @@ class TolakIndustriMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Tolak Industri Mail',
+            subject: 'Pemberitahuan pendaftaran siswa magang',
         );
     }
 

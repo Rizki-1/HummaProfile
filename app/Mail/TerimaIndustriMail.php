@@ -30,7 +30,7 @@ class TerimaIndustriMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Terima Industri Mail',
+            subject: 'Pemberitahuan pendaftaran siswa magang',
         );
     }
 
