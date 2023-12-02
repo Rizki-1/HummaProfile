@@ -75,7 +75,8 @@ class ProdukController extends Controller
      */
     public function edit(string $id)
     {
-        return view('admin.produk.edit');
+        $produks = Produk::findOrFail($id);
+        return view('admin.produk.edit', compact('produks'));
     }
 
     /**

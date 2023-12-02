@@ -8,7 +8,7 @@
         <li class="breadcrumb-item active" aria-current="page">Create</li>
       </ol>
     </nav>
-  </div>    
+  </div>
   <div class="card">
     <div class="card-body">
       <form action="{{ route('produk.store') }}" method="POST" class="forms-sample row" enctype="multipart/form-data">
@@ -17,25 +17,41 @@
           <div class="col-md-6">
             <div class="mb-3">
               <label for="namaproduk" class="form-label">Nama Produk</label>
-              <input type="text" name="nama_produk" class="form-control" id="namaproduk" autocomplete="off"
-                placeholder="Produk">
+              <input required type="text" name="nama_produk" class="form-control @error('nama_produk') is-invalid @enderror" id="namaproduk" autocomplete="off" placeholder="Nama Produk">
+              @error('nama_produk')
+                <div class="invalid-feedback">
+                  <p>{{ $message }}</p>
+                </div>
+              @enderror
             </div>
             <div class="mb-3">
               <label for="keterangan" class="form-label">Keterangan Produk</label>
-              <textarea name="keterangan_produk" class="form-control" id="keterangan" rows="2"></textarea>
+              <textarea required name="keterangan_produk" class="form-control @error('keterangan_produk') is-invalid @enderror" id="keterangan" rows="2" placeholder="Keterangan Produk"></textarea>
+              @error('keterangan_produk')
+                <div class="invalid-feedback">
+                  <p>{{ $message }}</p>
+                </div>
+              @enderror
             </div>
             <div>
               <label for="tanggal" class="form-label">Tanggal Dibuat</label>
               <div class="input-group flatpickr mb-3" id="flatpickr-date">
-                <input name="dibuat" type="text" class="form-control" id="tanggal" placeholder="Select date"
-                  data-input>
+                <input required name="dibuat" type="text" class="form-control @error('dibuat') is-invalid @enderror" id="tanggal" placeholder="Select date" data-input>
+                @error('dibuat')
+                  <div class="invalid-feedback">
+                    <p>{{ $message }}</p>
+                  </div>
+                @enderror
                 <span class="input-group-text input-group-addon" data-toggle><i data-feather="calendar"></i></span>
               </div>
             </div>
           </div>
           <div class="col-md-6">
             <label for="myDropify" class="form-label">Upload Gambar Produk</label>
-            <input name="foto_produk" type="file" id="myDropify" />
+            <input required name="foto_produk" class="@error('foto_produk') is-invalid @enderror" type="file" id="myDropify" />
+            @error('foto_produk')
+              <p class="text-danger mt-2">{{ $message }}</p>
+            @enderror
           </div>
         </div>
         <div class="col-md-6 col-12">

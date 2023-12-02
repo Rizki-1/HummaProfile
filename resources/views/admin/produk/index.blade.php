@@ -34,8 +34,8 @@
                   <div>
                   </div>
                   <div class="action-container">
-                    <a href="{{ route('berita.edit', $row->id) }}"><i class="link-icon edit-icon" data-feather="edit"></i></a>
-                    <form action="#" method="POST">
+                    <a href="{{ route('produk.edit', $row->id) }}"><i class="link-icon edit-icon" data-feather="edit"></i></a>
+                    <form action="{{ route('produk.destroy', $row->id) }}" method="POST">
                       @csrf
                       @method('DELETE')
                       <button type="submit" class="button-delete"><i class="link-icon trash-icon" data-feather="trash"></i></button>
