@@ -84,35 +84,44 @@ class BeritaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Berita $berita)
+    public function edit($id)
     {
-        
+        $kategoriBerita = KategoriBerita::all();
+        $berita = Berita::where('id', $id)->first();
+        return view('admin.berita.edit', compact('kategoriBerita','berita'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Berita $berita)
+    public function update(UpdateBeritaRequest $request, $id)
     {
+        // dd($request->all());
         try {
             DB::beginTransaction();
+
+            $berita = Berita::findOrFail($id);
             $berita->title = $request->title;
             $berita->description = $request->description;
+
+
             if ($request->hasFile('thumbnail') && $request->file('thumbnail')->isValid()) {
-                Storage::delete('thumbnail/' . $berita->thumbnail);
-                $thumbnailName = $request->file('thumbnail')->hashName();
-                $thumbnail = $request->file('thumbnail')->storeAs('thumbnail', $thumbnailName);
+                Storage::delete('thumbnail_berita/' . $berita->thumbnail);
+                $thumbnailName = $request->file("thumbnail")->hashName();
+                $path = $request->file("thumbnail")->storeAs('thumbnail_berita', $thumbnailName);
             } else {
-                $thumbnailName = $berita->thumbnail;
+                $path = $berita->thumbnail;
             }
-            $berita->thumbnail = $thumbnailName;
+            $berita->thumbnail = $path;
             $berita->save();
 
+
             $categoryId = $request->category;
-            $berita->kategori->attach($categoryId);
+            $berita->kategori()->sync($categoryId);
 
             DB::commit();
-            return to_route('berita.index')->with('message', [
+
+            return redirect()->route('berita.index')->with('message', [
                 'icon' => 'success',
                 'title' => 'Berhasil!',
                 'text' => 'Berhasil mengupdate berita!'
@@ -121,11 +130,12 @@ class BeritaController extends Controller
             DB::rollBack();
             return redirect()->back()->with('message', [
                 'icon' => 'warning',
-                'title' => 'gagal!',
-                'text' => 'ada kesalahan  server!',
+                'title' => 'Gagal!',
+                'text' => 'Ada kesalahan server!',
             ]);
         }
     }
+
 
     /**
      * Remove the specified resource from storage.

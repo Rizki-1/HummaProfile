@@ -22,9 +22,27 @@ class StoreBeritaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'thumbnail' => 'required|image',
-            'title'=> 'required|string',
-            'description'=> 'required|string',
+            'category.*' => 'exists:kategori_beritas,id|required',
+            'thumbnail' => 'required|image|mimes:png,jpg,jpeg',
+            'title' => 'required|string|min:5|max:50',
+            'description' => 'required|string|min:10|max:255',
+        ];
+    }
+
+
+    public function messages()
+    {
+        return [
+            'thumbnail.required' => 'gambar berita harus di isi',
+            'thumbnail.image' => 'gambar berita harus valid',
+            'thumbnail.mimes' => 'gambar berita harus berjenis :mimes',
+            'title.required' => 'judul harus di isi',
+            'title.min' => 'judul minimal :min',
+            'title.max' => 'judul maksimal :max',
+            'description.required' => 'Deskripsi Berita harus di isi',
+            'description.min' => 'Deskripsi Berita minimal :min',
+            'description.max' => 'Deskripsi Berita maksimal :max',
+
         ];
     }
 }
