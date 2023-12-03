@@ -46,9 +46,13 @@
                           <td class="sorting_1">{{ $row->asal_sekolah }}</td>
                           <td class="sorting_1">{{ $row->jurusan }}</td>
                           <td class="sorting_1">{{ $row->kelas }}</td>
-                          <td>
-                            <button type="button" class="btn btn-primary"><i class="link-icon" data-feather="file-text"></i></button>
-                            <button type="button" class="btn btn-danger" onclick="showDeletePopup({{ $row->id }})"><i class="link-icon" data-feather="trash"></i></button>
+                          <td class="d-flex flex-row">
+                            <button type="button" class="btn btn-primary me-2"><i class="link-icon" data-feather="file-text"></i></button>
+                            <form nameKategori="{{ $row->nama }}" action="{{ route('list.siswa_magang.del', $row->id) }}" class="hapus" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger"><i class="link-icon" data-feather="trash"></i></button>
+                            </form>
                           </td>
                         </tr>
                       @empty
@@ -76,49 +80,26 @@
     </div>
   </div>
   <script>
-    function showDeletePopup(id) {
-      Swal.fire({
-        title: "Apakah Anda yakin?",
-        text: "Apakah anda yakin ingin menghapusnya?",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!"
-      }).then((result) => {
-        if (result.isConfirmed) {
-          fetch(`{{ route('list.siswa_magang.del', '') }}/${id}`, {
-              method: 'DELETE',
-              headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': '{{ csrf_token() }}',
-              },
-            })
-            .then(response => response.json())
-            .then(data => {
-              if (data.response.success) {
-                Swal.fire({
-                  title: "Terhapus!",
-                  text: "Berhasil menghapus layanan.",
-                  icon: "success"
-                }).then((result) => {
-                  if (result.dismiss === Swal.DismissReason.close || result
-                    .dismiss === Swal.DismissReason.esc || result.dismiss ===
-                    Swal.DismissReason.overlay || result.dismiss === Swal
-                    .DismissReason.timer) {
-                    location.reload();
-                  }
-                });
-              } else {
-                Swal.fire({
-                  title: "Error!",
-                  text: "Terjadi kesalahan saat menghapus layanan.",
-                  icon: "error"
-                });
-              }
-            });
-        }
+    if(document.querySelectorAll('.hapus').length > 0){
+    document.querySelectorAll('.hapus').forEach(function(form) {
+      form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        var namekategori = form.getAttribute('nameKategori');
+        Swal.fire({
+          title: 'Apakah anda yakin?',
+          text: "Ingin menghapus kategori '" + namekategori + "'?",
+          icon: "question",
+          showCancelButton: true,
+          confirmButtonText: "Ya, Hapus!",
+          cancelButtonText: "Batal",
+          background: 'var(--bs-body-bg)',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            form.submit();
+          }
+        });
       });
-    }
+    });
+  }
   </script>
 @endsection

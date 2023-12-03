@@ -14,16 +14,12 @@
     </div>
   </div>
   <div class="card p-4">
-    <form action="#" method="POST">
+    <form action="{{ route('category-berita.update', $category->id) }}" method="POST">
       @csrf
       @method('PATCH')
-      @foreach ($errors->all() as $error)
-        <p>{{ $error }}</p>
-      @endforeach
       <div class="col-12 mb-4 pe-3">
         <label for="unknown" class="form-label">Kategori Berita</label>
         <input required type="text" class="form-control @error('category_name') is-invalid @enderror" placeholder="Kategori Berita" name="category_name" value="{{ $category->name }}" required>
-        <input type="hidden" name="category_id" value="{{ $category->id }}">
         @error('category_name')
           <div class="invalid-feedback">
             <p>{{ $message }}</p>

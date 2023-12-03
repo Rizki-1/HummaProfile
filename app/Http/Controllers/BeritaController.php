@@ -106,7 +106,7 @@ class BeritaController extends Controller
 
 
             if ($request->hasFile('thumbnail') && $request->file('thumbnail')->isValid()) {
-                Storage::delete('thumbnail_berita/' . $berita->thumbnail);
+                Storage::delete($berita->thumbnail);
                 $thumbnailName = $request->file("thumbnail")->hashName();
                 $path = $request->file("thumbnail")->storeAs('thumbnail_berita', $thumbnailName);
             } else {

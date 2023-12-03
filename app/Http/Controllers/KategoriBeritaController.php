@@ -75,7 +75,35 @@ class KategoriBeritaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        try {
+            DB::beginTransaction();
+
+            $kategoriBerita = KategoriBerita::where('id', $id)->first();
+            if(!$kategoriBerita){
+                return back()->with('message', [
+                    'icon' => 'error',
+                    'title' => 'Gagal!',
+                    'text' => 'ID kategori berita tidak ditemukan!'
+                ]);
+            }
+
+            $kategoriBerita->name = $request->category_name;
+            $kategoriBerita->save();
+
+            DB::commit();
+            return to_route('category-berita.index')->with('message', [
+                'icon' => 'success',
+                'title' => 'Berhasil!',
+                'text' => 'Berhasil meupdate kategori berita!'
+            ]);
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return back()->with('message', [
+                'icon' => 'error',
+                'title' => 'Gagal!',
+                'text' => 'Ada kesalahan saat meupdate kategori berita!'
+            ]);
+        }
     }
 
     /**
@@ -83,6 +111,33 @@ class KategoriBeritaController extends Controller
      */
     public function destroy(string $id)
     {
+        try {
+            DB::beginTransaction();
+            $kategoriBerita = KategoriBerita::where('id', $id)->first();
+            $nameKategori = $kategoriBerita->name;
+            if(!$kategoriBerita){
+                return back()->with('message', [
+                    'icon' => 'error',
+                    'title' => 'Gagal!',
+                    'text' => 'ID kategori berita tidak ditemukan!'
+                ]);
+            }
 
+            $kategoriBerita->delete();
+
+            DB::commit();
+            return back()->with('message', [
+                'icon' => 'success',
+                'title' => 'Berhasil!',
+                'text' => "Berhasil mehapus kategori berita $nameKategori"
+            ]);
+        } catch (\Exception $th) {
+            DB::rollBack();
+            return back()->with('message', [
+                'icon' => 'error',
+                'title' => 'Gagal!',
+                'text' => 'Ada kesalahan saat mehapus kategori berita!!'
+            ]);
+        }
     }
 }

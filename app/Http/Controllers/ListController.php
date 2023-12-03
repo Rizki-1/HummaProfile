@@ -18,37 +18,62 @@ class ListController extends Controller
             DB::beginTransaction();
             $pendaftar = SiswaMagang::where("id",$id)->first();
             if(!$pendaftar){
-                return response()->json(['response' => ['success' => false]]);
+                return back()->with('message', [
+                    'icon' => 'error',
+                    'title' => 'Gagal!',
+                    'text' => 'ID list siswa magang tidak ditemukan!'
+                ]);
             }
 
             $pendaftar->delete();
 
             DB::commit();
-            return response()->json(['response' => ['success' => true]]);
+
+            return back()->with('message', [
+                'icon' => 'success',
+                'title' => 'Berhasil!',
+                'text' => 'berhasil menghapus list siswa magang!'
+            ]);
         } catch (\Exception $th) {
             DB::rollBack();
-            return response()->json(['response' => ['success' => false, 'message' => "Ada kesalahan server"]]);
+            return back()->with('message', [
+                'icon' => 'error',
+                'title' => 'Gagal!',
+                'text' => 'Ada kesalahan saat menghapus list siswa magang!'
+            ]);
         }
     }
     public function kelasIndustri(){
-        $siswa = SiswaMagang::latest()->where('status', 'diterima')->paginate(1);
-        return view("admin.list.kelas-industri",compact("siswa"));
+        $industri = KelasIndustri::latest()->where('status', 'diterima')->paginate(1);
+        return view("admin.list.kelas-industri",compact("industri"));
     }
     function kelasIndustriDel($id){
         try {
             DB::beginTransaction();
             $pendaftar = KelasIndustri::where("id",$id)->first();
             if(!$pendaftar){
-                return response()->json(['response' => ['success' => false]]);
+                return back()->with('message', [
+                    'icon' => 'error',
+                    'title' => 'Gagal!',
+                    'text' => 'ID list kelas industri siswa magang!'
+                ]);
             }
 
             $pendaftar->delete();
 
             DB::commit();
-            return response()->json(['response' => ['success' => true]]);
+            return back()->with('message', [
+                'icon' => 'success',
+                'title' => 'Berhasil!',
+                'text' => 'Berhasil mengapus list kelas industri!'
+            ]);
         } catch (\Exception $th) {
             DB::rollBack();
-            return response()->json(['response' => ['success' => false, 'message' => "Ada kesalahan server"]]);
+            return back()->with('message', [
+                'icon' => 'error',
+                'title' => 'Gagal!',
+                'text' => 'Ada kesalahan saat menghapus siswa magang!'
+            ]);
         }
     }
 }

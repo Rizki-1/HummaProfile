@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama_industri');
             $table->string('jenis_industri');
+            $table->string('asal_sekolah');
             $table->string('email');
             $table->string('alamat');
             $table->string('document');

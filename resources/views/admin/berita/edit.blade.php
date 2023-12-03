@@ -52,7 +52,7 @@
             </div>
             <div>
               <label class="form-label" for="description">Deskripsi Berita</label>
-              <textarea required class="form-control @error('description') is-invalid @enderror" id="description" placeholder="Deskripsi Berita" name="description" rows="2">{{ $berita->description }}</textarea>
+              <textarea required class="form-control @error('description') is-invalid @enderror" id="description" placeholder="Deskripsi Berita" name="description" rows="7">{{ $berita->description }}</textarea>
               @error('description')
                 <div class="invalid-feedback">
                   <p>{{ $message }}</p>
@@ -75,7 +75,7 @@
             </div>
           </div>
           <div class="col-md-6 col-12 mt-4">
-            <button type="submit" class="btn btn-primary me-2">Tambah</button>
+            <button type="submit" class="btn btn-warning me-2">Edit</button>
             <a class="btn btn-secondary" href="{{ route('berita.index') }}">Cancel</a>
           </div>
         </div>

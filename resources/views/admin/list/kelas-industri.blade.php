@@ -28,27 +28,28 @@
                     <thead>
                       <tr>
                         <th class="sorting sorting_asc" tabindex="0" style="width: 144.302px;">
-                          Nama</th>
+                          Nama Industri</th>
                         <th class="sorting sorting_asc" tabindex="0" style="width: 144.302px;">
-                          Asal Sekolah</th>
+                          Jenis industri</th>
                         <th class="sorting sorting_asc" tabindex="0" style="width: 144.302px;">
-                          Jurusan</th>
-                        <th class="sorting sorting_asc" tabindex="0" style="width: 144.302px;">
-                          Kelas</th>
+                          Email</th>
                         <th class="sorting sorting_asc" tabindex="0" style="width: 144.302px;">
                           Options</th>
                       </tr>
                     </thead>
                     <tbody>
-                      @forelse ($siswa as $row)
+                      @forelse ($industri as $row)
                         <tr class="odd">
-                          <td class="sorting_1">{{ $row->nama }}</td>
-                          <td class="sorting_1">{{ $row->asal_sekolah }}</td>
-                          <td class="sorting_1">{{ $row->jurusan }}</td>
-                          <td class="sorting_1">{{ $row->kelas }}</td>
-                          <td>
-                            <button type="button" class="btn btn-primary btn-icon"><i class="link-icon" data-feather="file-text"></i></button>
-                            <button type="button" class="btn btn-danger btn-icon"><i class="link-icon" data-feather="trash"></i></button>
+                          <td class="sorting_1">{{ $row->nama_industri }}</td>
+                          <td class="sorting_1">{{ $row->jenis_industri }}</td>
+                          <td class="sorting_1">{{ $row->email }}</td>
+                          <td class="d-flex flex-row">
+                            <button type="button" class="btn btn-primary btn-icon me-2"><i class="link-icon" data-feather="file-text"></i></button>
+                            <form nameIndustri="{{ $row->nama_industri }}" action="{{ route('list.kelas_industri.del', $row->id) }}" class="hapus" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-icon"><i class="link-icon" data-feather="trash"></i></button>
+                            </form>
                           </td>
                         </tr>
                       @empty
@@ -65,7 +66,7 @@
               <div class="row">
                 <div class="col-sm-12 col-md-7">
                   <div class="dataTables_paginate paging_simple_numbers" id="dataTableExample_paginate">
-                    {{ $siswa->onEachSide(1)->links('layouts.pagination') }}
+                    {{ $industri->onEachSide(1)->links('layouts.pagination') }}
                   </div>
                 </div>
               </div>
@@ -76,49 +77,26 @@
     </div>
   </div>
   <script>
-    function showDeletePopup(id, name) {
-      Swal.fire({
-        title: "Apakah Anda yakin?",
-        text: "Apakah anda yakin ingin menghapus layanan " + name,
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!"
-      }).then((result) => {
-        if (result.isConfirmed) {
-          fetch(`{{ route('layanan-perusahaan.destroy', '') }}/${id}`, {
-              method: 'DELETE',
-              headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': '{{ csrf_token() }}',
-              },
-            })
-            .then(response => response.json())
-            .then(data => {
-              if (data.response.success) {
-                Swal.fire({
-                  title: "Terhapus!",
-                  text: "Berhasil menghapus layanan.",
-                  icon: "success"
-                }).then((result) => {
-                  if (result.dismiss === Swal.DismissReason.close || result
-                    .dismiss === Swal.DismissReason.esc || result.dismiss ===
-                    Swal.DismissReason.overlay || result.dismiss === Swal
-                    .DismissReason.timer) {
-                    location.reload();
-                  }
-                });
-              } else {
-                Swal.fire({
-                  title: "Error!",
-                  text: "Terjadi kesalahan saat menghapus layanan.",
-                  icon: "error"
-                });
-              }
-            });
-        }
+    if(document.querySelectorAll('.hapus').length > 0){
+    document.querySelectorAll('.hapus').forEach(function(form) {
+      form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        var nameIndustri = form.getAttribute('nameIndustri');
+        Swal.fire({
+          title: 'Apakah anda yakin?',
+          text: "Ingin menghapus kelas industri '" + nameIndustri + "'?",
+          icon: "question",
+          showCancelButton: true,
+          confirmButtonText: "Ya, Hapus!",
+          cancelButtonText: "Batal",
+          background: 'var(--bs-body-bg)',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            form.submit();
+          }
+        });
       });
-    }
+    });
+  }
   </script>
 @endsection

@@ -26,7 +26,7 @@
               </div>
               <div class="category-hover">
                 <a href="{{ route('category-berita.edit', $item->id) }}"><i class="link-icon edit-icon" data-feather="edit"></i></a>
-                <form action="{{ route('category-berita.destroy', $item->id) }}" method="POST">
+                <form nameKategori="{{ $item->name }}" action="{{ route('category-berita.destroy', $item->id) }}" method="POST" class="hapus">
                   @csrf
                   @method('DELETE')
                   <button type="submit" class="button-delete"><i class="link-icon trash-icon" data-feather="trash"></i></button>
@@ -40,4 +40,27 @@
       @endforelse
     </div>
   </div>
+  <script>
+    if(document.querySelectorAll('.hapus').length > 0){
+    document.querySelectorAll('.hapus').forEach(function(form) {
+      form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        var nameKategori = form.getAttribute('nameKategori');
+        Swal.fire({
+          title: 'Apakah anda yakin?',
+          text: "Ingin menghapus kategori berita '" + nameKategori + "'?",
+          icon: "question",
+          showCancelButton: true,
+          confirmButtonText: "Ya, Hapus!",
+          cancelButtonText: "Batal",
+          background: 'var(--bs-body-bg)',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            form.submit();
+          }
+        });
+      });
+    });
+  }
+  </script>
 @endsection
