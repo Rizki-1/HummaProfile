@@ -48,7 +48,7 @@
         <div class="header-wrap">
 
           <div class="header-logo">
-            <a href="{{ route('homeindex') }}"><img src="{{ asset('cssUser/images/logo.png') }}" alt=""></a>
+            <a href="{{ route('homeindex') }}"><img src="{{ asset('cssUser/images/logohumma.png') }}" alt=""></a>
           </div>
 
           <div class="header-menu d-none d-lg-block">
