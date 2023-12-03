@@ -24,7 +24,7 @@
             <div class="mb-3">
               <label class="form-label">Kategori Berita</label>
               <select class="select2 form-select select2-multiple @error('category[]') is-invalid @enderror" multiple="multiple" id="category" name="category[]" multiple data-placeholder="Kategori Berita" multiple>
-                <optgroup>
+                <optgroup label="Kategori Berita">
                   @foreach ($kategoriBerita as $category)
                     <option value="{{ $category->id }}" {{ in_array($category->id, old('category', [])) ? 'selected' : '' }}>
                       {{ $category->name }}

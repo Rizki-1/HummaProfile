@@ -2,16 +2,24 @@
 
 @section('content')
   <title>{{ config('app.name', 'Laravel') }} - Daftar Siswa Magang</title>
+  <div class="card p-3 mb-4 flex-row justify-content-between align-items-center">
+    <div>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb breadcrumb-dot mb-0">
+          <li class="breadcrumb-item active" aria-current="page">List Siswa Magang Terdaftar</li>
+        </ol>
+      </nav>
+    </div>
+    <div class="text-end">
+      <div id="dataTableExample_filter" class="dataTables_filter d-flex justify-content-end">
+        <form method="GET"><label><input type="search" class="form-control" placeholder="Search" name="query" value="{{ request('query') }}" aria-controls="dataTableExample"></label></form>
+      </div>
+    </div>
+  </div>
   <div class="row">
     <div class="col-md-12 grid-margin stretch-card" style="">
       <div class="card">
         <div class="card-body">
-          <div class="d-flex justify-content-between align-items-center">
-            <h6 class="card-title">List Siswa Magang Terdaftar</h6>
-            <div id="dataTableExample_filter" class="dataTables_filter d-flex justify-content-end">
-              <form method="GET"><label><input type="search" class="form-control" placeholder="Search" name="query" value="{{ request('query') }}" aria-controls="dataTableExample"></label></form>
-            </div>
-          </div>
           <div class="table-responsive">
             <div id="dataTableExample_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer overflow-hidden">
               <div class="row">
@@ -20,13 +28,13 @@
                     <thead>
                       <tr>
                         <th class="sorting sorting_asc" tabindex="0" style="width: 144.302px;">
-                          Nama Pengaju</th>
+                          Nama</th>
                         <th class="sorting sorting_asc" tabindex="0" style="width: 144.302px;">
                           Asal Sekolah</th>
                         <th class="sorting sorting_asc" tabindex="0" style="width: 144.302px;">
                           Jurusan</th>
                         <th class="sorting sorting_asc" tabindex="0" style="width: 144.302px;">
-                          Jurusan</th>
+                          Kelas</th>
                         <th class="sorting sorting_asc" tabindex="0" style="width: 144.302px;">
                           Options</th>
                       </tr>
@@ -39,8 +47,8 @@
                           <td class="sorting_1">{{ $row->jurusan }}</td>
                           <td class="sorting_1">{{ $row->kelas }}</td>
                           <td>
-                            <button type="button" class="btn btn-primary">Detail</button>
-                            <button type="button" class="btn btn-danger" onclick="showDeletePopup({{ $row->id }})">Hapus</button>
+                            <button type="button" class="btn btn-primary"><i class="link-icon" data-feather="file-text"></i></button>
+                            <button type="button" class="btn btn-danger" onclick="showDeletePopup({{ $row->id }})"><i class="link-icon" data-feather="trash"></i></button>
                           </td>
                         </tr>
                       @empty

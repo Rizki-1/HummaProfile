@@ -2,9 +2,17 @@
 
 @section('content')
   <title>{{ config('app.name', 'Laravel') }} - Persetujuan Kelas Industry</title>
+  <div class="card p-4 mb-4 flex-row justify-content-between align-items-center">
+    <div>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb breadcrumb-dot mb-0">
+          <li class="breadcrumb-item active" aria-current="page">Persetujuan Kelas Industry</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
   <div class="card">
     <div class="card-body">
-      <h6 class="card-title">Data Persetujuan Sekolah Industri</h6>
       <div class="table-responsive">
         <table class="table">
           <thead>
@@ -18,7 +26,7 @@
             </tr>
           </thead>
           <tbody>
-            @foreach ($industris as $key => $data)
+            @forelse ($industris as $key => $data)
               <tr>
                 <th>{{ ++$key }}</th>
                 <td>{{ $data->nama_industri }}</td>
@@ -41,7 +49,13 @@
                   <button type="submit" class="btn btn-success btn-icon" data-bs-toggle="modal" data-bs-target="#documentModal-{{ $data->id }}"><i class="link-icon" data-feather="file-text"></i></button>
                 </td>
               </tr>
-            @endforeach
+            @empty
+              <tr>
+                <td colspan="6">
+                  <p class="mt-3 mb-3 text-center fw-bold">Tidak Ada Permintaan Pendaftaran Kelas Industry</p>
+                </td>
+              </tr>
+            @endforelse
           </tbody>
         </table>
       </div>

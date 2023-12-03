@@ -2,6 +2,16 @@
 
 @section('content')
   <title>{{ config('app.name', 'Laravel') }} - Layanan</title>
+  <div class="card p-4 mb-4 flex-row justify-content-between align-items-center">
+    <div>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb breadcrumb-dot mb-0">
+          <li class="breadcrumb-item"><a href="{{ route('layanan-perusahaan.index') }}">Layanan</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Create</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
   <div class="row">
     <div class="col-md-12 grid-margin stretch-card">
       <div class="card">
@@ -76,7 +86,7 @@
               @endforelse
             </div>
             <div class="hstack gap-2 justify-content-between">
-              <button type="submit" class="btn btn-success">Kirim</button>
+              <button type="submit" class="btn btn-primary">Tambah</button>
               <input required class="btn btn-outline-success waves-effect waves-light" data-repeater-create type="button" value="+ Tambah" />
             </div>
           </form>

@@ -3,11 +3,15 @@
     @extends('layouts.nav-admin')
 
     @section('content')
-    <title>{{ config('app.name', 'Laravel') }} - Inbox</title>
+      <title>{{ config('app.name', 'Laravel') }} - Inbox</title>
       <link rel="stylesheet" href="{{ asset('cssAdmin/vendors/easymde/easymde.min.css') }}">
-      @foreach ($errors->all() as $error)
-        <p>{{ $error }}</p>
-      @endforeach
+      @error(session('error'))
+        <div class="card p-4 mb-4">
+          @foreach ($errors->all() as $error)
+            <p class="text-danger fw-bold">{{ $error }}</p>
+          @endforeach
+        </div>
+      @enderror
       <div class="row inbox-wrapper">
         <div class="col-lg-12">
           <div class="card">

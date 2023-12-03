@@ -80,7 +80,7 @@
                     </a>
                   </div>
                 @empty
-                  <p class="mt-2 fw-bold text-center">Tidak ada data...</p>
+                  <p class="mt-3 mb-3 text-center fw-bold">Tidak Ada Data</p>
                 @endforelse
 
               </div>

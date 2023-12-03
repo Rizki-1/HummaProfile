@@ -2,6 +2,7 @@
 
 @section('content')
   <title>{{ config('app.name', 'Laravel') }} - Berita</title>
+  <link rel="stylesheet" href="{{ asset('cssAdmin/css/berita/berita.css') }}">
   <link rel="stylesheet" href="{{ asset('cssAdmin/vendors/select2/select2.min.css') }}">
   <script src="{{ asset('cssAdmin/js/select2.js') }}"></script>
   <script src="{{ asset('cssAdmin/vendors/select2/select2.min.js') }}"></script>
@@ -10,8 +11,8 @@
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb breadcrumb-dot mb-0">
           <li class="breadcrumb-item"><a href="{{ route('berita.index') }}">Berita</a></li>
-          <li class="breadcrumb-item" aria-current="page"><a href="{{ route('berita.create') }}">create</a></li>
           <li class="breadcrumb-item active" aria-current="page">edit</li>
+          <li class="breadcrumb-item active" aria-current="page">{{ $berita->title }}</li>
         </ol>
       </nav>
     </div>
@@ -27,14 +28,13 @@
               <label class="form-label">Kategori Berita</label>
               <select class="select2 form-select select2-multiple @error('category[]') is-invalid @enderror" multiple="multiple" id="category" name="category[]" multiple data-placeholder="Kategori Berita">
                 <optgroup label="Kategori Berita">
-                    @foreach ($kategoriBerita as $category)
-                        <option value="{{ $category->id }}" {{ (in_array($category->id, old('category', $berita->kategori->pluck('id')->toArray())) || in_array($category->id, $berita->kategori->pluck('id')->toArray())) ? 'selected' : '' }}>
-                            {{ $category->name }}
-                        </option>
-                    @endforeach
+                  @foreach ($kategoriBerita as $category)
+                    <option value="{{ $category->id }}" {{ in_array($category->id, old('category', $berita->kategori->pluck('id')->toArray())) || in_array($category->id, $berita->kategori->pluck('id')->toArray()) ? 'selected' : '' }}>
+                      {{ $category->name }}
+                    </option>
+                  @endforeach
                 </optgroup>
-            </select>
-
+              </select>
               @error('category[]')
                 <div class="invalid-feedback">
                   <p>{{ $message }}</p>
@@ -62,13 +62,17 @@
           </div>
           <div class="col-md-6">
             <label for="myDropify" class="form-label">Upload Gambar Berita</label>
-            <img src="{{ asset('storage/'.$berita->thumbnail) }}" alt="" style="width: 100px; height: 20%">
-            <input  name="thumbnail" class="@error('thumbnail') is-invalid @enderror" type="file" id="myDropify" />
-            @error('thumbnail')
-              <div>
-                <p class="text-danger mt-2">{{ $message }}</p>
+            <div class="drag-and-drop">
+              <div class="berita-picture-container">
+                <img class="berita-picture-old" src="{{ asset('storage/' . $berita->thumbnail) }}" alt="Foto Berita">
               </div>
-            @enderror
+              <input name="thumbnail" class="@error('thumbnail') is-invalid @enderror" type="file" id="myDropify" />
+              @error('thumbnail')
+                <div>
+                  <p class="text-danger mt-2">{{ $message }}</p>
+                </div>
+              @enderror
+            </div>
           </div>
           <div class="col-md-6 col-12 mt-4">
             <button type="submit" class="btn btn-primary me-2">Tambah</button>

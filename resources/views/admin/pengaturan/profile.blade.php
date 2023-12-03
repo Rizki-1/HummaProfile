@@ -2,52 +2,56 @@
 
 @section('content')
   <title>{{ config('app.name', 'Laravel') }} - Profile Perusahaan</title>
-  <div class="container rounded bg-white">
+  <div class="card p-4 mb-4 flex-row justify-content-between align-items-center">
+    <div>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb breadcrumb-dot mb-0">
+          <li class="breadcrumb-item active" aria-current="page">Profile Settings</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+  <div class="card p-4">
     <form action="{{ route('profile-perusahaan.update', 1) }}" method="POST" enctype="multipart/form-data">
       @csrf
       @method('PUT')
       <div class="row">
-        <div class="row-md-5 border-right">
-          <div class="p-3">
-            <div class="d-flex justify-content-between align-items-center mb-3">
-              <h4 class="text-right">Profile Settings</h4>
+        <div class="col-md-6 mb-3">
+          <div>
+            <div class="d-flex justify-content-between align-items-center experience">
+              <span class="fw-bold">Detail Perusahaan</span>
             </div>
-
-            <!-- Struktur Tabel Input HTML -->
             <div class="row mt-3">
               <div class="col-md-12">
-                <label class="labels">Alamat</label>
+                <label class="form-label">Alamat</label>
                 <textarea class="form-control" placeholder="Enter alamat" name="alamat" rows="3">{{ $profile->alamat }}</textarea>
               </div>
             </div>
 
             <div class="row mt-3">
               <div class="col-md-12">
-                <label class="labels">Nomor Telepon</label>
+                <label class="form-label">Nomor Telepon</label>
                 <input type="text" class="form-control" placeholder="Enter nomor telepon" name="no_telp" value="{{ $profile->no_telp }}">
               </div>
             </div>
 
             <div class="row mt-3">
               <div class="col-md-12">
-                <label class="labels">Email</label>
+                <label class="form-label">Email</label>
                 <input type="text" class="form-control" placeholder="Enter email" name="email" value="{{ $profile->email }}">
               </div>
             </div>
           </div>
-        </div>
-        <div class="row-md-5">
-          <div class="p-3">
-            <div class="row mt-3">
-              <label class="labels">Tentang</label>
-              <textarea type="text" class="form-control" placeholder="Enter tentang" rows="15" name="tentang">{{ $profile->tentang }}</textarea>
-            </div>
+
+          <div class="mt-3">
+            <label class="form-label">Tentang</label>
+            <textarea type="text" class="form-control" placeholder="Enter tentang" rows="15" name="tentang">{{ $profile->tentang }}</textarea>
           </div>
         </div>
-        <div class="row-md-7">
-          <div class="p-3">
+        <div class="col-md-6 mb-3">
+          <div>
             <div class="d-flex justify-content-between align-items-center experience">
-              <span>Tambah Sosmed</span>
+              <span class="fw-bold">Sosial Media</span>
             </div>
             <br>
             <div class="repeater">
@@ -57,9 +61,9 @@
                     <div data-repeater-item>
                       <input type="hidden" name="detail_id" value="{{ $detail->id }}">
                       <div class="row">
-                        <div class="d-flex flex-row">
-                          <div class="col-2 mb-4 pe-3">
-                            <label for="unknown" class="form-label">Nama Sosmed</label>
+                        <div class="d-flex flex-row gap-1">
+                          <div class="col-3">
+                            <label for="unknown" class="form-label">Sosial Media</label>
                             <input type="text" class="form-control @error('name') is-invalid
                                                         @enderror" placeholder="name" name="name" value="{{ $detail->name }}" required>
                             @error('name')
@@ -68,7 +72,7 @@
                               </div>
                             @enderror
                           </div>
-                          <div class="col-5 mb-4 ps-2">
+                          <div class="col-9 mb-4 ps-2">
                             <label for="unknown" class="form-label">Link Sosmed</label>
                             <div class="d-flex justify-content-between">
                               <div style="width: 100%">
@@ -93,7 +97,7 @@
                 @else
                   @foreach (old('sosmed-group') as $i => $category)
                     <div data-repeater-item>
-                      <div class="row">
+                      <div class="row d-none">
                         <div class="d-flex flex-row">
                           <div class="col-6 mb-4 pe-3">
                             <label for="unknown" class="form-label">Nama Sosmed</label>
@@ -135,9 +139,9 @@
               </div>
             </div>
           </div>
-          <div class="mt-5 text-center">
-            <button class="btn btn-primary profile-button" type="submit">Save Profile</button>
-          </div>
+        </div>
+        <div class="col-md12 mt-5 text-start">
+          <button class="btn btn-primary profile-button" type="submit">Save Profile</button>
         </div>
       </div>
     </form>

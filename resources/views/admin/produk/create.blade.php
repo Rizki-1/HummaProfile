@@ -1,6 +1,7 @@
 @extends('layouts.nav-admin')
 
 @section('content')
+  <title>{{ config('app.name', 'Laravel') }} - Produk</title>
   <div class="card mb-4 p-4">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb breadcrumb-dot mb-0">

@@ -32,7 +32,7 @@ class ListController extends Controller
     }
     public function kelasIndustri(){
         $siswa = SiswaMagang::latest()->where('status', 'diterima')->paginate(1);
-        return view("admin.list.siswa-magang",compact("siswa"));
+        return view("admin.list.kelas-industri",compact("siswa"));
     }
     function kelasIndustriDel($id){
         try {

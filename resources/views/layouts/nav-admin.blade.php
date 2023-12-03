@@ -90,7 +90,7 @@
                   <a href="{{ route('list.siswa_magang') }}" class="nav-link">Siswa Magang</a>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link">Kelas Industri</a>
+                  <a href="{{ route('list.kelas_industri') }}" class="nav-link">Kelas Industri</a>
                 </li>
               </ul>
             </div>

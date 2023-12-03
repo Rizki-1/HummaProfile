@@ -1,6 +1,7 @@
 @extends('layouts.nav-admin')
 
 @section('content')
+  <title>{{ config('app.name', 'Laravel') }} - Produk</title>
   <link rel="stylesheet" href="{{ asset('cssAdmin/css/produk/produk.css') }}">
   <div class="card mb-4 p-4">
     <nav aria-label="breadcrumb">
@@ -51,7 +52,7 @@
           <div class="col-md-6">
             <label for="myDropify" class="form-label">Upload Gambar Produk</label>
             <div class="drag-and-drop">
-              <div class="product-picture-container" id="picture">
+              <div class="product-picture-container">
                 <img class="product-picture-old" src="{{ asset('storage/produk/' . $produks->foto_produk) }}" alt="Foto produk">
               </div>
               <input required name="foto_produk" class="@error('foto_produk') is-invalid @enderror" type="file" id="myDropify" />

@@ -1,6 +1,7 @@
 @extends('layouts.nav-admin')
 
 @section('content')
+  <title>{{ config('app.name', 'Laravel') }} - Produk</title>
   <link rel="stylesheet" href="{{ asset('cssAdmin/css/produk/produk.css') }}">
   <div class="card px-4 py-3 mb-4 flex-row justify-content-between align-items-center">
     <div>
@@ -45,8 +46,9 @@
               </div>
             </div>
           </div>
-        @empty
-          <p class="fw-bold text-center">Tidak ada produk. <a href="{{ route('produk.create') }}">Tambah!</a></p>
+        </div>
+      @empty
+        <p class="fw-bold text-center">Tidak ada produk. <a href="{{ route('produk.create') }}">Tambah!</a></p>
       @endforelse
       <div>
         {{ $produks->links('pagination::bootstrap-5') }}
