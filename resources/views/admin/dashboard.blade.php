@@ -10,7 +10,7 @@
         </div>
         <div class="card-body text-end">
           <h5 class="card-title">Jumlah Siswa Magang</h5>
-          <p class="card-text">12</p>
+          <p class="card-text">{{ $siswaCount }}</p>
         </div>
       </div>
     </div>
@@ -21,8 +21,8 @@
           <i class="fa fa-ticket fa-3x"></i>
         </div>
         <div class="card-body text-end">
-          <h5 class="card-title">Instances</h5>
-          <p class="card-text">599</p>
+          <h5 class="card-title">Industri</h5>
+          <p class="card-text">{{ $industriCount }}</p>
         </div>
       </div>
     </div>
@@ -34,7 +34,7 @@
         </div>
         <div class="card-body text-end">
           <h5 class="card-title">Data</h5>
-          <p class="card-text">6875</p>
+          <p class="card-text">{{ $inboxCount }}</p>
         </div>
       </div>
     </div>
