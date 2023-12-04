@@ -73,6 +73,19 @@ class HomeController extends Controller
         $layanan = LayananPerusahaan::latest()->get();
         return view('user.layanan.index', compact('sosmed', 'profile', 'layanan'));
     }
+
+    public function detailBerita(Request $request, $id)
+    {
+        $berita = Berita::FindOrFail($id);
+        $sosmed = Sosmed::all();
+        $beriatAll = Berita::all();
+        $profile = ProfileCompany::all();
+        if ($request->input('query')) {
+            $beriatAll->where('title',  'LIKE', '%' . $request->input('query') . '%');
+        }
+        $beriatAll = $beriatAll->paginate(10);
+        return view('user.berita.detail', compact('berita', 'sosmed', 'profile','beritaAll'));
+    }
     // End User Controller
 
     public function dashboard()

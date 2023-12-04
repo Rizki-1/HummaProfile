@@ -22,9 +22,24 @@ class InboxStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string',
+            'name' => 'required|string|min:10|max:50',
             'email'=> 'required|email:rfc,dns',
-            'message' => 'required|max:10000'
+            'message' => 'required|max:100|min:10'
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'nama harus di isi',
+            'name.string' => 'nama harus valid',
+            'name.min' => 'nama minimal :min',
+            'name.max' => 'nama maksimal :max',
+            'email.required' => 'email harud di isi',
+            'email.email' => 'email harud valid',
+            'message.required' => 'pesan harus di isi',
+            'message.max' => 'pesan maksimal :max',
+            'message.min' => 'pesan minimal :min',
         ];
     }
 }

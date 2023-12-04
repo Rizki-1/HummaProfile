@@ -81,19 +81,18 @@
           <div class="header-meta">
             <!-- Header Search Start -->
             <div class="header-search">
-              <a class="search-btn" href="#"><i class="flaticon-loupe"></i></a>
-              <div class="search-wrap">
-                <div class="search-inner">
-                  <i id="search-close" class="flaticon-close search-close"></i>
-                  <div class="search-cell">
-                    <form action="#">
-                      <div class="search-field-holder">
-                        <input class="main-search-input" type="search" placeholder="Search Your Keyword...">
-                      </div>
-                    </form>
-                  </div>
+                <div class="container-fluid">
+                    <div class="search-field-holder">
+                        <input type="text" class="form-control main-search-input" style="border-radius: 0px; width: 60%;height:35px;float: left;"
+                        id="textSearch" placeholder="Please enter the search keywords">
+                    </div>
+                        <button class="btn btn-primary p-0" style="margin-left: 10px;" onclick="clearSearch()">Clear search</button>
+                        <script src="{{ asset('cssUser/js/seeker/lib/fuje.js') }}"></script>
+                        @include('layouts.keywords')
+                        <script src="{{ asset('cssUser/js/seeker/lib/highlight.js') }}"></script>
+                        <script src="{{ asset('cssUser/js/seeker/index.js') }}"></script>
+                        <div id="results" class="d-flex flex-column bg-white p-2 overflow-y-scroll position-absolute d-none" style="max-height: 275px"></div>
                 </div>
-              </div>
             </div>
             <!-- Header Search End -->
             <div class="header-btn d-none d-xl-block">

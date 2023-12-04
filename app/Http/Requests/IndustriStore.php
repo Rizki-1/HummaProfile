@@ -44,8 +44,10 @@ class IndustriStore extends FormRequest
             'email.email' => 'email harus valid',
             'email.max' => 'email maksimal :max',
             'alamat.required' => 'alamat harus di isi',
-            'alamat.min' => 'alamat minmal :min',
-            'alamat.max' => 'alamat maksimal :max'
+            'alamat.min' => 'alamat minimal :min',
+            'alamat.max' => 'alamat maksimal :max',
+            'document.required' => 'document harus di isi',
+            'document.mimes' => 'document harus berjenis pdf'
         ];
     }
 }

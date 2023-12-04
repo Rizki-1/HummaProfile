@@ -42,4 +42,5 @@ class UpdateBeritaRequest extends FormRequest
 
         ];
     }
+
 }
