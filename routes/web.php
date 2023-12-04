@@ -73,6 +73,7 @@ Route::get('/pendidikan/industri', [HomeController::class, 'indexIndustri'])->na
 Route::get('/produk', [HomeController::class, 'indexProduk'])->name('produkIndex');
 Route::get('/contact', [HomeController::class, 'indexContact'])->name('contactIndex');
 Route::get('/berita', [HomeController::class, 'indexBerita'])->name('beritaIndex');
+Route::get('/berita/{id}', [HomeController::class, 'detailBerita'])->name('detailBerita');
 
 //formLandingPage
 Route::post('/siswa.store', [FormController::class, 'SiswaMagangStore'])->name('siswa.store');

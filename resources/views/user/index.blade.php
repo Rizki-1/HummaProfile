@@ -175,8 +175,7 @@
           <div class="row">
             <div class="col-lg-12">
               <div class="more-choose-content text-center">
-                <p>Lihat Selengkapnya <a href="">Disini <i
-                      class="fas fa-long-arrow-alt-right"></i></a>
+                <p>Lihat Selengkapnya <a href="">Disini <i class="fas fa-long-arrow-alt-right"></i></a>
                 </p>
               </div>
             </div>
@@ -187,50 +186,6 @@
     </div>
   </div>
   <!-- Service End -->
-
-  <!-- Choose Us Start -->
-  <div class="section techwix-choose-us-section section-padding"
-    style="background-image: url({{ asset('cssUser/images/bg/choose-us') }}-bg.jpg);">
-    <div class="container">
-      <!-- Choose Us Wrap Start -->
-      <div class="choose-us-wrap">
-        <div class="section-title text-center">
-          <h3 class="sub-title">Berita</h3>
-          <h2 class="title">We provide truly prominent IT solutions.</h2>
-        </div>
-        <div class="choose-us-content-wrap">
-          <div class="row">
-            @foreach ($berita as $data)
-              <div class="col-lg-4 col-md-6">
-                <!-- Choose Us Item Start -->
-                <div class="choose-us-item">
-                  <div class="choose-us-img">
-                    <a href=""><img style="height: 100%; object-fit: cover" src="{{ asset('storage/'. $data->thumbnail) }}"
-                        alt=""></a>
-                    <div class="choose-us-content">
-                      <h3 class="title">{{ $data->title }}</h3>
-                      <p>{{ $data->description }}</p>
-                    </div>
-                  </div>
-                </div>
-                <!-- Choose Us Item End -->
-              </div>
-            @endforeach
-          </div>
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="more-choose-content text-center">
-                <p>Lihat berita lainnya <a href="{{ route('beritaIndex') }}">Disini <i class="fas fa-long-arrow-alt-right"></i></a>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Choose Us Wrap End -->
-    </div>
-  </div>
-  <!-- Choose Us End -->
 
   <!-- Testimonial Start  -->
   <div class="section techwix-testimonial-section-02 techwix-testimonial-section-03 section-padding-02">
@@ -378,6 +333,54 @@
     </div>
   </div>
   <!-- Brand Logo End -->
+
+  {{-- Berita Start --}}
+  <div class="section techwix-blog-section section-padding-02" style="background-color: #f4f4f4">
+    <div class="container">
+      <!-- Section Title Start -->
+      <div class="section-title text-center">
+        <h4 class="sub-title">Berita</h4>
+        <h2 class="title">From the news room</h2>
+      </div>
+      <!-- Section Title End -->
+      <div class="techwix-blog-wrap">
+        <div class="row">
+          @foreach ($berita->take(3) as $data)
+            <div class="col-lg-4 col-md-6">
+              <!-- Single Blog Start -->
+              <div class="single-blog">
+                <div class="blog-image">
+                  <a style="height: 250px; width: 100%" href=""><img
+                      style="height: 100%; width: 100%; object-fit: cover;"
+                      src="{{ asset('storage/' . $data->thumbnail) }}" alt="{{ $data->title }}"></a>
+                  <div class="top-meta">
+                    <span class="date">
+                      <span>{{ \Carbon\Carbon::parse($data->created_at)->format('d') }}</span>
+                      {{ \Carbon\Carbon::parse($data->created_at)->format('M') }}
+                    </span>
+                  </div>
+                </div>
+                <div class="blog-content">
+                  <div class="blog-meta">
+                    @foreach ($data->kategori as $item)
+                      <span>{{ $item->name }}</span>
+                    @endforeach
+                  </div>
+                  <h3 class="title"><a href="">{{ $data->title }}</a></h3>
+                  <div class="blog-btn">
+                    <a class="blog-btn-link" href="{{ route('detailBerita', $data->id) }}">Read Full <i
+                        class="fas fa-long-arrow-alt-right"></i></a>
+                  </div>
+                </div>
+              </div>
+              <!-- Single Blog End -->
+            </div>
+          @endforeach
+        </div>
+      </div>
+    </div>
+  </div>
+  {{-- Berita End --}}
 
   <!-- Blog Start -->
   <div class="section techwix-blog-section section-padding-02">

@@ -6620,6 +6620,12 @@ textarea:-ms-input-placeholder {
   margin-bottom: 0px;
 }
 
+.choose-us-item:hover .choose-us-img .choose-us-content span {
+  opacity: 1;
+  visibility: visible;
+  margin-bottom: 0px;
+}
+
 @media only screen and (max-width: 1399px) {
   .choose-us-item .choose-us-img .choose-us-content {
     padding-right: 40px;

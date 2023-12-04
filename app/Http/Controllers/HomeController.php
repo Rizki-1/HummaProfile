@@ -73,6 +73,14 @@ class HomeController extends Controller
         $layanan = LayananPerusahaan::latest()->get();
         return view('user.layanan.index', compact('sosmed', 'profile', 'layanan'));
     }
+
+    public function detailBerita($id)
+    {
+        $berita = Berita::FindOrFail($id);
+        $sosmed = Sosmed::all();
+        $profile = ProfileCompany::all();
+        return view('user.berita.detail', compact('berita', 'sosmed', 'profile'));
+    }
     // End User Controller
 
     public function dashboard()
