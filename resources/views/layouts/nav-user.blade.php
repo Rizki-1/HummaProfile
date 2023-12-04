@@ -22,6 +22,7 @@
 
   <!-- Main Style CSS -->
   <link rel="stylesheet" href="{{ asset('cssUser/css/style.css') }}">
+  <link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/style.css') }}">
 </head>
 
 
@@ -48,7 +49,7 @@
         <div class="header-wrap">
 
           <div class="header-logo">
-            <a href="{{ route('homeindex') }}"><img src="{{ asset('cssUser/images/logohumma.png') }}" alt=""></a>
+            <a href="{{ route('homeindex') }}"><img src="{{ asset('cssUser/images/logohumma.png') }}" alt="HummaTech"></a>
           </div>
 
           <div class="header-menu d-none d-lg-block">
@@ -69,96 +70,14 @@
               <li class="{{ request()->routeIs('produkIndex') ? 'active-menu' : '' }}">
                 <a href="{{ route('produkIndex') }}">Produk Kami</a>
               </li>
-              <li>
-                <a href="#">Hubungi</a>
+              <li class="{{ request()->routeIs('contactIndex') ? 'active-menu' : '' }}">
+                <a href="{{ route('contactIndex') }}">Hubungi</a>
               </li>
             </ul>
           </div>
 
           <!-- Header Meta Start -->
           <div class="header-meta">
-            <!-- Header Cart Start -->
-            <div class="header-cart dropdown">
-              <button class="cart-btn" data-bs-toggle="dropdown">
-                <i class="flaticon-shopping-cart"></i>
-                <span class="count">0</span>
-              </button>
-              <!-- Header Dropdown Cart Start -->
-              <div class="dropdown-menu dropdown-cart">
-                <!-- Dropdown Cart Items Start -->
-                <div class="cart-items">
-                  <!-- Single Cart Item Start -->
-                  <div class="single-cart-item">
-                    <div class="item-image">
-                      <img src="assets/images/shop-cart-1.jpg" alt="cart">
-                    </div>
-                    <div class="item-content">
-                      <h4 class="title"><a href="#">Apple Iphone X</a></h4>
-                      <span class="quantity">2 x $59.99</span>
-                    </div>
-                    <button class="btn-close"></button>
-                  </div>
-                  <!-- Single Cart Item End -->
-                  <!-- Single Cart Item Start -->
-                  <div class="single-cart-item">
-                    <div class="item-image">
-                      <img src="assets/images/shop-cart-2.jpg" alt="cart">
-                    </div>
-                    <div class="item-content">
-                      <h4 class="title"><a href="#">Sony Xperia Tablet</a></h4>
-                      <span class="quantity">2 x $59.99</span>
-                    </div>
-                    <button class="btn-close"></button>
-                  </div>
-                  <!-- Single Cart Item End -->
-                  <!-- Single Cart Item Start -->
-                  <div class="single-cart-item">
-                    <div class="item-image">
-                      <img src="assets/images/shop-cart-3.jpg" alt="cart">
-                    </div>
-                    <div class="item-content">
-                      <h4 class="title"><a href="#">Camera Digital</a></h4>
-                      <span class="quantity">2 x $59.99</span>
-                    </div>
-                    <button class="btn-close"></button>
-                  </div>
-                  <!-- Single Cart Item End -->
-                </div>
-                <!-- Dropdown Cart Items End -->
-                <!-- Dropdown Cart Total Start -->
-                <div class="cart-total">
-                  <span class="label">Subtotal:</span>
-                  <span class="value">0</span>
-                </div>
-                <!-- Dropdown Cart Total End -->
-                <!-- Dropdown Cart Button Start -->
-                <div class="cart-btns">
-                  <a class="btn" href="#">View Cart</a>
-                  <a class="btn btn-2" href="#">Checkout</a>
-                </div>
-                <!-- Dropdown Cart Button End -->
-              </div>
-              <!-- Header Dropdown Cart End -->
-            </div>
-            <!-- Header Cart End -->
-            <!-- Header Search Start -->
-            <div class="header-search">
-              <a class="search-btn" href="#"><i class="flaticon-loupe"></i></a>
-              <div class="search-wrap">
-                <div class="search-inner">
-                  <i id="search-close" class="flaticon-close search-close"></i>
-                  <div class="search-cell">
-                    <form action="#">
-                      <div class="search-field-holder">
-                        <input class="main-search-input" type="search" placeholder="Search Your Keyword...">
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Header Search End -->
-
             <div class="header-btn d-none d-xl-block">
               <a class="btn" href="/login">Login</a>
             </div>
@@ -212,8 +131,8 @@
             <li class="{{ request()->routeIs('produkIndex') ? 'active-menu' : '' }}">
               <a href="{{ route('produkIndex') }}">Produk Kami</a>
             </li>
-            <li>
-              <a href="#">Hubungi</a>
+            <li class="{{ request()->routeIs('contactIndex') ? 'active-menu' : '' }}">
+              <a href="{{ route('contactIndex') }}">Hubungi</a>
             </li>
           </ul>
         </div>
@@ -226,8 +145,8 @@
     <!-- back to top end -->
 
     <!-- Footer Section Start -->
-    <div class="section footer-section footer-section-03"
-      style="background-image: url({{ asset('cssUser/images/bg/footer-bg') }}.jpg);">
+    <div class="section footer-section footer-section-04"
+      style="background-image: url({{ asset('cssUser/images/bg/footer-bg3.jpg') }});">
 
       <div class="container">
         <!-- Footer Widget Wrap Start -->
@@ -236,31 +155,23 @@
             <div class="col-lg-3 col-sm-6">
               <!-- Footer Widget Start -->
               <div class="footer-widget-about">
-                <a class="footer-logo" href="index.html"><img src="{{ asset('cssUser/images/logo-white.png') }}"
-                    alt="Logo"></a>
+                <a class="footer-logo" href="{{ route('homeindex') }}"><img
+                    src="{{ asset('cssUser/images/logohumma.png') }}" alt="Logo"></a>
                 <p>Accelerate innovation with world-class tech teams We’ll match you to an entire remote team of
                   incredible freelance talent.</p>
-                <div class="footer-social">
-                  <ul class="social">
-                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                  </ul>
-                </div>
               </div>
               <!-- Footer Widget End -->
             </div>
             <div class="col-lg-3 col-sm-6">
               <!-- Footer Widget Start -->
               <div class="footer-widget">
-                <h4 class="footer-widget-title">Useful Links</h4>
+                <h4 class="footer-widget-title">Sosial Media</h4>
 
                 <div class="widget-link">
                   <ul class="link">
-                    <li><a href="#">Terms & Conditions</a></li>
-                    <li><a href="#">About Company</a></li>
-                    <li><a href="#">Payment Gatway</a></li>
-                    <li><a href="#">Policy</a></li>
+                    @foreach ($sosmed as $data)
+                      <li><a class="text-capitalize" href="{{ $data->link }}">{{ $data->name }}</a></li>
+                    @endforeach
                   </ul>
                 </div>
               </div>
@@ -269,7 +180,7 @@
             <div class="col-lg-3 col-sm-6">
               <!-- Footer Widget Start -->
               <div class="footer-widget">
-                <h4 class="footer-widget-title">Our Services</h4>
+                <h4 class="footer-widget-title">Layanan Kami</h4>
 
                 <div class="widget-link">
                   <ul class="link">
@@ -285,16 +196,17 @@
             <div class="col-lg-3 col-sm-6">
               <!-- Footer Widget Start -->
               <div class="footer-widget">
-                <h4 class="footer-widget-title">Contact Information</h4>
+                <h4 class="footer-widget-title">Hubungi Kami</h4>
 
                 <div class="widget-info">
+                  @foreach ($profile as $data)
                   <ul>
                     <li>
                       <div class="info-icon">
                         <i class="flaticon-phone-call"></i>
                       </div>
                       <div class="info-text">
-                        <span><a href="#">+91 458 654 528</a></span>
+                        <span><a href="#">{{ $data->no_telp }}</a></span>
                       </div>
                     </li>
                     <li>
@@ -302,7 +214,7 @@
                         <i class="far fa-envelope-open"></i>
                       </div>
                       <div class="info-text">
-                        <span><a href="#">info@example.com</a></span>
+                        <span><a href="#">{{ $data->email }}</a></span>
                       </div>
                     </li>
                     <li>
@@ -310,10 +222,11 @@
                         <i class="flaticon-pin"></i>
                       </div>
                       <div class="info-text">
-                        <span>60 East 65th Street, NY</span>
+                        <span>{{ $data->alamat }}</span>
                       </div>
                     </li>
                   </ul>
+                  @endforeach
                 </div>
               </div>
               <!-- Footer Widget End -->
@@ -331,7 +244,7 @@
               <div class="col-lg-12">
                 <!-- Footer Copyright Text Start -->
                 <div class="copyright-text text-center">
-                  <p>© Copyrights 2022 techwix All rights reserved. </p>
+                  <p>© Copyrights 2023 HummaTech All rights reserved. </p>
                 </div>
                 <!-- Footer Copyright Text End -->
               </div>

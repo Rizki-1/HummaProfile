@@ -68,88 +68,6 @@
   </div>
   <!-- Hero End -->
 
-  <!-- Service Start -->
-  <div class="section techwix-service-section-03"
-    style="background-image: url({{ asset('cssUser/images/bg/service-bg3') }}.jpg);">
-    <div class="container">
-      <!-- Service Wrap Start -->
-      <div class="service-wrap-03">
-        <div class="row">
-          <div class="col-xl-3 col-md-6">
-            <!-- Service Item Start -->
-            <div class="service-item-03">
-              <div class="service-img">
-                <img src="{{ asset('cssUser/images/ser-icon9.png') }}" alt="">
-              </div>
-              <div class="service-content">
-                <h3 class="title"><a href="service.html">Infrastructure Technology</a></h3>
-                <p>Accelerate innovation with world-class tech teams We’ll match you to an entire remote team of
-                  incredible freelance talent.</p>
-                <div class="read-more">
-                  <a href="service.html"><i class="fas fa-plus"></i> Read More</a>
-                </div>
-              </div>
-            </div>
-            <!-- Service Item End -->
-          </div>
-          <div class="col-xl-3 col-md-6">
-            <!-- Service Item Start -->
-            <div class="service-item-03">
-              <div class="service-img">
-                <img src="{{ asset('cssUser/images/ser-icon10.png') }}" alt="">
-              </div>
-              <div class="service-content">
-                <h3 class="title"><a href="service.html">IT Consultancy & solution</a></h3>
-                <p>Accelerate innovation with world-class tech teams We’ll match you to an entire remote team of
-                  incredible freelance talent.</p>
-                <div class="read-more">
-                  <a href="service.html"><i class="fas fa-plus"></i> Read More</a>
-                </div>
-              </div>
-            </div>
-            <!-- Service Item End -->
-          </div>
-          <div class="col-xl-3 col-md-6">
-            <!-- Service Item Start -->
-            <div class="service-item-03">
-              <div class="service-img">
-                <img src="{{ asset('cssUser/images/ser-icon11.png') }}" alt="">
-              </div>
-              <div class="service-content">
-                <h3 class="title"><a href="service.html">Cloud managed services</a></h3>
-                <p>Accelerate innovation with world-class tech teams We’ll match you to an entire remote team of
-                  incredible freelance talent.</p>
-                <div class="read-more">
-                  <a href="service.html"><i class="fas fa-plus"></i> Read More</a>
-                </div>
-              </div>
-            </div>
-            <!-- Service Item End -->
-          </div>
-          <div class="col-xl-3 col-md-6">
-            <!-- Service Item Start -->
-            <div class="service-item-03">
-              <div class="service-img">
-                <img src="{{ asset('cssUser/images/ser-icon12.png') }}" alt="">
-              </div>
-              <div class="service-content">
-                <h3 class="title"><a href="service.html">Blockchain technology</a></h3>
-                <p>Accelerate innovation with world-class tech teams We’ll match you to an entire remote team of
-                  incredible freelance talent.</p>
-                <div class="read-more">
-                  <a href="service.html"><i class="fas fa-plus"></i> Read More</a>
-                </div>
-              </div>
-            </div>
-            <!-- Service Item End -->
-          </div>
-        </div>
-      </div>
-      <!-- Service Wrap End -->
-    </div>
-  </div>
-  <!-- Service End -->
-
   <!-- About Start -->
   <div class="section techwix-about-section-04 section-padding">
     <div class="shape-1"></div>
@@ -161,24 +79,13 @@
             <!-- About Content Wrap Start -->
             <div class="about-content-wrap">
               <div class="section-title">
-                <h3 class="sub-title">Who we are</h3>
-                <h2 class="title">Highly Tailored IT Design, Management & Support Services.</h2>
+                <h3 class="sub-title">Siapa Kita</h3>
+                <h2 class="title">Kami menjalankan semua jenis layanan perangkat lunak yang menjanjikan kesuksesan Anda
+                </h2>
               </div>
-              <p class="text">Accelerate innovation with world-class tech teams We’ll match you to an entire remote
-                team of incredible freelance talent for all your software development needs.</p>
-              <!-- About Author Info Wrap Start -->
-              <div class="about-author-info-wrap">
-                <div class="about-author">
-                  <img src="{{ asset('cssUser/images/sign.png"') }} alt="">
-                  <h3 class="name">Alen Morno sin</h3>
-                  <span class="designation">CEO, Techmax</span>
-                </div>
-                <div class="about-info">
-                  <p>Call to ask any question </p>
-                  <h3 class="number">0123-456-7890</h3>
-                </div>
-              </div>
-              <!-- About Author Info Wrap End -->
+              @foreach ($profile as $data)
+                <p class="text">{{ $data->tentang }}</p>
+              @endforeach
             </div>
             <!-- About Content Wrap End -->
           </div>
@@ -205,68 +112,81 @@
   </div>
   <!-- About End -->
 
-  <!-- Counter Start -->
-  <div class="section techwix-counter-section-02">
+
+  <!-- Service Start -->
+  <div class="section techwix-service-section-02 service-card-content section-padding"
+    style="background-image: url(cssUser/images/bg/service-bg.jpg);">
     <div class="container">
-      <div class="counter-wrap">
-        <div class="row">
-          <div class="col-xl-3 col-md-6">
-            <!-- Single Counter Start -->
-            <div class="single-counter">
-              <div class="counter-img">
-                <img src="{{ asset('cssUser/images/counter-1.png') }}" alt="">
+      <!-- Service Wrap Start -->
+      <div class="service-wrap">
+        <div class="section-title text-center">
+          <h3 class="sub-title">Layanan Perusahaan</h3>
+          <h2 class="title">Kami menyediakan solusi Perangkat Lunak yang benar-benar terkemuka.</h2>
+        </div>
+        <div class="service-content-wrap choose-us-content-wrap">
+          <div class="row">
+            <div class="col-xl-3 col-sm-6">
+              <!-- Service Item Start -->
+              <div class="service-item service-01">
+
+                <div class="service-content">
+                  <h3 class="title"><a>Kelas Industri</a></h3>
+                  <p>Merupakan program unggulan kami dalam mendukung pendidikan di Indonesia dengan bekerjasama dengan SMK
+                    Negeri/Swasta untuk mencetak Web dan Mobile Developer sesuai kebutuhan DU/DI.</p>
+                </div>
               </div>
-              <div class="counter-content">
-                <span class="counter">1790</span>
-                <p>Happy clients</p>
-              </div>
+              <!-- Service Item End -->
             </div>
-            <!-- Single Counter End -->
+            <div class="col-xl-3 col-sm-6">
+              <!-- Service Item Start -->
+              <div class="service-item">
+
+                <div class="service-content">
+                  <h3 class="title"><a>Pengembangan Perangkat Lunak</a></h3>
+                  <p>Melayani pengembangan aplikasi berbasis Website, Desktop & Mobile Application.</p>
+                </div>
+              </div>
+              <!-- Service Item End -->
+            </div>
+            <div class="col-xl-3 col-sm-6">
+              <!-- Service Item Start -->
+              <div class="service-item service-03">
+
+                <div class="service-content">
+                  <h3 class="title"><a>Pelatihan Upskilling/Reskilling Berbasis Industri</a></h3>
+                  <p>Memberikan pelatihan untuk meningkatkan kompetensi skill dan digital IT untuk guru, siswa & umum.</p>
+                </div>
+              </div>
+              <!-- Service Item End -->
+            </div>
+            <div class="col-xl-3 col-sm-6">
+              <!-- Service Item Start -->
+              <div class="service-item">
+                <div class="service-content">
+                  <h3 class="title"><a>Riset dan Internship/Magang</a></h3>
+                  <p>Mendukung dunia vokasi dan bekerjasama dengan SMK / Kampus dalam penelitian teknologi dan
+                    pengembangan software serta menerima siswa/mahasiswa/guru untuk magang di industri sesuai dengan
+                    kontrak yang telah disepakati.</p>
+                </div>
+              </div>
+              <!-- Service Item End -->
+            </div>
           </div>
-          <div class="col-xl-3 col-md-6">
-            <!-- Single Counter Start -->
-            <div class="single-counter">
-              <div class="counter-img">
-                <img src="{{ asset('cssUser/images/counter-2.png') }}" alt="">
-              </div>
-              <div class="counter-content">
-                <span class="counter">491</span>
-                <p>Finished projects</p>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="more-choose-content text-center">
+                <p>Lihat Selengkapnya <a href="">Disini <i
+                      class="fas fa-long-arrow-alt-right"></i></a>
+                </p>
               </div>
             </div>
-            <!-- Single Counter End -->
-          </div>
-          <div class="col-xl-3 col-md-6">
-            <!-- Single Counter Start -->
-            <div class="single-counter">
-              <div class="counter-img">
-                <img src="{{ asset('cssUser/images/counter-3.png') }}" alt="">
-              </div>
-              <div class="counter-content">
-                <span class="counter">245</span>
-                <p>Skilled Experts</p>
-              </div>
-            </div>
-            <!-- Single Counter End -->
-          </div>
-          <div class="col-xl-3 col-md-6">
-            <!-- Single Counter Start -->
-            <div class="single-counter single-counter-4">
-              <div class="counter-img">
-                <img src="{{ asset('cssUser/images/counter-1.png') }}" alt="">
-              </div>
-              <div class="counter-content">
-                <span class="counter">1090</span>
-                <p>Media Posts</p>
-              </div>
-            </div>
-            <!-- Single Counter End -->
           </div>
         </div>
       </div>
+      <!-- Service Wrap End -->
     </div>
   </div>
-  <!-- Counter End -->
+  <!-- Service End -->
 
   <!-- Choose Us Start -->
   <div class="section techwix-choose-us-section section-padding"
@@ -275,58 +195,32 @@
       <!-- Choose Us Wrap Start -->
       <div class="choose-us-wrap">
         <div class="section-title text-center">
-          <h3 class="sub-title">REASON TO CHOOSE US</h3>
+          <h3 class="sub-title">Berita</h3>
           <h2 class="title">We provide truly prominent IT solutions.</h2>
         </div>
         <div class="choose-us-content-wrap">
           <div class="row">
-            <div class="col-lg-4 col-md-6">
-              <!-- Choose Us Item Start -->
-              <div class="choose-us-item">
-                <div class="choose-us-img">
-                  <a href="choose-us.html"><img src="{{ asset('cssUser/images/choose-us1.jpg') }}" alt=""></a>
-                  <div class="choose-us-content">
-                    <h3 class="title">Information managemnet system</h3>
-                    <p>Accelerate innovation with world-class tech teams We’ll match you to an entire remote team of
-                      incredible freelance talent for all your software development needs.</p>
+            @foreach ($berita as $data)
+              <div class="col-lg-4 col-md-6">
+                <!-- Choose Us Item Start -->
+                <div class="choose-us-item">
+                  <div class="choose-us-img">
+                    <a href=""><img style="height: 100%; object-fit: cover" src="{{ asset('storage/'. $data->thumbnail) }}"
+                        alt=""></a>
+                    <div class="choose-us-content">
+                      <h3 class="title">{{ $data->title }}</h3>
+                      <p>{{ $data->description }}</p>
+                    </div>
                   </div>
                 </div>
+                <!-- Choose Us Item End -->
               </div>
-              <!-- Choose Us Item End -->
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <!-- Choose Us Item Start -->
-              <div class="choose-us-item">
-                <div class="choose-us-img">
-                  <a href="choose-us.html"><img src="{{ asset('cssUser/images/choose-us2.jpg') }}" alt=""></a>
-                  <div class="choose-us-content">
-                    <h3 class="title">Information Database Security</h3>
-                    <p>Accelerate innovation with world-class tech teams We’ll match you to an entire remote team of
-                      incredible freelance talent for all your software development needs.</p>
-                  </div>
-                </div>
-              </div>
-              <!-- Choose Us Item End -->
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <!-- Choose Us Item Start -->
-              <div class="choose-us-item">
-                <div class="choose-us-img">
-                  <a href="choose-us.html"><img src="{{ asset('cssUser/images/choose-us3.jpg') }}" alt=""></a>
-                  <div class="choose-us-content">
-                    <h3 class="title">Multifunctional Technology</h3>
-                    <p>Accelerate innovation with world-class tech teams We’ll match you to an entire remote team of
-                      incredible freelance talent for all your software development needs.</p>
-                  </div>
-                </div>
-              </div>
-              <!-- Choose Us Item End -->
-            </div>
+            @endforeach
           </div>
           <div class="row">
             <div class="col-lg-12">
               <div class="more-choose-content text-center">
-                <p>Learn more about <a href="choose-us.html">More reason <i class="fas fa-long-arrow-alt-right"></i></a>
+                <p>Lihat berita lainnya <a href="{{ route('beritaIndex') }}">Disini <i class="fas fa-long-arrow-alt-right"></i></a>
                 </p>
               </div>
             </div>
@@ -337,167 +231,6 @@
     </div>
   </div>
   <!-- Choose Us End -->
-
-  <!-- Skill Start -->
-  <div class="section techwix-skill-section-02 section-padding">
-    <div class="container">
-      <div class="skill-wrap">
-        <div class="row">
-          <div class="col-lg-6">
-            <!-- Skill Left Start -->
-            <div class="skill-left">
-              <div class="section-title">
-                <h2 class="title">Preparing for your success, we provide truly prominent IT solutions</h2>
-              </div>
-              <div class="experience-wrap">
-                <div class="experience">
-                  <h2 class="number">25</h2>
-                  <span>Years of <br> experience</span>
-                </div>
-                <div class="experience-text">
-                  <p>Accelerate innovation with world-class tech teams We’ll match you to an entire remote team of
-                    incredible freelance talent for all your software development needs.</p>
-                  <a class="learn-more" href="#">learn More About Us <i
-                      class="fas fa-long-arrow-alt-right"></i></a></a>
-                </div>
-              </div>
-            </div>
-            <!-- Skill Left End -->
-          </div>
-          <div class="col-lg-6">
-            <!-- Skill Right Start -->
-            <div class="skill-right">
-              <div class="counter-bar">
-                <!-- Skill Item Start -->
-                <div class="skill-item">
-                  <span class="title">IT Managment</span>
-                  <div class="skill-bar">
-                    <div class="bar-inner">
-                      <div class="bar progress-line color-1" data-width="80">
-                        <span class="skill-percent"><span class="counter">80</span>%</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- Skill Item End -->
-                <!-- Skill Item Start -->
-                <div class="skill-item">
-                  <span class="title">Data Security</span>
-                  <div class="skill-bar">
-                    <div class="bar-inner">
-                      <div class="bar progress-line color-1" data-width="95">
-                        <span class="skill-percent"><span class="counter">95</span>%</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- Skill Item End -->
-                <!-- Skill Item Start -->
-                <div class="skill-item">
-                  <span class="title">Information Technology</span>
-                  <div class="skill-bar">
-                    <div class="bar-inner">
-                      <div class="bar progress-line color-1" data-width="80">
-                        <span class="skill-percent"><span class="counter">80</span>%</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- Skill Item End -->
-                <!-- Skill Item Start -->
-                <div class="skill-item">
-                  <span class="title">Technology Consultant</span>
-                  <div class="skill-bar">
-                    <div class="bar-inner">
-                      <div class="bar progress-line color-1" data-width="90">
-                        <span class="skill-percent"><span class="counter">90</span>%</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- Skill Item End -->
-              </div>
-            </div>
-            <!-- Skill Right End -->
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Skill End -->
-
-  <!-- Case Study Start -->
-  <div class="section techwix-case-study-section-02 section-padding"
-    style="background-image: url({{ asset('cssUser/images/bg/case-study') }}-bg.jpg);">
-    <div class="container">
-      <div class="case-study-wrap">
-        <div class="section-title text-center">
-          <h3 class="sub-title">From our Case studies</h3>
-          <h2 class="title white">We delivered best solution</h2>
-        </div>
-      </div>
-    </div>
-    <!-- Case Study Content Wrap Start -->
-    <div class="case-study-content-wrap">
-      <div class="swiper-container case-study-active">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <!-- Single Case Study Start -->
-            <div class="single-case-study-02">
-              <div class="case-study-img">
-                <a href="#"><img src="{{ asset('cssUser/images/case-4.jpg') }}" alt=""></a>
-              </div>
-              <div class="case-study-content">
-                <p class="sub-title">Database Security</p>
-                <h3 class="title"><a href="#"><span>Structure</span> <br> <span>of Malnufication</span></a>
-                </h3>
-                <p class="text">Accelerate innovation with world-class tech teams We’ll match you to an entire
-                  remote team of incredible freelance talent for all your </p>
-              </div>
-            </div>
-            <!-- Single Case Study End -->
-          </div>
-          <div class="swiper-slide">
-            <!-- Single Case Study Start -->
-            <div class="single-case-study-02">
-              <div class="case-study-img">
-                <a href="#"><img src="{{ asset('cssUser/images/case-5.jpg') }}" alt=""></a>
-              </div>
-              <div class="case-study-content">
-                <p class="sub-title">Database Security</p>
-                <h3 class="title"><a href="#"><span>Multifunctional</span> <br> <span>of
-                      Technology</span></a></h3>
-                <p class="text">Accelerate innovation with world-class tech teams We’ll match you to an entire
-                  remote team of incredible freelance talent for all your </p>
-              </div>
-            </div>
-            <!-- Single Case Study End -->
-          </div>
-          <div class="swiper-slide">
-            <!-- Single Case Study Start -->
-            <div class="single-case-study-02">
-              <div class="case-study-img">
-                <a href="#"><img src="{{ asset('cssUser/images/case-6.jpg') }}" alt=""></a>
-              </div>
-              <div class="case-study-content">
-                <p class="sub-title">Database Security</p>
-                <h3 class="title"><a href="#"><span>Blockchain</span> <br> <span>of technology</span></a>
-                </h3>
-                <p class="text">Accelerate innovation with world-class tech teams We’ll match you to an entire
-                  remote team of incredible freelance talent for all your </p>
-              </div>
-            </div>
-            <!-- Single Case Study End -->
-          </div>
-        </div>
-
-        <!-- Add Pagination -->
-        <div class="swiper-pagination"></div>
-      </div>
-    </div>
-    <!-- Case Study Content Wrap End -->
-  </div>
-  <!-- Case Study End -->
 
   <!-- Testimonial Start  -->
   <div class="section techwix-testimonial-section-02 techwix-testimonial-section-03 section-padding-02">
@@ -583,32 +316,57 @@
             <div class="swiper-wrapper">
               <!-- Single Brand Start -->
               <div class="swiper-slide single-brand">
-                <img src="{{ asset('cssUser/images/brand/brand-1') }}.png" alt="Brand">
+                <img src="{{ asset('cssUser/sekolah/smk-1') }}.png" alt="Brand">
               </div>
               <!-- Single Brand End -->
               <!-- Single Brand Start -->
               <div class="swiper-slide single-brand">
-                <img src="{{ asset('cssUser/images/brand/brand-2') }}.png" alt="Brand">
+                <img src="{{ asset('cssUser/sekolah/smk-2') }}.jpg" alt="Brand">
               </div>
               <!-- Single Brand End -->
               <!-- Single Brand Start -->
               <div class="swiper-slide single-brand">
-                <img src="{{ asset('cssUser/images/brand/brand-3') }}.png" alt="Brand">
+                <img src="{{ asset('cssUser/sekolah/smk-3') }}.jpg" alt="Brand">
               </div>
               <!-- Single Brand End -->
               <!-- Single Brand Start -->
               <div class="swiper-slide single-brand">
-                <img src="{{ asset('cssUser/images/brand/brand-4') }}.png" alt="Brand">
+                <img src="{{ asset('cssUser/sekolah/smk-4') }}.jpg" alt="Brand">
               </div>
               <!-- Single Brand End -->
               <!-- Single Brand Start -->
               <div class="swiper-slide single-brand">
-                <img src="{{ asset('cssUser/images/brand/brand-5') }}.png" alt="Brand">
+                <img src="{{ asset('cssUser/sekolah/smk-5') }}.jpg" alt="Brand">
               </div>
               <!-- Single Brand End -->
               <!-- Single Brand Start -->
               <div class="swiper-slide single-brand">
-                <img src="{{ asset('cssUser/images/brand/brand-2') }}.png" alt="Brand">
+                <img src="{{ asset('cssUser/sekolah/smk-6') }}.jpg" alt="Brand">
+              </div>
+              <!-- Single Brand End -->
+              <!-- Single Brand Start -->
+              <div class="swiper-slide single-brand">
+                <img src="{{ asset('cssUser/sekolah/smk-7') }}.jpg" alt="Brand">
+              </div>
+              <!-- Single Brand End -->
+              <!-- Single Brand Start -->
+              <div class="swiper-slide single-brand">
+                <img src="{{ asset('cssUser/sekolah/smk-8') }}.png" alt="Brand">
+              </div>
+              <!-- Single Brand End -->
+              <!-- Single Brand Start -->
+              <div class="swiper-slide single-brand">
+                <img src="{{ asset('cssUser/sekolah/smk-9') }}.png" alt="Brand">
+              </div>
+              <!-- Single Brand End -->
+              <!-- Single Brand Start -->
+              <div class="swiper-slide single-brand">
+                <img src="{{ asset('cssUser/sekolah/smk-10') }}.jpg" alt="Brand">
+              </div>
+              <!-- Single Brand End -->
+              <!-- Single Brand Start -->
+              <div class="swiper-slide single-brand">
+                <img src="{{ asset('cssUser/sekolah/smk-11') }}.png" alt="Brand">
               </div>
               <!-- Single Brand End -->
             </div>
@@ -621,200 +379,13 @@
   </div>
   <!-- Brand Logo End -->
 
-  <!-- Team Start -->
-  <div class="section techwix-team-section section-padding-02">
-    <div class="container">
-      <!-- Team Wrap Start -->
-      <div class="team-wrap">
-        <div class="section-title text-center">
-          <h3 class="sub-title">Our expert team </h3>
-          <h2 class="title"> We have world expert team</h2>
-        </div>
-        <!-- Team Content Wrap Start -->
-        <div class="team-content-wrap">
-          <div class="swiper-container team-active">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <!-- Single Team Start -->
-                <div class="single-team">
-                  <div class="team-img">
-                    <a href="team.html"><img src="{{ asset('cssUser/images/team/team-1') }}.jpg" alt=""></a>
-                  </div>
-                  <div class="team-content">
-                    <h3 class="name"><a href="team.html">Andrew <br> Max Fetcher</a></h3>
-                    <span class="designation">CEO, techwix</span>
-                    <div class="team-social">
-                      <ul class="social">
-                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
-                        <li><a href="#"><i class="fab fa-behance"></i></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <!-- Single Team End -->
-              </div>
-              <div class="swiper-slide">
-                <!-- Single Team Start -->
-                <div class="single-team">
-                  <div class="team-img">
-                    <a href="team.html"><img src="{{ asset('cssUser/images/team/team-2') }}.jpg" alt=""></a>
-                  </div>
-                  <div class="team-content">
-                    <h3 class="name"><a href="team.html">Arnold <br> human</a></h3>
-                    <span class="designation">CEO, techwix</span>
-                    <div class="team-social">
-                      <ul class="social">
-                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
-                        <li><a href="#"><i class="fab fa-behance"></i></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <!-- Single Team End -->
-              </div>
-              <div class="swiper-slide">
-                <!-- Single Team Start -->
-                <div class="single-team">
-                  <div class="team-img">
-                    <a href="team.html"><img src="{{ asset('cssUser/images/team/team-3') }}.jpg" alt=""></a>
-                  </div>
-                  <div class="team-content">
-                    <h3 class="name"><a href="team.html">Mike <br> Holder</a></h3>
-                    <span class="designation">CEO, techwix</span>
-                    <div class="team-social">
-                      <ul class="social">
-                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
-                        <li><a href="#"><i class="fab fa-behance"></i></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <!-- Single Team End -->
-              </div>
-              <div class="swiper-slide">
-                <!-- Single Team Start -->
-                <div class="single-team">
-                  <div class="team-img">
-                    <a href="team.html"><img src="{{ asset('cssUser/images/team/team-4') }}.jpg" alt=""></a>
-                  </div>
-                  <div class="team-content">
-                    <h3 class="name"><a href="team.html">Joakim <br> Ken</a></h3>
-                    <span class="designation">CEO, techwix</span>
-                    <div class="team-social">
-                      <ul class="social">
-                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
-                        <li><a href="#"><i class="fab fa-behance"></i></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <!-- Single Team End -->
-              </div>
-            </div>
-
-            <!-- Add Pagination -->
-            <div class="swiper-pagination"></div>
-          </div>
-        </div>
-        <!-- Team Content Wrap End -->
-      </div>
-      <!-- Team Wrap End -->
-    </div>
-  </div>
-  <!-- Team End -->
-
   <!-- Blog Start -->
   <div class="section techwix-blog-section section-padding-02">
     <div class="container">
       <!-- Section Title Start -->
       <div class="section-title text-center">
-        <h4 class="sub-title">latest Blog</h4>
-        <h2 class="title">From the news room</h2>
-      </div>
-      <!-- Section Title End -->
-      <div class="techwix-blog-wrap">
-        <div class="row">
-          <div class="col-lg-4 col-md-6">
-            <!-- Single Blog Start -->
-            <div class="single-blog">
-              <div class="blog-image">
-                <a href="blog-details.html"><img src="{{ asset('cssUser/images/blog/blog-1') }}.jpg"
-                    alt=""></a>
-                <div class="top-meta">
-                  <span class="date"><span>08</span>Aug</span>
-                </div>
-              </div>
-              <div class="blog-content">
-                <div class="blog-meta">
-                  <span><i class="fas fa-user"></i> <a href="#">Andrew Paker</a></span>
-                  <span><i class="far fa-comments"></i> 0 Comments</span>
-                </div>
-                <h3 class="title"><a href="blog-details.html">How to become a successful businessman </a></h3>
-                <div class="blog-btn">
-                  <a class="blog-btn-link" href="blog-details.html">Read Full <i
-                      class="fas fa-long-arrow-alt-right"></i></a>
-                </div>
-              </div>
-            </div>
-            <!-- Single Blog End -->
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <!-- Single Blog Start -->
-            <div class="single-blog">
-              <div class="blog-image">
-                <a href="blog-details.html"><img src="{{ asset('cssUser/images/blog/blog-2') }}.jpg"
-                    alt=""></a>
-                <div class="top-meta">
-                  <span class="date"><span>10</span>Aug</span>
-                </div>
-              </div>
-              <div class="blog-content">
-                <div class="blog-meta">
-                  <span><i class="fas fa-user"></i> <a href="#">Andrew Paker</a></span>
-                  <span><i class="far fa-comments"></i> 0 Comments</span>
-                </div>
-                <h3 class="title"><a href="blog-details.html">Who Needs Extract Value From Data? </a></h3>
-                <div class="blog-btn">
-                  <a class="blog-btn-link" href="blog-details.html">Read Full <i
-                      class="fas fa-long-arrow-alt-right"></i></a>
-                </div>
-              </div>
-            </div>
-            <!-- Single Blog End -->
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <!-- Single Blog Start -->
-            <div class="single-blog">
-              <div class="blog-image">
-                <a href="blog-details.html"><img src="{{ asset('cssUser/images/blog/blog-3') }}.jpg"
-                    alt=""></a>
-                <div class="top-meta">
-                  <span class="date"><span>12</span>Aug</span>
-                </div>
-              </div>
-              <div class="blog-content">
-                <div class="blog-meta">
-                  <span><i class="fas fa-user"></i> <a href="#">Andrew Paker</a></span>
-                  <span><i class="far fa-comments"></i> 0 Comments</span>
-                </div>
-                <h3 class="title"><a href="blog-details.html">Easy and Most Powerful Server and Platform.</a></h3>
-                <div class="blog-btn">
-                  <a class="blog-btn-link" href="blog-details.html">Read Full <i
-                      class="fas fa-long-arrow-alt-right"></i></a>
-                </div>
-              </div>
-            </div>
-            <!-- Single Blog End -->
-          </div>
-        </div>
+        <h4 class="sub-title">Cabang Kami</h4>
+        <h2 class="title">Beberapa Cabang Dari PT HummaTech</h2>
       </div>
     </div>
   </div>
