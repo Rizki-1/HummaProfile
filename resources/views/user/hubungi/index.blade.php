@@ -64,8 +64,8 @@
             <div class="contact-form">
               <div class="contact-form-wrap">
                 <div class="heading-wrap text-center">
-                  <span class="sub-title">Leave us massage</span>
-                  <h3 class="title">How May We Help You!</h3>
+                  <span class="sub-title">Butuh Bantuan?</span>
+                  <h3 class="title">Hubungi Kami disini!</h3>
                 </div>
                 <form>
                   <div class="row">

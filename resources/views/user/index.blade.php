@@ -50,13 +50,12 @@
         <div class="col-lg-6">
           <!-- Hero Content Start -->
           <div class="hero-content">
-            <h3 class="sub-title" data-aos-delay="600" data-aos="fade-up">Technology Releted Consultancy</h3>
-            <h2 class="title" data-aos="fade-up" data-aos-delay="800">We transform ideas into technology</h2>
-            <p data-aos="fade-up" data-aos-delay="900">We provide the most responsive and functional IT design for
-              companies and businesses worldwide.</p>
-            <div class="hero-btn" data-aos="fade-up" data-aos-delay="1000">
+            {{-- <h3 class="sub-title" data-aos-delay="600" data-aos="fade-up">Technology Related Consultancy</h3> --}}
+            <h2 class="title" data-aos="fade-up" data-aos-delay="800">Melayani beberapa divisi tentang IT</h2>{{-- bisa dirubah --}}
+            <p data-aos="fade-up" data-aos-delay="900">Kami menyediakan perangkat lunak yang responsif dan fungsional untuk perusahaan dan bisnis</p>
+            {{-- <div class="hero-btn" data-aos="fade-up" data-aos-delay="1000">
               <a class="btn" href="about.html">Read More</a>
-            </div>
+            </div> --}}
           </div>
           <!-- Hero Content End -->
         </div>
@@ -76,7 +75,7 @@
             <!-- About Content Wrap Start -->
             <div class="about-content-wrap">
               <div class="section-title">
-                <h3 class="sub-title">Siapa Kita</h3>
+                <h3 class="sub-title">Tentang Kami</h3>
                 <h2 class="title">Kami menjalankan semua jenis layanan perangkat lunak yang menjanjikan kesuksesan Anda
                 </h2>
               </div>
@@ -181,14 +180,58 @@
   </div>
   <!-- Service End -->
 
+  <!-- Choose Us Start -->
+  <div class="section techwix-choose-us-section section-padding"
+    style="background-image: url({{ asset('cssUser/images/bg/choose-us') }}-bg.jpg);">
+    <div class="container">
+      <!-- Choose Us Wrap Start -->
+      <div class="choose-us-wrap">
+        <div class="section-title text-center">
+          <h3 class="sub-title">Berita</h3>
+          <h2 class="title">Berita terbaru terkait perusahaan kami</h2>
+        </div>
+        <div class="choose-us-content-wrap">
+          <div class="row">
+            @foreach ($berita as $data)
+              <div class="col-lg-4 col-md-6">
+                <!-- Choose Us Item Start -->
+                <div class="choose-us-item">
+                  <div class="choose-us-img">
+                    <a href=""><img style="height: 100%; object-fit: cover" src="{{ asset('storage/'. $data->thumbnail) }}"
+                        alt=""></a>
+                    <div class="choose-us-content">
+                      <h3 class="title">{{ $data->title }}</h3>
+                      <p>{{ $data->description }}</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Choose Us Item End -->
+              </div>
+            @endforeach
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="more-choose-content text-center">
+                <p>Lihat berita lainnya <a href="{{ route('beritaIndex') }}">Disini <i class="fas fa-long-arrow-alt-right"></i></a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Choose Us Wrap End -->
+    </div>
+  </div>
+  <!-- Choose Us End -->
+
   <!-- Testimonial Start  -->
   <div class="section techwix-testimonial-section-02 techwix-testimonial-section-03 section-padding-02">
     <div class="container">
       <!-- Testimonial Wrap Start  -->
       <div class="testimonial-wrap-02">
         <div class="section-title text-center">
-          <h3 class="sub-title">Testimonial</h3>
-          <h2 class="title">20k+ satisfied clients worldwide</h2>
+          <h3 class="sub-title">Testimoni</h3>
+          <h2 class="title">Pengalaman Lulusan Magang Kami</h2>
         </div>
         <div class="testimonial-content-wrap-02">
           <div class="swiper-container testimonial-02-active">
