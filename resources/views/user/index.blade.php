@@ -54,8 +54,8 @@
           <!-- Hero Content Start -->
           <div class="hero-content">
             {{-- <h3 class="sub-title" data-aos-delay="600" data-aos="fade-up">Technology Related Consultancy</h3> --}}
-            <h2 class="title" data-aos="fade-up" data-aos-delay="800">Melayani beberapa divisi tentang IT</h2>{{-- bisa dirubah --}}
-            <p data-aos="fade-up" data-aos-delay="900">Kami menyediakan perangkat lunak yang responsif dan fungsional untuk perusahaan dan bisnis</p>
+            <h2 class="title" data-aos="fade-up" data-aos-delay="800">Selamat Datang di HummaTech</h2>{{-- bisa dirubah --}}
+            <p data-aos="fade-up" data-aos-delay="900">Kami adalah Perusahaan Yang bergerak di bidang software developer dan kegiatan magang/industri</p>
             {{-- <div class="hero-btn" data-aos="fade-up" data-aos-delay="1000">
               <a class="btn" href="about.html">Read More</a>
             </div> --}}
