@@ -18,7 +18,7 @@ class LayananPerusahaanController extends Controller
         $layanan = LayananPerusahaan::latest();
 
         if ($request->input('query')) {
-            $layanan->where('layanan', 'LIKE', '%' . $request->input('query') . '%');
+            $layanan->where('nama_layanan', 'LIKE', '%' . $request->input('query') . '%');
         }
 
         $targetLayananId = is_null($request->ct) ? 1 : 2;
