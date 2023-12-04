@@ -6,6 +6,11 @@
     margin-bottom: 10px;
 }
 
+
+.form-content {
+    padding: 0 !important;
+}
+
 .sidebar-logo-thing {
     opacity: 1;
     letter-spacing: 1px;
@@ -48,4 +53,36 @@
 
 .is-invalid {
     border-color: red !important;
+}
+
+@media screen and (max-width: 370px) {
+    .form-items {
+        padding: 35px 20px !important;
+    }
+}
+
+
+@media screen and (max-width: 499px) {
+    .form-items {
+        box-shadow: none !important;
+        background-color: transparent !important;
+    }
+
+    .form-holder {
+        background-color: white !important;
+    }
+
+    .img-holder {
+        display: none !important;
+    }
+
+    .form-content {
+        padding: 0 !important;
+    }
+}
+
+@media (max-width: 992px) {
+    .form-body.without-side .form-holder .form-content {
+        padding: 0 !important;
+    }
 }
