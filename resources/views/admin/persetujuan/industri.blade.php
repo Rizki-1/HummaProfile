@@ -1,12 +1,12 @@
 @extends('layouts.nav-admin')
 
 @section('content')
-  <title>{{ config('app.name', 'Laravel') }} - Persetujuan Kelas Industry</title>
+  <title>{{ config('app.name', 'Laravel') }} - Persetujuan Kelas Industri</title>
   <div class="card p-4 mb-4 flex-row justify-content-between align-items-center">
     <div>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb breadcrumb-dot mb-0">
-          <li class="breadcrumb-item active" aria-current="page">Persetujuan Kelas Industry</li>
+          <li class="breadcrumb-item active" aria-current="page">Persetujuan Kelas Industri</li>
         </ol>
       </nav>
     </div>
@@ -52,7 +52,7 @@
             @empty
               <tr>
                 <td colspan="6">
-                  <p class="mt-3 mb-3 text-center fw-bold">Tidak Ada Permintaan Pendaftaran Kelas Industry</p>
+                  <p class="mt-3 mb-3 text-center fw-bold">Tidak Ada Permintaan Pendaftaran Kelas Industri</p>
                 </td>
               </tr>
             @endforelse
@@ -73,7 +73,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
           </div>
           <div class="modal-body" style="height: 600px;">
-            <embed style="height: 100%; width: 100%" src="{{ asset('storage/industri/' . $data->document) }}" type="application/pdf"> {{-- Content Modal Disini! --}}
+            <embed style="height: 100%; width: 100%" src="{{ asset('storage/' . $data->document) }}" type="application/pdf"> {{-- Content Modal Disini! --}}
           </div>
         </div>
       </div>

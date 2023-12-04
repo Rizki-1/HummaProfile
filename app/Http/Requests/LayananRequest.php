@@ -24,6 +24,7 @@ class LayananRequest extends FormRequest
         return [
             'layanan-group.*.target_layanan_id' => 'required|exists:target_layanans,id',
             'layanan-group.*.layanan' => 'required|min:5|max:255|string',
+            'layanan-group.*.descripsi_layanan' => 'required|min:5|max:255|string',
         ];
     }
 

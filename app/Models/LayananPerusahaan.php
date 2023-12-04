@@ -13,7 +13,8 @@ class LayananPerusahaan extends Model
     protected $table = 'layanan_perusahaans';
     protected $fillable = [
         'target_layanan_id',
-        'layanan',
+        'nama_layanan',
+        'descripsi_layanan'
     ];
 
     /**

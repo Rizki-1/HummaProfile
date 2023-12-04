@@ -38,10 +38,10 @@ class ProdukController extends Controller
         try {
             DB::beginTransaction();
             $foto_name = $request->file('foto_produk')->hashName();
-            $request->file('foto_produk')->storeAs('produk', $foto_name);
+            $path = $request->file('foto_produk')->storeAs('produk', $foto_name);
             Produk::create([
                 'nama_produk' => $request->nama_produk,
-                'foto_produk' => $foto_name,
+                'foto_produk' => $path,
                 'keterangan_produk' => $request->keterangan_produk,
                 'dibuat' => $request->dibuat,
             ]);
@@ -86,24 +86,34 @@ class ProdukController extends Controller
     {
         try {
             DB::beginTransaction();
-            $produk = Produk::findOrFail($id);
-            $foto_name = $produk->foto_produk;
+            $produk = Produk::where('id', $id)->first();
+            if(!$produk){
+                return back()->with('message', [
+                    'icon' => 'error',
+                    'title' => "Gagal!",
+                    'text' => "Ada kesalahan saat meupdate produk"
+                ]);
+            }
+            $path = $produk->foto_produk;
 
             if ($request->hasFile('foto_produk')) {
-                $foto_name = $request->file('foto_produk')->hashName();
-                $request->file('foto_produk')->storeAs('produk', $foto_name);
-                Storage::delete('produk/' . $produk->foto_produk);
+                Storage::delete($produk->foto_produk);
+                $photo_name = $request->file('foto_produk')->hashName();
+                $path = $request->file('foto_produk')->storeAs('produk', $photo_name);
             }
 
-            $produk->update([
-                'nama_produk' => $request->nama_produk,
-                'foto_produk' => $foto_name,
-                'keterangan_produk' => $request->keterangan_produk,
-                'dibuat' => $request->dibuat,
-            ]);
+            $produk->nama_produk = $request->nama_produk;
+            $produk->foto_produk = $path;
+            $produk->keterangan_produk = $request->keterangan_produk;
+            $produk->dibuat = $request->dibuat;
+            $produk->save();
 
             DB::commit();
-            return redirect()->back();
+            return to_route('produk.index')->with('message', [
+                'icon' => 'success',
+                'title' => "Berhasil!",
+                'text' => "berhasil meupdate produk!"
+            ]);
         } catch (\Throwable $th) {
             DB::rollBack();
             return back()->with('message', [
@@ -124,7 +134,7 @@ class ProdukController extends Controller
             DB::beginTransaction();
 
             $produk = Produk::findOrFail($id);
-            Storage::delete('produk/' . $produk->foto_produk);
+            Storage::delete($produk->foto_produk);
             $produk->delete();
 
             DB::commit();

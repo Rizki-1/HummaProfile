@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('layanan_perusahaans', function (Blueprint $table) {
             $table->id();
             $table->foreignId('target_layanan_id')->constrained();
-            $table->string('layanan');
+            $table->string('nama_layanan');
+            $table->string('descripsi_layanan');
             $table->timestamps();
         });
     }

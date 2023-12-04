@@ -24,13 +24,23 @@
                 <div data-repeater-item>
                   <div class="row">
                     <div class="d-flex flex-row">
-                      <div class="col-6 mb-4 pe-3">
+                      <div class="col-3 mb-4 pe-3">
                         <label for="unknown" class="form-label">Nama Layanan</label>
                         <input required type="text" class="form-control @error('layanan-group.' . $i . '.layanan') is-invalid @enderror" placeholder="layanan" name="layanan" value="{{ $category['layanan'] }}" required>
                         @error('layanan-group.' . $i . '.layanan')
                           <div class="invalid-feedback">
                             <p>{{ $message }}</p>
                           </div>
+                        @enderror
+                      </div>
+                      <div class="col-3 mb-1 pe-2">
+                        <label for="descripsi_layanan" class="form-label">Deskripsi Layanan</label>
+                        <textarea name="descripsi_layanan" id="descripsi_layanan" cols="10" rows="1" class="form-control @error('layanan-group.' . $i . '.descripsi_layanan') is-invalid
+                        @enderror" placeholder="Deskripsi Layanan"></textarea>
+                        @error('layanan-group.' . $i . '.descripsi_layanan')
+                        <div class="invalid-feedback">
+                            <p>{{ $message }}</p>
+                        </div>
                         @enderror
                       </div>
                       <div class="col-6 mb-4 ps-2">
@@ -63,9 +73,13 @@
                 <div data-repeater-item>
                   <div class="row">
                     <div class="d-flex flex-row">
-                      <div class="col-6 mb-4 pe-3">
+                      <div class="col-3 mb-4 pe-3">
                         <label for="unknown" class="form-label">Nama Layanan</label>
                         <input required type="text" class="form-control" placeholder="Nama Layanan baru" name="layanan" value="" required>
+                      </div>
+                      <div class="col-3 mb-1 pe-2">
+                        <label for="descripsi_layanan" class="form-label">Deskripsi Layanan</label>
+                        <textarea name="descripsi_layanan" id="descripsi_layanan" cols="10" rows="1" class="form-control" placeholder="Deskripsi Layanan"></textarea>
                       </div>
                       <div class="col-6 mb-4 ps-2">
                         <label for="target_layanan" class="form-label">Target Layanan</label>

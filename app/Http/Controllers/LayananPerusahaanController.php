@@ -18,7 +18,7 @@ class LayananPerusahaanController extends Controller
         $layanan = LayananPerusahaan::latest();
 
         if ($request->input('query')) {
-            $layanan->where('layanan', 'LIKE', '%' . $request->input('query') . '%');
+            $layanan->where('nama_layanan', 'LIKE', '%' . $request->input('query') . '%');
         }
 
         $targetLayananId = is_null($request->ct) ? 1 : 2;
@@ -51,7 +51,8 @@ class LayananPerusahaanController extends Controller
             foreach ($request->input("layanan-group") as $row) {
                 LayananPerusahaan::create([
                     'target_layanan_id' => $row['target_layanan_id'],
-                    'layanan' => $row['layanan']
+                    'nama_layanan' => $row['layanan'],
+                    'descripsi_layanan' => $row['descripsi_layanan']
                 ]);
             }
 
@@ -84,7 +85,8 @@ class LayananPerusahaanController extends Controller
             if (!$layanan) {
                 return response()->json(['response' => ['success' => false]]);
             }
-            $layanan->layanan = $request->layanan;
+            $layanan->nama_layanan = $request->layanan;
+            $layanan->descripsi_layanan = $request->descripsi_layanan;
             $layanan->target_layanan_id = $request->target_layanan_id;
             $layanan->save();
 

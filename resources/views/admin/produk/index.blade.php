@@ -21,7 +21,7 @@
         <div class="col-md-4 mb-4">
           <div class="card">
             <div class="image-container">
-              <img src="{{ asset('storage/produk/' . $row->foto_produk) }}" class="image-content" alt="Thumbnail {{ $row->id }}">
+              <img src="{{ asset('storage/' . $row->foto_produk) }}" class="image-content" alt="Thumbnail {{ $row->id }}">
             </div>
             <div class="image-hover">
               <div class="image-detail">
@@ -36,7 +36,7 @@
                   </div>
                   <div class="action-container">
                     <a href="{{ route('produk.edit', $row->id) }}"><i class="link-icon edit-icon" data-feather="edit"></i></a>
-                    <form action="{{ route('produk.destroy', $row->id) }}" method="POST">
+                    <form nameProduk="{{ $row->nama_produk }}" action="{{ route('produk.destroy', $row->id) }}" method="POST" class="hapus">
                       @csrf
                       @method('DELETE')
                       <button type="submit" class="button-delete"><i class="link-icon trash-icon" data-feather="trash"></i></button>
@@ -55,4 +55,27 @@
       </div>
     </div>
   </div>
+    <script>
+    if(document.querySelectorAll('.hapus').length > 0){
+    document.querySelectorAll('.hapus').forEach(function(form) {
+      form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        var nameProduk = form.getAttribute('nameProduk');
+        Swal.fire({
+          title: 'Apakah anda yakin?',
+          text: "Ingin menghapus produk '" + nameProduk + "'?",
+          icon: "question",
+          showCancelButton: true,
+          confirmButtonText: "Ya, Hapus!",
+          cancelButtonText: "Batal",
+          background: 'var(--bs-body-bg)',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            form.submit();
+          }
+        });
+      });
+    });
+  }
+  </script>
 @endsection
