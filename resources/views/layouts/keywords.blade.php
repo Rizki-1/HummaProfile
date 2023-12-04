@@ -4,14 +4,14 @@
         "link": "{{ route('home.siswaIndex') }}",
         "keywords": [{
                 "keyword": "pendaftaran",
-                "weight": 3
+                "weight": 1
             }, {
                 "keyword": "siswa",
-                "weight": 3
+                "weight": 1
             },
             {
                 "keyword": "magang",
-                "weight": 3
+                "weight": 1
             },
         ]
     },{
@@ -19,14 +19,14 @@
         "link": "{{ route('home.industriIndex') }}",
         "keywords": [{
                 "keyword": "pendaftaran",
-                "weight": 3
+                "weight": 1
             }, {
                 "keyword": "kelas",
-                "weight": 3
+                "weight": 1
             },
             {
                 "keyword": "industri",
-                "weight": 3
+                "weight": 1
             },
         ]
     },
@@ -35,10 +35,10 @@
         "link": "{{ route('produk.index') }}",
         "keywords": [{
                 "keyword": "produk",
-                "weight": 3
+                "weight": 1
             }, {
                 "keyword": "kami",
-                "weight": 3
+                "weight": 1
             },
         ]
     },{
@@ -46,14 +46,14 @@
         "link": "{{ route('contactIndex') }}",
         "keywords": [{
                 "keyword": "kontak",
-                "weight": 3
+                "weight": 1
             }, {
                 "keyword": "contact",
-                "weight": 3
+                "weight": 1
             },
             {
                 "keyword": "contact me",
-                "weight": 3
+                "weight": 1
             },
         ]
     },{
@@ -61,10 +61,10 @@
         "link": "{{ route('beritaIndex') }}",
         "keywords": [{
                 "keyword": "berita",
-                "weight": 3
+                "weight": 1
             }, {
                 "keyword": "blog",
-                "weight": 3
+                "weight": 1
             },
         ]
     }, ]

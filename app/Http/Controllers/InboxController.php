@@ -54,7 +54,7 @@ class InboxController extends Controller
 
             DB::commit();
 
-            return to_route('inbox.index')->with('message', [
+            return to_route('contactIndex')->with('message', [
                 'icon' => 'success',
                 'title' => 'Berhasil!',
                 'text' => 'Berhasil mengirim pesan!'
@@ -64,7 +64,39 @@ class InboxController extends Controller
             return back()->with('message', [
                 'icon' => 'error',
                 'title' => 'Gagal!',
-                'text' => 'Ada kesalahan saat membuat berita!'
+                'text' => 'Ada kesalahan saat membuat email!'
+            ]);
+        }
+    }
+
+
+    public function destroy($id){
+        try{
+
+            $inbox = Inbox::where('id', $id)->first();
+            $emailName = $inbox->name;
+            if(!$inbox){
+                return back()->with('message', [
+                    'icon' => 'error',
+                    'title' => 'Gagal!',
+                    'text' => 'ID email tidak ditemukan!!'
+                ]);
+            }
+            $inbox->delete();
+
+            DB::commit();
+            return back()->with('message', [
+                'icon' => 'success',
+                'title' => 'Berhasil!',
+                'text' => 'Berhasil menghapus email ' . $emailName . '!'
+            ]);
+
+        }catch (\Exception $e) {
+            DB::rollBack();
+                return back()->with('message', [
+                'icon' => 'error',
+                'title' => 'Gagal!',
+                'text' => 'Ada kesalahan saat menghapus email!'
             ]);
         }
     }
@@ -120,7 +152,7 @@ class InboxController extends Controller
             $inbox->save();
 
             DB::commit();
-            return back()->with('message', [
+            return to_route('inbox.index')->with('message', [
                 'icon' => 'success',
                 'title' => 'Berhasil!',
                 'text' => 'Berhasil mereply ke email: ' . $email

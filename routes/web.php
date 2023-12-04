@@ -39,7 +39,7 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
     });
     Route::resource("/berita", BeritaController::class);
     Route::resource("/category-berita", KategoriBeritaController::class);
-    Route::resource("/inbox", InboxController::class)->except(['destroy', 'edit', 'update']);
+    Route::resource("/inbox", InboxController::class)->only(['show', 'index', 'destroy']);
     Route::get('/inbox/reply/{id}', [InboxController::class, 'replyShow'])->name('inbox.reply.show');
     Route::post('/inbox/reply/{id}', [InboxController::class, 'reply'])->name('inbox.reply.post');
     // persetujuan
@@ -74,6 +74,7 @@ Route::get('/produk', [HomeController::class, 'indexProduk'])->name('produkIndex
 Route::get('/contact', [HomeController::class, 'indexContact'])->name('contactIndex');
 Route::get('/berita', [HomeController::class, 'indexBerita'])->name('beritaIndex');
 Route::get('/berita/{id}', [HomeController::class, 'detailBerita'])->name('detailBerita');
+Route::post('/inbox', [InboxController::class,'store'])->name('inbox.store');
 
 //formLandingPage
 Route::post('/siswa.store', [FormController::class, 'SiswaMagangStore'])->name('siswa.store');
