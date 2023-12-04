@@ -56,7 +56,7 @@
               <div class="product-picture-container">
                 <img class="product-picture-old" src="{{ asset('storage/' . $produks->foto_produk) }}" alt="Foto produk">
               </div>
-              <input required name="foto_produk" class="@error('foto_produk') is-invalid @enderror" type="file" id="myDropify" />
+              <input name="foto_produk" class="@error('foto_produk') is-invalid @enderror" type="file" id="myDropify" />
               @error('foto_produk')
                 <p class="text-danger mt-2">{{ $message }}</p>
               @enderror
