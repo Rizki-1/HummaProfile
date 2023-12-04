@@ -49,7 +49,8 @@
         <div class="header-wrap">
 
           <div class="header-logo">
-            <a href="{{ route('homeindex') }}"><img src="{{ asset('cssUser/images/logohumma.png') }}" alt="HummaTech"></a>
+            <a href="{{ route('homeindex') }}"><img src="{{ asset('cssUser/images/logohumma.png') }}"
+                alt="HummaTech"></a>
           </div>
 
           <div class="header-menu d-none d-lg-block">
@@ -78,6 +79,23 @@
 
           <!-- Header Meta Start -->
           <div class="header-meta">
+            <!-- Header Search Start -->
+            <div class="header-search">
+              <a class="search-btn" href="#"><i class="flaticon-loupe"></i></a>
+              <div class="search-wrap">
+                <div class="search-inner">
+                  <i id="search-close" class="flaticon-close search-close"></i>
+                  <div class="search-cell">
+                    <form action="#">
+                      <div class="search-field-holder">
+                        <input class="main-search-input" type="search" placeholder="Search Your Keyword...">
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Header Search End -->
             <div class="header-btn d-none d-xl-block">
               <a class="btn" href="/login">Login</a>
             </div>
@@ -200,32 +218,32 @@
 
                 <div class="widget-info">
                   @foreach ($profile as $data)
-                  <ul>
-                    <li>
-                      <div class="info-icon">
-                        <i class="flaticon-phone-call"></i>
-                      </div>
-                      <div class="info-text">
-                        <span><a href="#">{{ $data->no_telp }}</a></span>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="info-icon">
-                        <i class="far fa-envelope-open"></i>
-                      </div>
-                      <div class="info-text">
-                        <span><a href="#">{{ $data->email }}</a></span>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="info-icon">
-                        <i class="flaticon-pin"></i>
-                      </div>
-                      <div class="info-text">
-                        <span>{{ $data->alamat }}</span>
-                      </div>
-                    </li>
-                  </ul>
+                    <ul>
+                      <li>
+                        <div class="info-icon">
+                          <i class="flaticon-phone-call"></i>
+                        </div>
+                        <div class="info-text">
+                          <span><a href="#">{{ $data->no_telp }}</a></span>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="info-icon">
+                          <i class="far fa-envelope-open"></i>
+                        </div>
+                        <div class="info-text">
+                          <span><a href="#">{{ $data->email }}</a></span>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="info-icon">
+                          <i class="flaticon-pin"></i>
+                        </div>
+                        <div class="info-text">
+                          <span>{{ $data->alamat }}</span>
+                        </div>
+                      </li>
+                    </ul>
                   @endforeach
                 </div>
               </div>
