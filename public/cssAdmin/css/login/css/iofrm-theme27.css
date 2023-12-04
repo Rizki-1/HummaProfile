@@ -482,8 +482,7 @@ body {
 }
 
 .form-body.without-side .form-content input, .form-body.without-side .form-content .dropdown-toggle.btn-default {
-    border: 1px solid #C3C3C3;
-    background-color: #fff;
+    background-color: #F7F7F7;
     color: #000;
 }
 
