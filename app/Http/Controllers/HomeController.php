@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Inbox;
 use App\Models\Berita;
 use App\Models\Sosmed;
 use App\Models\SiswaMagang;
 use Illuminate\Http\Request;
 use App\Models\KelasIndustri;
 use App\Models\TargetLayanan;
-use App\Models\LayananPerusahaan;
 use App\Models\ProfileCompany;
+use App\Models\LayananPerusahaan;
 
 class HomeController extends Controller
 {
@@ -76,7 +77,10 @@ class HomeController extends Controller
 
     public function dashboard()
     {
-        return view('admin.dashboard');
+        $siswaCount = SiswaMagang::where('status', 'diterima')->count();
+        $industriCount = KelasIndustri::where('status', 'diterima')->count();
+        $inboxCount = Inbox::where('status', 1)->count();
+        return view('admin.dashboard', compact('siswaCount', 'industriCount', 'inboxCount'));
     }
 
     public function SiswaMagangStore(Request $request)
