@@ -2,8 +2,7 @@
 
 @section('content')
   <!-- Hero Start -->
-  <div class="section techwix-hero-section-03 d-flex align-items-center"
-    style="background-image: url({{ asset('cssUser/images/hero-bg3.jpg') }});">
+  <div class="section techwix-hero-section-03 d-flex align-items-center" style="background-image: url({{ asset('cssUser/images/hero-bg3.jpg') }});">
     <div class="shape-1">
       <svg xmlns="http://www.w3.org/2000/svg" width="944px" height="894px">
         <defs>
@@ -21,8 +20,7 @@
     </div>
     <div class="shape-2">
       <svg xmlns="http://www.w3.org/2000/svg" width="726.5px" height="726.5px">
-        <path fill-rule="evenodd" stroke="rgb(255, 255, 255)" stroke-width="1px" stroke-linecap="butt"
-          stroke-linejoin="miter" opacity="0.302" fill="none"
+        <path fill-rule="evenodd" stroke="rgb(255, 255, 255)" stroke-width="1px" stroke-linecap="butt" stroke-linejoin="miter" opacity="0.302" fill="none"
           d="M28.14,285.269 L325.37,21.216 C358.860,-8.852 410.655,-5.808 440.723,28.14 L704.777,325.37 C734.846,358.860 731.802,410.654 697.979,440.723 L400.956,704.777 C367.133,734.845 315.338,731.802 285.269,697.979 L21.216,400.955 C-8.852,367.132 -5.808,315.337 28.14,285.269 Z" />
       </svg>
     </div>
@@ -43,8 +41,7 @@
     </div>
     <div class="shape-4">
       <svg xmlns="http://www.w3.org/2000/svg" width="972.5px" height="970.5px">
-        <path fill-rule="evenodd" stroke="rgb(255, 255, 255)" stroke-width="1px" stroke-linecap="butt"
-          stroke-linejoin="miter" fill="none"
+        <path fill-rule="evenodd" stroke="rgb(255, 255, 255)" stroke-width="1px" stroke-linecap="butt" stroke-linejoin="miter" fill="none"
           d="M38.245,381.103 L435.258,28.158 C480.467,-12.32 549.697,-7.964 589.888,37.244 L942.832,434.257 C983.23,479.466 978.955,548.697 933.746,588.888 L536.733,941.832 C491.524,982.23 422.293,977.955 382.103,932.746 L29.158,535.733 C-11.32,490.524 -6.963,421.293 38.245,381.103 Z" />
       </svg>
     </div>
@@ -92,8 +89,7 @@
             <!-- About Image Wrap Start -->
             <div class="about-img-wrap">
               <div class="play-btn-02">
-                <a class="popup-video" href="https://www.youtube.com/watch?time_continue=3&amp;v=_X0eYtY8T_U"><i
-                    class="fas fa-play"></i></a>
+                <a class="popup-video" href="https://www.youtube.com/watch?time_continue=3&amp;v=_X0eYtY8T_U"><i class="fas fa-play"></i></a>
               </div>
               <div class="about-img about-img-big">
                 <img src="{{ asset('cssUser/images/about-big2.jpg') }}" alt="">
@@ -111,10 +107,8 @@
   </div>
   <!-- About End -->
 
-
   <!-- Service Start -->
-  <div class="section techwix-service-section-02 service-card-content section-padding"
-    style="background-image: url(cssUser/images/bg/service-bg.jpg);">
+  <div class="section techwix-service-section-02 service-card-content section-padding" style="background-image: url(cssUser/images/bg/service-bg.jpg);">
     <div class="container">
       <!-- Service Wrap Start -->
       <div class="service-wrap">
@@ -301,6 +295,44 @@
     </div>
   </div>
   <!-- Testimonial End  -->
+  <div class="section techwix-choose-us-section section-padding" style="background-image: url(assets/images/bg/choose-us-bg.jpg);">
+    <div class="container">
+      <!-- Choose Us Wrap Start -->
+      <div class="choose-us-wrap">
+        <div class="section-title text-center">
+          <h3 class="sub-title">Produk</h3>
+          <h2 class="title">Produk yang kami hasilkan</h2>
+        </div>
+        <div class="choose-us-content-wrap">
+          <div class="row">
+            @foreach ($produk->take(3) as $produkRow)
+              <div class="col-lg-4 col-md-6">
+                <!-- Choose Us Item Start -->
+                <div class="choose-us-item">
+                  <div class="choose-us-img">
+                    <a href="#"><img class="picture-responsive" src="{{ asset('storage/' . $produkRow->foto_produk) }}" alt="Foto Produk"></a>
+                    <div class="choose-us-content">
+                      <h3 class="title text-truncate">{{ $produkRow->nama_produk }}</h3>
+                      <p class="description-truncate">{{ $produkRow->keterangan_produk }}</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Choose Us Item End -->
+              </div>
+            @endforeach
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="more-choose-content text-center">
+                <p>Prdouk lainnya <a href="#">More! <i class="fas fa-long-arrow-alt-right"></i></a> </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Choose Us Wrap End -->
+    </div>
+  </div>
 
   <!-- Brand Logo Start -->
   <div class="section techwix-brand-section techwix-brand-section-03">
@@ -393,9 +425,7 @@
               <!-- Single Blog Start -->
               <div class="single-blog">
                 <div class="blog-image">
-                  <a style="height: 250px; width: 100%" href=""><img
-                      style="height: 100%; width: 100%; object-fit: cover;"
-                      src="{{ asset('storage/' . $data->thumbnail) }}" alt="{{ $data->title }}"></a>
+                  <a style="height: 250px; width: 100%" href=""><img style="height: 100%; width: 100%; object-fit: cover;" src="{{ asset('storage/' . $data->thumbnail) }}" alt="{{ $data->title }}"></a>
                   <div class="top-meta">
                     <span class="date">
                       <span>{{ \Carbon\Carbon::parse($data->created_at)->format('d') }}</span>
@@ -411,8 +441,7 @@
                   </div>
                   <h3 class="title"><a href="">{{ $data->title }}</a></h3>
                   <div class="blog-btn">
-                    <a class="blog-btn-link" href="{{ route('detailBerita', $data->id) }}">Read Full <i
-                        class="fas fa-long-arrow-alt-right"></i></a>
+                    <a class="blog-btn-link" href="{{ route('detailBerita', $data->id) }}">Read Full <i class="fas fa-long-arrow-alt-right"></i></a>
                   </div>
                 </div>
               </div>

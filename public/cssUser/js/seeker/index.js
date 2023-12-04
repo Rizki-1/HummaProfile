@@ -21,7 +21,7 @@ search = () => {
     let text = document.getElementById("textSearch").value;
     const fuse = new Fuse(allSearchKeywords, options);
     const res = fuse.search(text);
-    const finalSearchResults = sortByWeight(res, text); // custom function for sort the resuly by keywords
+    const finalSearchResults = sortByWeight(res, text);
     const resultsElement = document.getElementById("results");
     var html = "";
     if (text.trim()) {
@@ -57,7 +57,6 @@ sortByWeight = (searchRes, searchKeyword) => {
             }
         });
     });
-    // console.log("searchRes>>>KEYWORDS", searchRes);
     searchRes.forEach((element) => {
         if (element.isMatchKeyword) {
             element.item.keywords.forEach((item) => {
@@ -71,11 +70,9 @@ sortByWeight = (searchRes, searchKeyword) => {
             });
         }
     });
-    //console.log("searchRes>>>KEYWORDS", searchRes);
     searchRes.sort((a, b) => {
         return b.searchKeywordWeight - a.searchKeywordWeight;
     });
-    console.log("FINAL>>>", searchRes);
     return searchRes;
 };
 

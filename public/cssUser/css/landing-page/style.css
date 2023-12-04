@@ -5,28 +5,28 @@
     margin-top: 30px;
     position: relative;
   }
-  
+
   .service-card-content .service-card-card-03 .service-content .title {
     font-size: 22px;
     line-height: 30px;
     margin-top: 20px;
   }
-  
+
   .service-card-content .service-card-card-03 .service-content p {
     font-size: 14px;
     line-height: 30px;
     padding-top: 20px;
   }
-  
+
   .service-card-content .service-card-card-03 .service-content .read-more {
     margin-top: 20px;
   }
-  
+
   .service-card-content .service-card-card-03 .service-content .read-more a {
     font-size: 14px;
     color: #333333;
   }
-  
+
   .service-card-content .service-card-card-03 .service-content .read-more a i {
     width: 40px;
     height: 40px;
@@ -38,12 +38,11 @@
     margin-right: 5px;
     transition: all 0.3s linear;
   }
-  
+
   .service-card-content .service-card-card-03:hover .service-content .read-more a {
     color: #086ad8;
   }
-  
+
   .service-card-content .service-card-card-03:hover .service-content .read-more a i {
     transform: rotate(90deg);
   }
-  

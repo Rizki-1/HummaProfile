@@ -70,13 +70,20 @@
                     <div class="email-list-actions">
                       <span class="from">{{ $inbox->name }}</span>
                     </div>
-                    <a href="{{ route('inbox.show', $inbox->id) }}" class="email-list-detail">
+                    <a href="{{ route('inbox.show', $inbox->id) }}" class="email-list-detail ">
                       <div class="content">
                         <p class="msg">{{ $inbox->message }}</p>
                       </div>
-                      <span class="date">
-                        {{ $inbox->created_at->format('d M') }}
-                      </span>
+                      <div class="d-flex flex-row align-items-center">
+                        <span class="date">
+                          {{ $inbox->created_at->format('d M') }}
+                        </span>
+                        <form nameEmail="{{ $inbox->name }}" action="{{ route('inbox.destroy', $inbox->id) }}" method="POST" class="ms-2 hapus">
+                          @method('DELETE')
+                          @csrf
+                          <button type="submit" class="btn btn-danger btn-icon"><i class="link-icon" data-feather="trash"></i></button>
+                        </form>
+                      </div>
                     </a>
                   </div>
                 @empty
@@ -107,4 +114,27 @@
       </div>
     </div>
   </div>
+  <script>
+    if(document.querySelectorAll('.hapus').length > 0){
+    document.querySelectorAll('.hapus').forEach(function(form) {
+      form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        var nameEmail = form.getAttribute('nameEmail');
+        Swal.fire({
+          title: 'Apakah anda yakin?',
+          text: "Ingin menghapus email '" + nameEmail + "'?",
+          icon: "question",
+          showCancelButton: true,
+          confirmButtonText: "Ya, Hapus!",
+          cancelButtonText: "Batal",
+          background: 'var(--bs-body-bg)',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            form.submit();
+          }
+        });
+      });
+    });
+  }
+  </script>
 @endsection

@@ -67,26 +67,42 @@
                   <span class="sub-title">Butuh Bantuan?</span>
                   <h3 class="title">Hubungi Kami disini!</h3>
                 </div>
-                <form>
+                <form action="{{ route('inbox.store') }}" method="POST">
+                    @csrf
                   <div class="row">
                     <div class="col-sm-6">
                       <!-- Single Form Start -->
                       <div class="single-form">
-                        <input name="name" type="text" placeholder="Nama *">
+                        <input name="name" type="text" placeholder="Nama *" @error('name') class="is-invalid" @enderror value="{{ old('name') }}">
+                        @error('name')
+                            <div class="invalid-feedback">
+                            <p>{{ $message }}</p>
+                            </div>
+                        @enderror
                       </div>
                       <!-- Single Form End -->
                     </div>
                     <div class="col-sm-6">
                       <!-- Single Form Start -->
                       <div class="single-form">
-                        <input name="email" type="email" placeholder="Email *">
+                        <input name="email" type="email" placeholder="Email *" @error('email') class="is-invalid" @enderror value="{{ old('email') }}">
+                        @error('email')
+                            <div class="invalid-feedback">
+                            <p>{{ $message }}</p>
+                            </div>
+                        @enderror
                       </div>
                       <!-- Single Form End -->
                     </div>
                     <div class="col-sm-12">
                       <!-- Single Form Start -->
                       <div class="single-form">
-                        <textarea name="message" placeholder="Masukkan Pesan.."></textarea>
+                        <textarea name="message" placeholder="Masukkan Pesan.." @error('message') class="is-invalid" @enderror>{{ old('message') }}</textarea>
+                        @error('message')
+                            <div class="invalid-feedback">
+                            <p>{{ $message }}</p>
+                            </div>
+                        @enderror
                       </div>
                       <!-- Single Form End -->
                     </div>
