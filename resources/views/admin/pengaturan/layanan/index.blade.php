@@ -43,16 +43,19 @@
                         <th class="sorting sorting_asc" tabindex="0" style="width: 144.302px;">
                           Name</th>
                         <th class="sorting sorting_asc" tabindex="0" style="width: 144.302px;">
+                          Deckripsi layanan</th>
+                        <th class="sorting sorting_asc" tabindex="0" style="width: 144.302px;">
                           Options</th>
                       </tr>
                     </thead>
                     <tbody>
-                      @foreach ($layanan as $row)
+                        @foreach ($layanan as $row)
                         <tr class="odd">
-                          <td class="sorting_1">{{ $row->layanan }}</td>
+                          <td class="sorting_1">{{ $row->nama_layanan }}</td>
+                          <td class="sorting_1">{{ $row->descripsi_layanan }}</td>
                           <td>
-                            <button type="button" class="btn btn-warning btn-icon text-white" onclick="showEditPopup({{ $row->id }},{{ $row->target_layanan_id }}, '{{ $row->layanan }}')"><i class="link-icon" data-feather="edit"></i></button>
-                            <button type="button" class="btn btn-danger btn-icon" onclick="showDeletePopup({{ $row->id }}, '{{ $row->layanan }}')"><i class="link-icon" data-feather="trash"></i></button>
+                            <button type="button" class="btn btn-warning" onclick="showEditPopup({{ $row->id }},{{ $row->target_layanan_id }}, '{{ $row->nama_layanan }}','{{ $row->descripsi_layanan }}')">Edit</button>
+                            <button type="button" class="btn btn-danger" onclick="showDeletePopup({{ $row->id }}, '{{ $row->nama_layanan }}')">Hapus</button>
                           </td>
                         </tr>
                       @endforeach
@@ -91,12 +94,13 @@
       window.location.href = newUrl;
     });
 
-    function showEditPopup(id, pilihan, name) {
+    function showEditPopup(id, pilihan, name, category) {
       const defaultOption = pilihan === 1 ? 1 : 2;
       Swal.fire({
         title: 'Edit Layanan',
         html: `
                 <input id="editedName" class="swal2-input" value="${name}">
+                <input id="editedKategori" class="swal2-input" value="${category}">
                 <select id="editedPilihan" class="swal2-select">
                     <option value="1" ${defaultOption === 1 ? 'selected' : ''}>Siswa</option>
                     <option value="2" ${defaultOption === 2 ? 'selected' : ''}>Industri</option>
@@ -108,6 +112,7 @@
         preConfirm: () => {
           const editedName = document.getElementById('editedName').value;
           const editedPilihan = document.getElementById('editedPilihan').value;
+          const editedcategory = document.getElementById('editedKategori').value;
 
           fetch('{{ route('layanan-perusahaan.update', '') }}/' + id, {
               method: 'PUT',
@@ -117,6 +122,7 @@
               },
               body: JSON.stringify({
                 layanan: editedName,
+                descripsi_layanan: editedcategory,
                 target_layanan_id: editedPilihan,
               }),
             })
