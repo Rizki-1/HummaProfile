@@ -34,7 +34,7 @@
 
 .login-button {
     border: none;
-    background-color: #00b1f0;
+    background: linear-gradient(195deg, #086ad8 0%, #42b9ff 100%);
     border-radius: 10px;
     text-align: center;
     color: white;
