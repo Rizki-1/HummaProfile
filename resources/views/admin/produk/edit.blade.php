@@ -14,8 +14,9 @@
   </div>
   <div class="card">
     <div class="card-body">
-      <form action="{{ route('produk.store') }}" method="POST" class="forms-sample row" enctype="multipart/form-data">
+      <form action="{{ route('produk.update', $produks->id) }}" method="POST" class="forms-sample row" enctype="multipart/form-data">
         @csrf
+        @method('PUT')
         <div class="col-md-12 row mb-3">
           <div class="col-md-6">
             <div class="mb-3">
@@ -53,7 +54,7 @@
             <label for="myDropify" class="form-label">Upload Gambar Produk</label>
             <div class="drag-and-drop">
               <div class="product-picture-container">
-                <img class="product-picture-old" src="{{ asset('storage/produk/' . $produks->foto_produk) }}" alt="Foto produk">
+                <img class="product-picture-old" src="{{ asset('storage/' . $produks->foto_produk) }}" alt="Foto produk">
               </div>
               <input required name="foto_produk" class="@error('foto_produk') is-invalid @enderror" type="file" id="myDropify" />
               @error('foto_produk')
@@ -63,7 +64,7 @@
           </div>
         </div>
         <div class="col-md-6 col-12">
-          <button type="submit" class="btn btn-primary me-2">Tambah</button>
+          <button type="submit" class="btn btn-primary me-2">Edit</button>
           <a class="btn btn-secondary" href="{{ route('produk.index') }}">Cancel</a>
         </div>
       </form>

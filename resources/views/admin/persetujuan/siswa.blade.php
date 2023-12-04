@@ -78,7 +78,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
           </div>
           <div class="modal-body" style="height: 600px;">
-            <embed style="height: 100%; width: 100%" src="{{ asset('storage/siswa/' . $data->document) }}" type="application/pdf"> {{-- Content Modal Disini! --}}
+            <embed style="height: 100%; width: 100%" src="{{ asset('storage/' . $data->document) }}" type="application/pdf">
           </div>
         </div>
       </div>
