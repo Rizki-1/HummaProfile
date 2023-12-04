@@ -75,7 +75,7 @@
             </div>
           </div>
           <div class="col-md-6 col-12 mt-4">
-            <button type="submit" class="btn btn-warning me-2">Edit</button>
+            <button type="submit" class="btn btn-warning me-2 text-white" >Edit</button>
             <a class="btn btn-secondary" href="{{ route('berita.index') }}">Cancel</a>
           </div>
         </div>
