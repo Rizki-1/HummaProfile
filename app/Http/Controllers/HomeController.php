@@ -11,6 +11,7 @@ use App\Models\KelasIndustri;
 use App\Models\TargetLayanan;
 use App\Models\ProfileCompany;
 use App\Models\LayananPerusahaan;
+use App\Models\Produk;
 
 class HomeController extends Controller
 {
@@ -22,7 +23,8 @@ class HomeController extends Controller
         $profile = ProfileCompany::all();
         $berita = Berita::latest()->get();
         $layanan = LayananPerusahaan::latest()->get();
-        return view('user.index', compact('sosmed', 'profile', 'berita', 'layanan'));
+        $produk = Produk::latest()->get();
+        return view('user.index', compact('sosmed', 'profile', 'berita', 'layanan','produk'));
     }
 
     public function home()
