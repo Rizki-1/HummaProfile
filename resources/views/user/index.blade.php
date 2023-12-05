@@ -71,57 +71,26 @@
         </div>
         <div class="service-content-wrap choose-us-content-wrap">
           <div class="row">
-            <div class="col-xl-3 col-sm-6">
-              <!-- Service Item Start -->
-              <div class="service-item service-01">
-
-                <div class="service-content">
-                  <h3 class="title"><a>Kelas Industri</a></h3>
-                  <p>Merupakan program unggulan kami dalam mendukung pendidikan di Indonesia dengan bekerjasama dengan SMK
-                    Negeri/Swasta untuk mencetak Web dan Mobile Developer sesuai kebutuhan DU/DI.</p>
+            @foreach ($layanan->take(4) as $key => $data)
+              <div class="col-xl-3 col-sm-6">
+                <!-- Service Item Start -->
+                <div class="service-item service-0{{ ++$key }}">
+                  <div class="service-content">
+                    <h3 class="title"><a>{{ $data->nama_layanan }}</a></h3>
+                    <p>Merupakan program unggulan kami dalam mendukung pendidikan di Indonesia dengan bekerjasama dengan
+                      SMK
+                      Negeri/Swasta untuk mencetak Web dan Mobile Developer sesuai kebutuhan DU/DI.</p>
+                  </div>
                 </div>
+                <!-- Service Item End -->
               </div>
-              <!-- Service Item End -->
-            </div>
-            <div class="col-xl-3 col-sm-6">
-              <!-- Service Item Start -->
-              <div class="service-item">
-
-                <div class="service-content">
-                  <h3 class="title"><a>Pengembangan Perangkat Lunak</a></h3>
-                  <p>Melayani pengembangan aplikasi berbasis Website, Desktop & Mobile Application.</p>
-                </div>
-              </div>
-              <!-- Service Item End -->
-            </div>
-            <div class="col-xl-3 col-sm-6">
-              <!-- Service Item Start -->
-              <div class="service-item service-03">
-
-                <div class="service-content">
-                  <h3 class="title"><a>Pelatihan Upskilling/Reskilling Berbasis Industri</a></h3>
-                  <p>Memberikan pelatihan untuk meningkatkan kompetensi skill dan digital IT untuk guru, siswa & umum.</p>
-                </div>
-              </div>
-              <!-- Service Item End -->
-            </div>
-            <div class="col-xl-3 col-sm-6">
-              <!-- Service Item Start -->
-              <div class="service-item">
-                <div class="service-content">
-                  <h3 class="title"><a>Riset dan Internship/Magang</a></h3>
-                  <p>Mendukung dunia vokasi dan bekerjasama dengan SMK / Kampus dalam penelitian teknologi dan
-                    pengembangan software serta menerima siswa/mahasiswa/guru untuk magang di industri sesuai dengan
-                    kontrak yang telah disepakati.</p>
-                </div>
-              </div>
-              <!-- Service Item End -->
-            </div>
+            @endforeach
           </div>
           <div class="row">
             <div class="col-lg-12">
               <div class="more-choose-content text-center">
-                <p>Lihat Selengkapnya <a href="">Disini <i class="fas fa-long-arrow-alt-right"></i></a>
+                <p>Lihat Selengkapnya <a href="{{ route('layananIndex') }}">Disini <i
+                      class="fas fa-long-arrow-alt-right"></i></a>
                 </p>
               </div>
             </div>
@@ -133,8 +102,49 @@
   </div>
   <!-- Service End -->
 
+  <div class="section techwix-choose-us-section section-padding" style="padding-top: 100px">
+    <div class="container">
+      <!-- Choose Us Wrap Start -->
+      <div class="choose-us-wrap">
+        <div class="section-title text-center">
+          <h3 class="sub-title">Produk</h3>
+          <h2 class="title">Produk yang kami hasilkan</h2>
+        </div>
+        <div class="choose-us-content-wrap">
+          <div class="row">
+            @foreach ($produk->take(3) as $produkRow)
+              <div class="col-lg-4 col-md-6">
+                <!-- Choose Us Item Start -->
+                <div class="choose-us-item">
+                  <div class="choose-us-img">
+                    <a href="#"><img class="picture-responsive"
+                        src="{{ asset('storage/' . $produkRow->foto_produk) }}" alt="Foto Produk"></a>
+                    <div class="choose-us-content">
+                      <h3 class="title text-truncate">{{ $produkRow->nama_produk }}</h3>
+                      <p class="description-truncate">{{ $produkRow->keterangan_produk }}</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Choose Us Item End -->
+              </div>
+            @endforeach
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="more-choose-content text-center">
+                <p>Produk lainnya <a href="#">More! <i class="fas fa-long-arrow-alt-right"></i></a> </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Choose Us Wrap End -->
+    </div>
+  </div>
+
   <!-- Testimonial Start  -->
-  <div class="section techwix-testimonial-section-02 techwix-testimonial-section-03 section-padding-02">
+  <div class="section techwix-testimonial-section-02 techwix-testimonial-section-03 section-padding-02"
+    style="padding: 60px 0;">
     <div class="container">
       <!-- Testimonial Wrap Start  -->
       <div class="testimonial-wrap-02">
@@ -204,46 +214,6 @@
     </div>
   </div>
   <!-- Testimonial End  -->
-  <div class="section techwix-choose-us-section section-padding"
-    style="background-image: url(assets/images/bg/choose-us-bg.jpg);">
-    <div class="container">
-      <!-- Choose Us Wrap Start -->
-      <div class="choose-us-wrap">
-        <div class="section-title text-center">
-          <h3 class="sub-title">Produk</h3>
-          <h2 class="title">Produk yang kami hasilkan</h2>
-        </div>
-        <div class="choose-us-content-wrap">
-          <div class="row">
-            @foreach ($produk->take(3) as $produkRow)
-              <div class="col-lg-4 col-md-6">
-                <!-- Choose Us Item Start -->
-                <div class="choose-us-item">
-                  <div class="choose-us-img">
-                    <a href="#"><img class="picture-responsive"
-                        src="{{ asset('storage/' . $produkRow->foto_produk) }}" alt="Foto Produk"></a>
-                    <div class="choose-us-content">
-                      <h3 class="title text-truncate">{{ $produkRow->nama_produk }}</h3>
-                      <p class="description-truncate">{{ $produkRow->keterangan_produk }}</p>
-                    </div>
-                  </div>
-                </div>
-                <!-- Choose Us Item End -->
-              </div>
-            @endforeach
-          </div>
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="more-choose-content text-center">
-                <p>Prdouk lainnya <a href="#">More! <i class="fas fa-long-arrow-alt-right"></i></a> </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Choose Us Wrap End -->
-    </div>
-  </div>
 
   <!-- Brand Logo Start -->
   <div class="section techwix-brand-section techwix-brand-section-03">
@@ -303,7 +273,7 @@
   <!-- Brand Logo End -->
 
   {{-- Berita Start --}}
-  <div class="section techwix-blog-section section-padding-02" style="background-color: #f4f4f4">
+  <div class="section techwix-blog-section section-padding-02" style="background-color: #f4f4f4; padding-top: 70px;">
     <div class="container">
       <!-- Section Title Start -->
       <div class="section-title text-center">
@@ -332,7 +302,7 @@
                   <div class="blog-meta">
                     @foreach ($data->kategori as $item)
                       <span class="badge rounded-pill mb-1"
-                        style="background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; font-size: 12px; width: 80px; margin-right: 5px">{{ $item->name }}</span>
+                        style="background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; font-size: 12px; width: 100px; height: 30px;  margin-right: 5px">{{ $item->name }}</span>
                     @endforeach
                   </div>
                   <h3 class="title"><a href="">{{ $data->title }}</a></h3>
@@ -346,6 +316,14 @@
             </div>
           @endforeach
         </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="custome-more-text text-center" style="margin-top: 30px">
+              <p>Berita lainnya <a href="{{ route('beritaIndex') }}">Disini <i
+                    class="fas fa-long-arrow-alt-right"></i></a> </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -358,6 +336,16 @@
       <div class="section-title text-center">
         <h4 class="sub-title">Cabang Kami</h4>
         <h2 class="title">Beberapa Cabang Dari PT HummaTech</h2>
+      </div>
+      <div class="container">
+        <div class="container-map">
+          <div class="map-custome">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d159755.559331502!2d112.55740321606727!3d-7.917521431052177!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7881c2c4637501%3A0x10433eaf1fb2fb4c!2sHummasoft%20(Hummatech%20Digital%20Indonesia)!5e0!3m2!1sid!2sid!4v1701739961963!5m2!1sid!2sid"
+              width="1000" height="600" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -2,7 +2,7 @@
 
 @section('content')
   <!-- Blog Details Start -->
-  <div class="section blog-details-section section-padding-02">
+  <div class="section blog-details-section section-padding-02 mb-5">
     <div class="container">
       <!-- Blog Details Wrap Start -->
       <div class="blog-details-wrap">
@@ -24,8 +24,8 @@
                 <div class="blog-content">
                   <div class="blog-meta d-flex">
                     @foreach ($berita->kategori as $data)
-                      <span class="badge rounded-pill"
-                        style="background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; font-size: 12px; width: 100px">{{ $data->name }}</span>
+                      <span class="badge rounded-pill mb-1"
+                        style="background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; font-size: 12px; width: 100px; height: 30px; margin-right: 5px">{{ $data->name }}</span>
                     @endforeach
                   </div>
                   <h3 class="title">{{ $berita->title }}</h3>
@@ -54,11 +54,12 @@
                       <li>
                         <a class="post-link" href="{{ route('detailBerita', $data->id) }}">
                           <div class="post-thumb">
-                            <img src="{{ asset('storage/' . $data->thumbnail) }}" alt="">
+                            <img style="object-fit: cover" src="{{ asset('storage/' . $data->thumbnail) }}" alt="">
                           </div>
                           <div class="post-text">
                             <h4 class="title">{{ $data->title }}</h4>
-                            <span class="post-meta"><i class="far fa-calendar-alt"></i>{{ \Carbon\Carbon::parse($data->created_at)->format('M d, Y') }}</span>
+                            <span class="post-meta"><i
+                                class="far fa-calendar-alt"></i>{{ \Carbon\Carbon::parse($data->created_at)->format('M d, Y') }}</span>
                           </div>
                         </a>
                       </li>
@@ -73,17 +74,14 @@
               <div class="sidebar-widget">
                 <!-- Widget Title Start -->
                 <div class="widget-title">
-                  <h3 class="title">Tags</h3>
+                  <h3 class="title">Kategori Berita</h3>
                 </div>
                 <!-- Widget Title End -->
                 <!-- Widget Category Start -->
                 <ul class="sidebar-tag">
-                  <li><a href="#">Learning</a></li>
-                  <li><a href="#">Course</a></li>
-                  <li><a href="#">Business</a></li>
-                  <li><a href="#">Udemy</a></li>
-                  <li><a href="#">Online</a></li>
-                  <li><a href="#">Technology</a></li>
+                  @foreach ($kategoriBerita as $data)
+                    <li><a href="">{{ $data->name }}</a></li>
+                  @endforeach
                 </ul>
                 <!-- Widget Category End -->
               </div>

@@ -56,63 +56,106 @@
     transform: rotate(90deg);
 }
 
+
+/* Custome More! */
+.custome-more-text p {
+  font-size: 16px;
+  line-height: 30px;
+}
+
+.custome-more-text p a {
+  font-weight: 600;
+  color: #086ad8;
+}
+
+.custome-more-text p a i {
+  position: relative;
+  top: 1px;
+  transition: all 0.3s linear;
+}
+
+.custome-more-text p a:hover i {
+  margin-left: 5px;
+}
+
 /* Scroller */
 
 .scroller {
-  max-width: 830px;
-  overflow: hidden;
-  outline: 3px solid lime;
+    max-width: 830px;
+    overflow: hidden;
+    outline: 3px solid lime;
 }
 
 .scroller__inner {
-  display: flex;
-  gap: 4rem;
+    display: flex;
+    gap: 4rem;
 }
 
 .scroller__inner img {
-  height: 120px;
+    height: 120px;
 }
 
 .scroller[data-animated="true"] {
-  overflow: hidden;
-  -webkit-mask: linear-gradient(
-      90deg,
-      transparent,
-      white 20%,
-      white 80%,
-      transparent
-  );
-  mask: linear-gradient(
-      90deg,
-      transparent,
-      white 20%,
-      white 80%,
-      transparent
-  );
+    overflow: hidden;
+    -webkit-mask: linear-gradient(
+        90deg,
+        transparent,
+        white 20%,
+        white 80%,
+        transparent
+    );
+    mask: linear-gradient(
+        90deg,
+        transparent,
+        white 20%,
+        white 80%,
+        transparent
+    );
 }
 
 .scroller[data-animated="true"] .scroller__inner {
-  width: max-content;
-  flex-wrap: nowrap;
-  animation: scroll 20s linear infinite;
+    width: max-content;
+    flex-wrap: nowrap;
+    animation: scroll 20s linear infinite;
 }
 
 @keyframes scroll {
-  to {
-      transform: translate(calc(-50% - 0.5rem));
-  }
+    to {
+        transform: translate(calc(-50% - 0.5rem));
+    }
 }
 
 body::-webkit-scrollbar {
-  width: 6px;
+    width: 6px;
 }
 
 body::-webkit-scrollbar-track {
-  background-color: #f4f4f4;
-  border-radius: 100px;
+    background-color: #f4f4f4;
+    border-radius: 100px;
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: #086ad8;
-  border-radius: 100px;
+    background-color: #086ad8;
+    border-radius: 100px;
+}
+
+.container-map {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Map Custome */
+.map-custome {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 20px 0;
+   margin-top: 20px;
+   background-color: #086ad8;
+   width: 1000px;
+   height: 600px;
+   border-radius: 20px;
+   overflow: hidden;
+   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
