@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Inbox;
 use App\Models\Berita;
+use App\Models\KategoriBerita;
 use App\Models\Sosmed;
 use App\Models\SiswaMagang;
 use Illuminate\Http\Request;
@@ -62,10 +63,11 @@ class HomeController extends Controller
 
     public function indexBerita()
     {
-        $berita = Berita::latest()->get();
+        $beritaAll = Berita::latest()->paginate(9);
         $sosmed = Sosmed::all();
         $profile = ProfileCompany::all();
-        return view('user.berita.index', compact('berita', 'sosmed', 'profile'));
+        $kategori = KategoriBerita::all();
+        return view('user.berita.index', compact('beritaAll', 'sosmed', 'profile', 'kategori'));
     }
 
     public function indexLayanan()
@@ -82,12 +84,13 @@ class HomeController extends Controller
         $sosmed = Sosmed::all();
         $beritaAll = Berita::all();
         $profile = ProfileCompany::all();
+        $kategoriBerita = KategoriBerita::all();
         if ($request->input('query')) {
             $beritaAll->where('title',  'LIKE', '%' . $request->input('query') . '%');
         }
         $beritaAll = $beritaAll;
         $beritaRandom = Berita::inRandomOrder()->get();
-        return view('user.berita.detail', compact('berita', 'sosmed', 'profile','beritaAll', 'beritaRandom'));
+        return view('user.berita.detail', compact('berita', 'sosmed', 'profile','beritaAll', 'beritaRandom', 'kategoriBerita'));
     }
     // End User Controller
 
