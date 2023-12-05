@@ -9,6 +9,7 @@
         width: 100px;
         height: 100px;
         object-fit: cover;
+        border-radius: 10px;
     }
 </style>
 <title>{{ config('app.name', 'Laravel') }} - Testimoni</title>
@@ -29,17 +30,27 @@
   <div class="row">
     @foreach ($testimoni as $test)
     <div class="col-md-6">
-        <div class="tes">
-            <img src="{{ asset('storage/'.$test->foto_siswa) }}" alt="foto" class="foto">
-            <p>{{ $test->nama }}</p>
-            <p></p>
-            <p>{{ $test->testimoni }}</p>
-            <form action="{{ route('testimoni.delete', $test->id) }}" method="post">
-                @method('delete')
-                @csrf
-                <button type="submit" class="btn btn-danger">hapus</button>
-            </form>
-            <a href="{{ route('testimoni.edit',$test->id) }}" class="btn btn-warning">edit</a>
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex gap-4 mb-4">
+                    <div>
+                        <img src="{{ asset('storage/'.$test->foto_siswa) }}" alt="foto" class="foto">
+                    </div>
+                    <div>
+                        <p>{{ $test->nama }}</p>
+                        <p>{{ $test->asal_sekolah }}</p>
+                    </div>
+                </div>
+                <p>{{ $test->testimoni }}</p>
+                <div class="d-flex gap-2 mt-4 float-right justify-content-end">
+                    <form action="{{ route('testimoni.delete', $test->id) }}" method="post">
+                        @method('delete')
+                        @csrf
+                        <button type="submit" class="btn btn-danger"><i class="link-icon trash-icon" data-feather="trash"></i></button>
+                    </form>
+                    <a href="{{ route('testimoni.edit',$test->id) }}" class="btn btn-warning"><i class="link-icon edit-icon" data-feather="edit"></i></a>
+                </div>
+            </div>
         </div>
     </div>
     @endforeach

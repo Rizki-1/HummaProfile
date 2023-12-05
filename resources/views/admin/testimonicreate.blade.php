@@ -18,10 +18,10 @@
             <div class="col-6">
                 <label for="nama">Nama</label>
                 <input type="text" class="form-control mb-3" name="nama">
-                <label for="nama">Testimoni</label>
-                <input type="text" class="form-control mb-3" name="testimoni">
                 <label for="asal_sekolah">Asal sekolah</label>
                 <input type="text" class="form-control mb-3" name="asal_sekolah">
+                <label for="nama">Testimoni</label>
+                <input type="text" class="form-control mb-3" name="testimoni">
             </div>
             <div class="col-6">
                 <label for="myDropify" class="form-label">Upload foto</label>
