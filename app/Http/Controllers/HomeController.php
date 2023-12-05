@@ -106,7 +106,7 @@ class HomeController extends Controller
     public function test()
     {
         $sosmeds = Sosmed::all();
-        return view('admin.createsosmed', compact('sosmeds'));
+        return view('user.test', compact('sosmeds'));
     }
 
     public function update()
