@@ -9,9 +9,14 @@ use Illuminate\Support\Facades\Storage;
 
 class MouController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $mous = Mou::all();
+        $mous = Mou::orderBy('created_at', 'desc');
+        if ($request->has('query') && !empty($request->input('query'))) {
+            $mous->where('nama_mou', 'LIKE', '%' . $request->input('query') . '%');
+        }
+
+        $mous = $mous->paginate(1);
         return view('admin.list.mou.index', compact('mous'));
     }
 
