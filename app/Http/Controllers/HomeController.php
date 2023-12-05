@@ -93,24 +93,12 @@ class HomeController extends Controller
 
     public function dashboard()
     {
-        $siswaCount = SiswaMagang::where('status', 'diterima')->count();
-        $industriCount = KelasIndustri::where('status', 'diterima')->count();
+        // $siswaCount = SiswaMagang::where('status', 'diterima')->count();
+        // $industriCount = KelasIndustri::where('status', 'diterima')->count();
         $inboxCount = Inbox::where('status', 1)->count();
-        return view('admin.dashboard', compact('siswaCount', 'industriCount', 'inboxCount'));
+        return view('admin.dashboard', compact( 'inboxCount'));
     }
 
-    public function SiswaMagangStore(Request $request)
-    {
-        SiswaMagang::create([
-            'nama' => $request->nama,
-            'asal_sekolah' => $request->asal_sekolah,
-            'jurusan' => $request->jurusan,
-            'kelas' => $request->kelas,
-            'alamat' => $request->alamat,
-            'email' => $request->email,
-        ]);
-        return redirect()->back();
-    }
 
     public function test()
     {

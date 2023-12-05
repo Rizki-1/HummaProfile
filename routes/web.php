@@ -88,8 +88,8 @@ Route::get('/pendidikan/siswa', [HomeController::class, 'indexSiswa'])->name('ho
 Route::get('/pendidikan/industri', [HomeController::class, 'indexIndustri'])->name('home.industriIndex');
 Route::get('/produk', [HomeController::class, 'indexProduk'])->name('produkIndex');
 Route::get('/contact', [HomeController::class, 'indexContact'])->name('contactIndex');
-Route::get('/berita', [HomeController::class, 'indexBerita'])->name('beritaIndex');
-Route::get('/berita/{id}', [HomeController::class, 'detailBerita'])->name('detailBerita');
+// Route::get('/beritastore', [HomeController::class, 'indexBerita'])->name('beritaIndex');
+// Route::get('/beritaedit/{id}', [HomeController::class, 'detailBerita'])->name('detailBerita');
 Route::post('/inbox', [InboxController::class,'store'])->name('inbox.store');
 
 //formLandingPage
