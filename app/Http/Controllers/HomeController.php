@@ -80,13 +80,14 @@ class HomeController extends Controller
     {
         $berita = Berita::FindOrFail($id);
         $sosmed = Sosmed::all();
-        $beriatAll = Berita::all();
+        $beritaAll = Berita::all();
         $profile = ProfileCompany::all();
         if ($request->input('query')) {
-            $beriatAll->where('title',  'LIKE', '%' . $request->input('query') . '%');
+            $beritaAll->where('title',  'LIKE', '%' . $request->input('query') . '%');
         }
-        $beriatAll = $beriatAll->paginate(10);
-        return view('user.berita.detail', compact('berita', 'sosmed', 'profile','beritaAll'));
+        $beritaAll = $beritaAll;
+        $beritaRandom = Berita::inRandomOrder()->get();
+        return view('user.berita.detail', compact('berita', 'sosmed', 'profile','beritaAll', 'beritaRandom'));
     }
     // End User Controller
 
