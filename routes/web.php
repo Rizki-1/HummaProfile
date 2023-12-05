@@ -40,7 +40,16 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
         echo "Hello";
     });
     Route::resource("/berita", BeritaController::class);
-    Route::resource("/category-berita", KategoriBeritaController::class);
+    //kategory berita
+    Route::get('/category',[KategoriBeritaController::class, 'index'])->name('category');
+    Route::get('/category-berita',[KategoriBeritaController::class, 'create'])->name('category-berita.create');
+    Route::get('/category-berita/{id}',[KategoriBeritaController::class, 'show'])->name('category-berita.show');
+    Route::get('/category-berita/{id}',[KategoriBeritaController::class, 'edit'])->name('category-berita.edit');
+    Route::put('/category-berita/{id}',[KategoriBeritaController::class, 'update'])->name('category-berita.update');
+    Route::post('/category-berita',[KategoriBeritaController::class, 'store'])->name('category-berita.store');
+    Route::delete('/category-berita/{id}',[KategoriBeritaController::class, 'destroy'])->name('category-berita.destroy');
+
+    Route::get('/category',[KategoriBeritaController::class, 'index'])->name('category');
     Route::resource("/inbox", InboxController::class)->only(['show', 'index', 'destroy']);
     Route::get('/inbox/reply/{id}', [InboxController::class, 'replyShow'])->name('inbox.reply.show');
     Route::post('/inbox/reply/{id}', [InboxController::class, 'reply'])->name('inbox.reply.post');

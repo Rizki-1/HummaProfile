@@ -6,7 +6,7 @@
     <div>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb breadcrumb-dot mb-0">
-          <li class="breadcrumb-item"><a href="{{ route('category-berita.index') }}">Kategori</a></li>
+          <li class="breadcrumb-item"><a href="{{ route('category') }}">Kategori</a></li>
           <li class="breadcrumb-item active" aria-current="page">Create</li>
         </ol>
       </nav>

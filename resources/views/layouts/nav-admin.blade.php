@@ -134,7 +134,7 @@
                   <a href="{{ route('berita.index') }}" class="nav-link">Berita</a>
                 </li>
                 <li class="nav-item">
-                  <a href="{{ route('category-berita.index') }}" class="nav-link">Kategori Berita</a>
+                  <a href="{{ route('category') }}" class="nav-link">Kategori Berita</a>
                 </li>
               </ul>
             </div>

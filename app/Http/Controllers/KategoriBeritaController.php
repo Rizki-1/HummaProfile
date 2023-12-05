@@ -31,26 +31,26 @@ class KategoriBeritaController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
-        try {
+        // try {
             foreach ($request->input("category-group") as $row) {
                 // dd($row['category_name']);
                 $kategoriBerita = new KategoriBerita;
                 $kategoriBerita->name = $row['category_name'];
                 $kategoriBerita->save();
             }
-            return to_route('category-berita.index')->with('message', [
+            return to_route('category')->with('message', [
                 'icon' => 'success',
                 'title' => 'Berhasil!',
                 'text' => 'Berhasil membuat kategori berita!'
             ]);
-        } catch (\Exception $e) {
-            DB::rollBack();
-            return back()->with('message', [
-                'icon' => 'error',
-                'title' => 'Gagal!',
-                'text' => 'Ada kesalahan saat membuat kategori berita!'
-            ]);
-        }
+        // } catch (\Exception $e) {
+        //     DB::rollBack();
+        //     return back()->with('message', [
+        //         'icon' => 'error',
+        //         'title' => 'Gagal!',
+        //         'text' => 'Ada kesalahan saat membuat kategori berita!'
+        //     ]);
+        // }
     }
 
     /**
@@ -91,7 +91,7 @@ class KategoriBeritaController extends Controller
             $kategoriBerita->save();
 
             DB::commit();
-            return to_route('category-berita.index')->with('message', [
+            return to_route('category')->with('message', [
                 'icon' => 'success',
                 'title' => 'Berhasil!',
                 'text' => 'Berhasil meupdate kategori berita!'
