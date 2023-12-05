@@ -5736,10 +5736,15 @@ textarea:-ms-input-placeholder {
     top: 50%;
     transform: translateY(-65%);
     z-index: 3;
+    width: 135px;
+    height: 135px;
 }
 
 .techwix-testimonial-section-02 .single-testimonial-02 .testimonial-thumb img {
     border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .techwix-testimonial-section-02 .single-testimonial-02 .testimonial-content {

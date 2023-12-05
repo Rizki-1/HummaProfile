@@ -155,13 +155,12 @@
                   <!--  Single Testimonial Start  -->
                   <div class="single-testimonial-02">
                     <div class="testimonial-thumb">
-                      <img src="{{ asset('cssUser/images/testi-3.jpg') }}" alt="">
+                      <img src="{{ asset('storage/'. $tm->foto_siswa) }}" alt="">
                     </div>
                     <div class="testimonial-content">
-                      <p>Accelerate innovation with world-class tech teams Beyond more stoic this along goodness hey
-                        this this wow manatee</p>
-                      <span class="name">Mike Holder </span>
-                      <span class="designation"> / CEO, Harlond inc</span>
+                      <p>{{ $tm->testimoni }}</p>
+                      <span class="name">{{ $tm->nama }} </span>
+                      <span class="designation">/ {{ $tm->asal_sekolah }}</span>
                     </div>
                   </div>
                   <!--  Single Testimonial End  -->
