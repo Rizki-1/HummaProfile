@@ -235,37 +235,37 @@
               </li>
               @empty
               <li>
-                <img src="{{ asset('storage/Mou/smk-1.png') }}" alt="">
+                <img src="{{ asset('cssUser/sekolah/smk-1.png') }}" alt="">
               </li>
               <li>
-                <img src="{{ asset('storage/Mou/smk-2.jpg') }}" alt="">
+                <img src="{{ asset('cssUser/sekolah/smk-2.jpg') }}" alt="">
               </li>
               <li>
-                <img src="{{ asset('storage/Mou/smk-3.jpg') }}" alt="">
+                <img src="{{ asset('cssUser/sekolah/smk-3.jpg') }}" alt="">
               </li>
               <li>
-                <img src="{{ asset('storage/Mou/smk-4.jpg') }}" alt="">
+                <img src="{{ asset('cssUser/sekolah/smk-4.jpg') }}" alt="">
               </li>
               <li>
-                <img src="{{ asset('storage/Mou/smk-5.jpg') }}" alt="">
+                <img src="{{ asset('cssUser/sekolah/smk-5.jpg') }}" alt="">
               </li>
               <li>
-                <img src="{{ asset('storage/Mou/smk-6.jpg') }}" alt="">
+                <img src="{{ asset('cssUser/sekolah/smk-6.jpg') }}" alt="">
               </li>
               <li>
-                <img src="{{ asset('storage/Mou/smk-7.jpg') }}" alt="">
+                <img src="{{ asset('cssUser/sekolah/smk-7.jpg') }}" alt="">
               </li>
               <li>
-                <img src="{{ asset('storage/Mou/smk-8.png') }}" alt="">
+                <img src="{{ asset('cssUser/sekolah/smk-8.png') }}" alt="">
               </li>
               <li>
-                <img src="{{ asset('storage/Mou/smk-9.png') }}" alt="">
+                <img src="{{ asset('cssUser/sekolah/smk-9.png') }}" alt="">
               </li>
               <li>
-                <img src="{{ asset('storage/Mou/smk-10.jpg') }}" alt="">
+                <img src="{{ asset('cssUser/sekolah/smk-10.jpg') }}" alt="">
               </li>
               <li>
-                <img src="{{ asset('storage/Mou/smk-11.png') }}" alt="">
+                <img src="{{ asset('cssUser/sekolah/smk-11.png') }}" alt="">
               </li>
               @endforelse
             </ul>
