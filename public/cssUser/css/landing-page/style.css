@@ -4,30 +4,30 @@
     padding: 30px 45px 35px;
     margin-top: 30px;
     position: relative;
-  }
+}
 
-  .service-card-content .service-card-card-03 .service-content .title {
+.service-card-content .service-card-card-03 .service-content .title {
     font-size: 22px;
     line-height: 30px;
     margin-top: 20px;
-  }
+}
 
-  .service-card-content .service-card-card-03 .service-content p {
+.service-card-content .service-card-card-03 .service-content p {
     font-size: 14px;
     line-height: 30px;
     padding-top: 20px;
-  }
+}
 
-  .service-card-content .service-card-card-03 .service-content .read-more {
+.service-card-content .service-card-card-03 .service-content .read-more {
     margin-top: 20px;
-  }
+}
 
-  .service-card-content .service-card-card-03 .service-content .read-more a {
+.service-card-content .service-card-card-03 .service-content .read-more a {
     font-size: 14px;
     color: #333333;
-  }
+}
 
-  .service-card-content .service-card-card-03 .service-content .read-more a i {
+.service-card-content .service-card-card-03 .service-content .read-more a i {
     width: 40px;
     height: 40px;
     line-height: 40px;
@@ -37,12 +37,82 @@
     color: #086ad8;
     margin-right: 5px;
     transition: all 0.3s linear;
-  }
+}
 
-  .service-card-content .service-card-card-03:hover .service-content .read-more a {
+.service-card-content
+    .service-card-card-03:hover
+    .service-content
+    .read-more
+    a {
     color: #086ad8;
-  }
+}
 
-  .service-card-content .service-card-card-03:hover .service-content .read-more a i {
+.service-card-content
+    .service-card-card-03:hover
+    .service-content
+    .read-more
+    a
+    i {
     transform: rotate(90deg);
+}
+
+/* Scroller */
+
+.scroller {
+  max-width: 830px;
+  overflow: hidden;
+  outline: 3px solid lime;
+}
+
+.scroller__inner {
+  display: flex;
+  gap: 4rem;
+}
+
+.scroller__inner img {
+  height: 120px;
+}
+
+.scroller[data-animated="true"] {
+  overflow: hidden;
+  -webkit-mask: linear-gradient(
+      90deg,
+      transparent,
+      white 20%,
+      white 80%,
+      transparent
+  );
+  mask: linear-gradient(
+      90deg,
+      transparent,
+      white 20%,
+      white 80%,
+      transparent
+  );
+}
+
+.scroller[data-animated="true"] .scroller__inner {
+  width: max-content;
+  flex-wrap: nowrap;
+  animation: scroll 20s linear infinite;
+}
+
+@keyframes scroll {
+  to {
+      transform: translate(calc(-50% - 0.5rem));
   }
+}
+
+body::-webkit-scrollbar {
+  width: 6px;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: #f4f4f4;
+  border-radius: 100px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #086ad8;
+  border-radius: 100px;
+}

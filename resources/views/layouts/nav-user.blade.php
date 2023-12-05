@@ -174,8 +174,7 @@
               <div class="footer-widget-about">
                 <a class="footer-logo" href="{{ route('homeindex') }}"><img
                     src="{{ asset('cssUser/images/logohumma.png') }}" alt="Logo"></a>
-                <p>Accelerate innovation with world-class tech teams We’ll match you to an entire remote team of
-                  incredible freelance talent.</p>
+                <p>Accelerate innovation with world-class tech teams We’ll match you to an entire remote team of incredible freelance talent.</p>
               </div>
               <!-- Footer Widget End -->
             </div>

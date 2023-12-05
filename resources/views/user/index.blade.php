@@ -1,68 +1,19 @@
 @extends('layouts.nav-user')
 
 @section('content')
-  <!-- Hero Start -->
-  <div class="section techwix-hero-section-03 d-flex align-items-center" style="background-image: url({{ asset('cssUser/images/hero-bg3.jpg') }});">
-    <div class="shape-1">
-      <svg xmlns="http://www.w3.org/2000/svg" width="944px" height="894px">
-        <defs>
-          <linearGradient id="PSgrad_0" x1="88.295%" x2="0%" y1="0%" y2="46.947%">
-            <stop offset="0%" stop-color="rgb(67,186,255)" stop-opacity="1" />
-            <stop offset="100%" stop-color="rgb(113,65,177)" stop-opacity="1" />
-          </linearGradient>
-
-        </defs>
-        <path fill-rule="evenodd" fill="rgb(43, 142, 254)"
-          d="M39.612,410.76 L467.344,29.823 C516.51,-13.476 590.638,-9.94 633.939,39.612 L914.192,317.344 C957.492,366.50 953.109,440.638 904.402,483.939 L476.671,864.191 C427.964,907.492 353.376,903.109 310.76,854.402 L29.823,576.670 C-13.477,527.963 -9.94,453.376 39.612,410.76 Z" />
-        <path fill="url(#PSgrad_0)"
-          d="M39.612,410.76 L467.344,29.823 C516.51,-13.476 590.638,-9.94 633.939,39.612 L914.192,317.344 C957.492,366.50 953.109,440.638 904.402,483.939 L476.671,864.191 C427.964,907.492 353.376,903.109 310.76,854.402 L29.823,576.670 C-13.477,527.963 -9.94,453.376 39.612,410.76 Z" />
-      </svg>
-    </div>
-    <div class="shape-2">
-      <svg xmlns="http://www.w3.org/2000/svg" width="726.5px" height="726.5px">
-        <path fill-rule="evenodd" stroke="rgb(255, 255, 255)" stroke-width="1px" stroke-linecap="butt" stroke-linejoin="miter" opacity="0.302" fill="none"
-          d="M28.14,285.269 L325.37,21.216 C358.860,-8.852 410.655,-5.808 440.723,28.14 L704.777,325.37 C734.846,358.860 731.802,410.654 697.979,440.723 L400.956,704.777 C367.133,734.845 315.338,731.802 285.269,697.979 L21.216,400.955 C-8.852,367.132 -5.808,315.337 28.14,285.269 Z" />
-      </svg>
-    </div>
-    <div class="shape-3">
-      <svg xmlns="http://www.w3.org/2000/svg" width="515px" height="515px">
-        <defs>
-          <linearGradient id="PSgrad_0" x1="0%" x2="89.879%" y1="0%" y2="43.837%">
-            <stop offset="0%" stop-color="rgb(67,186,255)" stop-opacity="1" />
-            <stop offset="100%" stop-color="rgb(113,65,177)" stop-opacity="1" />
-          </linearGradient>
-
-        </defs>
-        <path fill-rule="evenodd" fill="rgb(43, 142, 254)"
-          d="M19.529,202.281 L230.531,14.699 C254.559,-6.660 291.353,-4.498 312.714,19.529 L500.295,230.531 C521.656,254.559 519.493,291.353 495.466,312.714 L284.463,500.295 C260.436,521.656 223.641,519.493 202.281,495.466 L14.699,284.463 C-6.660,260.435 -4.498,223.641 19.529,202.281 Z" />
-        <path fill="url(#PSgrad_0)"
-          d="M19.529,202.281 L230.531,14.699 C254.559,-6.660 291.353,-4.498 312.714,19.529 L500.295,230.531 C521.656,254.559 519.493,291.353 495.466,312.714 L284.463,500.295 C260.436,521.656 223.641,519.493 202.281,495.466 L14.699,284.463 C-6.660,260.435 -4.498,223.641 19.529,202.281 Z" />
-      </svg>
-    </div>
-    <div class="shape-4">
-      <svg xmlns="http://www.w3.org/2000/svg" width="972.5px" height="970.5px">
-        <path fill-rule="evenodd" stroke="rgb(255, 255, 255)" stroke-width="1px" stroke-linecap="butt" stroke-linejoin="miter" fill="none"
-          d="M38.245,381.103 L435.258,28.158 C480.467,-12.32 549.697,-7.964 589.888,37.244 L942.832,434.257 C983.23,479.466 978.955,548.697 933.746,588.888 L536.733,941.832 C491.524,982.23 422.293,977.955 382.103,932.746 L29.158,535.733 C-11.32,490.524 -6.963,421.293 38.245,381.103 Z" />
-      </svg>
-    </div>
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-6">
-          <!-- Hero Content Start -->
-          <div class="hero-content">
-            {{-- <h3 class="sub-title" data-aos-delay="600" data-aos="fade-up">Technology Related Consultancy</h3> --}}
-            <h2 class="title" data-aos="fade-up" data-aos-delay="800">Selamat Datang di HummaTech</h2>{{-- bisa dirubah --}}
-            <p data-aos="fade-up" data-aos-delay="900">Kami adalah Perusahaan Yang bergerak di bidang software developer dan kegiatan magang/industri</p>
-            {{-- <div class="hero-btn" data-aos="fade-up" data-aos-delay="1000">
-              <a class="btn" href="about.html">Read More</a>
-            </div> --}}
-          </div>
-          <!-- Hero Content End -->
-        </div>
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{{ asset('cssUser/images/case-5.jpg') }}" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="{{ asset('cssUser/images/case-4.jpg') }}" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="{{ asset('cssUser/images/case-6.jpg') }}" class="d-block w-100" alt="...">
       </div>
     </div>
   </div>
-  <!-- Hero End -->
 
   <!-- About Start -->
   <div class="section techwix-about-section-04 section-padding">
@@ -89,7 +40,8 @@
             <!-- About Image Wrap Start -->
             <div class="about-img-wrap">
               <div class="play-btn-02">
-                <a class="popup-video" href="https://www.youtube.com/watch?time_continue=3&amp;v=_X0eYtY8T_U"><i class="fas fa-play"></i></a>
+                <a class="popup-video" href="https://www.youtube.com/watch?time_continue=3&amp;v=_X0eYtY8T_U"><i
+                    class="fas fa-play"></i></a>
               </div>
               <div class="about-img about-img-big">
                 <img src="{{ asset('cssUser/images/about-big2.jpg') }}" alt="">
@@ -108,7 +60,8 @@
   <!-- About End -->
 
   <!-- Service Start -->
-  <div class="section techwix-service-section-02 service-card-content section-padding" style="background-image: url(cssUser/images/bg/service-bg.jpg);">
+  <div class="section techwix-service-section-02 service-card-content section-padding"
+    style="background-image: url(cssUser/images/bg/service-bg.jpg);">
     <div class="container">
       <!-- Service Wrap Start -->
       <div class="service-wrap">
@@ -179,50 +132,6 @@
     </div>
   </div>
   <!-- Service End -->
-
-  <!-- Choose Us Start -->
-  <div class="section techwix-choose-us-section section-padding"
-    style="background-image: url({{ asset('cssUser/images/bg/choose-us') }}-bg.jpg);">
-    <div class="container">
-      <!-- Choose Us Wrap Start -->
-      <div class="choose-us-wrap">
-        <div class="section-title text-center">
-          <h3 class="sub-title">Berita</h3>
-          <h2 class="title">Berita terbaru terkait perusahaan kami</h2>
-        </div>
-        <div class="choose-us-content-wrap">
-          <div class="row">
-            @foreach ($berita as $data)
-              <div class="col-lg-4 col-md-6">
-                <!-- Choose Us Item Start -->
-                <div class="choose-us-item">
-                  <div class="choose-us-img">
-                    <a href=""><img style="height: 100%; object-fit: cover" src="{{ asset('storage/'. $data->thumbnail) }}"
-                        alt=""></a>
-                    <div class="choose-us-content">
-                      <h3 class="title">{{ $data->title }}</h3>
-                      <p>{{ $data->description }}</p>
-                    </div>
-                  </div>
-                </div>
-                <!-- Choose Us Item End -->
-              </div>
-            @endforeach
-          </div>
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="more-choose-content text-center">
-                <p>Lihat berita lainnya <a href="{{ route('beritaIndex') }}">Disini <i class="fas fa-long-arrow-alt-right"></i></a>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Choose Us Wrap End -->
-    </div>
-  </div>
-  <!-- Choose Us End -->
 
   <!-- Testimonial Start  -->
   <div class="section techwix-testimonial-section-02 techwix-testimonial-section-03 section-padding-02">
@@ -295,7 +204,8 @@
     </div>
   </div>
   <!-- Testimonial End  -->
-  <div class="section techwix-choose-us-section section-padding" style="background-image: url(assets/images/bg/choose-us-bg.jpg);">
+  <div class="section techwix-choose-us-section section-padding"
+    style="background-image: url(assets/images/bg/choose-us-bg.jpg);">
     <div class="container">
       <!-- Choose Us Wrap Start -->
       <div class="choose-us-wrap">
@@ -310,7 +220,8 @@
                 <!-- Choose Us Item Start -->
                 <div class="choose-us-item">
                   <div class="choose-us-img">
-                    <a href="#"><img class="picture-responsive" src="{{ asset('storage/' . $produkRow->foto_produk) }}" alt="Foto Produk"></a>
+                    <a href="#"><img class="picture-responsive"
+                        src="{{ asset('storage/' . $produkRow->foto_produk) }}" alt="Foto Produk"></a>
                     <div class="choose-us-content">
                       <h3 class="title text-truncate">{{ $produkRow->nama_produk }}</h3>
                       <p class="description-truncate">{{ $produkRow->keterangan_produk }}</p>
@@ -338,68 +249,50 @@
   <div class="section techwix-brand-section techwix-brand-section-03">
     <div class="container">
       <!-- Brand Wrapper Start -->
-      <div class="brand-wrapper text-center">
+      <div class="brand-wrapper text-center py-5" style="padding-top: 0px">
+        <div class="section-title text-center mb-3">
+          <h3 class="sub-title">Kerjasama Kelas Industri</h3>
+          <h2 class="title">MOU Dengan Sekolah</h2>
+        </div>
 
         <!-- Brand Active Start -->
-        <div class="brand-active">
-          <div class="swiper-container">
-            <div class="swiper-wrapper">
-              <!-- Single Brand Start -->
-              <div class="swiper-slide single-brand">
-                <img src="{{ asset('cssUser/sekolah/smk-1') }}.png" alt="Brand">
-              </div>
-              <!-- Single Brand End -->
-              <!-- Single Brand Start -->
-              <div class="swiper-slide single-brand">
-                <img src="{{ asset('cssUser/sekolah/smk-2') }}.jpg" alt="Brand">
-              </div>
-              <!-- Single Brand End -->
-              <!-- Single Brand Start -->
-              <div class="swiper-slide single-brand">
-                <img src="{{ asset('cssUser/sekolah/smk-3') }}.jpg" alt="Brand">
-              </div>
-              <!-- Single Brand End -->
-              <!-- Single Brand Start -->
-              <div class="swiper-slide single-brand">
-                <img src="{{ asset('cssUser/sekolah/smk-4') }}.jpg" alt="Brand">
-              </div>
-              <!-- Single Brand End -->
-              <!-- Single Brand Start -->
-              <div class="swiper-slide single-brand">
-                <img src="{{ asset('cssUser/sekolah/smk-5') }}.jpg" alt="Brand">
-              </div>
-              <!-- Single Brand End -->
-              <!-- Single Brand Start -->
-              <div class="swiper-slide single-brand">
-                <img src="{{ asset('cssUser/sekolah/smk-6') }}.jpg" alt="Brand">
-              </div>
-              <!-- Single Brand End -->
-              <!-- Single Brand Start -->
-              <div class="swiper-slide single-brand">
-                <img src="{{ asset('cssUser/sekolah/smk-7') }}.jpg" alt="Brand">
-              </div>
-              <!-- Single Brand End -->
-              <!-- Single Brand Start -->
-              <div class="swiper-slide single-brand">
-                <img src="{{ asset('cssUser/sekolah/smk-8') }}.png" alt="Brand">
-              </div>
-              <!-- Single Brand End -->
-              <!-- Single Brand Start -->
-              <div class="swiper-slide single-brand">
-                <img src="{{ asset('cssUser/sekolah/smk-9') }}.png" alt="Brand">
-              </div>
-              <!-- Single Brand End -->
-              <!-- Single Brand Start -->
-              <div class="swiper-slide single-brand">
-                <img src="{{ asset('cssUser/sekolah/smk-10') }}.jpg" alt="Brand">
-              </div>
-              <!-- Single Brand End -->
-              <!-- Single Brand Start -->
-              <div class="swiper-slide single-brand">
-                <img src="{{ asset('cssUser/sekolah/smk-11') }}.png" alt="Brand">
-              </div>
-              <!-- Single Brand End -->
-            </div>
+        <div class="brand-active d-flex justify-content-center mt-5">
+          <div class="scroller">
+            <ul class="scroller__inner">
+              <li>
+                <img src="{{ asset('cssUser/sekolah/smk-1.png') }}" alt="">
+              </li>
+              <li>
+                <img src="{{ asset('cssUser/sekolah/smk-2.jpg') }}" alt="">
+              </li>
+              <li>
+                <img src="{{ asset('cssUser/sekolah/smk-3.jpg') }}" alt="">
+              </li>
+              <li>
+                <img src="{{ asset('cssUser/sekolah/smk-4.jpg') }}" alt="">
+              </li>
+              <li>
+                <img src="{{ asset('cssUser/sekolah/smk-5.jpg') }}" alt="">
+              </li>
+              <li>
+                <img src="{{ asset('cssUser/sekolah/smk-6.jpg') }}" alt="">
+              </li>
+              <li>
+                <img src="{{ asset('cssUser/sekolah/smk-7.jpg') }}" alt="">
+              </li>
+              <li>
+                <img src="{{ asset('cssUser/sekolah/smk-8.png') }}" alt="">
+              </li>
+              <li>
+                <img src="{{ asset('cssUser/sekolah/smk-9.png') }}" alt="">
+              </li>
+              <li>
+                <img src="{{ asset('cssUser/sekolah/smk-10.jpg') }}" alt="">
+              </li>
+              <li>
+                <img src="{{ asset('cssUser/sekolah/smk-11.png') }}" alt="">
+              </li>
+            </ul>
           </div>
         </div>
         <!-- Brand Active End -->
@@ -415,7 +308,7 @@
       <!-- Section Title Start -->
       <div class="section-title text-center">
         <h4 class="sub-title">Berita</h4>
-        <h2 class="title">From the news room</h2>
+        <h2 class="title">Berita terbaru terkait perusahaan kami</h2>
       </div>
       <!-- Section Title End -->
       <div class="techwix-blog-wrap">
@@ -425,7 +318,9 @@
               <!-- Single Blog Start -->
               <div class="single-blog">
                 <div class="blog-image">
-                  <a style="height: 250px; width: 100%" href=""><img style="height: 100%; width: 100%; object-fit: cover;" src="{{ asset('storage/' . $data->thumbnail) }}" alt="{{ $data->title }}"></a>
+                  <a style="height: 250px; width: 100%" href=""><img
+                      style="height: 100%; width: 100%; object-fit: cover;"
+                      src="{{ asset('storage/' . $data->thumbnail) }}" alt="{{ $data->title }}"></a>
                   <div class="top-meta">
                     <span class="date">
                       <span>{{ \Carbon\Carbon::parse($data->created_at)->format('d') }}</span>
@@ -436,12 +331,14 @@
                 <div class="blog-content">
                   <div class="blog-meta">
                     @foreach ($data->kategori as $item)
-                      <span>{{ $item->name }}</span>
+                      <span class="badge rounded-pill mb-1"
+                        style="background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; font-size: 12px; width: 80px; margin-right: 5px">{{ $item->name }}</span>
                     @endforeach
                   </div>
                   <h3 class="title"><a href="">{{ $data->title }}</a></h3>
                   <div class="blog-btn">
-                    <a class="blog-btn-link" href="{{ route('detailBerita', $data->id) }}">Read Full <i class="fas fa-long-arrow-alt-right"></i></a>
+                    <a class="blog-btn-link" href="{{ route('detailBerita', $data->id) }}">Read Full <i
+                        class="fas fa-long-arrow-alt-right"></i></a>
                   </div>
                 </div>
               </div>
@@ -465,4 +362,36 @@
     </div>
   </div>
   <!-- Blog End -->
+
+  <script>
+    const scrollers = document.querySelectorAll(".scroller");
+
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      tambahkanAnimasi();
+    }
+
+    function tambahkanAnimasi() {
+      scrollers.forEach((scroller) => {
+        scroller.setAttribute("data-animated", true);
+
+        const scrollerInner = scroller.querySelector(".scroller__inner");
+        const scrollerContent = Array.from(scrollerInner.children);
+
+        const totalWidth = scrollerContent.reduce(
+          (acc, item) => acc + item.offsetWidth + 40,
+          0
+        );
+
+        const durasiAnimasi = totalWidth / 20;
+
+        scrollerInner.style.animationDuration = `${durasiAnimasi}s`;
+
+        scrollerContent.forEach((item) => {
+          const duplicateItem = item.cloneNode(true);
+          duplicateItem.setAttribute("aria-hidden", true);
+          scrollerInner.appendChild(duplicateItem);
+        });
+      });
+    }
+  </script>
 @endsection
