@@ -92,6 +92,9 @@
                 <li class="nav-item">
                   <a href="{{ route('list.kelas_industri') }}" class="nav-link">Kelas Industri</a>
                 </li>
+                <li class="nav-item">
+                    <a href={{ route('mou.index') }} class="nav-link">Mou</a>
+                </li>
               </ul>
             </div>
           </li>
@@ -107,11 +110,12 @@
             <div class="collapse" id="persetujuan">
               <ul class="nav sub-menu">
                 <li class="nav-item">
-                  <a href="{{ route('persetujuan.siswa') }}" class="nav-link">Siswa Magang</a>
+                  <a href="" class="nav-link">Siswa Magang</a>
                 </li>
                 <li class="nav-item">
-                  <a href="{{ route('persetujuan.industri') }}" class="nav-link">Kelas Industri</a>
+                  <a href="" class="nav-link">Kelas Industri</a>
                 </li>
+
               </ul>
             </div>
           </li>

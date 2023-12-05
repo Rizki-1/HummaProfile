@@ -40,7 +40,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                      @forelse ($siswa as $row)
+                      {{-- @forelse ($siswa as $row)
                         <tr class="odd">
                           <td class="sorting_1">{{ $row->nama }}</td>
                           <td class="sorting_1">{{ $row->asal_sekolah }}</td>
@@ -61,7 +61,7 @@
                             <p class="mt-3 mb-3 text-center fw-bold">Tidak Ada Siswa Magang</p>
                           </td>
                         </tr>
-                      @endforelse
+                      @endforelse --}}
                     </tbody>
                   </table>
                 </div>

@@ -11,16 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('siswa_magangs', function (Blueprint $table) {
+        Schema::create('testimonis', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('asal_sekolah');
-            $table->string('jurusan');
-            $table->string('kelas');
-            $table->string('alamat');
-            $table->string('email');
-            $table->string('document');
-            $table->string('status')->default('menunggu');
+            $table->string('testimoni');
             $table->timestamps();
         });
     }
@@ -30,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('siswa_magangs');
+        Schema::dropIfExists('testimonis');
     }
 };

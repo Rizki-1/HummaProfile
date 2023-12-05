@@ -10,7 +10,7 @@
         </div>
         <div class="card-body text-end">
           <h5 class="card-title">Jumlah Siswa Magang</h5>
-          <p class="card-text">{{ $siswaCount }}</p>
+          <p class="card-text">100</p>
         </div>
       </div>
     </div>
@@ -22,7 +22,7 @@
         </div>
         <div class="card-body text-end">
           <h5 class="card-title">Industri</h5>
-          <p class="card-text">{{ $industriCount }}</p>
+          <p class="card-text">400</p>
         </div>
       </div>
     </div>
