@@ -95,6 +95,9 @@
                 <li class="nav-item">
                     <a href={{ route('mou.index') }} class="nav-link">Mou</a>
                 </li>
+                <li class="nav-item">
+                    <a href={{ route('testimoni.index') }} class="nav-link">Testimoni</a>
+                </li>
               </ul>
             </div>
           </li>

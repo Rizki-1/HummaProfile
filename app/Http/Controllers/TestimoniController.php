@@ -26,12 +26,13 @@ class TestimoniController extends Controller
 
     public function create()
     {
-        return view();
+        return view('admin.testimonicreate');
     }
 
 
     public function TestimoniStore(Request $request)
     {
+        
         $namaFoto = $request->file('foto_siswa')->hashName();
         $path = $request->file('foto_siswa')->storeAs('testimoni', $namaFoto);
         Testimoni::create([
