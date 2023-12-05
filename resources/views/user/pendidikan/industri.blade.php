@@ -54,10 +54,10 @@
             <!-- Page Banner Content Start -->
             <div class="page-banner text-center">
               <h2 class="title">Tentang Kelas Industri</h2>
-              <ul class="breadcrumb justify-content-center">
+              {{-- <ul class="breadcrumb justify-content-center">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Services</li>
-              </ul>
+              </ul> --}}
             </div>
             <!-- Page Banner Content End -->
           </div>
@@ -74,7 +74,7 @@
       <div class="service-wrap">
         <div class="section-title text-center">
           <h3 class="sub-title">Layanan Industri</h3>
-          <h2 class="title">We provide truly prominent digital solutions.</h2>
+          <h2 class="title">Tingkatkan Pengalaman Anda dengan Layanan Perusahaan Kami</h2>
         </div>
         <div class="service-content-wrap">
           <div class="row">
@@ -110,7 +110,7 @@
             <!-- Choose Us Left Start -->
             <div class="choose-us-left">
               <div class="section-title">
-                <h3 class="sub-title">REASON TO CHOOSE US</h3>
+                <h3 class="sub-title">Pendaftaran kelas industri</h3>
                 <h2 class="title">We provide truly prominent IT solutions.</h2>
               </div>
               <p class="text mb-3">Accelerate innovation with world-class tech teams We’ll match you to an entire remote
