@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Mou;
 use App\Models\Inbox;
 use App\Models\Berita;
-use App\Models\KategoriBerita;
+use App\Models\Produk;
 use App\Models\Sosmed;
 use App\Models\SiswaMagang;
 use Illuminate\Http\Request;
 use App\Models\KelasIndustri;
 use App\Models\TargetLayanan;
+use App\Models\KategoriBerita;
 use App\Models\ProfileCompany;
 use App\Models\LayananPerusahaan;
-use App\Models\Produk;
 
 class HomeController extends Controller
 {
@@ -25,7 +26,8 @@ class HomeController extends Controller
         $berita = Berita::latest()->get();
         $layanan = LayananPerusahaan::latest()->get();
         $produk = Produk::latest()->get();
-        return view('user.index', compact('sosmed', 'profile', 'berita', 'layanan', 'produk'));
+        $Mous = Mou::all();
+        return view('user.index', compact('sosmed', 'profile', 'berita', 'layanan', 'produk','Mous'));
     }
 
     public function home()

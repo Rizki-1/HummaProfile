@@ -229,39 +229,13 @@
         <div class="brand-active d-flex justify-content-center mt-5">
           <div class="scroller">
             <ul class="scroller__inner">
+              @forelse ($Mous as $mou)
               <li>
-                <img src="{{ asset('cssUser/sekolah/smk-1.png') }}" alt="">
+                <img src="{{ asset('storage/Mou/'.$mou->foto_mou) }}" alt="" srcset="">
               </li>
-              <li>
-                <img src="{{ asset('cssUser/sekolah/smk-2.jpg') }}" alt="">
-              </li>
-              <li>
-                <img src="{{ asset('cssUser/sekolah/smk-3.jpg') }}" alt="">
-              </li>
-              <li>
-                <img src="{{ asset('cssUser/sekolah/smk-4.jpg') }}" alt="">
-              </li>
-              <li>
-                <img src="{{ asset('cssUser/sekolah/smk-5.jpg') }}" alt="">
-              </li>
-              <li>
-                <img src="{{ asset('cssUser/sekolah/smk-6.jpg') }}" alt="">
-              </li>
-              <li>
-                <img src="{{ asset('cssUser/sekolah/smk-7.jpg') }}" alt="">
-              </li>
-              <li>
-                <img src="{{ asset('cssUser/sekolah/smk-8.png') }}" alt="">
-              </li>
-              <li>
-                <img src="{{ asset('cssUser/sekolah/smk-9.png') }}" alt="">
-              </li>
-              <li>
-                <img src="{{ asset('cssUser/sekolah/smk-10.jpg') }}" alt="">
-              </li>
-              <li>
-                <img src="{{ asset('cssUser/sekolah/smk-11.png') }}" alt="">
-              </li>
+              @empty
+
+              @endforelse
             </ul>
           </div>
         </div>
