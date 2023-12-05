@@ -83,7 +83,6 @@
 .scroller {
     max-width: 830px;
     overflow: hidden;
-    outline: 3px solid lime;
 }
 
 .scroller__inner {

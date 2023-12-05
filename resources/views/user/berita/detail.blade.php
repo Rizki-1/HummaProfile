@@ -12,8 +12,8 @@
             <div class="blog-details-post">
               <!-- Single Blog Start -->
               <div class="single-blog-post single-blog">
-                <div class="blog-image bg-primary">
-                  <a href=""><img src="{{ asset('storage/' . $berita->thumbnail) }}" alt=""></a>
+                <div class="blog-image">
+                  <a style="width: 100%; height: 100%"><img style="width: 100%;" src="{{ asset('storage/' . $berita->thumbnail) }}" alt=""></a>
                   <div class="top-meta">
                     <span class="date">
                       <span>{{ \Carbon\Carbon::parse($berita->created_at)->format('d') }}</span>

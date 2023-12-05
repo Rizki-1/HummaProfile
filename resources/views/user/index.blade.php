@@ -1,19 +1,108 @@
 @extends('layouts.nav-user')
 
 @section('content')
-  <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="{{ asset('cssUser/images/case-5.jpg') }}" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="{{ asset('cssUser/images/case-4.jpg') }}" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="{{ asset('cssUser/images/case-6.jpg') }}" class="d-block w-100" alt="...">
-      </div>
+
+<style>
+  #carouselExampleSlidesOnly {
+    overflow: hidden;
+    position: relative;
+  }
+
+  .carousel-inner {
+    display: flex;
+    height: 100vh;
+    transition: transform 0.5s ease;
+  }
+
+  .carousel-item {
+    width: 100%;
+    height: 100%;
+    flex: 0 0 auto;
+  }
+
+  .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .parallax-scroll {
+    transform: translateY(0);
+    transition: transform 0.4s ease; /* Efek transisi untuk membuat pergerakan lebih halus */
+  }
+
+  /* Penyesuaian agar gambar tetap di dalam batas */
+  .parallax-scroll .carousel-item {
+    transform: translateY(-0%);
+  }
+</style>
+
+
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner parallax-scroll">
+    <div class="carousel-item active">
+      <img src="{{ asset('ImageGlobal/lp-2.jpg') }}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{{ asset('ImageGlobal/lp-1.jpg') }}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{{ asset('ImageGlobal/lp-3.jpg') }}" class="d-block w-100" alt="...">
     </div>
   </div>
+</div>
+
+<script>
+  // Fungsi untuk menangani smooth scroll
+  function scrollTo(element, to, duration) {
+    const start = element.scrollTop;
+    const change = to - start;
+    let currentTime = 0;
+    const increment = 20;
+
+    function animateScroll() {
+      currentTime += increment;
+      const val = Math.easeInOutQuad(currentTime, start, change, duration);
+      element.scrollTop = val;
+      if (currentTime < duration) {
+        requestAnimationFrame(animateScroll);
+      }
+    }
+
+    animateScroll();
+  }
+
+  // Fungsi easing untuk scroll
+  Math.easeInOutQuad = function (t, b, c, d) {
+    t /= d / 2;
+    if (t < 1) return (c / 2) * t * t + b;
+    t--;
+    return (-c / 2) * (t * (t - 2) - 1) + b;
+  };
+
+  // Mendeteksi pergerakan scroll dan menerapkan efek paralaks
+  document.addEventListener("scroll", function () {
+    const scrollY = window.scrollY || window.pageYOffset;
+    const parallaxContainer = document.querySelector(".parallax-scroll");
+
+    if (parallaxContainer) {
+      const translateYValue = scrollY * 0.5;
+      parallaxContainer.style.transform = `translateY(${translateYValue}px)`;
+    }
+  });
+
+  // Mendeteksi klik pada tautan dan mengaktifkan smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      const targetElement = document.querySelector(this.getAttribute("href"));
+      if (targetElement) {
+        scrollTo(document.documentElement, targetElement.offsetTop, 1000);
+      }
+    });
+  });
+</script>
 
   <!-- About Start -->
   <div class="section techwix-about-section-04 section-padding">
@@ -27,7 +116,7 @@
             <div class="about-content-wrap">
               <div class="section-title">
                 <h3 class="sub-title">Tentang Kami</h3>
-                <h2 class="title">Kami menyediakan berbagai layanan perangkat lunak yang dirancang untuk mendukung kesuksesan Anda.
+                <h2 class="title">Kami menyediakan berbagai layanan Software yang dirancang untuk mendukung Perusahaan dan bisnis Anda.
                 </h2>
               </div>
               @foreach ($profile as $data)
@@ -39,14 +128,11 @@
           <div class="col-lg-6">
             <!-- About Image Wrap Start -->
             <div class="about-img-wrap">
-              <div class="play-btn-02">
-                <a class="popup-video" href="https://www.youtube.com/watch?time_continue=3&amp;v=_X0eYtY8T_U"><i class="fas fa-play"></i></a>
-              </div>
               <div class="about-img about-img-big">
-                <img src="{{ asset('cssUser/images/about-big2.jpg') }}" alt="">
+                <img style="height: 540px" src="{{ asset('ImageGlobal/lp-3.jpg') }}" alt="">
               </div>
               <div class="about-img about-img-sm">
-                <img src="{{ asset('cssUser/images/about-sm2.jpg') }}" alt="">
+                <img style="width: 350px" src="{{ asset('ImageGlobal/lp-2.jpg') }}" alt="">
               </div>
             </div>
             <!-- About Image Wrap End -->
