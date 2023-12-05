@@ -52,7 +52,7 @@
           <div class="hero-content">
             {{-- <h3 class="sub-title" data-aos-delay="600" data-aos="fade-up">Technology Related Consultancy</h3> --}}
             <h2 class="title" data-aos="fade-up" data-aos-delay="800">Selamat Datang di HummaTech</h2>{{-- bisa dirubah --}}
-            <p data-aos="fade-up" data-aos-delay="900">Kami adalah Perusahaan Yang bergerak di bidang software developer dan kegiatan magang/industri</p>
+            <p data-aos="fade-up" data-aos-delay="900">Kami adalah Perusahaan Yang bergerak di bidang software developer. fokus pada inovasi, dan memberikan solusi terdepan untuk kebutuhan teknologi.</p>
             {{-- <div class="hero-btn" data-aos="fade-up" data-aos-delay="1000">
               <a class="btn" href="about.html">Read More</a>
             </div> --}}
@@ -76,7 +76,7 @@
             <div class="about-content-wrap">
               <div class="section-title">
                 <h3 class="sub-title">Tentang Kami</h3>
-                <h2 class="title">Kami menjalankan semua jenis layanan perangkat lunak yang menjanjikan kesuksesan Anda
+                <h2 class="title">Kami menyediakan berbagai layanan perangkat lunak yang dirancang untuk mendukung kesuksesan Anda.
                 </h2>
               </div>
               @foreach ($profile as $data)

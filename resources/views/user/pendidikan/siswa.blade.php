@@ -53,7 +53,7 @@
           <div class="col-lg-12">
             <!-- Page Banner Content Start -->
             <div class="page-banner text-center">
-              <h2 class="title">Our Services</h2>
+              <h2 class="title">Tentang Magang</h2>
               <ul class="breadcrumb justify-content-center">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Services</li>
