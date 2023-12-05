@@ -16,6 +16,5 @@ class DatabaseSeeder extends Seeder
         $this->call(InboxSeeder::class);
         $this->call(ProfileCompanySeeder::class);
         $this->call(SosmedSeeder::class);
-        $this->call(MouSeeder::class);
     }
 }
