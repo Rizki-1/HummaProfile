@@ -67,167 +67,132 @@
   </div>
   <!-- Page Banner End -->
 
-  <!-- Choose Us Start -->
-  <div class="section techwix-choose-us-section techwix-choose-us-section-04 section-padding">
+  <!-- Service Start -->
+  <div class="section techwix-service-section section-padding-02" style="padding: 70px">
+    <div class="container">
+      <!-- Service Wrap Start -->
+      <div class="service-wrap">
+        <div class="section-title text-center">
+          <h3 class="sub-title">Layanan Magang/PKL</h3>
+          <h2 class="title">We provide truly prominent digital solutions.</h2>
+        </div>
+        <div class="service-content-wrap">
+          <div class="row">
+            @foreach ($layananSiswa as $key => $data)
+              <div class="col-xl-3 col-sm-6">
+                <!-- Service Item Start -->
+                <div class="service-item service-0{{ ++$key }}">
+                  <div class="service-content">
+                    <h3 class="title"><a>{{ $data->nama_layanan }}</a></h3>
+                    <p>{{ $data->descripsi_layanan }}</p>
+                  </div>
+                </div>
+                <!-- Service Item End -->
+              </div>
+            @endforeach
+          </div>
+        </div>
+        <div class="d-flex justify-content-center mt-5">
+          {{ $layananSiswa->links('pagination::simple-bootstrap-5') }}
+        </div>
+      </div>
+      <!-- Service Wrap End -->
+    </div>
+  </div>
+  <!-- Service End -->
+
+
+  <div class="section techwix-choose-us-section-02 section-padding-02"
+    style="background-image: url(assets/images/bg/choose-us-bg2.jpg);">
     <div class="container">
       <!-- Choose Us Wrap Start -->
       <div class="choose-us-wrap">
-        <div class="choose-us-content-wrap">
-          <div class="row">
-            <div class="col-xl-3 col-lg-4 col-md-6">
-              <!-- Choose Us Item Start -->
-              <div class="choose-us-item-02">
-                <div class="choose-us-img">
-                  <img src="{{ asset('cssUser/images/ser-icon9.png') }}" alt="">
-                </div>
-                <div class="choose-us-content">
-                  <h3 class="title"><a href="#">IT Consultancy</a></h3>
-                  <p>Accelerate innovation with world-class tech teams We’ll match you to an entire.</p>
+        <div class="row">
+          <div class="col-lg-6">
+            <!-- Choose Us Left Start -->
+            <div class="choose-us-left">
+              <div class="section-title">
+                <h3 class="sub-title">REASON TO CHOOSE US</h3>
+                <h2 class="title">We provide truly prominent IT solutions.</h2>
+              </div>
+              <p class="text mb-3">Accelerate innovation with world-class tech teams We’ll match you to an entire remote
+                team of incredible freelance talent for all your software development needs.</p>
+              <div><a href="" class="btn btn-primary">Daftar</a></div>
+            </div>
+            <!-- Choose Us Left End -->
+          </div>
+          <div class="col-lg-6">
+            <!-- Choose Us Right Start -->
+            <div class="choose-us-right">
+              <!-- Faq Accordion Start -->
+              <div class="faq-accordion">
+                <div class="accordion" id="accordionExample">
+                  <div class="accordion-item">
+                    <div class="accordion-header" id="headingOne">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                        <span class="title">How Long it takes finished projects ?</span>
+                      </button>
+                    </div>
+                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                      data-bs-parent="#accordionExample" style="">
+                      <div class="accordion-body">
+                        Accelerate innovation with world-class tech teams We’ll match you to an entire remote team of
+                        incredible freelance talent for all your software.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <div class="accordion-header" id="headingTwo">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                        <span class="title">Support &amp; Policy rules?</span>
+                      </button>
+                    </div>
+                    <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo"
+                      data-bs-parent="#accordionExample" style="">
+                      <div class="accordion-body">
+                        We can help you channel your potential implementing your idea. We take care of all your needs,
+                        crafting specific and targeted solutions.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <div class="accordion-header" id="headingThree">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        <span class="title">Can we get refund?</span>
+                      </button>
+                    </div>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                      data-bs-parent="#accordionExample" style="">
+                      <div class="accordion-body">
+                        Accelerate innovation with world-class tech teams We’ll match you to an entire remote team of
+                        incredible freelance talent for all your software.
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <!-- Choose Us Item End -->
+              <!-- Faq Accordion End -->
             </div>
-            <div class="col-xl-3 col-lg-4 col-md-6">
-              <!-- Choose Us Item Start -->
-              <div class="choose-us-item-02">
-                <div class="choose-us-img">
-                  <img src="{{ asset('cssUser/images/counter-3.png') }}" alt="">
-                </div>
-                <div class="choose-us-content">
-                  <h3 class="title"><a href="#">Data Science</a></h3>
-                  <p>Accelerate innovation with world-class tech teams We’ll match you to an entire.</p>
-                </div>
-              </div>
-              <!-- Choose Us Item End -->
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6">
-              <!-- Choose Us Item Start -->
-              <div class="choose-us-item-02">
-                <div class="choose-us-img">
-                  <img src="{{ asset('cssUser/images/ser-icon10.png') }}" alt="">
-                </div>
-                <div class="choose-us-content">
-                  <h3 class="title"><a href="#">IT Security</a></h3>
-                  <p>Accelerate innovation with world-class tech teams We’ll match you to an entire.</p>
-                </div>
-              </div>
-              <!-- Choose Us Item End -->
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6">
-              <!-- Choose Us Item Start -->
-              <div class="choose-us-item-02">
-                <div class="choose-us-img">
-                  <img src="{{ asset('cssUser/images/ser-icon12.png') }}" alt="">
-                </div>
-                <div class="choose-us-content">
-                  <h3 class="title"><a href="#">blockchain System</a></h3>
-                  <p>Accelerate innovation with world-class tech teams We’ll match you to an entire.</p>
-                </div>
-              </div>
-              <!-- Choose Us Item End -->
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6">
-              <!-- Choose Us Item Start -->
-              <div class="choose-us-item-02">
-                <div class="choose-us-img">
-                  <img src="{{ asset('cssUser/images/counter-1.png') }}" alt="">
-                </div>
-                <div class="choose-us-content">
-                  <h3 class="title"><a href="#">IT Infrustructure </a></h3>
-                  <p>Accelerate innovation with world-class tech teams We’ll match you to an entire.</p>
-                </div>
-              </div>
-              <!-- Choose Us Item End -->
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6">
-              <!-- Choose Us Item Start -->
-              <div class="choose-us-item-02">
-                <div class="choose-us-img">
-                  <img src="{{ asset('cssUser/images/counter-2.png') }}" alt="">
-                </div>
-                <div class="choose-us-content">
-                  <h3 class="title"><a href="#">Data Managment</a></h3>
-                  <p>Accelerate innovation with world-class tech teams We’ll match you to an entire.</p>
-                </div>
-              </div>
-              <!-- Choose Us Item End -->
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6">
-              <!-- Choose Us Item Start -->
-              <div class="choose-us-item-02">
-                <div class="choose-us-img">
-                  <img src="{{ asset('cssUser/images/ser-icon21.png') }}" alt="">
-                </div>
-                <div class="choose-us-content">
-                  <h3 class="title"><a href="#">IT Managment</a></h3>
-                  <p>Accelerate innovation with world-class tech teams We’ll match you to an entire.</p>
-                </div>
-              </div>
-              <!-- Choose Us Item End -->
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6">
-              <!-- Choose Us Item Start -->
-              <div class="choose-us-item-02">
-                <div class="choose-us-img">
-                  <img src="{{ asset('cssUser/images/ser-icon22.png') }}" alt="">
-                </div>
-                <div class="choose-us-content">
-                  <h3 class="title"><a href="#">Data securet</a></h3>
-                  <p>Accelerate innovation with world-class tech teams We’ll match you to an entire.</p>
-                </div>
-              </div>
-              <!-- Choose Us Item End -->
-            </div>
+            <!-- Choose Us Right End -->
           </div>
         </div>
       </div>
       <!-- Choose Us Wrap End -->
     </div>
   </div>
-  <!-- Choose Us End -->
-
-  <!-- Cta Start -->
-  <div class="section techwix-cta-section-04 techwix-cta-section-06 techwix-cta-section-07">
-    <div class="container">
-      <div class="cta-wrap" style="background-image: url({{ asset('cssUser/images/bg/cta-bg5') }}.jpg);">
-        <div class="row align-items-center">
-          <div class="col-lg-7">
-            <!-- Cta Left Start -->
-            <div class="cta-left">
-              <div class="section-title">
-                <h2 class="title white">To make requests for further information, contact us </h2>
-              </div>
-            </div>
-            <!-- Cta Left End -->
-          </div>
-          <div class="col-lg-5">
-            <!-- Cta Right Start -->
-            <div class="cta-info text-center">
-              <div class="cta-icon">
-                <img src="{{ asset('cssUser/images/cta-icon2.png') }}" alt="">
-              </div>
-              <div class="cta-text">
-                <p>Call Us For Any inquiry</p>
-                <h3 class="number">+44 920 090 505</h3>
-              </div>
-            </div>
-            <!-- Cta Right End -->
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Cta End -->
 
   <!-- Testimonial Start  -->
   <div
     class="section bg-cover techwix-testimonial-section-02 techwix-testimonial-section-03 techwix-testimonial-section-05 section-padding"
-    style="background-image: url({{ asset('cssUser/images/bg/testi-bg4') }}.jpg);">
+    style="background-image: url({{ asset('cssUser/images/bg/testi-bg4') }}.jpg); padding: 20px;">
     <div class="container">
       <!-- Testimonial Wrap Start  -->
       <div class="testimonial-wrap-02">
         <div class="section-title text-center">
-          <h3 class="sub-title">Testimonial</h3>
+          <h3 class="sub-title">Testimoni</h3>
           <h2 class="title">20k+ satisfied clients worldwide</h2>
         </div>
         <div class="testimonial-content-wrap-02">
@@ -292,145 +257,4 @@
     </div>
   </div>
   <!-- Testimonial End  -->
-
-  <!-- Pricing Start -->
-  <div class="section techwix-pricing-section section-padding-02">
-    <div class="container">
-      <!-- Pricing Wrap Start -->
-      <div class="pricing-wrap">
-        <div class="section-title text-center">
-          <h3 class="sub-title">Pricing Plans</h3>
-          <h2 class="title">Affordable pricing for all</h2>
-        </div>
-        <div class="pricing-content-wrap">
-          <div class="row">
-            <div class="col-lg-4 col-md-6">
-              <!-- Single Pricing Start -->
-              <div class="single-pricing">
-                <div class="pricing-badge">
-                  <span class="title">Free</span>
-                </div>
-                <div class="pricing-price">
-                  <span class="currency">$</span>
-                  <h3 class="price">0<span>/Month</span></h3>
-                </div>
-                <div class="pricing-content">
-                  <ul class="pricing-list">
-                    <li>Community Support</li>
-                    <li>Dedicated Tech Experts</li>
-                    <li>Unlimited Storage</li>
-                    <li>Custom Domains</li>
-                  </ul>
-                  <div class="pricing-btn">
-                    <a class="btn" href="login-register.html">Try It Now</a>
-                  </div>
-                </div>
-              </div>
-              <!-- Single Pricing End -->
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <!-- Single Pricing Start -->
-              <div class="single-pricing active">
-                <div class="pricing-badge">
-                  <span class="title">Starter</span>
-                </div>
-                <div class="pricing-price">
-                  <span class="currency">$</span>
-                  <h3 class="price">10<span>/Month</span></h3>
-                </div>
-                <div class="pricing-content">
-                  <ul class="pricing-list">
-                    <li>Community Support</li>
-                    <li>Dedicated Tech Experts</li>
-                    <li>Unlimited Storage</li>
-                    <li>Custom Domains</li>
-                  </ul>
-                  <div class="pricing-btn">
-                    <a class="btn" href="login-register.html">Try It Now</a>
-                  </div>
-                </div>
-              </div>
-              <!-- Single Pricing End -->
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <!-- Single Pricing Start -->
-              <div class="single-pricing">
-                <div class="pricing-badge">
-                  <span class="title">Pro</span>
-                </div>
-                <div class="pricing-price">
-                  <span class="currency">$</span>
-                  <h3 class="price">30<span>/Month</span></h3>
-                </div>
-                <div class="pricing-content">
-                  <ul class="pricing-list">
-                    <li>Community Support</li>
-                    <li>Dedicated Tech Experts</li>
-                    <li>Unlimited Storage</li>
-                    <li>Custom Domains</li>
-                  </ul>
-                  <div class="pricing-btn">
-                    <a class="btn" href="login-register.html">Try It Now</a>
-                  </div>
-                </div>
-              </div>
-              <!-- Single Pricing End -->
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Pricing Wrap End -->
-    </div>
-  </div>
-  <!-- Pricing End -->
-
-  <!-- Brand Logo Start -->
-  <div class="section techwix-brand-section techwix-brand-section-03">
-    <div class="container">
-      <!-- Brand Wrapper Start -->
-      <div class="brand-wrapper text-center">
-
-        <!-- Brand Active Start -->
-        <div class="brand-active">
-          <div class="swiper-container">
-            <div class="swiper-wrapper">
-              <!-- Single Brand Start -->
-              <div class="swiper-slide single-brand">
-                <img src="{{ asset('cssUser/images/brand/brand-1') }}.png" alt="Brand">
-              </div>
-              <!-- Single Brand End -->
-              <!-- Single Brand Start -->
-              <div class="swiper-slide single-brand">
-                <img src="{{ asset('cssUser/images/brand/brand-2') }}.png" alt="Brand">
-              </div>
-              <!-- Single Brand End -->
-              <!-- Single Brand Start -->
-              <div class="swiper-slide single-brand">
-                <img src="{{ asset('cssUser/images/brand/brand-3') }}.png" alt="Brand">
-              </div>
-              <!-- Single Brand End -->
-              <!-- Single Brand Start -->
-              <div class="swiper-slide single-brand">
-                <img src="{{ asset('cssUser/images/brand/brand-4') }}.png" alt="Brand">
-              </div>
-              <!-- Single Brand End -->
-              <!-- Single Brand Start -->
-              <div class="swiper-slide single-brand">
-                <img src="{{ asset('cssUser/images/brand/brand-5') }}.png" alt="Brand">
-              </div>
-              <!-- Single Brand End -->
-              <!-- Single Brand Start -->
-              <div class="swiper-slide single-brand">
-                <img src="{{ asset('cssUser/images/brand/brand-2') }}.png" alt="Brand">
-              </div>
-              <!-- Single Brand End -->
-            </div>
-          </div>
-        </div>
-        <!-- Brand Active End -->
-      </div>
-      <!-- Brand Wrapper End -->
-    </div>
-  </div>
-  <!-- Brand Logo End -->
 @endsection

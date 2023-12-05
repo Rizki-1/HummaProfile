@@ -132,7 +132,7 @@
           <div class="row">
             <div class="col-lg-12">
               <div class="more-choose-content text-center">
-                <p>Produk lainnya <a href="#">More! <i class="fas fa-long-arrow-alt-right"></i></a> </p>
+                <p>Produk lainnya <a href="{{ route('produkIndex') }}">Disini <i class="fas fa-long-arrow-alt-right"></i></a> </p>
               </div>
             </div>
           </div>
@@ -302,7 +302,7 @@
                   <div class="blog-meta">
                     @foreach ($data->kategori as $item)
                       <span class="badge rounded-pill mb-1"
-                        style="background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; font-size: 12px; width: 100px; height: 30px;  margin-right: 5px">{{ $item->name }}</span>
+                        style="background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; font-size: 12px;    margin-right: 5px">{{ $item->name }}</span>
                     @endforeach
                   </div>
                   <h3 class="title"><a href="">{{ $data->title }}</a></h3>

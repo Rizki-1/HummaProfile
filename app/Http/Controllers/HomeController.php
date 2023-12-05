@@ -25,7 +25,7 @@ class HomeController extends Controller
         $berita = Berita::latest()->get();
         $layanan = LayananPerusahaan::latest()->get();
         $produk = Produk::latest()->get();
-        return view('user.index', compact('sosmed', 'profile', 'berita', 'layanan','produk'));
+        return view('user.index', compact('sosmed', 'profile', 'berita', 'layanan', 'produk'));
     }
 
     public function home()
@@ -37,21 +37,24 @@ class HomeController extends Controller
     {
         $sosmed = Sosmed::all();
         $profile = ProfileCompany::all();
-        return view('user.pendidikan.siswa', compact('sosmed', 'profile'));
+        $layananSiswa = LayananPerusahaan::where('target_layanan_id', 1)->paginate(4);
+        return view('user.pendidikan.siswa', compact('sosmed', 'profile', 'layananSiswa'));
     }
 
     public function indexIndustri()
     {
         $sosmed = Sosmed::all();
         $profile = ProfileCompany::all();
-        return view('user.pendidikan.industri', compact('sosmed', 'profile'));
+        $layananIndustri = LayananPerusahaan::where('target_layanan_id', 2)->paginate(4);
+        return view('user.pendidikan.industri', compact('sosmed', 'profile', 'layananIndustri'));
     }
 
     public function indexProduk()
     {
+        $produk = Produk::latest()->paginate(9);
         $sosmed = Sosmed::all();
         $profile = ProfileCompany::all();
-        return view('user.produk.index', compact('sosmed', 'profile'));
+        return view('user.produk.index', compact('sosmed', 'profile', 'produk'));
     }
 
     public function indexContact()
@@ -90,7 +93,7 @@ class HomeController extends Controller
         }
         $beritaAll = $beritaAll;
         $beritaRandom = Berita::inRandomOrder()->get();
-        return view('user.berita.detail', compact('berita', 'sosmed', 'profile','beritaAll', 'beritaRandom', 'kategoriBerita'));
+        return view('user.berita.detail', compact('berita', 'sosmed', 'profile', 'beritaAll', 'beritaRandom', 'kategoriBerita'));
     }
     // End User Controller
 
@@ -99,7 +102,7 @@ class HomeController extends Controller
         // $siswaCount = SiswaMagang::where('status', 'diterima')->count();
         // $industriCount = KelasIndustri::where('status', 'diterima')->count();
         $inboxCount = Inbox::where('status', 1)->count();
-        return view('admin.dashboard', compact( 'inboxCount'));
+        return view('admin.dashboard', compact('inboxCount'));
     }
 
 
