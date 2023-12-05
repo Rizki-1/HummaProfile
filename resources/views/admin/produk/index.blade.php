@@ -16,6 +16,14 @@
     </div>
   </div>
   <div class="card p-4">
+    <div class="d-flex justify-content-end">
+        <form method="get" class="form-inline d-flex flex-row">
+            <input class="form-control mr-sm-2 py-0" type="search" name="query" placeholder="Search"
+                aria-label="Search" value="{{ request('query') }}">
+            <button class="btn btn-outline-success py-0 my-sm-0" type="submit"><i
+                    class="mdi mdi-magnify fs-4"></i></button>
+        </form>
+    </div>
     <div class="row">
       @forelse ($produks as $row)
         <div class="col-md-4 mb-4">
@@ -48,7 +56,11 @@
           </div>
         </div>
       @empty
-        <p class="fw-bold text-center">Tidak ada produk. <a href="{{ route('produk.create') }}">Tambah!</a></p>
+        @if (!request('query'))
+            <p class="fw-bold text-center">Tidak ada produk. <a href="{{ route('produk.create') }}">Tambah!</a></p>
+        @else
+            <p class="fw-bold text-center">Produk tidak ditemukan!</p>
+        @endif
       @endforelse
       <div>
         {{ $produks->links('pagination::bootstrap-5') }}

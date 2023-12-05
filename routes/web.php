@@ -75,14 +75,9 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
     Route::get('/list-kelas-industri', [ListController::class, 'kelasIndustri'])->name('list.kelas_industri');
     Route::delete('/list-kelas-industri/{id}', [ListController::class, 'kelasIndustriDel'])->name('list.kelas_industri.del');
     //Mou
-    Route::resource('/mou', MouController::class);
+    Route::resource('/mou', MouController::class)->except(['show']);
     //testimoni
-    Route::post('/testimoni',[TestimoniController::class, 'TestimoniStore'])->name('testimoni.store');
-    Route::put('/testimoniupdate/{id}', [TestimoniController::class, 'TestimoniUpdate'])->name('testimoni.update');
-    Route::delete('/testimonidelete/{id}',[TestimoniController::class, 'deleteTestimoni'])->name('testimoni.delete');
-    Route::get('/testimoniindex',[TestimoniController::class, 'get'])->name('testimoni.index');
-    Route::get('testimoniedit/{id}',[TestimoniController::class, 'edit'])->name('testimoni.edit');
-    Route::get('testimonicreate',[TestimoniController::class, 'create'])->name('testimoni.create');
+    Route::resource('testimoni', TestimoniController::class)->except(['show']);
 });
 
 // User Page

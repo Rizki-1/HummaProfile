@@ -15,9 +15,15 @@ class ProdukController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $produks = Produk::paginate(5);
+        $produks = Produk::latest();
+
+        if ($request->has('query') && !empty($request->input('query'))) {
+            $produks->where('nama_produk', 'LIKE', '%' . $request->input('query') . '%');
+        }
+
+        $produks = $produks->paginate(5);
 
         return view('admin.produk.index', compact('produks'));
     }

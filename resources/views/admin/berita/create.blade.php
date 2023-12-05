@@ -49,7 +49,7 @@
             </div>
             <div>
               <label class="form-label" for="description">Deskripsi Berita</label>
-              <textarea required class="form-control @error('description') is-invalid @enderror" id="description" placeholder="Deskripsi Berita" name="description" rows="2">{{ old('description') }}</textarea>
+              <textarea required class="form-control @error('description') is-invalid @enderror" id="description" placeholder="Deskripsi Berita" name="description" rows="7">{{ old('description') }}</textarea>
               @error('description')
                 <div class="invalid-feedback">
                   <p>{{ $message }}</p>

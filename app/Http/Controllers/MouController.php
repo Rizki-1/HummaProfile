@@ -26,7 +26,11 @@ class MouController extends Controller
             $mou = Mou::FindOrFail($id);
             return view('admin.list.mou.edit', compact('mou'));
         } catch (\Throwable $th) {
-            return redirect()->back();
+            return back()->with('message', [
+                'icon' => 'error',
+                'title' => 'Gagal!',
+                'text' => "Ada kesalahan saat mau me edit MoU"
+            ]);
         }
     }
 

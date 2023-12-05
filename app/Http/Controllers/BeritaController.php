@@ -17,9 +17,14 @@ class BeritaController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $berita = Berita::with('kategori')->paginate(15);
+        $berita = Berita::with('kategori')->latest();
+        if ($request->has('query') && !empty($request->input('query'))) {
+            $berita->where('title', 'LIKE', '%' . $request->input('query') . '%');
+        }
+
+        $berita = $berita->paginate(1);
         return view("admin.berita.index", compact("berita"));
     }
 

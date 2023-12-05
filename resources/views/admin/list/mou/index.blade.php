@@ -53,7 +53,6 @@
                         </div>
                     </div>
                 </div>
-                {{ $mous->links('pagination::bootstrap-5') }}
             @empty
                 @if (!request('query'))
                     <p class="fw-bold text-center">Tidak ada MoU yang terdaftar. <a
@@ -64,6 +63,7 @@
                     </p>
                 @endif
             @endforelse
+            {{ $mous->links('pagination::bootstrap-5') }}
         </div>
     </div>
     <script>
