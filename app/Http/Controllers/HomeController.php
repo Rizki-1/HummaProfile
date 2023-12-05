@@ -14,6 +14,7 @@ use App\Models\TargetLayanan;
 use App\Models\KategoriBerita;
 use App\Models\ProfileCompany;
 use App\Models\LayananPerusahaan;
+use App\Models\Testimoni;
 
 class HomeController extends Controller
 {
@@ -27,7 +28,8 @@ class HomeController extends Controller
         $layanan = LayananPerusahaan::latest()->get();
         $produk = Produk::latest()->get();
         $Mous = Mou::all();
-        return view('user.index', compact('sosmed', 'profile', 'berita', 'layanan', 'produk','Mous'));
+        $testimoni = Testimoni::latest()->get();
+        return view('user.index', compact('sosmed', 'profile', 'berita', 'layanan', 'produk', 'Mous', 'testimoni'));
     }
 
     public function home()

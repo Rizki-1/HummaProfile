@@ -690,12 +690,25 @@ textarea:-ms-input-placeholder {
 /*  2.1 - Header Top CSS
 /*----------------------------------------*/
 .header-section {
+    background: transparent;
     position: absolute;
     left: 0;
     top: 0;
-    background: #ffffff;
     width: 100%;
     z-index: 999;
+}
+
+.header-section.sticky {
+    background: #ffffff;
+    color: black !important;
+}
+
+.header-section.sticky .header-menu .main-menu li a {
+    color: #000000 !important;
+}
+
+.header-section .header-menu .main-menu li a {
+    color: white !important;
 }
 
 @media only screen and (max-width: 991px) {
@@ -9387,3 +9400,11 @@ only screen and (max-width: 767px) {
     display: flex;
     gap: 3px;
   }
+
+.lowongan-kerja {
+    width: 163px !important;
+    height: 38px !important;
+    padding: 13px !important;
+    line-height: 10px !important;
+}
+

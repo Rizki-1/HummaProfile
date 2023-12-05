@@ -18,7 +18,7 @@
           <div class="col-md-6">
             <div class="mb-3">
               <label for="namaproduk" class="form-label">Nama Produk</label>
-              <input required type="text" name="nama_produk" class="form-control @error('nama_produk') is-invalid @enderror" id="namaproduk" autocomplete="off" placeholder="Nama Produk">
+              <input required type="text" name="nama_produk" class="form-control @error('nama_produk') is-invalid @enderror" value="{{ old('nama_produk') }}" id="namaproduk" autocomplete="off" placeholder="Nama Produk">
               @error('nama_produk')
                 <div class="invalid-feedback">
                   <p>{{ $message }}</p>
@@ -27,7 +27,7 @@
             </div>
             <div class="mb-3">
               <label for="keterangan" class="form-label">Keterangan Produk</label>
-              <textarea required name="keterangan_produk" class="form-control @error('keterangan_produk') is-invalid @enderror" id="keterangan" rows="2" placeholder="Keterangan Produk"></textarea>
+              <textarea required name="keterangan_produk" class="form-control @error('keterangan_produk') is-invalid @enderror" id="keterangan" rows="2" placeholder="Keterangan Produk">{{ old('keterangan_produk') }}</textarea>
               @error('keterangan_produk')
                 <div class="invalid-feedback">
                   <p>{{ $message }}</p>
@@ -37,7 +37,7 @@
             <div>
               <label for="tanggal" class="form-label">Tanggal Dibuat</label>
               <div class="input-group flatpickr mb-3" id="flatpickr-date">
-                <input required name="dibuat" type="text" class="form-control @error('dibuat') is-invalid @enderror" id="tanggal" placeholder="Select date" data-input>
+                <input required name="dibuat" type="text" class="form-control @error('dibuat') is-invalid @enderror" value="{{ old('dibuat') }}" id="tanggal" placeholder="Select date" data-input>
                 @error('dibuat')
                   <div class="invalid-feedback">
                     <p>{{ $message }}</p>

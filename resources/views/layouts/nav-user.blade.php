@@ -25,11 +25,9 @@
   <link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/style.css') }}">
 </head>
 
-
 <body>
 
   <div class="main-wrapper">
-
 
     <!-- Preloader start -->
     {{-- <div id="preloader">
@@ -49,8 +47,7 @@
         <div class="header-wrap">
 
           <div class="header-logo">
-            <a href="{{ route('homeindex') }}"><img src="{{ asset('cssUser/images/logohumma.png') }}"
-                alt="HummaTech"></a>
+            <a href="{{ route('homeindex') }}"><img src="{{ asset('cssUser/images/logohumma.png') }}" alt="HummaTech"></a>
           </div>
 
           <div class="header-menu d-none d-lg-block">
@@ -58,18 +55,18 @@
               <li class="{{ request()->routeIs('homeindex') ? 'active-menu' : '' }}">
                 <a href="/">Beranda</a>
               </li>
-              <li
-                class="{{ request()->routeIs('home.industriIndex') || request()->routeIs('home.siswaIndex') ? 'active-menu' : '' }}">
-                <a href="#">Pendidikan</a>
-                <ul class="sub-menu">
-                  <li class="{{ request()->routeIs('home.siswaIndex') ? 'active' : '' }}"><a
-                      href="{{ route('home.siswaIndex') }}">Magang/PKL</a></li>
-                  <li class="{{ request()->routeIs('home.industriIndex') ? 'active' : '' }}"><a
-                      href="{{ route('home.industriIndex') }}">Kelas Industri</a></li>
-                </ul>
+              <li class="{{ request()->routeIs('home.siswaIndex') ? 'active' : '' }}">
+                <a href="{{ route('home.siswaIndex') }}">Magang/PKL</a>
+              </li>
+              <li class="{{ request()->routeIs('home.industriIndex') ? 'active' : '' }}">
+                <a href="{{ route('home.industriIndex') }}">Kelas Industri</a>
+              </li>
               </li>
               <li class="{{ request()->routeIs('produkIndex') ? 'active-menu' : '' }}">
                 <a href="{{ route('produkIndex') }}">Produk Kami</a>
+              </li>
+              <li class="#">
+                <a href="#">Blog</a>
               </li>
               <li class="{{ request()->routeIs('contactIndex') ? 'active-menu' : '' }}">
                 <a href="{{ route('contactIndex') }}">Hubungi</a>
@@ -80,23 +77,22 @@
           <!-- Header Meta Start -->
           <div class="header-meta">
             <!-- Header Search Start -->
-            <div class="header-search">
-                <div class="container-fluid">
-                    <div class="search-field-holder">
-                        <input type="text" class="form-control main-search-input" style="border-radius: 0px; width: 60%;height:35px;float: left;"
-                        id="textSearch" placeholder="Please enter the search keywords">
-                    </div>
-                        <button class="btn btn-primary p-0" style="margin-left: 10px;" onclick="clearSearch()">Clear search</button>
-                        <script src="{{ asset('cssUser/js/seeker/lib/fuje.js') }}"></script>
-                        @include('layouts.keywords')
-                        <script src="{{ asset('cssUser/js/seeker/lib/highlight.js') }}"></script>
-                        <script src="{{ asset('cssUser/js/seeker/index.js') }}"></script>
-                        <div id="results" class="d-flex flex-column bg-white p-2 overflow-y-scroll position-absolute d-none" style="max-height: 275px"></div>
+            <div class="header-search d-none">
+              <div class="container-fluid">
+                <div class="search-field-holder">
+                  <input type="text" class="form-control main-search-input" style="border-radius: 0px; width: 60%;height:35px;float: left;" id="textSearch" placeholder="Please enter the search keywords">
                 </div>
+                <button class="btn btn-primary p-0" style="margin-left: 10px;" onclick="clearSearch()">Clear search</button>
+                <script src="{{ asset('cssUser/js/seeker/lib/fuje.js') }}"></script>
+                @include('layouts.keywords')
+                <script src="{{ asset('cssUser/js/seeker/lib/highlight.js') }}"></script>
+                <script src="{{ asset('cssUser/js/seeker/index.js') }}"></script>
+                <div id="results" class="d-flex flex-column bg-white p-2 overflow-y-scroll position-absolute d-none" style="max-height: 275px"></div>
+              </div>
             </div>
             <!-- Header Search End -->
             <div class="header-btn d-none d-xl-block">
-              <a class="btn" href="/login">Login</a>
+              <a class="btn lowongan-kerja" target="_blank" href="https://career.hummatech.com/">Lowongan Kerja</a>
             </div>
             <!-- Header Toggle Start -->
             <div class="header-toggle d-lg-none">
@@ -135,18 +131,17 @@
             <li class="{{ request()->routeIs('homeindex') ? 'active-menu' : '' }}">
               <a href="/">Beranda</a>
             </li>
-            <li
-              class="{{ request()->routeIs('home.industriIndex') || request()->routeIs('home.siswaIndex') ? 'active-menu' : '' }}">
-              <a href="#">Pendidikan</a>
-              <ul class="sub-menu">
-                <li class="{{ request()->routeIs('home.siswaIndex') ? 'active' : '' }}"><a
-                    href="{{ route('home.siswaIndex') }}">Magang/PKL</a></li>
-                <li class="{{ request()->routeIs('home.industriIndex') ? 'active' : '' }}"><a
-                    href="{{ route('home.industriIndex') }}">Kelas Industri</a></li>
-              </ul>
+            <li class="{{ request()->routeIs('home.siswaIndex') ? 'active' : '' }}">
+              <a href="{{ route('home.siswaIndex') }}">Magang/PKL</a>
+            </li>
+            <li class="{{ request()->routeIs('home.industriIndex') ? 'active' : '' }}">
+              <a href="{{ route('home.industriIndex') }}">Kelas Industri</a>
             </li>
             <li class="{{ request()->routeIs('produkIndex') ? 'active-menu' : '' }}">
               <a href="{{ route('produkIndex') }}">Produk Kami</a>
+            </li>
+            <li class="#">
+              <a href="#">Blog</a>
             </li>
             <li class="{{ request()->routeIs('contactIndex') ? 'active-menu' : '' }}">
               <a href="{{ route('contactIndex') }}">Hubungi</a>
@@ -162,8 +157,7 @@
     <!-- back to top end -->
 
     <!-- Footer Section Start -->
-    <div class="section footer-section footer-section-04"
-      style="background-image: url({{ asset('cssUser/images/bg/footer-bg3.jpg') }});">
+    <div class="section footer-section footer-section-04" style="background-image: url({{ asset('cssUser/images/bg/footer-bg3.jpg') }});">
 
       <div class="container">
         <!-- Footer Widget Wrap Start -->
@@ -172,8 +166,7 @@
             <div class="col-lg-3 col-sm-6">
               <!-- Footer Widget Start -->
               <div class="footer-widget-about">
-                <a class="footer-logo" href="{{ route('homeindex') }}"><img
-                    src="{{ asset('cssUser/images/logohumma.png') }}" alt="Logo"></a>
+                <a class="footer-logo" href="{{ route('homeindex') }}"><img src="{{ asset('cssUser/images/logohumma.png') }}" alt="Logo"></a>
                 <p>Layanan IT yang Terukur dan Terpercaya, Menghadirkan Solusi yang Membawa Bisnis Anda ke Tingkat Selanjutnya.</p>
               </div>
               <!-- Footer Widget End -->

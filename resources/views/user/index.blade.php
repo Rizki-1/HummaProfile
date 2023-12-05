@@ -40,8 +40,7 @@
             <!-- About Image Wrap Start -->
             <div class="about-img-wrap">
               <div class="play-btn-02">
-                <a class="popup-video" href="https://www.youtube.com/watch?time_continue=3&amp;v=_X0eYtY8T_U"><i
-                    class="fas fa-play"></i></a>
+                <a class="popup-video" href="https://www.youtube.com/watch?time_continue=3&amp;v=_X0eYtY8T_U"><i class="fas fa-play"></i></a>
               </div>
               <div class="about-img about-img-big">
                 <img src="{{ asset('cssUser/images/about-big2.jpg') }}" alt="">
@@ -60,8 +59,7 @@
   <!-- About End -->
 
   <!-- Service Start -->
-  <div class="section techwix-service-section-02 service-card-content section-padding"
-    style="background-image: url(cssUser/images/bg/service-bg.jpg);">
+  <div class="section techwix-service-section-02 service-card-content section-padding" style="background-image: url(cssUser/images/bg/service-bg.jpg);">
     <div class="container">
       <!-- Service Wrap Start -->
       <div class="service-wrap">
@@ -89,8 +87,7 @@
           <div class="row">
             <div class="col-lg-12">
               <div class="more-choose-content text-center">
-                <p>Lihat Selengkapnya <a href="{{ route('layananIndex') }}">Disini <i
-                      class="fas fa-long-arrow-alt-right"></i></a>
+                <p>Lihat Selengkapnya <a href="{{ route('layananIndex') }}">Disini <i class="fas fa-long-arrow-alt-right"></i></a>
                 </p>
               </div>
             </div>
@@ -117,8 +114,7 @@
                 <!-- Choose Us Item Start -->
                 <div class="choose-us-item">
                   <div class="choose-us-img">
-                    <a href="#"><img class="picture-responsive"
-                        src="{{ asset('storage/' . $produkRow->foto_produk) }}" alt="Foto Produk"></a>
+                    <a href="#"><img class="picture-responsive" src="{{ asset('storage/' . $produkRow->foto_produk) }}" alt="Foto Produk"></a>
                     <div class="choose-us-content">
                       <h3 class="title text-truncate">{{ $produkRow->nama_produk }}</h3>
                       <p class="description-truncate">{{ $produkRow->keterangan_produk }}</p>
@@ -143,8 +139,7 @@
   </div>
 
   <!-- Testimonial Start  -->
-  <div class="section techwix-testimonial-section-02 techwix-testimonial-section-03 section-padding-02"
-    style="padding: 60px 0;">
+  <div class="section techwix-testimonial-section-02 techwix-testimonial-section-03 section-padding-02" style="padding: 60px 0;">
     <div class="container">
       <!-- Testimonial Wrap Start  -->
       <div class="testimonial-wrap-02">
@@ -155,54 +150,24 @@
         <div class="testimonial-content-wrap-02">
           <div class="swiper-container testimonial-02-active">
             <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <!--  Single Testimonial Start  -->
-                <div class="single-testimonial-02">
-                  <div class="testimonial-thumb">
-                    <img src="{{ asset('cssUser/images/testi-3.jpg') }}" alt="">
+              @forelse ($testimoni as $tm)
+                <div class="swiper-slide">
+                  <!--  Single Testimonial Start  -->
+                  <div class="single-testimonial-02">
+                    <div class="testimonial-thumb">
+                      <img src="{{ asset('cssUser/images/testi-3.jpg') }}" alt="">
+                    </div>
+                    <div class="testimonial-content">
+                      <p>Accelerate innovation with world-class tech teams Beyond more stoic this along goodness hey
+                        this this wow manatee</p>
+                      <span class="name">Mike Holder </span>
+                      <span class="designation"> / CEO, Harlond inc</span>
+                    </div>
                   </div>
-                  <div class="testimonial-content">
-                    <img src="{{ asset('cssUser/images/testi-icon.png') }}" alt="">
-                    <p>Accelerate innovation with world-class tech teams Beyond more stoic this along goodness hey
-                      this this wow manatee </p>
-                    <span class="name">Mike Holder </span>
-                    <span class="designation"> / CEO, Harlond inc</span>
-                  </div>
+                  <!--  Single Testimonial End  -->
                 </div>
-                <!--  Single Testimonial End  -->
-              </div>
-              <div class="swiper-slide">
-                <!--  Single Testimonial Start  -->
-                <div class="single-testimonial-02">
-                  <div class="testimonial-thumb">
-                    <img src="{{ asset('cssUser/images/testi-4.jpg') }}" alt="">
-                  </div>
-                  <div class="testimonial-content">
-                    <img src="{{ asset('cssUser/images/testi-icon.png') }}" alt="">
-                    <p>Accelerate innovation with world-class tech teams Beyond more stoic this along goodness hey
-                      this this wow manatee </p>
-                    <span class="name">Mike Fermalin </span>
-                    <span class="designation"> / CEO, Harlond inc</span>
-                  </div>
-                </div>
-                <!--  Single Testimonial End  -->
-              </div>
-              <div class="swiper-slide">
-                <!--  Single Testimonial Start  -->
-                <div class="single-testimonial-02">
-                  <div class="testimonial-thumb">
-                    <img src="{{ asset('cssUser/images/testi-3.jpg') }}" alt="">
-                  </div>
-                  <div class="testimonial-content">
-                    <img src="{{ asset('cssUser/images/testi-icon.png') }}" alt="">
-                    <p>Accelerate innovation with world-class tech teams Beyond more stoic this along goodness hey
-                      this this wow manatee </p>
-                    <span class="name">Mike Holder </span>
-                    <span class="designation"> / CEO, Harlond inc</span>
-                  </div>
-                </div>
-                <!--  Single Testimonial End  -->
-              </div>
+              @empty
+              @endforelse
             </div>
 
             <!-- Add Pagination -->
@@ -230,9 +195,9 @@
           <div class="scroller">
             <ul class="scroller__inner">
               @forelse ($Mous as $mou)
-              <li>
-                <img src="{{ asset('storage/Mou/'.$mou->foto_mou) }}" alt="" srcset="">
-              </li>
+                <li>
+                  <img src="{{ asset('storage/Mou/' . $mou->foto_mou) }}" alt="" srcset="">
+                </li>
               @empty
               <li>
                 <img src="{{ asset('cssUser/sekolah/smk-1.png') }}" alt="">
@@ -294,9 +259,7 @@
               <!-- Single Blog Start -->
               <div class="single-blog">
                 <div class="blog-image">
-                  <a style="height: 250px; width: 100%" href=""><img
-                      style="height: 100%; width: 100%; object-fit: cover;"
-                      src="{{ asset('storage/' . $data->thumbnail) }}" alt="{{ $data->title }}"></a>
+                  <a style="height: 250px; width: 100%" href=""><img style="height: 100%; width: 100%; object-fit: cover;" src="{{ asset('storage/' . $data->thumbnail) }}" alt="{{ $data->title }}"></a>
                   <div class="top-meta">
                     <span class="date">
                       <span>{{ \Carbon\Carbon::parse($data->created_at)->format('d') }}</span>
@@ -307,14 +270,12 @@
                 <div class="blog-content">
                   <div class="blog-meta">
                     @foreach ($data->kategori as $item)
-                      <span class="badge rounded-pill mb-1"
-                        style="background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; font-size: 12px;    margin-right: 5px">{{ $item->name }}</span>
+                      <span class="badge rounded-pill mb-1" style="background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; font-size: 12px;    margin-right: 5px">{{ $item->name }}</span>
                     @endforeach
                   </div>
                   <h3 class="title"><a href="">{{ $data->title }}</a></h3>
                   <div class="blog-btn">
-                    <a class="blog-btn-link" href="{{ route('detailBerita', $data->id) }}">Read Full <i
-                        class="fas fa-long-arrow-alt-right"></i></a>
+                    <a class="blog-btn-link" href="{{ route('detailBerita', $data->id) }}">Read Full <i class="fas fa-long-arrow-alt-right"></i></a>
                   </div>
                 </div>
               </div>
@@ -325,8 +286,7 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="custome-more-text text-center" style="margin-top: 30px">
-              <p>Berita lainnya <a href="{{ route('beritaIndex') }}">Disini <i
-                    class="fas fa-long-arrow-alt-right"></i></a> </p>
+              <p>Berita lainnya <a href="{{ route('beritaIndex') }}">Disini <i class="fas fa-long-arrow-alt-right"></i></a> </p>
             </div>
           </div>
         </div>
@@ -355,22 +315,22 @@
 
   <script src="{{ asset('cssUser/js/leaflet.js') }}"></script>
   <script>
-    var map = L.map('map').setView([-7.900074,112.606886], 7);
+    var map = L.map('map').setView([-7.900074, 112.606886], 7);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
     // Koordinat kantor pusat
-    var kantorPusat = L.marker([-7.900074,112.606886]).addTo(map);
+    var kantorPusat = L.marker([-7.900074, 112.606886]).addTo(map);
     kantorPusat.bindPopup('<b>Kantor Pusat</b>').openPopup();
 
     // Koordinat cabang 1
-    var cabang1 = L.marker([-7.5570422,111.6597938]).addTo(map);
+    var cabang1 = L.marker([-7.5570422, 111.6597938]).addTo(map);
     cabang1.bindPopup('<b>Cabang 1</b>');
 
     // Koordinat cabang 2
-    var cabang2 = L.marker([-7.5573993,111.5791793]).addTo(map);
+    var cabang2 = L.marker([-7.5573993, 111.5791793]).addTo(map);
     cabang2.bindPopup('<b>Cabang 2</b>');
 
     const scrollers = document.querySelectorAll(".scroller");
