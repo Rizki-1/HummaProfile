@@ -81,7 +81,7 @@
                 <!-- Widget Category Start -->
                 <ul class="sidebar-tag">
                   @foreach ($kategoriBerita as $data)
-                    <li><a href="">{{ $data->name }}</a></li>
+                    <li><a href="{{ route('filterBerita',$data->id) }}">{{ $data->name }}</a></li>
                   @endforeach
                 </ul>
                 <!-- Widget Category End -->

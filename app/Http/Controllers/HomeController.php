@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Mou;
 use App\Models\Inbox;
 use App\Models\Berita;
+use App\Models\BeritaKategori;
 use App\Models\Produk;
 use App\Models\Sosmed;
 use App\Models\SiswaMagang;
@@ -68,13 +69,32 @@ class HomeController extends Controller
         return view('user.hubungi.index', compact('sosmed', 'profile'));
     }
 
-    public function indexBerita()
+    public function indexBerita(Request $request)
     {
-        $beritaAll = Berita::latest()->paginate(9);
+
+        $beritaAll =  Berita::with('kategori')->latest()->paginate(9);
         $sosmed = Sosmed::all();
         $profile = ProfileCompany::all();
         $kategori = KategoriBerita::all();
         return view('user.berita.index', compact('beritaAll', 'sosmed', 'profile', 'kategori'));
+    }
+
+    public function filterBerita($id)
+    {
+        try {
+            $beritas = BeritaKategori::with(['berita','kategori'])
+            ->whereHas('kategori', function ($query) use ($id) {
+                $query->where('kategori_berita_id', $id);
+            })->paginate(9);
+            $sosmed = Sosmed::all();
+            $profile = ProfileCompany::all();
+            $kategori = KategoriBerita::all();
+
+            return view('user.berita.filterberita', compact('beritas','sosmed','profile','kategori'));
+        } catch (\Throwable $th) {
+            return  redirect()->back();
+        }
+
     }
 
     public function indexLayanan()
