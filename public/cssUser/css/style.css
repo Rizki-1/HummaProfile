@@ -174,21 +174,21 @@ textarea:-ms-input-placeholder {
 
 @media only screen and (max-width: 1199px) {
     .section-padding {
-        padding-top: 100px;
+        padding-top: 140px;
         padding-bottom: 100px;
     }
 }
 
 @media only screen and (max-width: 991px) {
     .section-padding {
-        padding-top: 80px;
+        padding-top: 100px;
         padding-bottom: 80px;
     }
 }
 
 @media only screen and (max-width: 767px) {
     .section-padding {
-        padding-top: 60px;
+        padding-top: 100px;
         padding-bottom: 60px;
     }
 }
@@ -725,6 +725,22 @@ textarea:-ms-input-placeholder {
 
 .header-logo a img {
     width: 150px;
+}
+
+.header-section.sticky .dark-logo {
+    display: block;
+}
+
+.header-section.sticky .light-logo {
+    display: none;
+}
+
+.header-section .dark-logo {
+    display: none;
+}
+
+.header-section .light-logo {
+    display: block;
 }
 
 @media only screen and (max-width: 1199px) {
@@ -9421,4 +9437,30 @@ only screen and (max-width: 767px) {
     text-overflow: ellipsis;
     max-height: 125px;
     max-width: 100%;
+}
+
+.detail-truncation {
+    max-width: 88px;
+}
+
+@media screen and (max-width: 991px) {
+    .detail-truncation {
+        max-width: 88px;
+    }
+}
+
+.date-background-styling {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(195deg, #086ad8 0%, #42b9ff 100%);
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+    line-height: 18px;
+    font-weight: 600;
+    display: block;
+    height: fit-content;
+    width: fit-content;
+    letter-spacing: 0.3px;
 }

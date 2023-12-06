@@ -16,11 +16,11 @@
     </div>
   </div>
   <div class="card p-4">
-    <div class="d-flex justify-content-end">
+    <div class="d-flex justify-content-end mb-3">
         <form method="get" class="form-inline d-flex flex-row">
             <input class="form-control mr-sm-2 py-0" type="search" name="query" placeholder="Search"
                 aria-label="Search" value="{{ request('query') }}">
-            <button class="btn btn-outline-success py-0 my-sm-0" type="submit"><i
+            <button class="btn btn-outline-primary py-0 my-sm-0" type="submit"><i
                     class="mdi mdi-magnify fs-4"></i></button>
         </form>
     </div>
@@ -35,10 +35,10 @@
               <div class="image-detail">
                 <div class="detail-container">
                   <div class="first-detail">
-                    <h2 class="card-title">{{ $row->nama_produk }}</h2>
+                    <h2 class="card-title text-truncate" style="max-width: 90%">{{ $row->nama_produk }}</h2>
                   </div>
                   <div class="second-title">
-                    <p class="card-text">{{ $row->keterangan_produk }}</p>
+                    <p class="card-text text-truncate" style="max-width: 70%">{{ $row->keterangan_produk }}</p>
                   </div>
                   <div>
                   </div>

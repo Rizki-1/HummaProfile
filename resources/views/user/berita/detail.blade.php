@@ -29,8 +29,8 @@
                         style="background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; font-size: 12px; width: 100px; height: 30px; margin-right: 5px">{{ $data->name }}</span>
                     @endforeach
                   </div>
-                  <h3 class="title">{{ $berita->title }}</h3>
-                  <p class="text">{{ $berita->description }}</p>
+                  <h3 class="title" style="overflow-wrap: anywhere; line-height: 42px;">{{ $berita->title }}</h3>
+                  <p class="text" style="overflow-wrap: anywhere; line-height: 25px">{{ $berita->description }}</p>
                 </div>
               </div>
               <!-- Single Blog End -->
@@ -58,7 +58,7 @@
                             <img style="object-fit: cover" src="{{ asset('storage/' . $data->thumbnail) }}" alt="">
                           </div>
                           <div class="post-text">
-                            <h4 class="title">{{ $data->title }}</h4>
+                            <h4 class="title text-truncate detail-truncation">{{ $data->title }}</h4>
                             <span class="post-meta"><i
                                 class="far fa-calendar-alt"></i>{{ \Carbon\Carbon::parse($data->created_at)->format('M d, Y') }}</span>
                           </div>

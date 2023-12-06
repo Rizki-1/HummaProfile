@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="{{ asset('cssUser/css/pendidikan/style.css') }}">
 
   <!-- Page Banner Start -->
-  <div class="section page-banner-section" style="padding-top: 0px">
+  <div class="section page-banner-section" style="padding-top: 0px;">
     <div class="video">
       <div class="dark-overlay"></div>
       <video src="{{ asset('ImageGlobal/industri.mp4') }}" autoplay loop muted playsinline></video>
@@ -170,8 +170,7 @@
         <div class="testimonial-content-wrap-02">
           <div class="swiper-container testimonial-02-active">
             <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                @forelse ($testimoni as $tm)
+                @forelse ($testimoni->take(5) as $tm)
                   <div class="swiper-slide">
                     <!--  Single Testimonial Start  -->
                     <div class="single-testimonial-02">
@@ -194,7 +193,6 @@
                 @empty
                   <p style="text-align: center">data sedang kosong</p>
                 @endforelse
-              </div>
             </div>
 
             <!-- Add Pagination -->

@@ -40,7 +40,7 @@ class HomeController extends Controller
 
     public function indexSiswa()
     {
-        $testimoni = Testimoni::all();
+        $testimoni = Testimoni::inRandomOrder()->get();
         $sosmed = Sosmed::all();
         $profile = ProfileCompany::all();
         $layananSiswa = LayananPerusahaan::where('target_layanan_id', 1)->paginate(4);
@@ -49,7 +49,7 @@ class HomeController extends Controller
 
     public function indexIndustri()
     {
-        $testimoni = Testimoni::all();
+        $testimoni = Testimoni::inRandomOrder()->get();
         $sosmed = Sosmed::all();
         $profile = ProfileCompany::all();
         $layananIndustri = LayananPerusahaan::where('target_layanan_id', 2)->paginate(4);
@@ -120,6 +120,14 @@ class HomeController extends Controller
         $beritaAll = $beritaAll;
         $beritaRandom = Berita::inRandomOrder()->get();
         return view('user.berita.detail', compact('berita', 'sosmed', 'profile', 'beritaAll', 'beritaRandom', 'kategoriBerita'));
+    }
+
+    public function detailProduk(string $berita) {
+        $produk = Produk::findOrFail($berita);
+        $produkLainnya = Produk::inRandomOrder()->get();
+        $sosmed = Sosmed::all();
+        $profile = ProfileCompany::all();
+        return view('user.produk.detailProduk', compact('produk', 'produkLainnya', 'sosmed', 'profile'));
     }
     // End User Controller
 

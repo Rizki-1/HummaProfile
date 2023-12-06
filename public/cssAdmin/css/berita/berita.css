@@ -78,36 +78,6 @@
     }
 }
 
-.second-title {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    text-overflow: ellipsis;
-    max-height: 40px;
-    max-width: 100%;
-}
-
-.first-detail {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-    text-overflow: ellipsis;
-    max-width: 80%;
-}
-
-.third-detail {
-    overflow: hidden;
-    display: -webkit-box !important;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-    text-overflow: ellipsis;
-    max-width: 80%;
-    display: flex;
-    gap: 3px;
-}
-
 .edit-icon {
     width: 20px;
     color: white;
