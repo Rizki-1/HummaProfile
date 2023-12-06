@@ -2,6 +2,7 @@
 
 @section('content')
   <!-- Contact Start -->
+  <link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/forceNav.css') }}">
   <div class="section techwix-contact-section techwix-contact-section-02 section-padding">
     <div class="container">
       <!-- Contact Wrap Start -->

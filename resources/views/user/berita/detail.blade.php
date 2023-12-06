@@ -2,6 +2,7 @@
 
 @section('content')
   <!-- Blog Details Start -->
+  <link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/forceNav.css') }}">
   <div class="section blog-details-section section-padding-02 mb-5">
     <div class="container">
       <!-- Blog Details Wrap Start -->

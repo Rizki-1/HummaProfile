@@ -1,6 +1,7 @@
 @extends('layouts.nav-user')
 
 @section('content')
+  <link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/forceNav.css') }}">
   <div class="section techwix-choose-us-section section-padding" style="padding-top: 100px">
     <div class="container">
       <!-- Choose Us Wrap Start -->

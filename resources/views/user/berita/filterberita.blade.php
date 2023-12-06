@@ -1,6 +1,7 @@
 @extends('layouts.nav-user')
 
 @section('content')
+<link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/forceNav.css') }}">
   <div class="section techwix-blog-grid-section section-padding">
     <div class="container">
       <div class="techwix-blog-grid-wrap">

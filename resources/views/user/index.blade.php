@@ -194,7 +194,7 @@
           <h2 class="title">Produk yang kami hasilkan</h2>
         </div>
         <div class="choose-us-content-wrap">
-          <div class="row">
+          <div class="row justify-content-center">
             @foreach ($produk->take(3) as $produkRow)
               <div class="col-lg-4 col-md-6">
                 <!-- Choose Us Item Start -->
@@ -241,12 +241,15 @@
                   <!--  Single Testimonial Start  -->
                   <div class="single-testimonial-02">
                     <div class="testimonial-thumb">
-                      <img src="{{ asset('storage/'. $tm->foto_siswa) }}" alt="">
+                      <img src="{{ asset('storage/' . $tm->foto_siswa) }}" alt="">
                     </div>
                     <div class="testimonial-content">
-                      <p>{{ $tm->testimoni }}</p>
-                      <span class="name">{{ $tm->nama }} </span>
-                      <span class="designation">/ {{ $tm->asal_sekolah }}</span>
+                      <img src="{{ asset('cssUser/images/testi-icon.png') }}" alt="">
+                      <div class="truncation">
+                        <p>{{ $tm->testimoni }}</p>
+                      </div>
+                      <span class="name d-inline-block text-truncate" style="max-width: 40%">{{ $tm->nama }} </span>
+                      <span class="designation d-inline-block text-truncate" style="max-width: 40%">/ {{ $tm->asal_sekolah }}</span>
                     </div>
                   </div>
                   <!--  Single Testimonial End  -->
@@ -284,39 +287,39 @@
                   <img src="{{ asset('storage/Mou/' . $mou->foto_mou) }}" alt="" srcset="">
                 </li>
               @empty
-              <li>
-                <img src="{{ asset('cssUser/sekolah/smk-1.png') }}" alt="">
-              </li>
-              <li>
-                <img src="{{ asset('cssUser/sekolah/smk-2.jpg') }}" alt="">
-              </li>
-              <li>
-                <img src="{{ asset('cssUser/sekolah/smk-3.jpg') }}" alt="">
-              </li>
-              <li>
-                <img src="{{ asset('cssUser/sekolah/smk-4.jpg') }}" alt="">
-              </li>
-              <li>
-                <img src="{{ asset('cssUser/sekolah/smk-5.jpg') }}" alt="">
-              </li>
-              <li>
-                <img src="{{ asset('cssUser/sekolah/smk-6.jpg') }}" alt="">
-              </li>
-              <li>
-                <img src="{{ asset('cssUser/sekolah/smk-7.jpg') }}" alt="">
-              </li>
-              <li>
-                <img src="{{ asset('cssUser/sekolah/smk-8.png') }}" alt="">
-              </li>
-              <li>
-                <img src="{{ asset('cssUser/sekolah/smk-9.png') }}" alt="">
-              </li>
-              <li>
-                <img src="{{ asset('cssUser/sekolah/smk-10.jpg') }}" alt="">
-              </li>
-              <li>
-                <img src="{{ asset('cssUser/sekolah/smk-11.png') }}" alt="">
-              </li>
+                <li>
+                  <img src="{{ asset('cssUser/sekolah/smk-1.png') }}" alt="">
+                </li>
+                <li>
+                  <img src="{{ asset('cssUser/sekolah/smk-2.jpg') }}" alt="">
+                </li>
+                <li>
+                  <img src="{{ asset('cssUser/sekolah/smk-3.jpg') }}" alt="">
+                </li>
+                <li>
+                  <img src="{{ asset('cssUser/sekolah/smk-4.jpg') }}" alt="">
+                </li>
+                <li>
+                  <img src="{{ asset('cssUser/sekolah/smk-5.jpg') }}" alt="">
+                </li>
+                <li>
+                  <img src="{{ asset('cssUser/sekolah/smk-6.jpg') }}" alt="">
+                </li>
+                <li>
+                  <img src="{{ asset('cssUser/sekolah/smk-7.jpg') }}" alt="">
+                </li>
+                <li>
+                  <img src="{{ asset('cssUser/sekolah/smk-8.png') }}" alt="">
+                </li>
+                <li>
+                  <img src="{{ asset('cssUser/sekolah/smk-9.png') }}" alt="">
+                </li>
+                <li>
+                  <img src="{{ asset('cssUser/sekolah/smk-10.jpg') }}" alt="">
+                </li>
+                <li>
+                  <img src="{{ asset('cssUser/sekolah/smk-11.png') }}" alt="">
+                </li>
               @endforelse
             </ul>
           </div>
@@ -338,7 +341,7 @@
       </div>
       <!-- Section Title End -->
       <div class="techwix-blog-wrap">
-        <div class="row">
+        <div class="row justify-content-center">
           @foreach ($berita->take(3) as $data)
             <div class="col-lg-4 col-md-6">
               <!-- Single Blog Start -->
