@@ -102,3 +102,6 @@ Route::post('/industri.store', [FormController::class, 'IndustriStore'])->name('
 //route testing
 Route::get('/test', [HomeController::class, 'test'])->name('test');
 
+Route::fallback(function(){
+    return back();
+});
