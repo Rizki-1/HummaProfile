@@ -35,6 +35,23 @@
   .parallax-scroll .carousel-item {
     transform: translateY(-0%);
   }
+
+  .nodata {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin: 5rem 0 0;
+    text-align: center;
+  }
+
+  .nodata img {
+    height: 12rem;
+  }
+
+  .nodata p {
+    font-weight: 600;
+    font-size: 25px;
+  }
 </style>
 
 
@@ -153,6 +170,7 @@
           <h3 class="sub-title">Layanan Perusahaan</h3>
           <h2 class="title">Kami menyediakan solusi Perangkat Lunak yang benar-benar terkemuka.</h2>
         </div>
+        @if($layanan->count() > 0)
         <div class="service-content-wrap choose-us-content-wrap">
           <div class="row">
             @foreach ($layanan->take(4) as $key => $data)
@@ -179,6 +197,12 @@
             </div>
           </div>
         </div>
+        @else
+        <div class="nodata gap-3">
+          <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="">
+          <p>Data Layanan tidak tersedia</p>
+        </div>
+        @endif
       </div>
       <!-- Service Wrap End -->
     </div>
@@ -193,6 +217,7 @@
           <h3 class="sub-title">Produk</h3>
           <h2 class="title">Produk yang kami hasilkan</h2>
         </div>
+        @if ($produk->count() > 0)
         <div class="choose-us-content-wrap">
           <div class="row justify-content-center">
             @foreach ($produk->take(3) as $produkRow)
@@ -219,6 +244,12 @@
             </div>
           </div>
         </div>
+        @else
+        <div class="nodata gap-3">
+          <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="">
+          <p>Data produk tidak tersedia</p>
+        </div>
+        @endif
       </div>
       <!-- Choose Us Wrap End -->
     </div>
@@ -340,6 +371,7 @@
         <h2 class="title">Berita terbaru terkait perusahaan kami</h2>
       </div>
       <!-- Section Title End -->
+      @if ($berita->count() > 0)
       <div class="techwix-blog-wrap">
         <div class="row justify-content-center">
           @foreach ($berita->take(3) as $data)
@@ -378,7 +410,13 @@
             </div>
           </div>
         </div>
+      </div> 
+      @else
+      <div class="nodata gap-3">
+        <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="">
+        <p>Data Berita tidak tersedia</p>
       </div>
+      @endif
     </div>
   </div>
   {{-- Berita End --}}
