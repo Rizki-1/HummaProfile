@@ -22,7 +22,7 @@ class ProdukUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nama_produk' => 'required|string|min:5|max:50|unique:produks,nama_produk',
+            'nama_produk' => 'required|string|min:5|max:50',
             'foto_produk' => 'image|mimes:png,jpg,jpeg',
             'keterangan_produk' => 'required|string|min:10|max:255',
             'dibuat' => 'required|string|min:1|max:10',

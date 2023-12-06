@@ -179,9 +179,7 @@
                 <div class="service-item service-0{{ ++$key }}">
                   <div class="service-content">
                     <h3 class="title"><a>{{ $data->nama_layanan }}</a></h3>
-                    <p>Merupakan program unggulan kami dalam mendukung pendidikan di Indonesia dengan bekerjasama dengan
-                      SMK
-                      Negeri/Swasta untuk mencetak Web dan Mobile Developer sesuai kebutuhan DU/DI.</p>
+                    <p>{{ $data->descripsi_layanan }}</p>
                   </div>
                 </div>
                 <!-- Service Item End -->
@@ -286,6 +284,7 @@
                   <!--  Single Testimonial End  -->
                 </div>
               @empty
+              <p style="text-align: center">data sedang kosong</p>
               @endforelse
             </div>
 
@@ -390,7 +389,7 @@
                 <div class="blog-content">
                   <div class="blog-meta">
                     @foreach ($data->kategori as $item)
-                      <span class="badge rounded-pill mb-1" style="background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; font-size: 12px;    margin-right: 5px">{{ $item->name }}</span>
+                      <a href="{{ route('filter-category', $item->id) }}" class="badge rounded-pill mb-1" style="background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; font-size: 12px;margin-right: 5px">{{ $item->name }}</a>
                     @endforeach
                   </div>
                   <h3 class="title"><a href="">{{ $data->title }}</a></h3>

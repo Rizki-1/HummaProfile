@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class testimoniRequest extends FormRequest
+class testimoniUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,7 +23,7 @@ class testimoniRequest extends FormRequest
     {
         return [
             'nama' => 'required|min:1|max:100|',
-            'foto_siswa' => 'required|image|mimes:png,jpg,jpeg',
+            'foto_siswa' => 'image|mimes:png,jpg,jpeg',
             'asal_sekolah' => 'required|min:1|max:50',
             'testimoni' => 'required|min:10|max:255',
         ];

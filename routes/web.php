@@ -91,6 +91,7 @@ Route::get('/berita', [HomeController::class, 'indexBerita'])->name('beritaIndex
 Route::get('/berita/{id}', [HomeController::class, 'detailBerita'])->name('detailBerita');
 Route::post('/inbox', [InboxController::class,'store'])->name('inbox.store');
 Route::get('/layanan', [HomeController::class, 'indexLayanan'])->name('layananIndex');
+Route::get('/beritaFilter/{id}', [HomeController::class, 'filterBerita'])->name('filterBerita');
 
 //formLandingPage
 Route::post('/siswa.store', [FormController::class, 'SiswaMagangStore'])->name('siswa.store');
@@ -100,4 +101,5 @@ Route::post('/industri.store', [FormController::class, 'IndustriStore'])->name('
 //route testing
 Route::get('/test', [HomeController::class, 'test'])->name('test');
 Route::get('/filterberita/{id}',[HomeController::class,'filterBerita'])->name('filterberita');
+Route::get('/category-berita/{id}', [BeritaController::class, 'filter'])->name('filter-category');
 

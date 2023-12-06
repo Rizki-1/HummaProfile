@@ -49,6 +49,17 @@
                 <span class="input-group-text input-group-addon" data-toggle><i data-feather="calendar"></i></span>
               </div>
             </div>
+            <div class="mb-3">
+                <label for="link" class="form-label">link (opsional)</label>
+                <div class="input-group flatpickr mb-3" id="">
+                    <input type="text" name="link" class="form-control @error('link') is-invalid @enderror" value="{{ $produks->link }}" placeholder="link(opsional)">
+                    @error('link')
+                    <div class="invalid-feedback">
+                        <p>{{ $message }}</p>
+                    </div>
+                    @enderror
+                </div>
+            </div>
           </div>
           <div class="col-md-6">
             <label for="myDropify" class="form-label">Upload Gambar Produk</label>

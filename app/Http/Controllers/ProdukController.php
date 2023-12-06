@@ -49,6 +49,7 @@ class ProdukController extends Controller
                 'nama_produk' => $request->nama_produk,
                 'foto_produk' => $path,
                 'keterangan_produk' => $request->keterangan_produk,
+                'link' => $request->link,
                 'dibuat' => $request->dibuat,
             ]);
 
@@ -112,6 +113,7 @@ class ProdukController extends Controller
             $produk->foto_produk = $path;
             $produk->keterangan_produk = $request->keterangan_produk;
             $produk->dibuat = $request->dibuat;
+            $produk->link = $request->link;
             $produk->save();
 
             DB::commit();

@@ -34,7 +34,7 @@
                 </div>
               @enderror
             </div>
-            <div>
+            <div class="mb-3">
               <label for="tanggal" class="form-label">Tanggal Dibuat</label>
               <div class="input-group flatpickr mb-3" id="flatpickr-date">
                 <input required name="dibuat" type="text" class="form-control @error('dibuat') is-invalid @enderror" value="{{ old('dibuat') }}" id="tanggal" placeholder="Select date" data-input>
@@ -45,6 +45,17 @@
                 @enderror
                 <span class="input-group-text input-group-addon" data-toggle><i data-feather="calendar"></i></span>
               </div>
+            </div>
+            <div class="mb-3">
+                <label for="link" class="form-label">link (opsional)</label>
+                <div class="input-group flatpickr mb-3" id="">
+                    <input type="text" name="link" class="form-control @error('link') is-invalid @enderror" value="{{ old('link') }}" placeholder="link(opsional)">
+                    @error('link')
+                    <div class="invalid-feedback">
+                        <p>{{ $message }}</p>
+                    </div>
+                    @enderror
+                </div>
             </div>
           </div>
           <div class="col-md-6">

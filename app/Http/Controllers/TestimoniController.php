@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Testimoni;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\testimoniRequest;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\testimoniUpdateRequest;
 
 class TestimoniController extends Controller
 {
@@ -41,7 +43,7 @@ class TestimoniController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(testimoniRequest $request)
     {
         $namaFoto = $request->file('foto_siswa')->hashName();
         $path = $request->file('foto_siswa')->storeAs('testimoni', $namaFoto);
@@ -58,11 +60,10 @@ class TestimoniController extends Controller
         ]);
     }
 
-    public function update(Request $request, $id)
+    public function update(testimoniUpdateRequest $request, $id)
     {
         try {
-            DB::beginTransaction();
-            $testimoni = Testimoni::where('id', $id)->first();
+            $testimoni = Testimoni::findOrFail($id);
 
             if (!$testimoni) {
                 return back()->with('message', [
@@ -85,14 +86,15 @@ class TestimoniController extends Controller
             $testimoni->testimoni = $request->testimoni;
             $testimoni->save();
 
-            DB::commit();
+
+
             return to_route('testimoni.index')->with('message', [
                 'icon' => 'success',
                 'title' => "Berhasil!",
                 'text' => "Berhasil meupdate testimoni"
             ]);
         } catch (\Throwable $th) {
-            DB::rollBack();
+
             return back()->with('message', [
                 'icon' => 'error',
                 'title' => 'Gagal!',
