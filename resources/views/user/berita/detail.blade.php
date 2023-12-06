@@ -1,6 +1,7 @@
 @extends('layouts.nav-user')
 
 @section('content')
+  <link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/forceLogo.css') }}">
   <!-- Blog Details Start -->
   <link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/forceNav.css') }}">
   <div class="section blog-details-section section-padding-02 mb-5">
@@ -14,7 +15,8 @@
               <!-- Single Blog Start -->
               <div class="single-blog-post single-blog">
                 <div class="blog-image">
-                  <a style="width: 100%; height: 100%"><img style="width: 100%;" src="{{ asset('storage/' . $berita->thumbnail) }}" alt=""></a>
+                  <a style="width: 100%; height: 100%"><img style="width: 100%;"
+                      src="{{ asset('storage/' . $berita->thumbnail) }}" alt=""></a>
                   <div class="top-meta">
                     <span class="date">
                       <span>{{ \Carbon\Carbon::parse($berita->created_at)->format('d') }}</span>
@@ -55,7 +57,8 @@
                       <li>
                         <a class="post-link" href="{{ route('detailBerita', $data->title) }}">
                           <div class="post-thumb">
-                            <img style="object-fit: cover" src="{{ asset('storage/' . $data->thumbnail) }}" alt="">
+                            <img style="object-fit: cover" src="{{ asset('storage/' . $data->thumbnail) }}"
+                              alt="">
                           </div>
                           <div class="post-text">
                             <h4 class="title text-truncate detail-truncation">{{ $data->title }}</h4>
