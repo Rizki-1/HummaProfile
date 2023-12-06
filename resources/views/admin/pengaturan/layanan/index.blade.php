@@ -1,6 +1,7 @@
 @extends('layouts.nav-admin')
 
 @section('content')
+  <link rel="stylesheet" href="{{ asset('cssAdmin/css/layanan/layanan.css') }}">
   <title>{{ config('app.name', 'Laravel') }} - Layanan</title>
   <div class="card px-4 py-3 mb-4 flex-row justify-content-between align-items-center">
     <div>
@@ -20,8 +21,8 @@
         <div class="card-body">
           <div class="table-responsive overflow-hidden">
             <div id="dataTableExample_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
-              <div class="row">
-                <div class="col-md-2">
+              <div class="row mb-3">
+                <div class="col-md-2 mb-3">
                   <div class="dataTables_length" id="dataTableExample_length">
                     <select name="dataTableExample_length" aria-controls="dataTableExample" class="form-select m-0" id="selectTarget">
                       <option value="1" {{ !request('ct') ? 'selected' : '' }}>Siswa</option>
@@ -29,7 +30,7 @@
                     </select>
                   </div>
                 </div>
-                <div class="col-md-10">
+                <div class="col-md-10 mb-3">
                   <div id="dataTableExample_filter" class="dataTables_filter text-end">
                     <form method="GET"><label><input type="search" class="form-control" placeholder="Search" name="query" value="{{ request('query') }}" aria-controls="dataTableExample"></label></form>
                   </div>
@@ -41,7 +42,7 @@
                     <thead>
                       <tr>
                         <th class="sorting sorting_asc" tabindex="0" style="width: 144.302px;">
-                          Name</th>
+                          Nama Layanan</th>
                         <th class="sorting sorting_asc" tabindex="0" style="width: 144.302px;">
                           Deckripsi layanan</th>
                         <th class="sorting sorting_asc" tabindex="0" style="width: 144.302px;">
@@ -49,18 +50,24 @@
                       </tr>
                     </thead>
                     <tbody>
-                        @foreach ($layanan as $row)
+                      @foreach ($layanan as $row)
                         <tr class="odd">
-                          <td class="sorting_1">{{ $row->nama_layanan }}</td>
-                          <td class="sorting_1">{{ $row->descripsi_layanan }}</td>
-                          <td>
-                            <button type="button" class="btn btn-warning" onclick="showEditPopup({{ $row->id }},{{ $row->target_layanan_id }}, '{{ $row->nama_layanan }}','{{ $row->descripsi_layanan }}')">Edit</button>
-                            <button type="button" class="btn btn-danger" onclick="showDeletePopup({{ $row->id }}, '{{ $row->nama_layanan }}')">Hapus</button>
+                          <td class="sorting_1 height-thing" style="transform: translateY(10px)">{{ $row->nama_layanan }}</td>
+                          <td class="sorting_1 height-thing" style="transform: translateY(10px)">{{ $row->descripsi_layanan }}</td>
+                          <td class="d-flex gap-2">
+                            <a href="{{ route('edit.layanan', $row->id) }}" class="btn btn-outline-warning btn-icon"><i class="link-icon edit-icon" data-feather="edit"></i></a>
+                            <form action="{{ route('layanan-perusahaan.destroy', $row->id) }}" method="POST">
+                              @csrf
+                              @method('DELETE')
+                              <button type="submit" class="btn btn-outline-danger btn-icon"><i class="link-icon trash-icon" data-feather="trash"></i></button>
+                            </form>
                           </td>
                         </tr>
                       @endforeach
                     </tbody>
                   </table>
+                  <style>
+                  </style>
                 </div>
               </div>
               <div class="row">
@@ -76,7 +83,7 @@
       </div>
     </div>
   </div>
-  <script>
+  {{-- <script>
     document.getElementById('selectTarget').addEventListener('change', function() {
       var selectedCategoryId = this.value;
       var currentUrl = window.location.href;
@@ -195,5 +202,5 @@
         }
       });
     }
-  </script>
+  </script> --}}
 @endsection

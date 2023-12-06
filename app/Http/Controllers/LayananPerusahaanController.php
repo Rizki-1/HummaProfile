@@ -73,29 +73,48 @@ class LayananPerusahaanController extends Controller
         }
     }
 
+    public function editLayanan(string $layanan)
+    {
+        $layanan = LayananPerusahaan::findOrFail($layanan);
+        return view('admin.pengaturan.layanan.edit', compact('layanan'));
+    }
+
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
     {
+
         try {
             DB::beginTransaction();
 
             $layanan = LayananPerusahaan::where('id', $id)->first();
             if (!$layanan) {
-                return response()->json(['response' => ['success' => false]]);
+                return back()->with('message', [
+                    'icon' => 'error',
+                    'title' => 'Gagal!',
+                    'text' => "Layanan tidak di temukan"
+                ]);
             }
-            $layanan->nama_layanan = $request->layanan;
-            $layanan->descripsi_layanan = $request->descripsi_layanan;
+            $layanan->nama_layanan = $request->nama_layanan;
+            $layanan->descripsi_layanan = $request->descripsi;
             $layanan->target_layanan_id = $request->target_layanan_id;
             $layanan->save();
 
             DB::commit();
-            return response()->json(['response' => ['success' => true]]);
+            return to_route('layanan-perusahaan.index')->with('message', [
+                'icon' => 'success',
+                'title' => 'Berhasil!',
+                'text' => "Berhasil mengupdate layanan"
+            ]);
         } catch (\Throwable $th) {
             DB::rollBack();
 
-            return response()->json(['response' => ['success' => false, 'message' => 'ada kesalahan server']]);
+            return back()->with('message', [
+                'icon' => 'error',
+                'title' => 'Gagal!',
+                'text' => "Ada kesalahan server, gagal mengupdate Layanan"
+            ]);
         }
     }
 
@@ -109,15 +128,27 @@ class LayananPerusahaanController extends Controller
 
             $layanan = LayananPerusahaan::where('id', $id)->first();
             if (!$layanan) {
-                return response()->json(['response'=> ['success'=> false]]);
+                return back()->with('message', [
+                    'icon' => 'error',
+                    'title' => 'Gagal!',
+                    'text' => 'Layanan tidak ada!'
+                ]);
             }
             $layanan->delete();
 
             DB::commit();
-            return response()->json(['response'=> ['success'=> true]]);
+            return back()->with('message', [
+                'icon' => 'success',
+                'title' => 'Berhasil!',
+                'text' => 'Berhasil mengapus layanan'
+            ]);
         } catch (\Exception $th) {
             DB::rollBack();
-            return response()->json(['response'=> ['success'=> false,]]);
+            return back()->with('message', [
+                'icon' => 'error',
+                'title' => 'Gagal!',
+                'text' => "Ada kesalahan server, gagal menghapus Layanan"
+            ]);
         }
     }
 }

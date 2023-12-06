@@ -18,7 +18,7 @@
         <div class="col-6">
           <div class="mb-3">
             <label class="form-label" for="nama">Nama</label>
-            <input type="text" placeholder="Nama" class="form-control mb-3 @error('nama') is-invalid  @enderror" name="nama" required>
+            <input type="text" placeholder="Nama" class="form-control mb-3 @error('nama') is-invalid  @enderror" value="{{ old('nama') }}" name="nama" required>
             @error('nama')
               <div class="invalid-feedback">
                 <p>{{ $message }}</p>
@@ -27,7 +27,7 @@
           </div>
           <div class="mb-3">
             <label class="form-label" for="asal_sekolah">Asal sekolah</label>
-            <input type="text" placeholder="Asal Sekolah" class="form-control mb-3 @error('asal_sekolah') is-invalid  @enderror" name="asal_sekolah" required>
+            <input type="text" placeholder="Asal Sekolah" class="form-control mb-3 @error('asal_sekolah') is-invalid  @enderror" value="{{ old('asal_sekolah') }}" name="asal_sekolah" required>
             @error('asal_sekolah')
               <div class="invalid-feedback">
                 <p>{{ $message }}</p>
@@ -36,7 +36,7 @@
           </div>
           <div class="mb-3">
             <label class="form-label" for="testimoni">Testimoni</label>
-            <textarea required class="form-control @error('testimoni') is-invalid @enderror" id="testimoni" placeholder="Deskripsi Berita" name="testimoni" rows="7"></textarea>
+            <textarea required class="form-control @error('testimoni') is-invalid @enderror" id="testimoni" placeholder="Deskripsi Berita" value="{{ old('testimoni') }}" name="testimoni" rows="7"></textarea>
             @error('testimoni')
               <div class="invalid-feedback">
                 <p>{{ $message }}</p>

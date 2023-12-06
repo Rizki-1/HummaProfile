@@ -69,6 +69,7 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
     //layanan perusahaan
     Route::resource('/layanan-perusahaan', LayananPerusahaanController::class)->except(['show', 'edit']);
     Route::resource('/profile-perusahaan', ProfilePerusahaanController::class)->only(['index', 'update']);
+    Route::get('/layanan-perusahaan/{id}/edit', [LayananPerusahaanController::class, 'editLayanan'])->name('edit.layanan');
     // List
     Route::get('/list-siswa-magang', [ListController::class, 'siswaMagang'])->name('list.siswa_magang');
     Route::delete('/list-siswa-magang/{id}', [ListController::class, 'siswaMagangDel'])->name('list.siswa_magang.del');

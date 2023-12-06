@@ -23,9 +23,8 @@
     }
 
     .danger-button:hover .trash-icon {
-        color: white !important;
+      color: white !important;
     }
-
   </style>
   <title>{{ config('app.name', 'Laravel') }} - Testimoni</title>
   <link rel="stylesheet" href="{{ asset('cssAdmin/css/berita/categoryBerita.css') }}">
@@ -38,16 +37,18 @@
       </nav>
     </div>
     <div class="text-end">
-      <a href="{{ route('testimoni.create') }}" class="btn btn-outline-primary">Tambah</a>
+      <a href="{{ route('testimoni.create') }}" class="btn btn-outline-primary">Tambah Testimoni</a>
     </div>
   </div>
   <div class="card p-4">
-    <div class="d-flex justify-content-end">
-      <form method="get" class="form-inline d-flex flex-row">
-        <input class="form-control mr-sm-2 py-0" type="search" name="query" placeholder="Search" aria-label="Search" value="{{ request('query') }}">
-        <button class="btn btn-outline-primary py-0 my-sm-0" type="submit"><i class="mdi mdi-magnify fs-4"></i></button>
-      </form>
-    </div>
+    @if ($testimoni->count() > 0)
+      <div class="d-flex justify-content-end mb-3">
+        <form method="get" class="form-inline d-flex flex-row">
+          <input class="form-control mr-sm-2 py-0" type="search" name="query" placeholder="Search" aria-label="Search" value="{{ request('query') }}">
+          <button class="btn btn-outline-primary py-0 my-sm-0" type="submit"><i class="mdi mdi-magnify fs-4"></i></button>
+        </form>
+      </div>
+    @endif
     <div class="row">
       @forelse ($testimoni as $test)
         <div class="col-md-6">

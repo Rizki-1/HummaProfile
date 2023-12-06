@@ -30,6 +30,7 @@
 }
 
 .action-container {
+    align-items: center;
     position: absolute;
     bottom: -47px;
     display: flex;

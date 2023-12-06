@@ -16,7 +16,6 @@
     <div class="col-md-12 grid-margin stretch-card">
       <div class="card">
         <div class="card-body">
-          <h6 class="card-title">Tambah Layanan</h6>
           <form action="{{ route('layanan-perusahaan.store') }}" class="repeater" method="POST">
             @csrf
             <div data-repeater-list="layanan-group" class="row g-3">
