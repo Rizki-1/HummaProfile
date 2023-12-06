@@ -40,18 +40,20 @@ class HomeController extends Controller
 
     public function indexSiswa()
     {
+        $testimoni = Testimoni::all();
         $sosmed = Sosmed::all();
         $profile = ProfileCompany::all();
         $layananSiswa = LayananPerusahaan::where('target_layanan_id', 1)->paginate(4);
-        return view('user.pendidikan.siswa', compact('sosmed', 'profile', 'layananSiswa'));
+        return view('user.pendidikan.siswa', compact('sosmed', 'profile', 'layananSiswa', 'testimoni'));
     }
 
     public function indexIndustri()
     {
+        $testimoni = Testimoni::all();
         $sosmed = Sosmed::all();
         $profile = ProfileCompany::all();
         $layananIndustri = LayananPerusahaan::where('target_layanan_id', 2)->paginate(4);
-        return view('user.pendidikan.industri', compact('sosmed', 'profile', 'layananIndustri'));
+        return view('user.pendidikan.industri', compact('sosmed', 'profile', 'layananIndustri', 'testimoni'));
     }
 
     public function indexProduk()
@@ -72,7 +74,7 @@ class HomeController extends Controller
     public function indexBerita(Request $request)
     {
 
-        $beritaAll =  Berita::with('kategori')->latest()->paginate(9);
+        $beritaAll =  Berita::with('kategori')->latest()->paginate(2);
         $sosmed = Sosmed::all();
         $profile = ProfileCompany::all();
         $kategori = KategoriBerita::all();

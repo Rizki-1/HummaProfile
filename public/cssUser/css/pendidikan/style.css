@@ -1,0 +1,36 @@
+.video {
+  position: relative;
+  top: -3px;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.dark-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+  pointer-events: none;
+  z-index: 2;
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  max-width: 100%;
+}
+
+@media (max-width: 500px) {
+  .video {
+    height: 100vh;
+  }
+  .dark-overlay {
+    background: rgba(0, 0, 0, 0.7); /* Sesuaikan dengan kebutuhan Anda */
+    backdrop-filter: blur(5px); /* Sesuaikan dengan kebutuhan Anda */
+  }
+}
