@@ -86,12 +86,12 @@
             </a>
             <div class="collapse" id="list">
               <ul class="nav sub-menu">
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                   <a href="{{ route('list.siswa_magang') }}" class="nav-link">Siswa Magang</a>
                 </li>
                 <li class="nav-item">
                   <a href="{{ route('list.kelas_industri') }}" class="nav-link">Kelas Industri</a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a href={{ route('mou.index') }} class="nav-link">Mou</a>
                 </li>
@@ -102,7 +102,7 @@
             </div>
           </li>
 
-          <li class="nav-item nav-category">Persetujuan</li>
+          {{-- <li class="nav-item nav-category">Persetujuan</li>
           <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#persetujuan" role="button" aria-expanded="false"
               aria-controls="persetujuan">
@@ -121,7 +121,7 @@
 
               </ul>
             </div>
-          </li>
+          </li> --}}
 
           <li class="nav-item nav-category">Berita</li>
           <li class="nav-item">

@@ -2,10 +2,10 @@
 
 @section('content')
 <link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/forceNav.css') }}">
-  <div class="section techwix-blog-grid-section section-padding">
+  <div class="section techwix-blog-grid-section section-padding" style="background-color: #f8f8f8;">
     <div class="container">
       <div class="techwix-blog-grid-wrap">
-        <div class="row">
+        <div class="row justify-content-center">
             @foreach ($beritas as $berita)
             <div class="col-lg-4 col-md-6">
                 <!-- Single Blog Start -->
@@ -38,9 +38,11 @@
               </div>
             @endforeach
         </div>
-        <!-- Page Pagination Start -->
-        {{ $beritas->links('pagination::bootstrap-5') }}
-        <!-- Page Pagination End -->
+        <div class="mt-4">
+          <!-- Page Pagination Start -->
+          {{ $beritaAll->links('pagination::bootstrap-5') }}
+          <!-- Page Pagination End -->
+        </div>
       </div>
     </div>
   </div>

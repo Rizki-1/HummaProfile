@@ -11,7 +11,7 @@
           <h2 class="title">Produk yang kami hasilkan</h2>
         </div>
         <div class="choose-us-content-wrap">
-          <div class="row">
+          <div class="row justify-content-center">
             @foreach ($produk->take(3) as $produkRow)
               <div class="col-lg-4 col-md-6">
                 <!-- Choose Us Item Start -->
