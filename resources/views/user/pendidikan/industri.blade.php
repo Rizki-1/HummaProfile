@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="{{ asset('cssUser/css/pendidikan/style.css') }}">
 
   <!-- Page Banner Start -->
-  <div class="section page-banner-section" style="padding-top: 0px;">
+  <div class="section" style="padding-top: 0px;">
     <div class="video">
       <div class="dark-overlay"></div>
       <video src="{{ asset('ImageGlobal/industri.mp4') }}" autoplay loop muted playsinline></video>
@@ -155,52 +155,5 @@
     </div>
   </div>
 
-  <!-- Testimonial Start  -->
-  <div
-    class="section bg-cover techwix-testimonial-section-02 techwix-testimonial-section-03 techwix-testimonial-section-05 section-padding"
-    style="padding: 40px">
-    <div class="container">
-      <!-- Testimonial Wrap Start  -->
-      <div class="testimonial-wrap-02">
-        <div class="section-title text-center">
-          <h3 class="sub-title">Testimonial</h3>
-          <h2 class="title">Pengalaman Lulusan Magang Kami</h2>
-        </div>
-        <div class="testimonial-content-wrap-02">
-          <div class="swiper-container testimonial-02-active">
-            <div class="swiper-wrapper">
-                @forelse ($testimoni->take(5) as $tm)
-                  <div class="swiper-slide">
-                    <!--  Single Testimonial Start  -->
-                    <div class="single-testimonial-02">
-                      <div class="testimonial-thumb">
-                        <img src="{{ asset('storage/' . $tm->foto_siswa) }}" alt="">
-                      </div>
-                      <div class="testimonial-content">
-                        <img src="{{ asset('cssUser/images/testi-icon.png') }}" alt="">
-                        <div class="truncation">
-                          <p>{{ $tm->testimoni }}</p>
-                        </div>
-                        <span class="name d-inline-block text-truncate" style="max-width: 40%">{{ $tm->nama }}
-                        </span>
-                        <span class="designation d-inline-block text-truncate" style="max-width: 40%">/
-                          {{ $tm->asal_sekolah }}</span>
-                      </div>
-                    </div>
-                    <!--  Single Testimonial End  -->
-                  </div>
-                @empty
-                  <p style="text-align: center">data sedang kosong</p>
-                @endforelse
-            </div>
 
-            <!-- Add Pagination -->
-            <div class="swiper-pagination"></div>
-          </div>
-        </div>
-      </div>
-      <!-- Testimonial Wrap End  -->
-    </div>
-  </div>
-  <!-- Testimonial End  -->
 @endsection

@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="{{ asset('cssUser/css/pendidikan/style.css') }}">
 
   <!-- Page Banner Start -->
-  <div class="section page-banner-section" style="padding-top: 0px">
+  <div class="section" style="padding-top: 0px">
     <div class="video" style="overflow: hidden">
       <div class="dark-overlay"></div>
       <video src="{{ asset('ImageGlobal/industri.mp4') }}" autoplay loop muted playsinline></video>
@@ -192,7 +192,10 @@
                   <!--  Single Testimonial End  -->
                 </div>
               @empty
-                <p style="text-align: center">data sedang kosong</p>
+              <div class="nodata gap-3 w-100">
+                <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="" >
+                <p style="">Data Testimoni tidak ada</p>
+              </div>
               @endforelse
             </div>
 
