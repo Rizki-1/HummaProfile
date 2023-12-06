@@ -13,7 +13,8 @@ class Produk extends Model
         'nama_produk',
         'foto_produk',
         'keterangan_produk',
+        'link',
         'dibuat',
     ];
-    
+
 }

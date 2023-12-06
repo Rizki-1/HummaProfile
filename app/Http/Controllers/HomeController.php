@@ -103,10 +103,12 @@ class HomeController extends Controller
 
     public function dashboard()
     {
-        // $siswaCount = SiswaMagang::where('status', 'diterima')->count();
-        // $industriCount = KelasIndustri::where('status', 'diterima')->count();
+        $produk = Produk::all();
+        $produkCount = $produk->count();
+        $berita = Berita::all();
+        $beritaCount = $berita->count();
         $inboxCount = Inbox::where('status', 1)->count();
-        return view('admin.dashboard', compact('inboxCount'));
+        return view('admin.dashboard', compact('inboxCount', 'beritaCount', 'produkCount'));
     }
 
 

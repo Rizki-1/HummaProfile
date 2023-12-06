@@ -17,15 +17,35 @@
         <div class="row">
             <div class="col-6">
                 <label for="nama">Nama</label>
-                <input type="text" class="form-control mb-3" name="nama">
+                <input type="text" class="form-control mb-3 @error('nama') is-invalid  @enderror" name="nama" required>
+                @error('nama')
+                <div class="invalid-feedback">
+                    <p>{{ $message }}</p>
+                </div>
+                @enderror
                 <label for="asal_sekolah">Asal sekolah</label>
-                <input type="text" class="form-control mb-3" name="asal_sekolah">
-                <label for="nama">Testimoni</label>
+                <input type="text" class="form-control mb-3 c" name="asal_sekolah" required>
+                @error('asal_sekolah')
+                <div class="invalid-feedback">
+                    <p>{{ $message }}</p>
+                </div>
+                @enderror
+                <label for="testimoni">Testimoni</label>
                 <textarea required class="form-control @error('testimoni') is-invalid @enderror" id="testimoni" placeholder="Deskripsi Berita" name="testimoni" rows="7"></textarea>
+                @error('testimoni')
+                <div class="invalid-feedback">
+                    <p>{{ $message }}</p>
+                </div>
+                @enderror
             </div>
             <div class="col-6">
                 <label for="myDropify" class="form-label">Upload foto</label>
                 <input required name="foto_siswa" class="@error('foto_produk') is-invalid @enderror" type="file" id="myDropify" />
+                @error('foto_produk')
+                <div class="invalid-feedback">
+                    <p>{{ $message }}</p>
+                </div>
+                @enderror
             </div>
         </div>
         <button type="submit" class="btn btn-success">Tambah</button>

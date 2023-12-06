@@ -19,11 +19,26 @@
             <div class="row mb-4">
                 <div class="col-6">
                     <label for="nama">Nama</label>
-                    <input type="text" class="form-control mb-3" name="nama" value="{{ $test->nama }}">
+                    <input type="text" class="form-control mb-3 @error('nama') is-invalid  @enderror" name="nama" value="{{ $test->nama }}">
+                    @error('nama')
+                    <div class="invalid-feedback">
+                        <p>{{ $message }}</p>
+                    </div>
+                    @enderror
                     <label for="asal_sekolah">Asal sekolah</label>
-                    <input type="text" class="form-control mb-3" name="asal_sekolah" value="{{ $test->asal_sekolah }}">
+                    <input type="text" class="form-control mb-3  @error('testimoni') is-invalid @enderror" name="asal_sekolah" value="{{ $test->asal_sekolah }}">
+                    @error('asal_sekolah')
+                    <div class="invalid-feedback">
+                        <p>{{ $message }}</p>
+                    </div>
+                    @enderror
                     <label for="nama">Testimoni</label>
                     <textarea required class="form-control @error('testimoni') is-invalid @enderror" id="testimoni" placeholder="Deskripsi Berita" name="testimoni" rows="7">{{ $test->testimoni }}</textarea>
+                    @error('testimoni')
+                    <div class="invalid-feedback">
+                        <p>{{ $message }}</p>
+                    </div>
+                    @enderror
                 </div>
                 <div class="col-md-6">
                     <label for="myDropify" style="width: 100%">Foto Lama</label>
