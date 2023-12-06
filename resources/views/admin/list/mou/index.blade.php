@@ -35,7 +35,7 @@
                             <div class="image-detail">
                                 <div class="detail-container">
                                     <div class="first-detail">
-                                        <h2 class="card-title">{{ $row->nama_mou }}</h2>
+                                        <h2 class="card-title text-truncate" style="width: 100%">{{ $row->nama_mou }}</h2>
                                     </div>
                                 </div>
                                 <div class="action-container">

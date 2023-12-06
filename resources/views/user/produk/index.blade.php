@@ -1,6 +1,7 @@
 @extends('layouts.nav-user')
 
 @section('content')
+<link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/forceLogo.css') }}">
 <style>
   .nodata {
     display: flex;
@@ -29,13 +30,13 @@
         </div>
         <div class="choose-us-content-wrap">
           @if($produk->count() > 0)
-          <div class="row">
-            @foreach ($produk->take(3) as $produkRow)
+          <div class="row justify-content-center">
+            @foreach ($produk as $produkRow)
             <div class="col-lg-4 col-md-6">
               <!-- Choose Us Item Start -->
               <div class="choose-us-item">
                 <div class="choose-us-img">
-                  <a href="#">
+                  <a href="{{ route('produk.detail', $produkRow->id) }}">
                     <img class="picture-responsive" src="{{ asset('storage/' . $produkRow->foto_produk) }}" alt="Foto Produk"></a>
                     <div class="choose-us-content">
                       <h3 class="title text-truncate">{{ $produkRow->nama_produk }}</h3>

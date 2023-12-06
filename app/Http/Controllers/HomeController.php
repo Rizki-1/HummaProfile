@@ -121,6 +121,14 @@ class HomeController extends Controller
         $beritaRandom = Berita::inRandomOrder()->get();
         return view('user.berita.detail', compact('berita', 'sosmed', 'profile', 'beritaAll', 'beritaRandom', 'kategoriBerita'));
     }
+
+    public function detailProduk(string $berita) {
+        $produk = Produk::findOrFail($berita);
+        $produkLainnya = Produk::inRandomOrder()->get();
+        $sosmed = Sosmed::all();
+        $profile = ProfileCompany::all();
+        return view('user.produk.detailProduk', compact('produk', 'produkLainnya', 'sosmed', 'profile'));
+    }
     // End User Controller
 
     public function dashboard()

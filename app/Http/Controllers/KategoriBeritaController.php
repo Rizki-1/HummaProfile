@@ -13,7 +13,7 @@ class KategoriBeritaController extends Controller
      */
     public function index()
     {
-        $category = KategoriBerita::all();
+        $category = KategoriBerita::latest()->paginate(15);
         return view('admin.berita.category.index', compact('category'));
     }
 

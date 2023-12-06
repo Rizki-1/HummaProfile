@@ -46,7 +46,8 @@
         <div class="header-wrap">
 
           <div class="header-logo">
-            <a href="{{ route('homeindex') }}"><img src="{{ asset('cssUser/images/logohumma.png') }}" alt="HummaTech"></a>
+              <a class="light-logo" href="{{ route('homeindex') }}"><img src="{{ asset('ImageGlobal/logowithtext.png') }}" alt="HummaTech"></a>
+            <a class="dark-logo" href="{{ route('homeindex') }}"><img src="{{ asset('cssUser/images/logohumma.png') }}" alt="HummaTech"></a>
           </div>
 
           <div class="header-menu d-none d-lg-block">

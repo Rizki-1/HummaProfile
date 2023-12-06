@@ -39,6 +39,9 @@
         <p class="fw-bold text-center">Tidak ada kategori berita. <a href="{{ route('category-berita.create') }}">Tambah!</a></p>
       @endforelse
     </div>
+    <div>
+        {{ $category->links('pagination::bootstrap-5') }}
+    </div>
   </div>
   <script>
     if(document.querySelectorAll('.hapus').length > 0){

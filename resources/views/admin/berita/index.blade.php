@@ -16,14 +16,14 @@
     </div>
   </div>
   <div class="card p-4">
-    <div class="d-flex justify-content-end">
+    @if ($berita->count() > 0)
+      <div class="d-flex justify-content-end">
         <form method="get" class="form-inline d-flex flex-row">
-            <input class="form-control mr-sm-2 py-0" type="search" name="query" placeholder="Search"
-                aria-label="Search" value="{{ request('query') }}">
-            <button class="btn btn-outline-success py-0 my-sm-0" type="submit"><i
-                    class="mdi mdi-magnify fs-4"></i></button>
+          <input class="form-control mr-sm-2 py-0" type="search" name="query" placeholder="Search" aria-label="Search" value="{{ request('query') }}">
+          <button class="btn btn-outline-success py-0 my-sm-0" type="submit"><i class="mdi mdi-magnify fs-4"></i></button>
         </form>
-    </div>
+      </div>
+    @endif
     <div class="row">
       @forelse ($berita as $row)
         <div class="col-md-4 mb-4">
@@ -35,10 +35,10 @@
               <div class="image-detail">
                 <div class="detail-container">
                   <div class="first-detail">
-                    <h2 class="card-title">{{ $row->title }}</h2>
+                    <h2 class="card-title text-truncate" style="max-width: 90%">{{ $row->title }}</h2>
                   </div>
                   <div class="second-title">
-                    <p class="card-text">{{ $row->description }}</p>
+                    <p class="card-text text-truncate" style="max-width: 70%">{{ $row->description }}</p>
                   </div>
                   <div>
                     <p class="third-detail">
@@ -62,9 +62,9 @@
         </div>
       @empty
         @if (!request('query'))
-            <p class="fw-bold text-center">Tidak ada berita. <a href="{{ route('berita.create') }}">Tambah!</a></p>
+          <p class="fw-bold text-center">Tidak ada berita. <a href="{{ route('berita.create') }}">Tambah!</a></p>
         @else
-            <p class="fw-bold text-center">Berita tidak ditemukan!</p>
+          <p class="fw-bold text-center">Berita tidak ditemukan!</p>
         @endif
       @endforelse
       <div>

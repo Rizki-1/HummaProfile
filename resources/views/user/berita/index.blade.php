@@ -1,19 +1,22 @@
 @extends('layouts.nav-user')
 
 @section('content')
+  <link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/forceLogo.css') }}">
   <link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/forceNav.css') }}">
   <div class="section techwix-blog-grid-section section-padding" style="background: #f8f8f8;">
     <div class="container">
       <div class="techwix-blog-grid-wrap">
+        <div class="section-title text-center mb-4 mt-4">
+          <h3 class="sub-title">Berita</h3>
+          <h2 class="title">Berita terbaru terkait perusahaan kami</h2>
+        </div>
         <div class="row justify-content-center">
           @foreach ($beritaAll as $data)
             <div class="col-lg-4 col-md-6">
               <!-- Single Blog Start -->
               <div class="single-blog">
                 <div class="blog-image">
-                  <a style="height: 250px; width: 100%" href="{{ route('detailBerita', $data->id) }}"><img
-                      style="height: 100%; width: 100%; object-fit: cover;"
-                      src="{{ asset('storage/' . $data->thumbnail) }}" alt="{{ $data->title }}"></a>
+                  <a style="height: 250px; width: 100%" href="{{ route('detailBerita', $data->id) }}"><img style="height: 100%; width: 100%; object-fit: cover;" src="{{ asset('storage/' . $data->thumbnail) }}" alt="{{ $data->title }}"></a>
                   <div class="top-meta">
                     <span class="date">
                       <span>{{ \Carbon\Carbon::parse($data->created_at)->format('d') }}</span>
@@ -24,15 +27,13 @@
                 <div class="blog-content">
                   <div class="blog-meta">
                     @foreach ($data->kategori as $item)
-                      <span class="badge rounded-pill mb-1"
-                        style="background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; width: 100px; height: 30px; font-size: 12px; margin-right: 5px"><a
+                      <span class="badge rounded-pill mb-1" style="background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; width: 100px; height: 30px; font-size: 12px; margin-right: 5px"><a
                           href="{{ route('filterberita', $item->id) }}">{{ $item->name }}</a></span>
                     @endforeach
                   </div>
                   <h3 class="title"><a href="{{ route('detailBerita', $data->id) }}">{{ $data->title }}</a></h3>
                   <div class="blog-btn">
-                    <a class="blog-btn-link" href="{{ route('detailBerita', $data->id) }}">Read Full <i
-                        class="fas fa-long-arrow-alt-right"></i></a>
+                    <a class="blog-btn-link" href="{{ route('detailBerita', $data->id) }}">Read Full <i class="fas fa-long-arrow-alt-right"></i></a>
                   </div>
                 </div>
               </div>

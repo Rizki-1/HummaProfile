@@ -25,7 +25,7 @@ class BeritaController extends Controller
             $berita->where('title', 'LIKE', '%' . $request->input('query') . '%');
         }
 
-        $berita = $berita->paginate(1);
+        $berita = $berita->paginate(9);
         return view("admin.berita.index", compact("berita"));
     }
 

@@ -33,7 +33,7 @@
                 <a href="#" class="sidebar-logo-thing">Humma<span>tech</span></a>
               </div>
             </div>
-            <h3 class="form-title-center">Masuk untuk mengakses akun admin</h3>
+            <h3 class="form-title-center">Login untuk masuk</h3>
             <form action="{{ route('login') }}" method="POST">
               @csrf
               <div class="mb-2">
