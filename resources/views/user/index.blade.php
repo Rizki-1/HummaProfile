@@ -225,8 +225,7 @@
                 <!-- Choose Us Item Start -->
                 <div class="choose-us-item">
                   <div class="choose-us-img">
-                    <a href="#"><img class="picture-responsive"
-                        src="{{ asset('storage/' . $produkRow->foto_produk) }}" alt="Foto Produk"></a>
+                    <a href="{{ route('produk.detail', $produkRow->id) }}"><img class="picture-responsive" src="{{ asset('storage/' . $produkRow->foto_produk) }}" alt="Foto Produk"></a>
                     <div class="choose-us-content">
                       <h3 class="title text-truncate">{{ $produkRow->nama_produk }}</h3>
                       <p class="description-truncate">{{ $produkRow->keterangan_produk }}</p>
@@ -420,7 +419,7 @@
             </div>
           </div>
         </div>
-      </div> 
+      </div>
       @else
       <div class="nodata gap-3">
         <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="">
