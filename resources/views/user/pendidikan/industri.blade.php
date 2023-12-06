@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="{{ asset('cssUser/css/pendidikan/style.css') }}">
 
   <!-- Page Banner Start -->
-  <div class="section page-banner-section" style="padding-top: 0px">
+  <div class="section page-banner-section" style="padding-top: 0px;">
     <div class="video">
       <div class="dark-overlay"></div>
       <video src="{{ asset('ImageGlobal/industri.mp4') }}" autoplay loop muted playsinline></video>
