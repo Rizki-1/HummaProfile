@@ -87,8 +87,7 @@
                 <h3 class="sub-title">Pendaftaran kelas industri</h3>
                 <h2 class="title">Dapatkan infomasi terkait pendaftaran kelas industri di sini</h2>
               </div>
-              <p class="text mb-3">Accelerate innovation with world-class tech teams We’ll match you to an entire remote
-                team of incredible freelance talent for all your software development needs.</p>
+              <p class="text mb-3">Kami menyediakan kesempatan untuk meningkatkan keterampilan dan pengetahuan dalam dunia teknologi. Kelas industri kami menawarkan kurikulum yang terkini dan diajarkan oleh para ahli industri yang berpengalaman.</p>
               <div><a href="https://class.hummatech.com/" target="_blank" class="btn btn-primary">Daftar</a></div>
             </div>
             <!-- Choose Us Left End -->

@@ -17,6 +17,7 @@
   .nodata p {
     font-weight: 600;
     font-size: 25px;
+    color: #b3b6c5;
   }
 </style>
   <link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/forceNav.css') }}">

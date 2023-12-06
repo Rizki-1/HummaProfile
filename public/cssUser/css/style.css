@@ -526,7 +526,7 @@ textarea:-ms-input-placeholder {
     font-size: 18px;
     font-family: "Barlow", sans-serif;
     font-weight: 700;
-    height: 60px;
+    height: 59px;
     line-height: 56px;
     padding: 0px 70px;
     border: 0;
@@ -773,7 +773,7 @@ textarea:-ms-input-placeholder {
 }
 
 .header-menu .main-menu li.active-menu>a {
-    color: #086ad8 !important;
+    color: #01b1f0 !important;
 }
 
 .header-menu .main-menu li.active-menu>.menu-icon::after {
@@ -794,7 +794,7 @@ textarea:-ms-input-placeholder {
 }
 
 .header-menu .main-menu li:hover>a {
-    color: #086ad8;
+    color: #01b1f0;
 }
 
 .header-menu .main-menu li:hover>.sub-menu {
@@ -7009,7 +7009,7 @@ textarea:-ms-input-placeholder {
     text-align: center;
     border-radius: 50%;
     color: #ffffff;
-    background: linear-gradient(-140deg, #43baff 0%, #7141b1 100%);
+    background: linear-gradient(-140deg, #43baff 0%, #00b1ef 100%);
     right: 35px;
     transition: all .3s ease-out 0s;
 }
