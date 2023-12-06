@@ -74,7 +74,7 @@ class HomeController extends Controller
     public function indexBerita(Request $request)
     {
 
-        $beritaAll =  Berita::with('kategori')->latest()->paginate(2);
+        $beritaAll =  Berita::with('kategori')->latest()->paginate(9);
         $sosmed = Sosmed::all();
         $profile = ProfileCompany::all();
         $kategori = KategoriBerita::all();
