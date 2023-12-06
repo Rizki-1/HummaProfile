@@ -1,6 +1,23 @@
 @extends('layouts.nav-user')
 
 @section('content')
+<style>
+  .nodata {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin: 3rem 0 0;
+  }
+
+  .nodata img {
+    height: 12rem;
+  }
+
+  .nodata p {
+    font-weight: 600;
+    font-size: 25px;
+  }
+</style>
   <!-- Page Banner Start -->
   <div class="section page-banner-section" style="background-image: url({{ asset('cssUser/images/bg/page-banner') }}.jpg);">
     <div class="shape-1">
@@ -77,6 +94,7 @@
           <h2 class="title">Tingkatkan Pengalaman Anda dengan Layanan Perusahaan Kami</h2>
         </div>
         <div class="service-content-wrap">
+          @if ($layananSiswa->count() > 0)
           <div class="row">
             @foreach ($layananSiswa as $key => $data)
               <div class="col-xl-3 col-sm-6">
@@ -91,6 +109,12 @@
               </div>
             @endforeach
           </div>
+          @else
+          <div class="nodata gap-3">
+            <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="">
+            <p>Data layanan tidak tersedia</p>
+          </div>
+          @endif
         </div>
         <div class="d-flex justify-content-center mt-5">
           {{ $layananSiswa->links('pagination::simple-bootstrap-5') }}
