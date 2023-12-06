@@ -192,7 +192,10 @@
                   <!--  Single Testimonial End  -->
                 </div>
               @empty
-                <p style="text-align: center">data sedang kosong</p>
+              <div class="nodata gap-3 w-100">
+                <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="" >
+                <p style="">Data Testimoni tidak ada</p>
+              </div>
               @endforelse
             </div>
 
