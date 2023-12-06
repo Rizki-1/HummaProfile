@@ -757,7 +757,7 @@ textarea:-ms-input-placeholder {
 }
 
 .header-menu .main-menu li.active-menu>a {
-    color: #086ad8;
+    color: #086ad8 !important;
 }
 
 .header-menu .main-menu li.active-menu>.menu-icon::after {
