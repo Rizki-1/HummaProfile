@@ -1,35 +1,35 @@
 @extends('layouts.nav-user')
 
 @section('content')
+  <style>
+    #carouselExampleSlidesOnly {
+      overflow: hidden;
+      position: relative;
+    }
 
-<style>
-  #carouselExampleSlidesOnly {
-    overflow: hidden;
-    position: relative;
-  }
+    .carousel-inner {
+      display: flex;
+      height: 100vh;
+      transition: transform 0.5s ease;
+    }
 
-  .carousel-inner {
-    display: flex;
-    height: 100vh;
-    transition: transform 0.5s ease;
-  }
+    .carousel-item {
+      width: 100%;
+      height: 100%;
+      flex: 0 0 auto;
+    }
 
-  .carousel-item {
-    width: 100%;
-    height: 100%;
-    flex: 0 0 auto;
-  }
+    .carousel-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-  .carousel-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .parallax-scroll {
-    transform: translateY(0);
-    transition: transform 0.4s ease; /* Efek transisi untuk membuat pergerakan lebih halus */
-  }
+    .parallax-scroll {
+      transform: translateY(0);
+      transition: transform 0.4s ease;
+      /* Efek transisi untuk membuat pergerakan lebih halus */
+    }
 
   /* Penyesuaian agar gambar tetap di dalam batas */
   .parallax-scroll .carousel-item {
@@ -55,71 +55,71 @@
 </style>
 
 
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner parallax-scroll">
-    <div class="carousel-item active">
-      <img src="{{ asset('ImageGlobal/lp-2.jpg') }}" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="{{ asset('ImageGlobal/lp-1.jpg') }}" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="{{ asset('ImageGlobal/lp-3.jpg') }}" class="d-block w-100" alt="...">
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner parallax-scroll">
+      <div class="carousel-item active">
+        <img src="{{ asset('ImageGlobal/lp-2.jpg') }}" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="{{ asset('ImageGlobal/lp-1.jpg') }}" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="{{ asset('ImageGlobal/lp-3.jpg') }}" class="d-block w-100" alt="...">
+      </div>
     </div>
   </div>
-</div>
 
-<script>
-  // Fungsi untuk menangani smooth scroll
-  function scrollTo(element, to, duration) {
-    const start = element.scrollTop;
-    const change = to - start;
-    let currentTime = 0;
-    const increment = 20;
+  <script>
+    // Fungsi untuk menangani smooth scroll
+    function scrollTo(element, to, duration) {
+      const start = element.scrollTop;
+      const change = to - start;
+      let currentTime = 0;
+      const increment = 20;
 
-    function animateScroll() {
-      currentTime += increment;
-      const val = Math.easeInOutQuad(currentTime, start, change, duration);
-      element.scrollTop = val;
-      if (currentTime < duration) {
-        requestAnimationFrame(animateScroll);
+      function animateScroll() {
+        currentTime += increment;
+        const val = Math.easeInOutQuad(currentTime, start, change, duration);
+        element.scrollTop = val;
+        if (currentTime < duration) {
+          requestAnimationFrame(animateScroll);
+        }
       }
+
+      animateScroll();
     }
 
-    animateScroll();
-  }
+    // Fungsi easing untuk scroll
+    Math.easeInOutQuad = function(t, b, c, d) {
+      t /= d / 2;
+      if (t < 1) return (c / 2) * t * t + b;
+      t--;
+      return (-c / 2) * (t * (t - 2) - 1) + b;
+    };
 
-  // Fungsi easing untuk scroll
-  Math.easeInOutQuad = function (t, b, c, d) {
-    t /= d / 2;
-    if (t < 1) return (c / 2) * t * t + b;
-    t--;
-    return (-c / 2) * (t * (t - 2) - 1) + b;
-  };
+    // Mendeteksi pergerakan scroll dan menerapkan efek paralaks
+    document.addEventListener("scroll", function() {
+      const scrollY = window.scrollY || window.pageYOffset;
+      const parallaxContainer = document.querySelector(".parallax-scroll");
 
-  // Mendeteksi pergerakan scroll dan menerapkan efek paralaks
-  document.addEventListener("scroll", function () {
-    const scrollY = window.scrollY || window.pageYOffset;
-    const parallaxContainer = document.querySelector(".parallax-scroll");
-
-    if (parallaxContainer) {
-      const translateYValue = scrollY * 0.5;
-      parallaxContainer.style.transform = `translateY(${translateYValue}px)`;
-    }
-  });
-
-  // Mendeteksi klik pada tautan dan mengaktifkan smooth scroll
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
-      e.preventDefault();
-
-      const targetElement = document.querySelector(this.getAttribute("href"));
-      if (targetElement) {
-        scrollTo(document.documentElement, targetElement.offsetTop, 1000);
+      if (parallaxContainer) {
+        const translateYValue = scrollY * 0.5;
+        parallaxContainer.style.transform = `translateY(${translateYValue}px)`;
       }
     });
-  });
-</script>
+
+    // Mendeteksi klik pada tautan dan mengaktifkan smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function(e) {
+        e.preventDefault();
+
+        const targetElement = document.querySelector(this.getAttribute("href"));
+        if (targetElement) {
+          scrollTo(document.documentElement, targetElement.offsetTop, 1000);
+        }
+      });
+    });
+  </script>
 
   <!-- About Start -->
   <div class="section techwix-about-section-04 section-padding">
@@ -133,7 +133,8 @@
             <div class="about-content-wrap">
               <div class="section-title">
                 <h3 class="sub-title">Tentang Kami</h3>
-                <h2 class="title">Kami menyediakan berbagai layanan Software yang dirancang untuk mendukung Perusahaan dan bisnis Anda.
+                <h2 class="title">Kami menyediakan berbagai layanan Software yang dirancang untuk mendukung Perusahaan
+                  dan bisnis Anda.
                 </h2>
               </div>
               @foreach ($profile as $data)
@@ -162,7 +163,8 @@
   <!-- About End -->
 
   <!-- Service Start -->
-  <div class="section techwix-service-section-02 service-card-content section-padding" style="background-image: url(cssUser/images/bg/service-bg.jpg);">
+  <div class="section techwix-service-section-02 service-card-content section-padding"
+    style="background-color: #f8f8f8">
     <div class="container">
       <!-- Service Wrap Start -->
       <div class="service-wrap">
@@ -172,7 +174,7 @@
         </div>
         @if($layanan->count() > 0)
         <div class="service-content-wrap choose-us-content-wrap">
-          <div class="row">
+          <div class="row justify-content-center">
             @foreach ($layanan->take(4) as $key => $data)
               <div class="col-xl-3 col-sm-6">
                 <!-- Service Item Start -->
@@ -223,7 +225,8 @@
                 <!-- Choose Us Item Start -->
                 <div class="choose-us-item">
                   <div class="choose-us-img">
-                    <a href="#"><img class="picture-responsive" src="{{ asset('storage/' . $produkRow->foto_produk) }}" alt="Foto Produk"></a>
+                    <a href="#"><img class="picture-responsive"
+                        src="{{ asset('storage/' . $produkRow->foto_produk) }}" alt="Foto Produk"></a>
                     <div class="choose-us-content">
                       <h3 class="title text-truncate">{{ $produkRow->nama_produk }}</h3>
                       <p class="description-truncate">{{ $produkRow->keterangan_produk }}</p>
@@ -237,7 +240,8 @@
           <div class="row">
             <div class="col-lg-12">
               <div class="more-choose-content text-center">
-                <p>Produk lainnya <a href="{{ route('produkIndex') }}">Disini <i class="fas fa-long-arrow-alt-right"></i></a> </p>
+                <p>Produk lainnya <a href="{{ route('produkIndex') }}">Disini <i
+                      class="fas fa-long-arrow-alt-right"></i></a> </p>
               </div>
             </div>
           </div>
@@ -254,7 +258,8 @@
   </div>
 
   <!-- Testimonial Start  -->
-  <div class="section techwix-testimonial-section-02 techwix-testimonial-section-03 section-padding-02" style="padding: 60px 0;">
+  <div class="section techwix-testimonial-section-02 techwix-testimonial-section-03 section-padding-02"
+    style="padding: 60px 0;">
     <div class="container">
       <!-- Testimonial Wrap Start  -->
       <div class="testimonial-wrap-02">
@@ -278,13 +283,14 @@
                         <p>{{ $tm->testimoni }}</p>
                       </div>
                       <span class="name d-inline-block text-truncate" style="max-width: 40%">{{ $tm->nama }} </span>
-                      <span class="designation d-inline-block text-truncate" style="max-width: 40%">/ {{ $tm->asal_sekolah }}</span>
+                      <span class="designation d-inline-block text-truncate" style="max-width: 40%">/
+                        {{ $tm->asal_sekolah }}</span>
                     </div>
                   </div>
                   <!--  Single Testimonial End  -->
                 </div>
               @empty
-              <p style="text-align: center">data sedang kosong</p>
+                <p style="text-align: center">data sedang kosong</p>
               @endforelse
             </div>
 
@@ -362,7 +368,7 @@
   <!-- Brand Logo End -->
 
   {{-- Berita Start --}}
-  <div class="section techwix-blog-section section-padding-02" style="background-color: #f4f4f4; padding-top: 70px;">
+  <div class="section techwix-blog-section section-padding-02" style="padding-top: 70px;">
     <div class="container">
       <!-- Section Title Start -->
       <div class="section-title text-center">
@@ -378,7 +384,9 @@
               <!-- Single Blog Start -->
               <div class="single-blog">
                 <div class="blog-image">
-                  <a style="height: 250px; width: 100%" href=""><img style="height: 100%; width: 100%; object-fit: cover;" src="{{ asset('storage/' . $data->thumbnail) }}" alt="{{ $data->title }}"></a>
+                  <a style="height: 250px; width: 100%" href=""><img
+                      style="height: 100%; width: 100%; object-fit: cover;"
+                      src="{{ asset('storage/' . $data->thumbnail) }}" alt="{{ $data->title }}"></a>
                   <div class="top-meta">
                     <span class="date">
                       <span>{{ \Carbon\Carbon::parse($data->created_at)->format('d') }}</span>
@@ -389,12 +397,14 @@
                 <div class="blog-content">
                   <div class="blog-meta">
                     @foreach ($data->kategori as $item)
-                      <a href="{{ route('filter-category', $item->id) }}" class="badge rounded-pill mb-1" style="background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; font-size: 12px;margin-right: 5px">{{ $item->name }}</a>
+                      <a href="{{ route('filter-category', $item->id) }}" class="badge rounded-pill mb-1"
+                        style="background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; font-size: 12px;margin-right: 5px">{{ $item->name }}</a>
                     @endforeach
                   </div>
                   <h3 class="title"><a href="">{{ $data->title }}</a></h3>
                   <div class="blog-btn">
-                    <a class="blog-btn-link" href="{{ route('detailBerita', $data->id) }}">Read Full <i class="fas fa-long-arrow-alt-right"></i></a>
+                    <a class="blog-btn-link" href="{{ route('detailBerita', $data->id) }}">Selengkapnya <i
+                        class="fas fa-long-arrow-alt-right"></i></a>
                   </div>
                 </div>
               </div>
@@ -405,7 +415,8 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="custome-more-text text-center" style="margin-top: 30px">
-              <p>Berita lainnya <a href="{{ route('beritaIndex') }}">Disini <i class="fas fa-long-arrow-alt-right"></i></a> </p>
+              <p>Berita lainnya <a href="{{ route('beritaIndex') }}">Disini <i
+                    class="fas fa-long-arrow-alt-right"></i></a> </p>
             </div>
           </div>
         </div>
@@ -421,7 +432,7 @@
   {{-- Berita End --}}
 
   <!-- Blog Start -->
-  <div class="section techwix-blog-section section-padding-02">
+  <div class="section techwix-blog-section section-padding-02" style="background-color: #f8f8f8">
     <div class="container">
       <!-- Section Title Start -->
       <div class="section-title text-center">
@@ -431,7 +442,8 @@
       <div class="container">
         <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
         <div class="container-map">
-          <div id="map" style="height: 400px;z-index: 1;" class="shadow-sm p-3 mb-5 bg-white rounded w-100 position-relative"></div>
+          <div id="map" style="height: 400px;z-index: 1;"
+            class="shadow-sm p-3 mb-5 bg-white rounded w-100 position-relative"></div>
         </div>
       </div>
     </div>

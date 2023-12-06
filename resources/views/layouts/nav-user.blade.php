@@ -65,8 +65,8 @@
               <li class="{{ request()->routeIs('produkIndex') ? 'active-menu' : '' }}">
                 <a href="{{ route('produkIndex') }}">Produk Kami</a>
               </li>
-              <li class="#">
-                <a href="#">Blog</a>
+              <li class="{{ request()->routeIs('beritaIndex') ? 'active-menu' : '' }}">
+                <a href="{{ route('beritaIndex') }}">Blog</a>
               </li>
               <li class="{{ request()->routeIs('contactIndex') ? 'active-menu' : '' }}">
                 <a href="{{ route('contactIndex') }}">Hubungi</a>
@@ -140,8 +140,8 @@
             <li class="{{ request()->routeIs('produkIndex') ? 'active-menu' : '' }}">
               <a href="{{ route('produkIndex') }}">Produk Kami</a>
             </li>
-            <li class="#">
-              <a href="#">Blog</a>
+            <li class="{{ request()->routeIs('beritaIndex') ? 'active-menu' : '' }}">
+              <a href="{{ route('beritaIndex') }}">Blog</a>
             </li>
             <li class="{{ request()->routeIs('contactIndex') ? 'active-menu' : '' }}">
               <a href="{{ route('contactIndex') }}">Hubungi</a>
@@ -179,7 +179,7 @@
                 <div class="widget-link">
                   <ul class="link">
                     @foreach ($sosmed as $data)
-                      <li><a class="text-capitalize" href="{{ $data->link }}">{{ $data->name }}</a></li>
+                      <li><a class="text-capitalize" target="_blank" href="{{ $data->link }}">{{ $data->name }}</a></li>
                     @endforeach
                   </ul>
                 </div>
@@ -193,10 +193,8 @@
 
                 <div class="widget-link">
                   <ul class="link">
-                    <li><a href="#">Data Security</a></li>
-                    <li><a href="#">IT Managment</a></li>
-                    <li><a href="#">Outsourcing</a></li>
-                    <li><a href="#">Networking</a></li>
+                    <li><a href="{{ route('home.siswaIndex') }}">Magang/PKL</a></li>
+                    <li><a href="{{ route('home.industriIndex') }}">Kelas Industri</a></li>
                   </ul>
                 </div>
               </div>

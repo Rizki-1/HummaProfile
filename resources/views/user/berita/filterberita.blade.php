@@ -2,16 +2,16 @@
 
 @section('content')
 <link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/forceNav.css') }}">
-  <div class="section techwix-blog-grid-section section-padding">
+  <div class="section techwix-blog-grid-section section-padding" style="background-color: #f8f8f8;">
     <div class="container">
       <div class="techwix-blog-grid-wrap">
-        <div class="row">
+        <div class="row justify-content-center">
             @foreach ($beritas as $berita)
             <div class="col-lg-4 col-md-6">
                 <!-- Single Blog Start -->
                 <div class="single-blog">
                   <div class="blog-image">
-                    <a style="height: 250px; width: 100%" href=""><img
+                    <a style="height: 250px; width: 100%" href="{{ route('detailBerita', $berita->berita->id) }}"><img
                         style="height: 100%; width: 100%; object-fit: cover;"
                         src="{{ asset('storage/' . $berita->berita->thumbnail) }}" alt="{{ $berita->berita->title }}"></a>
                     <div class="top-meta">
@@ -27,7 +27,7 @@
                         <span class="badge rounded-pill mb-1" style="background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; width: 100px; height: 30px; font-size: 12px; margin-right: 5px"><a href="{{ route('filterberita', $item->id) }}">{{ $item->name }}</a></span>
                       @endforeach
                     </div>
-                    <h3 class="title"><a href="">{{ $berita->berita->title }}</a></h3>
+                    <h3 class="title"><a href="{{ route('detailBerita', $berita->berita->id) }}">{{ $berita->berita->title }}</a></h3>
                     <div class="blog-btn">
                       <a class="blog-btn-link" href="{{ route('detailBerita', $berita->berita->id) }}">Read Full <i
                           class="fas fa-long-arrow-alt-right"></i></a>
@@ -38,9 +38,11 @@
               </div>
             @endforeach
         </div>
-        <!-- Page Pagination Start -->
-        {{ $beritas->links('pagination::bootstrap-5') }}
-        <!-- Page Pagination End -->
+        <div class="mt-4">
+          <!-- Page Pagination Start -->
+          {{ $beritas->links('pagination::bootstrap-5') }}
+          <!-- Page Pagination End -->
+        </div>
       </div>
     </div>
   </div>
