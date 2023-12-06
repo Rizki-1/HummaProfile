@@ -43,20 +43,27 @@
           <h2 class="title">Tingkatkan Pengalaman Anda dengan Layanan Perusahaan Kami</h2>
         </div>
         <div class="service-content-wrap">
-          <div class="row  justify-content-center">
-            @foreach ($layananSiswa as $key => $data)
-              <div class="col-xl-3 col-sm-6">
-                <!-- Service Item Start -->
-                <div class="service-item service-0{{ ++$key }}">
-                  <div class="service-content">
-                    <h3 class="title"><a>{{ $data->nama_layanan }}</a></h3>
-                    <p>{{ $data->descripsi_layanan }}</p>
+          @if ($layananSiswa->count() > 0)
+            <div class="row justify-content-center">
+              @foreach ($layananSiswa as $key => $data)
+                <div class="col-xl-3 col-sm-6">
+                  <!-- Service Item Start -->
+                  <div class="service-item service-0{{ ++$key }}">
+                    <div class="service-content">
+                      <h3 class="title"><a>{{ $data->nama_layanan }}</a></h3>
+                      <p>{{ $data->descripsi_layanan }}</p>
+                    </div>
                   </div>
+                  <!-- Service Item End -->
                 </div>
-                <!-- Service Item End -->
-              </div>
-            @endforeach
-          </div>
+              @endforeach
+            </div>
+          @else
+            <div class="nodata gap-3">
+              <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="">
+              <p>Data layanan tidak tersedia</p>
+            </div>
+          @endif
         </div>
         <div class="d-flex justify-content-center mt-5">
           {{ $layananSiswa->links('pagination::simple-bootstrap-5') }}
@@ -164,31 +171,29 @@
         <div class="testimonial-content-wrap-02">
           <div class="swiper-container testimonial-02-active">
             <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                @forelse ($testimoni as $tm)
-                  <div class="swiper-slide">
-                    <!--  Single Testimonial Start  -->
-                    <div class="single-testimonial-02">
-                      <div class="testimonial-thumb">
-                        <img src="{{ asset('storage/' . $tm->foto_siswa) }}" alt="">
-                      </div>
-                      <div class="testimonial-content">
-                        <img src="{{ asset('cssUser/images/testi-icon.png') }}" alt="">
-                        <div class="truncation">
-                          <p>{{ $tm->testimoni }}</p>
-                        </div>
-                        <span class="name d-inline-block text-truncate" style="max-width: 40%">{{ $tm->nama }}
-                        </span>
-                        <span class="designation d-inline-block text-truncate" style="max-width: 40%">/
-                          {{ $tm->asal_sekolah }}</span>
-                      </div>
+              @forelse ($testimoni->take(5) as $tm)
+                <div class="swiper-slide">
+                  <!--  Single Testimonial Start  -->
+                  <div class="single-testimonial-02">
+                    <div class="testimonial-thumb">
+                      <img src="{{ asset('storage/' . $tm->foto_siswa) }}" alt="">
                     </div>
-                    <!--  Single Testimonial End  -->
+                    <div class="testimonial-content">
+                      <img src="{{ asset('cssUser/images/testi-icon.png') }}" alt="">
+                      <div class="truncation">
+                        <p>{{ $tm->testimoni }}</p>
+                      </div>
+                      <span class="name d-inline-block text-truncate" style="max-width: 40%">{{ $tm->nama }}
+                      </span>
+                      <span class="designation d-inline-block text-truncate" style="max-width: 40%">/
+                        {{ $tm->asal_sekolah }}</span>
+                    </div>
                   </div>
-                @empty
-                  <p style="text-align: center">data sedang kosong</p>
-                @endforelse
-              </div>
+                  <!--  Single Testimonial End  -->
+                </div>
+              @empty
+                <p style="text-align: center">data sedang kosong</p>
+              @endforelse
             </div>
 
             <!-- Add Pagination -->

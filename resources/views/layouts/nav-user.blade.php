@@ -22,7 +22,6 @@
 
   <!-- Main Style CSS -->
   <link rel="stylesheet" href="{{ asset('cssUser/css/style.css') }}">
-  <link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/style.css') }}">
 </head>
 
 <body>

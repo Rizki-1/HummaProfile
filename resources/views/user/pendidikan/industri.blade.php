@@ -43,6 +43,7 @@
           <h2 class="title">Tingkatkan Pengalaman Anda dengan Layanan Perusahaan Kami</h2>
         </div>
         <div class="service-content-wrap">
+          @if ($layananIndustri->count() > 0)
           <div class="row justify-content-center">
             @foreach ($layananIndustri as $key => $data)
               <div class="col-xl-3 col-sm-6">
@@ -57,6 +58,12 @@
               </div>
             @endforeach
           </div>
+          @else
+          <div class="nodata gap-3">
+            <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="">
+            <p>Data layanan tidak tersedia</p>
+          </div>
+          @endif
         </div>
         <div class="d-flex justify-content-center mt-5">
           {{ $layananIndustri->links('pagination::simple-bootstrap-5') }}
@@ -163,8 +170,7 @@
         <div class="testimonial-content-wrap-02">
           <div class="swiper-container testimonial-02-active">
             <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                @forelse ($testimoni as $tm)
+                @forelse ($testimoni->take(5) as $tm)
                   <div class="swiper-slide">
                     <!--  Single Testimonial Start  -->
                     <div class="single-testimonial-02">
@@ -187,7 +193,6 @@
                 @empty
                   <p style="text-align: center">data sedang kosong</p>
                 @endforelse
-              </div>
             </div>
 
             <!-- Add Pagination -->

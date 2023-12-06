@@ -40,7 +40,7 @@ class HomeController extends Controller
 
     public function indexSiswa()
     {
-        $testimoni = Testimoni::all();
+        $testimoni = Testimoni::inRandomOrder()->get();
         $sosmed = Sosmed::all();
         $profile = ProfileCompany::all();
         $layananSiswa = LayananPerusahaan::where('target_layanan_id', 1)->paginate(4);
@@ -49,7 +49,7 @@ class HomeController extends Controller
 
     public function indexIndustri()
     {
-        $testimoni = Testimoni::all();
+        $testimoni = Testimoni::inRandomOrder()->get();
         $sosmed = Sosmed::all();
         $profile = ProfileCompany::all();
         $layananIndustri = LayananPerusahaan::where('target_layanan_id', 2)->paginate(4);

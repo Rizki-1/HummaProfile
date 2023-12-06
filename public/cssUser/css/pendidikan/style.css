@@ -1,6 +1,6 @@
 .video {
   position: relative;
-  top: -3px;
+  top: 0px;
   width: 100%;
   height: 100vh;
   overflow: hidden;
@@ -33,4 +33,20 @@ video {
     background: rgba(0, 0, 0, 0.7); /* Sesuaikan dengan kebutuhan Anda */
     backdrop-filter: blur(5px); /* Sesuaikan dengan kebutuhan Anda */
   }
+}
+
+.nodata {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  margin: 3rem 0 0;
+}
+
+.nodata img {
+  height: 12rem;
+}
+
+.nodata p {
+  font-weight: 600;
+  font-size: 25px;
 }
