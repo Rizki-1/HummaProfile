@@ -170,8 +170,7 @@
         <div class="testimonial-content-wrap-02">
           <div class="swiper-container testimonial-02-active">
             <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                @forelse ($testimoni as $tm)
+                @forelse ($testimoni->take(5) as $tm)
                   <div class="swiper-slide">
                     <!--  Single Testimonial Start  -->
                     <div class="single-testimonial-02">
@@ -194,7 +193,6 @@
                 @empty
                   <p style="text-align: center">data sedang kosong</p>
                 @endforelse
-              </div>
             </div>
 
             <!-- Add Pagination -->
