@@ -3,7 +3,6 @@
 @section('content')
   <link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/style.css') }}">
 
-
   <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner parallax-scroll">
       <div class="carousel-item active">
@@ -87,8 +86,7 @@
             <div class="row">
               <div class="col-lg-12">
                 <div class="more-choose-content text-center">
-                  <p>Lihat Selengkapnya <a href="{{ route('layananIndex') }}">Disini <i
-                        class="fas fa-long-arrow-alt-right"></i></a>
+                  <p>Lihat Selengkapnya <a href="{{ route('layananIndex') }}">Disini <i class="fas fa-long-arrow-alt-right"></i></a>
                   </p>
                 </div>
               </div>
@@ -115,28 +113,28 @@
           <h2 class="title">Produk yang kami hasilkan</h2>
         </div>
         @if ($produk->count() > 0)
-        <div class="choose-us-content-wrap">
-          <div class="row justify-content-center">
-            @foreach ($produk->take(3) as $produkRow)
-              <div class="col-lg-4 col-md-6">
-                <!-- Choose Us Item Start -->
-                <div class="choose-us-item">
-                  <div class="choose-us-img">
-                    <a href="{{ route('produk.detail', $produkRow->id) }}"><img class="picture-responsive" src="{{ asset('storage/' . $produkRow->foto_produk) }}" alt="Foto Produk"></a>
-                    <div class="choose-us-content">
-                      <h3 class="title text-truncate">{{ $produkRow->nama_produk }}</h3>
-                      <p class="description-truncate">{{ $produkRow->keterangan_produk }}</p>
+          <div class="choose-us-content-wrap">
+            <div class="row justify-content-center">
+              @foreach ($produk->take(3) as $produkRow)
+                <div class="col-lg-4 col-md-6">
+                  <!-- Choose Us Item Start -->
+                  <div class="choose-us-item">
+                    <div class="choose-us-img">
+                      <a href="{{ route('produk.detail', $produkRow->id) }}"><img class="picture-responsive" src="{{ asset('storage/' . $produkRow->foto_produk) }}" alt="Foto Produk"></a>
+                      <div class="choose-us-content">
+                        <h3 class="title text-truncate">{{ $produkRow->nama_produk }}</h3>
+                        <p class="description-truncate">{{ $produkRow->keterangan_produk }}</p>
+                      </div>
                     </div>
+                    <!-- Choose Us Item End -->
                   </div>
-                  <!-- Choose Us Item End -->
                 </div>
               @endforeach
             </div>
             <div class="row">
               <div class="col-lg-12">
                 <div class="more-choose-content text-center">
-                  <p>Produk lainnya <a href="{{ route('produkIndex') }}">Disini <i
-                        class="fas fa-long-arrow-alt-right"></i></a> </p>
+                  <p>Produk lainnya <a href="{{ route('produkIndex') }}">Disini <i class="fas fa-long-arrow-alt-right"></i></a> </p>
                 </div>
               </div>
             </div>
@@ -153,8 +151,7 @@
   </div>
 
   <!-- Testimonial Start  -->
-  <div class="section techwix-testimonial-section-02 techwix-testimonial-section-03 section-padding-02"
-    style="padding: 60px 0;">
+  <div class="section techwix-testimonial-section-02 techwix-testimonial-section-03 section-padding-02" style="padding: 60px 0;">
     <div class="container">
       <!-- Testimonial Wrap Start  -->
       <div class="testimonial-wrap-02">
@@ -186,7 +183,101 @@
                   <!--  Single Testimonial End  -->
                 </div>
               @empty
-                <p style="text-align: center">data sedang kosong</p>
+                <div class="swiper-slide">
+                  <!--  Single Testimonial Start  -->
+                  <div class="single-testimonial-02">
+                    <div class="testimonial-thumb">
+                      <img src="{{ asset('ImageGlobal/FotoPemandangan.png') }}" alt="">
+                    </div>
+                    <div class="testimonial-content">
+                      <img src="{{ asset('cssUser/images/testi-icon.png') }}" alt="">
+                      <div class="truncation">
+                        <p>Tetaplah semangat meskipun kamu tidak akan bisa mendapatkan dia</p>
+                      </div>
+                      <span class="name d-inline-block text-truncate" style="max-width: 40%">Hummatech Team
+                      </span>
+                      <span class="designation d-inline-block text-truncate" style="max-width: 40%">/
+                        Love from us</span>
+                    </div>
+                  </div>
+                  <!--  Single Testimonial End  -->
+                </div>
+                <div class="swiper-slide">
+                  <!--  Single Testimonial Start  -->
+                  <div class="single-testimonial-02">
+                    <div class="testimonial-thumb">
+                      <img src="{{ asset('ImageGlobal/FotoPemandangan.png') }}" alt="">
+                    </div>
+                    <div class="testimonial-content">
+                      <img src="{{ asset('cssUser/images/testi-icon.png') }}" alt="">
+                      <div class="truncation">
+                        <p>Matahari tidak akan bertahan selamanya, sama seperti mimpi kita ketika kita tidak berusaha menggapainya</p>
+                      </div>
+                      <span class="name d-inline-block text-truncate" style="max-width: 40%">Hummatech Team
+                      </span>
+                      <span class="designation d-inline-block text-truncate" style="max-width: 40%">/
+                        Love from us</span>
+                    </div>
+                  </div>
+                  <!--  Single Testimonial End  -->
+                </div>
+                <div class="swiper-slide">
+                  <!--  Single Testimonial Start  -->
+                  <div class="single-testimonial-02">
+                    <div class="testimonial-thumb">
+                      <img src="{{ asset('ImageGlobal/FotoPemandangan.png') }}" alt="">
+                    </div>
+                    <div class="testimonial-content">
+                      <img src="{{ asset('cssUser/images/testi-icon.png') }}" alt="">
+                      <div class="truncation">
+                        <p>Tomat itu buah atau sayur? beritahu kami +62 849 3948 3984, semoga beruntung karena no hp ini palsu</p>
+                      </div>
+                      <span class="name d-inline-block text-truncate" style="max-width: 40%">Hummatech Team
+                      </span>
+                      <span class="designation d-inline-block text-truncate" style="max-width: 40%">/
+                        Love from us</span>
+                    </div>
+                  </div>
+                  <!--  Single Testimonial End  -->
+                </div>
+                <div class="swiper-slide">
+                  <!--  Single Testimonial Start  -->
+                  <div class="single-testimonial-02">
+                    <div class="testimonial-thumb">
+                      <img src="{{ asset('ImageGlobal/FotoPemandangan.png') }}" alt="">
+                    </div>
+                    <div class="testimonial-content">
+                      <img src="{{ asset('cssUser/images/testi-icon.png') }}" alt="">
+                      <div class="truncation">
+                        <p>Apakah kita tidur lebih awal jika kita tidur jam 1 malam? atau tidur lebih lambat?</p>
+                      </div>
+                      <span class="name d-inline-block text-truncate" style="max-width: 40%">Hummatech Team
+                      </span>
+                      <span class="designation d-inline-block text-truncate" style="max-width: 40%">/
+                        Love from us</span>
+                    </div>
+                  </div>
+                  <!--  Single Testimonial End  -->
+                </div>
+                <div class="swiper-slide">
+                  <!--  Single Testimonial Start  -->
+                  <div class="single-testimonial-02">
+                    <div class="testimonial-thumb">
+                      <img src="{{ asset('ImageGlobal/FotoPemandangan.png') }}" alt="">
+                    </div>
+                    <div class="testimonial-content">
+                      <img src="{{ asset('cssUser/images/testi-icon.png') }}" alt="">
+                      <div class="truncation">
+                        <p>Manusia akan tinggal di mars pada masa yang akan datang, Anda mungkin akan menjadi salah satunya</p>
+                      </div>
+                      <span class="name d-inline-block text-truncate" style="max-width: 40%">Hummatech Team
+                      </span>
+                      <span class="designation d-inline-block text-truncate" style="max-width: 40%">/
+                        Love from us</span>
+                    </div>
+                  </div>
+                  <!--  Single Testimonial End  -->
+                </div>
               @endforelse
             </div>
 
@@ -280,9 +371,7 @@
                 <!-- Single Blog Start -->
                 <div class="single-blog">
                   <div class="blog-image">
-                    <a style="height: 250px; width: 100%" href=""><img
-                        style="height: 100%; width: 100%; object-fit: cover;"
-                        src="{{ asset('storage/' . $data->thumbnail) }}" alt="{{ $data->title }}"></a>
+                    <a style="height: 250px; width: 100%" href=""><img style="height: 100%; width: 100%; object-fit: cover;" src="{{ asset('storage/' . $data->thumbnail) }}" alt="{{ $data->title }}"></a>
                     <div class="top-meta">
                       <span class="date">
                         <span>{{ \Carbon\Carbon::parse($data->created_at)->format('d') }}</span>
@@ -293,14 +382,12 @@
                   <div class="blog-content">
                     <div class="blog-meta">
                       @foreach ($data->kategori as $item)
-                        <a href="{{ route('filter-category', $item->id) }}" class="badge rounded-pill mb-1"
-                          style="background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; font-size: 12px;margin-right: 5px">{{ $item->name }}</a>
+                        <a href="{{ route('filter-category', $item->id) }}" class="badge rounded-pill mb-1" style="background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; font-size: 12px;margin-right: 5px">{{ $item->name }}</a>
                       @endforeach
                     </div>
                     <h3 class="title"><a href="">{{ $data->title }}</a></h3>
                     <div class="blog-btn">
-                      <a class="blog-btn-link" href="{{ route('detailBerita', $data->id) }}">Selengkapnya <i
-                          class="fas fa-long-arrow-alt-right"></i></a>
+                      <a class="blog-btn-link" href="{{ route('detailBerita', $data->id) }}">Selengkapnya <i class="fas fa-long-arrow-alt-right"></i></a>
                     </div>
                   </div>
                 </div>
@@ -311,8 +398,7 @@
           <div class="row">
             <div class="col-lg-12">
               <div class="custome-more-text text-center" style="margin-top: 30px">
-                <p>Berita lainnya <a href="{{ route('beritaIndex') }}">Disini <i
-                      class="fas fa-long-arrow-alt-right"></i></a> </p>
+                <p>Berita lainnya <a href="{{ route('beritaIndex') }}">Disini <i class="fas fa-long-arrow-alt-right"></i></a> </p>
               </div>
             </div>
           </div>
@@ -338,8 +424,7 @@
       <div class="container">
         <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
         <div class="container-map">
-          <div id="map" style="height: 400px;z-index: 1;"
-            class="shadow-sm p-3 mb-5 bg-white rounded w-100 position-relative"></div>
+          <div id="map" style="height: 400px;z-index: 1;" class="shadow-sm p-3 mb-5 bg-white rounded w-100 position-relative"></div>
         </div>
       </div>
     </div>
