@@ -182,12 +182,13 @@ class BeritaController extends Controller
 
     public function filter(int $id)
     {
-        $dataPivot = BeritaKategori::with(['berita', 'kategori'])
+        $beritas = BeritaKategori::with(['berita', 'kategori'])
             ->whereHas('kategori', function ($query) use ($id) {
                 $query->where('kategori_berita_id', $id);
             })
-            ->get();
+            ->paginate(9);
+        $kategori = KategoriBerita::all();
 
-        dump($dataPivot);
+        return view('user.berita.filterberita', compact('beritas','kategori'));
     }
 }

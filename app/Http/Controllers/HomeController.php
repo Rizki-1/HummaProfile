@@ -23,14 +23,13 @@ class HomeController extends Controller
     // User Controller
     public function index()
     {
-        $sosmed = Sosmed::all();
         $profile = ProfileCompany::all();
         $berita = Berita::latest()->get();
         $layanan = LayananPerusahaan::latest()->get();
         $produk = Produk::latest()->get();
         $Mous = Mou::all();
         $testimoni = Testimoni::latest()->get();
-        return view('user.index', compact('sosmed', 'profile', 'berita', 'layanan', 'produk', 'Mous', 'testimoni'));
+        return view('user.index', compact('profile', 'berita', 'layanan', 'produk', 'Mous', 'testimoni'));
     }
 
     public function home()
@@ -41,93 +40,62 @@ class HomeController extends Controller
     public function indexSiswa()
     {
         $testimoni = Testimoni::inRandomOrder()->get();
-        $sosmed = Sosmed::all();
-        $profile = ProfileCompany::all();
         $layananSiswa = LayananPerusahaan::where('target_layanan_id', 1)->paginate(4);
-        return view('user.pendidikan.siswa', compact('sosmed', 'profile', 'layananSiswa', 'testimoni'));
+        return view('user.pendidikan.siswa', compact('layananSiswa', 'testimoni'));
     }
 
     public function indexIndustri()
     {
         $testimoni = Testimoni::inRandomOrder()->get();
-        $sosmed = Sosmed::all();
-        $profile = ProfileCompany::all();
         $layananIndustri = LayananPerusahaan::where('target_layanan_id', 2)->paginate(4);
-        return view('user.pendidikan.industri', compact('sosmed', 'profile', 'layananIndustri', 'testimoni'));
+        return view('user.pendidikan.industri', compact('layananIndustri', 'testimoni'));
     }
 
     public function indexProduk()
     {
         $produk = Produk::latest()->paginate(9);
-        $sosmed = Sosmed::all();
-        $profile = ProfileCompany::all();
-        return view('user.produk.index', compact('sosmed', 'profile', 'produk'));
+        return view('user.produk.index', compact('produk'));
     }
 
     public function indexContact()
     {
-        $sosmed = Sosmed::all();
         $profile = ProfileCompany::all();
-        return view('user.hubungi.index', compact('sosmed', 'profile'));
+        return view('user.hubungi.index', compact('profile'));
     }
 
     public function indexBerita(Request $request)
     {
 
         $beritaAll =  Berita::with('kategori')->latest()->paginate(9);
-        $sosmed = Sosmed::all();
-        $profile = ProfileCompany::all();
         $kategori = KategoriBerita::all();
-        return view('user.berita.index', compact('beritaAll', 'sosmed', 'profile', 'kategori'));
-    }
-
-    public function filterBerita($id)
-    {
-        try {
-            $beritas = BeritaKategori::with(['berita','kategori'])
-            ->whereHas('kategori', function ($query) use ($id) {
-                $query->where('kategori_berita_id', $id);
-            })->paginate(9);
-            $sosmed = Sosmed::all();
-            $profile = ProfileCompany::all();
-            $kategori = KategoriBerita::all();
-
-            return view('user.berita.filterberita', compact('beritas','sosmed','profile','kategori'));
-        } catch (\Throwable $th) {
-            return  redirect()->back();
-        }
-
+        return view('user.berita.index', compact('beritaAll', 'kategori'));
     }
 
     public function indexLayanan()
     {
-        $sosmed = Sosmed::all();
-        $profile = ProfileCompany::all();
         $layanan = LayananPerusahaan::latest()->get();
-        return view('user.layanan.index', compact('sosmed', 'profile', 'layanan'));
+        return view('user.layanan.index', compact('layanan'));
     }
 
-    public function detailBerita(Request $request, $id)
+    public function detailBerita(Request $request, $name)
     {
-        $berita = Berita::FindOrFail($id);
-        $sosmed = Sosmed::all();
+        $berita = Berita::where('title', $name)->first();
+        if(!$berita){
+            return abort(404);
+        }
         $beritaAll = Berita::all();
-        $profile = ProfileCompany::all();
         $kategoriBerita = KategoriBerita::all();
         if ($request->input('query')) {
             $beritaAll->where('title',  'LIKE', '%' . $request->input('query') . '%');
         }
-        $beritaAll = $beritaAll;
         $beritaRandom = Berita::inRandomOrder()->get();
-        return view('user.berita.detail', compact('berita', 'sosmed', 'profile', 'beritaAll', 'beritaRandom', 'kategoriBerita'));
+        return view('user.berita.detail', compact('berita', 'beritaAll', 'beritaRandom', 'kategoriBerita'));
     }
 
     public function detailProduk(string $berita) {
         $produk = Produk::findOrFail($berita);
         $produkLainnya = Produk::inRandomOrder()->get();
-        $sosmed = Sosmed::all();
-        $profile = ProfileCompany::all();
-        return view('user.produk.detailProduk', compact('produk', 'produkLainnya', 'sosmed', 'profile'));
+        return view('user.produk.detailProduk', compact('produk', 'produkLainnya'));
     }
     // End User Controller
 

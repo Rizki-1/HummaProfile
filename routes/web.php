@@ -88,11 +88,11 @@ Route::get('/pendidikan/industri', [HomeController::class, 'indexIndustri'])->na
 Route::get('/produk', [HomeController::class, 'indexProduk'])->name('produkIndex');
 Route::get('/contact', [HomeController::class, 'indexContact'])->name('contactIndex');
 Route::get('/berita', [HomeController::class, 'indexBerita'])->name('beritaIndex');
-Route::get('/berita/{id}', [HomeController::class, 'detailBerita'])->name('detailBerita');
+Route::get('/berita/{name}', [HomeController::class, 'detailBerita'])->name('detailBerita');
 Route::post('/inbox', [InboxController::class,'store'])->name('inbox.store');
 Route::get('/layanan', [HomeController::class, 'indexLayanan'])->name('layananIndex');
-Route::get('/beritaFilter/{id}', [HomeController::class, 'filterBerita'])->name('filterBerita');
 Route::get('/produk/{id}', [HomeController::class, 'detailProduk'])->name('produk.detail');
+Route::get('/category-berita/{id}', [BeritaController::class, 'filter'])->name('filter-category');
 
 //formLandingPage
 Route::post('/siswa.store', [FormController::class, 'SiswaMagangStore'])->name('siswa.store');
@@ -101,6 +101,4 @@ Route::post('/industri.store', [FormController::class, 'IndustriStore'])->name('
 
 //route testing
 Route::get('/test', [HomeController::class, 'test'])->name('test');
-Route::get('/filterberita/{id}',[HomeController::class,'filterBerita'])->name('filterberita');
-Route::get('/category-berita/{id}', [BeritaController::class, 'filter'])->name('filter-category');
 

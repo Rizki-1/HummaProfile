@@ -53,7 +53,7 @@
                   <ul>
                     @foreach ($beritaRandom->take(5) as $data)
                       <li>
-                        <a class="post-link" href="{{ route('detailBerita', $data->id) }}">
+                        <a class="post-link" href="{{ route('detailBerita', $data->title) }}">
                           <div class="post-thumb">
                             <img style="object-fit: cover" src="{{ asset('storage/' . $data->thumbnail) }}" alt="">
                           </div>
@@ -81,7 +81,7 @@
                 <!-- Widget Category Start -->
                 <ul class="sidebar-tag">
                   @foreach ($kategoriBerita as $data)
-                    <li><a href="{{ route('filterBerita',$data->id) }}">{{ $data->name }}</a></li>
+                    <li><a href="{{ route('filter-category',$data->id) }}">{{ $data->name }}</a></li>
                   @endforeach
                 </ul>
                 <!-- Widget Category End -->

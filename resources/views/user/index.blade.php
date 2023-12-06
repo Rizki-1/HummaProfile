@@ -387,7 +387,7 @@
                     </div>
                     <h3 class="title"><a href="">{{ $data->title }}</a></h3>
                     <div class="blog-btn">
-                      <a class="blog-btn-link" href="{{ route('detailBerita', $data->id) }}">Selengkapnya <i class="fas fa-long-arrow-alt-right"></i></a>
+                      <a class="blog-btn-link" href="{{ route('detailBerita', $data->title) }}">Selengkapnya <i class="fas fa-long-arrow-alt-right"></i></a>
                     </div>
                   </div>
                 </div>

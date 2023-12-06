@@ -11,7 +11,7 @@
                 <!-- Single Blog Start -->
                 <div class="single-blog">
                   <div class="blog-image">
-                    <a style="height: 250px; width: 100%" href="{{ route('detailBerita', $berita->berita->id) }}"><img
+                    <a style="height: 250px; width: 100%" href="{{ route('detailBerita', $berita->berita->title) }}"><img
                         style="height: 100%; width: 100%; object-fit: cover;"
                         src="{{ asset('storage/' . $berita->berita->thumbnail) }}" alt="{{ $berita->berita->title }}"></a>
                     <div class="top-meta">
@@ -24,12 +24,12 @@
                   <div class="blog-content">
                     <div class="blog-meta">
                         @foreach ($berita->berita->kategori as $item)
-                        <span class="badge rounded-pill mb-1" style="background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; width: 100px; height: 30px; font-size: 12px; margin-right: 5px"><a href="{{ route('filterberita', $item->id) }}">{{ $item->name }}</a></span>
+                        <span class="badge rounded-pill mb-1" style="background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; width: 100px; height: 30px; font-size: 12px; margin-right: 5px"><a href="{{ route('filter-category', $item->id) }}">{{ $item->name }}</a></span>
                       @endforeach
                     </div>
-                    <h3 class="title"><a href="{{ route('detailBerita', $berita->berita->id) }}">{{ $berita->berita->title }}</a></h3>
+                    <h3 class="title"><a href="{{ route('detailBerita', $berita->berita->title) }}">{{ $berita->berita->title }}</a></h3>
                     <div class="blog-btn">
-                      <a class="blog-btn-link" href="{{ route('detailBerita', $berita->berita->id) }}">Read Full <i
+                      <a class="blog-btn-link" href="{{ route('detailBerita', $berita->berita->title) }}">Read Full <i
                           class="fas fa-long-arrow-alt-right"></i></a>
                     </div>
                   </div>
@@ -54,7 +54,7 @@
         </div>
         <ul class="sidebar-tag">
           @foreach ($kategori as $data)
-            <li><a href="{{ route('filterBerita',$data->id) }}">{{ $data->name }}</a></li>
+            <li><a href="{{ route('filter-category',$data->id) }}">{{ $data->name }}</a></li>
           @endforeach
         </ul>
       </div>

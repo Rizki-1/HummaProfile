@@ -178,7 +178,7 @@
 
                 <div class="widget-link">
                   <ul class="link">
-                    @foreach ($sosmed as $data)
+                    @foreach (\App\Models\Sosmed::all() as $data)
                       <li><a class="text-capitalize" target="_blank" href="{{ $data->link }}">{{ $data->name }}</a></li>
                     @endforeach
                   </ul>
@@ -206,14 +206,14 @@
                 <h4 class="footer-widget-title">Hubungi Kami</h4>
 
                 <div class="widget-info">
-                  @foreach ($profile as $data)
+                  @foreach (\App\Models\ProfileCompany::all() as $data)
                     <ul>
                       <li>
                         <div class="info-icon">
                           <i class="flaticon-phone-call"></i>
                         </div>
                         <div class="info-text">
-                          <span><a href="#">{{ $data->no_telp }}</a></span>
+                          <span><a href="https://wa.me/{{ ltrim(preg_replace('/[^0-9]/', '', $data->no_telp), '0') }}">{{ $data->no_telp }}</a></span>
                         </div>
                       </li>
                       <li>
@@ -221,7 +221,7 @@
                           <i class="far fa-envelope-open"></i>
                         </div>
                         <div class="info-text">
-                          <span><a href="#">{{ $data->email }}</a></span>
+                          <span><a href="mailto:{{ $data->email }}">{{ $data->email }}</a></span>
                         </div>
                       </li>
                       <li>
@@ -229,7 +229,7 @@
                           <i class="flaticon-pin"></i>
                         </div>
                         <div class="info-text">
-                          <span>{{ $data->alamat }}</span>
+                          <span><a href="https://www.google.com/maps/place/Hummasoft+(Hummatech+Digital+Indonesia)/@-7.900074,112.606886,15z/data=!4m6!3m5!1s0x2e7881c2c4637501:0x10433eaf1fb2fb4c!8m2!3d-7.900074!4d112.606886!16s%2Fg%2F11cmn70zsx?entry=ttu">{{ $data->alamat }}</a></span>
                         </div>
                       </li>
                     </ul>
