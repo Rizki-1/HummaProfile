@@ -174,7 +174,7 @@
         </div>
         @if($layanan->count() > 0)
         <div class="service-content-wrap choose-us-content-wrap">
-          <div class="row">
+          <div class="row justify-content-center">
             @foreach ($layanan->take(4) as $key => $data)
               <div class="col-xl-3 col-sm-6">
                 <!-- Service Item Start -->
