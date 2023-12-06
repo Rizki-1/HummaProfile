@@ -9,7 +9,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class KategoriBerita extends Model
 {
     use HasFactory;
-    public function berita(): BelongsToMany{
-        return $this->belongsToMany(Berita::class,"id");
+    public function beritas(): BelongsToMany
+    {
+        return $this->belongsToMany(Berita::class, 'berita_kategoris');
     }
 }

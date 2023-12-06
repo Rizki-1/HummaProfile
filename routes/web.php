@@ -100,4 +100,5 @@ Route::post('/industri.store', [FormController::class, 'IndustriStore'])->name('
 //route testing
 Route::get('/test', [HomeController::class, 'test'])->name('test');
 Route::get('/filterberita/{id}',[HomeController::class,'filterBerita'])->name('filterberita');
+Route::get('/category-berita/{id}', [BeritaController::class, 'filter'])->name('filter-category');
 

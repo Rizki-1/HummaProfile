@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class BeritaKategori extends Model
 {
@@ -12,6 +13,11 @@ class BeritaKategori extends Model
 
     public function kategori()
     {
-        return $this->Many(KategoriBerita::class, 'berita_kategori', 'berita_id', 'kategori_id');
+        return $this->belongsTo(KategoriBerita::class, 'kategori_berita_id');
+    }
+
+    public function berita()
+    {
+        return $this->belongsTo(Berita::class, 'berita_id');
     }
 }

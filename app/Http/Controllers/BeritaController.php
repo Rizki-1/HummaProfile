@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Berita;
+use App\Models\BeritaKategori;
 use App\Models\PivotBerita;
 use Illuminate\Http\Request;
 use App\Models\KategoriBerita;
@@ -177,5 +178,16 @@ class BeritaController extends Controller
                 'text' => 'ada kesalahan server!',
             ]);
         }
+    }
+
+    public function filter(int $id)
+    {
+        $dataPivot = BeritaKategori::with(['berita', 'kategori'])
+            ->whereHas('kategori', function ($query) use ($id) {
+                $query->where('kategori_berita_id', $id);
+            })
+            ->get();
+
+        dump($dataPivot);
     }
 }

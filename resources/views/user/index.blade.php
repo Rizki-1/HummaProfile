@@ -358,7 +358,7 @@
                 <div class="blog-content">
                   <div class="blog-meta">
                     @foreach ($data->kategori as $item)
-                      <span class="badge rounded-pill mb-1" style="background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; font-size: 12px;    margin-right: 5px">{{ $item->name }}</span>
+                      <a href="{{ route('filter-category', $item->id) }}" class="badge rounded-pill mb-1" style="background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; font-size: 12px;margin-right: 5px">{{ $item->name }}</a>
                     @endforeach
                   </div>
                   <h3 class="title"><a href="">{{ $data->title }}</a></h3>
