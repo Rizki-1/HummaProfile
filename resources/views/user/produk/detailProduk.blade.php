@@ -19,9 +19,9 @@
                 </div>
                 <div class="blog-content">
                   <div class="date-background-styling">
-                    <span><i class="far fa-calendar-alt" style="margin-right: 10px"></i>Release date {{ \Carbon\Carbon::parse($produk->created_at)->format('d') }}</span>
-                    {{ \Carbon\Carbon::parse($produk->created_at)->format('M') }}
-                    {{ \Carbon\Carbon::parse($produk->created_at)->format('Y') }}
+                    <span><i class="far fa-calendar-alt" style="margin-right: 10px"></i>Release date {{ \Carbon\Carbon::parse($produk->dibuat)->format('d') }}</span>
+                    {{ \Carbon\Carbon::parse($produk->dibuat)->format('M') }}
+                    {{ \Carbon\Carbon::parse($produk->dibuat)->format('Y') }}
                     </span>
                   </div>
                   <h3 class="title" style="overflow-wrap: anywhere; line-height: 42px;">{{ $produk->nama_produk }}</h3>

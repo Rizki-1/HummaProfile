@@ -49,6 +49,8 @@
       </div>
     </div>
   </div>
+
+  @if ($kategori->count() > 0)
   <div class="section mb-5">
     <div class="container d-flex justify-content-center">
       <div class="sidebar-widget">
@@ -63,4 +65,6 @@
       </div>
     </div>
   </div>
+  @endif
+
 @endsection

@@ -61,7 +61,6 @@
               <li class="{{ request()->routeIs('home.industriIndex') ? 'active-menu' : '' }}">
                 <a href="{{ route('home.industriIndex') }}">Kelas Industri</a>
               </li>
-              </li>
               <li class="{{ request()->routeIs('produkIndex') ? 'active-menu' : '' }}">
                 <a href="{{ route('produkIndex') }}">Produk Kami</a>
               </li>
