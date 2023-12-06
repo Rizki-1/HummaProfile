@@ -85,7 +85,7 @@
             <div class="choose-us-left">
               <div class="section-title">
                 <h3 class="sub-title">Pendaftaran kelas industri</h3>
-                <h2 class="title">We provide truly prominent IT solutions.</h2>
+                <h2 class="title">Dapatkan infomasi terkait pendaftaran kelas industri di sini</h2>
               </div>
               <p class="text mb-3">Accelerate innovation with world-class tech teams We’ll match you to an entire remote
                 team of incredible freelance talent for all your software development needs.</p>
