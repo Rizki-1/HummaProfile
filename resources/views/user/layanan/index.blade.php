@@ -1,6 +1,7 @@
 @extends('layouts.nav-user')
 
 @section('content')
+  <link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/forceNav.css') }}">
   <!-- Service Start -->
   <div class="section techwix-service-section-02 service-card-content section-padding">
     <div class="container">
@@ -11,16 +12,15 @@
           <h2 class="title">Kami menyediakan solusi Perangkat Lunak yang benar-benar terkemuka.</h2>
         </div>
         <div class="service-content-wrap choose-us-content-wrap">
-          <div class="row">
+          <div class="row justify-content-center">
             @foreach ($layanan as $key => $data)
               <div class="col-xl-3 col-sm-6">
                 <!-- Service Item Start -->
                 <div class="service-item service-0{{ ++$key }}">
                   <div class="service-content">
                     <h3 class="title"><a>{{ $data->nama_layanan }}</a></h3>
-                    <p>Merupakan program unggulan kami dalam mendukung pendidikan di Indonesia dengan bekerjasama dengan
-                      SMK
-                      Negeri/Swasta untuk mencetak Web dan Mobile Developer sesuai kebutuhan DU/DI.</p>
+
+                    <p>{{ $data->descripsi_layanan }}</p>
                   </div>
                 </div>
                 <!-- Service Item End -->
