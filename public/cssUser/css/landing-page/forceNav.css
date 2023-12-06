@@ -7,5 +7,9 @@
 }
 
 .header-section .header-menu .main-menu li a {
-    color: black !important;
+    color: black;
+}
+
+.header-section .header-menu .main-menu li.active>a {
+    color: #086ad8 !important;
 }

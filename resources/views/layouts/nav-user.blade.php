@@ -55,10 +55,10 @@
               <li class="{{ request()->routeIs('homeindex') ? 'active-menu' : '' }}">
                 <a href="/">Beranda</a>
               </li>
-              <li class="{{ request()->routeIs('home.siswaIndex') ? 'active' : '' }}">
+              <li class="{{ request()->routeIs('home.siswaIndex') ? 'active-menu' : '' }}">
                 <a href="{{ route('home.siswaIndex') }}">Magang/PKL</a>
               </li>
-              <li class="{{ request()->routeIs('home.industriIndex') ? 'active' : '' }}">
+              <li class="{{ request()->routeIs('home.industriIndex') ? 'active-menu' : '' }}">
                 <a href="{{ route('home.industriIndex') }}">Kelas Industri</a>
               </li>
               </li>

@@ -2,6 +2,7 @@
 
 @section('content')
   <link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/forceNav.css') }}">
+  <link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/forceLogo.css') }}">
   <!-- Service Start -->
   <div class="section techwix-service-section-02 service-card-content section-padding">
     <div class="container">

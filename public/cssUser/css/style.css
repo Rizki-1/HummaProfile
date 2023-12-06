@@ -704,11 +704,11 @@ textarea:-ms-input-placeholder {
 }
 
 .header-section.sticky .header-menu .main-menu li a {
-    color: #000000 !important;
+    color: #000000;
 }
 
 .header-section .header-menu .main-menu li a {
-    color: white !important;
+    color: white;
 }
 
 @media only screen and (max-width: 991px) {
