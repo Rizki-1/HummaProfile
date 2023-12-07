@@ -63,7 +63,7 @@
         @endif
       @endforelse
       <div>
-        {{ $produks->links('pagination::bootstrap-5') }}
+        {{ $produks->links('vendor.pagination.bootstrap-5') }}
       </div>
     </div>
   </div>

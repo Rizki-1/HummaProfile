@@ -58,11 +58,11 @@
                             <!-- Ganti angka 50 dengan jumlah kata maksimum yang ingin Anda tampilkan -->
                         </td>
                           <td class="d-flex gap-2">
-                            <a href="{{ route('edit.layanan', $row->id) }}" class="btn btn-outline-warning btn-icon"><i class="link-icon edit-icon" data-feather="edit"></i></a>
-                            <form id="deleteForm" action="{{ route('layanan-perusahaan.destroy', $row->id) }}" method="POST">
+                            <a href="{{ route('layanan-perusahaan.edit', $row->id) }}" class="btn btn-outline-warning btn-icon"><i class="link-icon edit-icon" data-feather="edit"></i></a>
+                            <form nameLayanan="{{ $row->nama_layanan }}" id="deleteForm" action="{{ route('layanan-perusahaan.destroy', $row->id) }}" method="POST" class="hapus">
                                 @csrf
                                 @method('DELETE')
-                                <button type="button" class="btn btn-outline-danger btn-icon" onclick="confirmDelete()"><i class="link-icon trash-icon" data-feather="trash"></i></button>
+                                <button type="submit" class="btn btn-outline-danger btn-icon"><i class="link-icon trash-icon" data-feather="trash"></i></button>
                             </form>
                           </td>
                         </tr>
@@ -76,7 +76,7 @@
               <div class="row">
                 <div class="col-md-12 mt-4">
                   <div class="dataTables_paginate paging_simple_numbers" id="dataTableExample_paginate">
-                    {{ $layanan->links('pagination::bootstrap-5') }}
+                    {{ $layanan->links('vendor.pagination.bootstrap-5') }}
                   </div>
                 </div>
               </div>
@@ -104,141 +104,26 @@
       window.location.href = newUrl;
     });
 
-    function confirmDelete() {
+    if(document.querySelectorAll('.hapus').length > 0){
+    document.querySelectorAll('.hapus').forEach(function(form) {
+      form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        var nameLayanan = form.getAttribute('nameLayanan');
         Swal.fire({
-        title: "Apakah Anda yakin?",
-        text: "Apakah anda yakin ingin menghapus layanan " + name,
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!"
-      }).then((result) => {
-        if (result.isConfirmed) {
-            document.getElementById('deleteForm').submit();
-        }
-      })
-    }
-  </script>
-  {{-- <script>
-
-    document.getElementById('selectTarget').addEventListener('change', function() {
-      var selectedCategoryId = this.value;
-      var currentUrl = window.location.href;
-      var newUrl;
-      if (selectedCategoryId == 1) {
-        newUrl = currentUrl.replace(/ct=[^&]*/, '');
-      } else {
-        var ctParam = 'ct=' + selectedCategoryId;
-        if (currentUrl.includes('ct=')) {
-          newUrl = currentUrl.replace(/ct=[^&]*/, ctParam);
-        } else {
-          newUrl = currentUrl + (currentUrl.includes('?') ? '&' : '?') + ctParam;
-        }
-      }
-      window.location.href = newUrl;
+          title: 'Apakah anda yakin?',
+          text: "Ingin menghapus layanan '" + nameLayanan + "'?",
+          icon: "question",
+          showCancelButton: true,
+          confirmButtonText: "Ya, Hapus!",
+          cancelButtonText: "Batal",
+          background: 'var(--bs-body-bg)',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            form.submit();
+          }
+        });
+      });
     });
-
-    function showEditPopup(id, pilihan, name, category) {
-      const defaultOption = pilihan === 1 ? 1 : 2;
-      Swal.fire({
-        title: 'Edit Layanan',
-        html: `
-                <input id="editedName" class="swal2-input" value="${name}">
-                <input id="editedKategori" class="swal2-input" value="${category}">
-                <select id="editedPilihan" class="swal2-select">
-                    <option value="1" ${defaultOption === 1 ? 'selected' : ''}>Siswa</option>
-                    <option value="2" ${defaultOption === 2 ? 'selected' : ''}>Industri</option>
-                </select>
-            `,
-        showCancelButton: true,
-        confirmButtonText: 'Kirim',
-        cancelButtonText: 'Batal',
-        preConfirm: () => {
-          const editedName = document.getElementById('editedName').value;
-          const editedPilihan = document.getElementById('editedPilihan').value;
-          const editedcategory = document.getElementById('editedKategori').value;
-
-          fetch('{{ route('layanan-perusahaan.update', '') }}/' + id, {
-              method: 'PUT',
-              headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': '{{ csrf_token() }}',
-              },
-              body: JSON.stringify({
-                layanan: editedName,
-                descripsi_layanan: editedcategory,
-                target_layanan_id: editedPilihan,
-              }),
-            })
-            .then(response => response.json())
-            .then(data => {
-              if (data.response.success) {
-                Swal.fire({
-                  title: 'Sukses!',
-                  text: 'Data berhasil diubah.',
-                  icon: 'success'
-                }).then((result) => {
-                  if (result.dismiss === Swal.DismissReason.close || result
-                    .dismiss === Swal.DismissReason.esc || result.dismiss ===
-                    Swal.DismissReason.overlay || result.dismiss === Swal
-                    .DismissReason.timer) {
-                    location.reload();
-                  }
-                });
-
-              } else {
-                console.log(data);
-                Swal.fire('Error!', 'Terjadi kesalahan saat mengubah data.', 'error');
-              }
-            });
-        },
-      });
-    }
-
-      function showDeletePopup(id, name) {
-      Swal.fire({
-        title: "Apakah Anda yakin?",
-        text: "Apakah anda yakin ingin menghapus layanan " + name,
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!"
-      }).then((result) => {
-        if (result.isConfirmed) {
-          fetch(`{{ route('layanan-perusahaan.destroy', '') }}/${id}`, {
-              method: 'DELETE',
-              headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': '{{ csrf_token() }}',
-              },
-            })
-            .then(response => response.json())
-            .then(data => {
-              if (data.response.success) {
-                Swal.fire({
-                  title: "Terhapus!",
-                  text: "Berhasil menghapus layanan.",
-                  icon: "success"
-                }).then((result) => {
-                  if (result.dismiss === Swal.DismissReason.close || result
-                    .dismiss === Swal.DismissReason.esc || result.dismiss ===
-                    Swal.DismissReason.overlay || result.dismiss === Swal
-                    .DismissReason.timer) {
-                    location.reload();
-                  }
-                });
-              } else {
-                Swal.fire({
-                  title: "Error!",
-                  text: "Terjadi kesalahan saat menghapus layanan.",
-                  icon: "error"
-                });
-              }
-            });
-        }
-      });
-    }
-  </script> --}}
+  }
+  </script>
 @endsection

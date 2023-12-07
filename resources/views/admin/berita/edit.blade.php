@@ -43,7 +43,7 @@
             </div>
             <div class="mb-3">
               <label class="form-label" for="title">Judul Berita</label>
-              <input required type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" placeholder="Judul Berita" value="{{ $berita->title }}">
+              <input required type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" placeholder="Judul Berita" value="{{ old('title', $berita->title) }}">
               @error('title')
                 <div class="invalid-feedback">
                   <p>{{ $message }}</p>
@@ -52,7 +52,7 @@
             </div>
             <div>
               <label class="form-label" for="description">Deskripsi Berita</label>
-              <textarea required class="form-control @error('description') is-invalid @enderror" id="description" placeholder="Deskripsi Berita" name="description" rows="7">{{ $berita->description }}</textarea>
+              <textarea required class="form-control @error('description') is-invalid @enderror" id="description" placeholder="Deskripsi Berita" name="description" rows="7">{{ old('description',$berita->description) }}</textarea>
               @error('description')
                 <div class="invalid-feedback">
                   <p>{{ $message }}</p>

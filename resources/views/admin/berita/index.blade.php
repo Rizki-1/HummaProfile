@@ -68,7 +68,7 @@
         @endif
       @endforelse
       <div>
-        {{ $berita->links('pagination::bootstrap-5') }}
+        {{ $berita->links('vendor.pagination.bootstrap-5') }}
       </div>
     </div>
   </div>

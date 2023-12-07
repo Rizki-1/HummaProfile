@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreBeritaRequest extends FormRequest
+class BeritaStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,27 +22,26 @@ class StoreBeritaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'category.*' => 'exists:kategori_beritas,id|required',
-            'thumbnail' => 'required|image|mimes:png,jpg,jpeg',
-            'title' => 'required|string|min:5|max:50',
-            'description' => 'required|string|min:10|max:255',
+            'title' => 'required|min:5|max:200|unique:beritas,title',
+            'description' => 'required|string',
+            'thumbnail' => 'required|file|image|max:50000',
+            'category' => 'required|array|min:1',
         ];
     }
-
 
     public function messages()
     {
         return [
-            'thumbnail.required' => 'gambar berita harus di isi',
-            'thumbnail.image' => 'gambar berita harus valid',
-            'thumbnail.mimes' => 'gambar berita harus berjenis :mimes',
-            'title.required' => 'judul harus di isi',
-            'title.min' => 'judul minimal :min',
-            'title.max' => 'judul maksimal :max',
+            'thumbnail.required' => 'Gambar berita harus di isi',
+            'thumbnail.image' => 'Gambar berita harus valid',
+            'thumbnail.mimes' => 'Gambar berita harus berjenis :mimes',
+            'title.required' => 'Judul harus di isi',
+            'title.min' => 'Judul minimal :min',
+            'title.max' => 'Judul maksimal :max',
+            'title.unique' => 'Judul sudah di gunakan',
             'description.required' => 'Deskripsi Berita harus di isi',
             'description.min' => 'Deskripsi Berita minimal :min',
             'description.max' => 'Deskripsi Berita maksimal :max',
-
         ];
     }
 }

@@ -23,8 +23,8 @@ class LayananRequest extends FormRequest
     {
         return [
             'layanan-group.*.target_layanan_id' => 'required|exists:target_layanans,id',
-            'layanan-group.*.layanan' => 'required|min:5|max:255|string',
-            'layanan-group.*.descripsi_layanan' => 'required|min:5|max:255|string',
+            'layanan-group.*.layanan' => 'required|min:5|max:255|string|unique:layanan_perusahaans,nama_layanan||distinct',
+            'layanan-group.*.descripsi_layanan' => 'required|min:5|max:1000|string',
         ];
     }
 
@@ -37,6 +37,7 @@ class LayananRequest extends FormRequest
             'layanan-group.*.layanan.min' => 'layanan minimal :min',
             'layanan-group.*.layanan.max' => 'layanan maksimal :max',
             'layanan-group.*.layanan.string' => 'layanan harus valid',
+            'layanan-group.*.layanan.unique' => 'layanan ini sudah digunakan',
         ];
     }
 }
