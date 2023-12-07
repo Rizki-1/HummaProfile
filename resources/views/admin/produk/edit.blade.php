@@ -21,7 +21,7 @@
           <div class="col-md-6">
             <div class="mb-3">
               <label for="namaproduk" class="form-label">Nama Produk</label>
-              <input required type="text" name="nama_produk" value="{{ $produks->nama_produk }}" class="form-control @error('nama_produk') is-invalid @enderror" id="namaproduk" autocomplete="off" placeholder="Nama Produk">
+              <input required type="text" name="nama_produk" value="{{ old('nama_produk',$produks->nama_produk) }}" class="form-control @error('nama_produk') is-invalid @enderror" id="namaproduk" autocomplete="off" placeholder="Nama Produk">
               @error('nama_produk')
                 <div class="invalid-feedback">
                   <p>{{ $message }}</p>
@@ -30,7 +30,7 @@
             </div>
             <div class="mb-3">
               <label for="keterangan" class="form-label">Keterangan Produk</label>
-              <textarea required name="keterangan_produk" class="form-control @error('keterangan_produk') is-invalid @enderror" id="keterangan" rows="2" placeholder="Keterangan Produk">{{ $produks->keterangan_produk }}</textarea>
+              <textarea required name="keterangan_produk" class="form-control @error('keterangan_produk') is-invalid @enderror" id="keterangan" rows="2" placeholder="Keterangan Produk">{{ old('keterangan_produk',$produks->keterangan_produk) }}</textarea>
               @error('keterangan_produk')
                 <div class="invalid-feedback">
                   <p>{{ $message }}</p>
@@ -40,7 +40,7 @@
             <div class="mb-3">
               <label for="tanggal" class="form-label">Tanggal Dibuat</label>
               <div class="input-group flatpickr mb-3" id="flatpickr-date">
-                <input required name="dibuat" value="{{ $produks->dibuat }}" type="text" class="form-control @error('dibuat') is-invalid @enderror" id="tanggal" placeholder="Select date" data-input>
+                <input required name="dibuat" value="{{ old('dibuat',$produks->dibuat) }}" type="text" class="form-control @error('dibuat') is-invalid @enderror" id="tanggal" placeholder="Select date" data-input>
                 @error('dibuat')
                   <div class="invalid-feedback">
                     <p>{{ $message }}</p>
@@ -52,7 +52,7 @@
             <div class="mb-3">
                 <label for="link" class="form-label">link (opsional)</label>
                 <div class="input-group flatpickr mb-3" id="">
-                    <input type="text" name="link" class="form-control @error('link') is-invalid @enderror" value="{{ $produks->link }}" placeholder="link(opsional)">
+                    <input type="text" name="link" class="form-control @error('link') is-invalid @enderror" value="{{ old('link',$produks->link) }}" placeholder="link(opsional)">
                     @error('link')
                     <div class="invalid-feedback">
                         <p>{{ $message }}</p>

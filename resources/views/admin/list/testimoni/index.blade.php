@@ -82,7 +82,7 @@
           <p class="fw-bold text-center">Data tidak ditemukan.</p>
         @endif
       @endforelse
-      {{ $testimoni->links('pagination::bootstrap-5') }}
+        {{ $testimoni->links('vendor.pagination.bootstrap-5') }}
     </div>
   </div>
   <script>

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\KategoriBeritaStoreRequest;
+use App\Http\Requests\KategoriBeritaUpdateRequest;
 use App\Models\KategoriBerita;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -28,12 +30,10 @@ class KategoriBeritaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(KategoriBeritaStoreRequest $request)
     {
-        // dd($request->all());
-        // try {
+        try {
             foreach ($request->input("category-group") as $row) {
-                // dd($row['category_name']);
                 $kategoriBerita = new KategoriBerita;
                 $kategoriBerita->name = $row['category_name'];
                 $kategoriBerita->save();
@@ -43,14 +43,14 @@ class KategoriBeritaController extends Controller
                 'title' => 'Berhasil!',
                 'text' => 'Berhasil membuat kategori berita!'
             ]);
-        // } catch (\Exception $e) {
-        //     DB::rollBack();
-        //     return back()->with('message', [
-        //         'icon' => 'error',
-        //         'title' => 'Gagal!',
-        //         'text' => 'Ada kesalahan saat membuat kategori berita!'
-        //     ]);
-        // }
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return back()->with('message', [
+                'icon' => 'error',
+                'title' => 'Gagal!',
+                'text' => 'Ada kesalahan saat membuat kategori berita!'
+            ]);
+        }
     }
 
     /**
@@ -73,7 +73,7 @@ class KategoriBeritaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(KategoriBeritaUpdateRequest $request, string $id)
     {
         try {
             DB::beginTransaction();

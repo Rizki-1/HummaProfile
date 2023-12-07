@@ -6,7 +6,10 @@
     <div class="container">
       <div class="techwix-blog-grid-wrap" data-aos="fade-up" data-aos-duration="500">
         <div class="section-title text-center mb-4 mt-4">
-          <h2 class="title" data-aos="fade-up" data-aos-duration="500">{{$nameKategori}}</h2>
+            <div class="section-title text-center mb-3">
+                <h3 class="sub-title m-0">Kategori Berita</h3>
+                <h2 class="title">{{$nameKategori}}</h2>
+            </div>
         </div>
         <div class="row justify-content-center">
           @foreach ($beritas as $berita)

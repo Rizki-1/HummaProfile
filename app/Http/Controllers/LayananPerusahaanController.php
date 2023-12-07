@@ -46,7 +46,6 @@ class LayananPerusahaanController extends Controller
      */
     public function store(LayananRequest $request)
     {
-        // dd($request->all());
         try {
             DB::beginTransaction();
 
@@ -70,15 +69,16 @@ class LayananPerusahaanController extends Controller
             return back()->with('message', [
                 'icon' => 'error',
                 'title' => 'Gagal!',
-                'text' => "Ada kesalahan server, gagal membuat Layanan baru"
+                'text' => "Error: $e"
             ]);
         }
     }
 
-    public function editLayanan(string $layanan)
+    public function edit(string $layanan)
     {
+        $categoris = TargetLayanan::all();
         $layanan = LayananPerusahaan::findOrFail($layanan);
-        return view('admin.pengaturan.layanan.edit', compact('layanan'));
+        return view('admin.pengaturan.layanan.edit', compact('layanan', 'categoris'));
     }
 
     /**
@@ -86,7 +86,6 @@ class LayananPerusahaanController extends Controller
      */
     public function update(LayananUpdate $request, string $id)
     {
-        dd($request->all());
         try {
             DB::beginTransaction();
 
@@ -99,7 +98,7 @@ class LayananPerusahaanController extends Controller
                 ]);
             }
             $layanan->nama_layanan = $request->nama_layanan;
-            $layanan->descripsi_layanan = $request->descripsi;
+            $layanan->descripsi_layanan = $request->descripsi_layanan;
             $layanan->target_layanan_id = $request->target_layanan_id;
             $layanan->save();
 

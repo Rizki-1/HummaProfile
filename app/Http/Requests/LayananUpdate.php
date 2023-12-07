@@ -21,9 +21,10 @@ class LayananUpdate extends FormRequest
      */
     public function rules(): array
     {
+        $id = $this->route('layanan_perusahaan');
         return [
-            'nama_layanan' => 'required|min:5|max:100',
-            'descripsi_layanan' => 'required|min:10|max:100',
+            'nama_layanan' => 'required|min:5|max:255|unique:layanan_perusahaans,nama_layanan,'. $id .',id',
+            'descripsi_layanan' => 'required|min:10|max:1000',
             'target_layanan_id' => 'required|exists:target_layanans,id',
         ];
     }

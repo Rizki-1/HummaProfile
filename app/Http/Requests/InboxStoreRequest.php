@@ -24,7 +24,7 @@ class InboxStoreRequest extends FormRequest
         return [
             'name' => 'required|string|min:10|max:50',
             'email'=> 'required|email:rfc,dns',
-            'message' => 'required|max:100|min:10'
+            'message' => 'required|max:5000|min:10'
         ];
     }
 
