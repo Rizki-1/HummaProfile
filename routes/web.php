@@ -41,13 +41,8 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
     });
     Route::resource("/berita", BeritaController::class);
     //kategory berita
+    Route::resource('/category-berita', KategoriBeritaController::class);
     Route::get('/category',[KategoriBeritaController::class, 'index'])->name('category');
-    Route::get('/category-berita',[KategoriBeritaController::class, 'create'])->name('category-berita.create');
-    Route::get('/category-berita/{id}',[KategoriBeritaController::class, 'show'])->name('category-berita.show');
-    Route::get('/category-berita/{id}',[KategoriBeritaController::class, 'edit'])->name('category-berita.edit');
-    Route::put('/category-berita/{id}',[KategoriBeritaController::class, 'update'])->name('category-berita.update');
-    Route::post('/category-berita',[KategoriBeritaController::class, 'store'])->name('category-berita.store');
-    Route::delete('/category-berita/{id}',[KategoriBeritaController::class, 'destroy'])->name('category-berita.destroy');
 
     Route::get('/category',[KategoriBeritaController::class, 'index'])->name('category');
     Route::resource("/inbox", InboxController::class)->only(['show', 'index', 'destroy']);
@@ -67,9 +62,8 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
     // Route::patch('/terimaindustri/{id}', [PersetujuanController::class, 'terimaIndustri'])->name('terimaIndustri');
     // Route::patch('/tolakindustri/{id}', [PersetujuanController::class, 'tolakIndustri'])->name('tolakindustri');
     //layanan perusahaan
-    Route::resource('/layanan-perusahaan', LayananPerusahaanController::class)->except(['show', 'edit']);
+    Route::resource('/layanan-perusahaan', LayananPerusahaanController::class)->except(['show']);
     Route::resource('/profile-perusahaan', ProfilePerusahaanController::class)->only(['index', 'update']);
-    Route::get('/layanan-perusahaan/{id}/edit', [LayananPerusahaanController::class, 'editLayanan'])->name('edit.layanan');
     // List
     Route::get('/list-siswa-magang', [ListController::class, 'siswaMagang'])->name('list.siswa_magang');
     Route::delete('/list-siswa-magang/{id}', [ListController::class, 'siswaMagangDel'])->name('list.siswa_magang.del');
@@ -93,7 +87,7 @@ Route::get('/berita/{name}', [HomeController::class, 'detailBerita'])->name('det
 Route::post('/inbox', [InboxController::class,'store'])->name('inbox.store');
 Route::get('/layanan', [HomeController::class, 'indexLayanan'])->name('layananIndex');
 Route::get('/produk/{id}', [HomeController::class, 'detailProduk'])->name('produk.detail');
-Route::get('/category-berita/{id}', [BeritaController::class, 'filter'])->name('filter-category');
+Route::get('/category-berita/{name}', [BeritaController::class, 'filter'])->name('filter-category');
 
 //formLandingPage
 Route::post('/siswa.store', [FormController::class, 'SiswaMagangStore'])->name('siswa.store');

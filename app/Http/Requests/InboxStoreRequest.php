@@ -24,19 +24,19 @@ class InboxStoreRequest extends FormRequest
         return [
             'name' => 'required|string|min:10|max:50',
             'email'=> 'required|email:rfc,dns',
-            'message' => 'required|max:100|min:10'
+            'message' => 'required|max:5000|min:10'
         ];
     }
 
     public function messages(): array
     {
         return [
-            'name.required' => 'nama harus di isi',
-            'name.string' => 'nama harus valid',
-            'name.min' => 'nama minimal :min',
-            'name.max' => 'nama maksimal :max',
-            'email.required' => 'email harud di isi',
-            'email.email' => 'email harud valid',
+            'name.required' => 'Nama harus di isi',
+            'name.string' => 'Nama harus valid',
+            'name.min' => 'Nama minimal :min',
+            'name.max' => 'Nama maksimal :max',
+            'email.required' => 'Email harus di isi',
+            'email.email' => 'Email harud valid',
             'message.required' => 'pesan harus di isi',
             'message.max' => 'pesan maksimal :max',
             'message.min' => 'pesan minimal :min',

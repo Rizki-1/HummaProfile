@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\MouStoreRequest;
+use App\Http\Requests\MouUpdateRequest;
 use App\Models\Mou;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -40,7 +42,7 @@ class MouController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(MouStoreRequest $request)
     {
         try {
             $foto_name = $request->file('foto_mou')->hashName();
@@ -64,7 +66,7 @@ class MouController extends Controller
         }
     }
 
-    public function update(Request $request, $id)
+    public function update(MouUpdateRequest $request, $id)
     {
         try {
             $Mou = Mou::where('id', $id)->first();

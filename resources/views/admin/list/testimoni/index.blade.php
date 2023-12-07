@@ -30,8 +30,8 @@
           <div class="card">
             <div class="card-body">
               <div class="d-flex gap-4 mb-4">
-                <div>
-                  <img src="{{ asset('storage/' . $test->foto_siswa) }}" alt="foto" class="foto">
+                <div class="">
+                  <img src="{{ asset('storage/' . $test->foto_siswa) }}" alt="foto" class="foto ">
                 </div>
                 <div style="display: flex; width: 72%; flex-direction: column">
                   <h4 class="text-truncate mb-1" style="max-width: 90%">{{ $test->nama }}</h4>
@@ -57,7 +57,7 @@
           <p class="fw-bold text-center">Data tidak ditemukan.</p>
         @endif
       @endforelse
-      {{ $testimoni->links('pagination::bootstrap-5') }}
+        {{ $testimoni->links('vendor.pagination.bootstrap-5') }}
     </div>
   </div>
   <script>

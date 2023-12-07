@@ -46,9 +46,10 @@ class HomeController extends Controller
 
     public function indexIndustri()
     {
+        $Mous = Mou::all();
         $testimoni = Testimoni::inRandomOrder()->get();
         $layananIndustri = LayananPerusahaan::where('target_layanan_id', 2)->paginate(4);
-        return view('user.pendidikan.industri', compact('layananIndustri', 'testimoni'));
+        return view('user.pendidikan.industri', compact('layananIndustri', 'testimoni', 'Mous'));
     }
 
     public function indexProduk()

@@ -22,25 +22,25 @@
         <div class="col-md-12 row mb-3">
           <div class="col-md-6">
             <div class="mb-3">
-              <label class="form-label">Kategori Berita</label>
-              <select class="select2 form-select select2-multiple @error('category[]') is-invalid @enderror" multiple="multiple" id="category" name="category[]" multiple data-placeholder="Kategori Berita" multiple>
-                <optgroup label="Kategori Berita">
-                  @foreach ($kategoriBerita as $category)
-                    <option value="{{ $category->id }}" {{ in_array($category->id, old('category', [])) ? 'selected' : '' }}>
-                      {{ $category->name }}
-                    </option>
-                  @endforeach
-                </optgroup>
-              </select>
-              @error('category[]')
-                <div class="invalid-feedback">
-                  <p>{{ $message }}</p>
-                </div>
-              @enderror
+                <label class="form-label">Kategori Berita</label>
+                <select class="select2 form-select select2-multiple @error('category') is-invalid @enderror" multiple="multiple" id="category" name="category[]" data-placeholder="Kategori Berita">
+                    <optgroup label="Kategori Berita">
+                        @foreach ($kategoriBerita as $category)
+                            <option value="{{ $category->id }}" {{ in_array($category->id, old('category', [])) ? 'selected' : '' }}>
+                                {{ $category->name }}
+                            </option>
+                        @endforeach
+                    </optgroup>
+                </select>
+                @error('category')
+                    <div class="invalid-feedback">
+                        <p>{{ $message }}</p>
+                    </div>
+                @enderror
             </div>
             <div class="mb-3">
               <label class="form-label" for="title">Judul Berita</label>
-              <input required type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" placeholder="Judul Berita" value="{{ old('title') }}">
+              <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" placeholder="Judul Berita" value="{{ old('title') }}">
               @error('title')
                 <div class="invalid-feedback">
                   <p>{{ $message }}</p>
@@ -49,7 +49,7 @@
             </div>
             <div>
               <label class="form-label" for="description">Deskripsi Berita</label>
-              <textarea required class="form-control @error('description') is-invalid @enderror" id="description" placeholder="Deskripsi Berita" name="description" rows="7">{{ old('description') }}</textarea>
+              <textarea class="form-control @error('description') is-invalid @enderror" id="description" placeholder="Deskripsi Berita" name="description" rows="7">{{ old('description') }}</textarea>
               @error('description')
                 <div class="invalid-feedback">
                   <p>{{ $message }}</p>
@@ -59,7 +59,7 @@
           </div>
           <div class="col-md-6">
             <label for="myDropify" class="form-label">Upload Gambar Berita</label>
-            <input required name="thumbnail" class="@error('thumbnail') is-invalid @enderror" type="file" id="myDropify" />
+            <input name="thumbnail" class="@error('thumbnail') is-invalid @enderror" type="file" id="myDropify" />
             @error('thumbnail')
               <div>
                 <p class="text-danger mt-2">{{ $message }}</p>

@@ -1,3 +1,4 @@
+/* Header Industri & Siswa */
 .video {
     position: relative;
     top: 0px;
@@ -51,4 +52,44 @@ video {
     font-weight: 600;
     font-size: 25px;
     color: #b3b6c5;
+}
+
+/* Industri Mou Sekolah */
+.sekolah-logo-container {
+    justify-content: center;
+    gap: 60px 0;
+}
+
+.sekolah-logo-container .card-logo-sekolah {
+    width: 100%;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px 0;
+    border-radius: 2%;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.sekolah-logo-container .card-logo-sekolah .img-sekolah {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+}
+
+.sekolah-logo-container .card-logo-sekolah .img-sekolah img {
+    width: 100%;
+    height: auto;
+}
+
+.sekolah-logo-container .card-logo-sekolah .nama-sekolah {
+    text-align: center;
+    width: 235px;
+}
+
+.sekolah-logo-container .card-logo-sekolah .nama-sekolah p {
+    font-weight: 600;
+    font-family: "Barlow", sans-serif;
+    color: black;
 }

@@ -40,7 +40,7 @@
       @endforelse
     </div>
     <div>
-        {{ $category->links('pagination::bootstrap-5') }}
+        {{ $category->links('vendor.pagination.bootstrap-5') }}
     </div>
   </div>
   <script>

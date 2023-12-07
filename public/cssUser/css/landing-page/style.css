@@ -113,7 +113,7 @@
 .scroller[data-animated="true"] .scroller__inner {
     width: max-content;
     flex-wrap: nowrap;
-    animation: scroll 20s linear infinite;
+    animation: scroll linear infinite;
 }
 
 @keyframes scroll {
@@ -122,37 +122,23 @@
     }
 }
 
-body::-webkit-scrollbar {
-    width: 6px;
-}
-
-body::-webkit-scrollbar-track {
-    background-color: #f4f4f4;
-    border-radius: 100px;
-}
-
-body::-webkit-scrollbar-thumb {
-    background-color: #086ad8;
-    border-radius: 100px;
-}
-
 .container-map {
     margin-top: 20px;
     display: flex;
     justify-content: center;
 }
 
-.custome-carousel .carousel-inner .carousel-item  {
-  position: relative;
+.custome-carousel .carousel-inner .carousel-item {
+    position: relative;
 }
 
 .custome-carousel .carousel-inner .carousel-item::before {
-  position: absolute;
-  content: "";
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.6);
+    position: absolute;
+    content: "";
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
 }
 
 /* Map Custome */
@@ -196,7 +182,7 @@ body::-webkit-scrollbar-thumb {
 
 .parallax-scroll {
     transform: translateY(0);
-    transition: transform 0.01s ease;
+    transition: transform 0.01s ease-in;
 }
 
 .parallax-scroll .carousel-item {
@@ -219,4 +205,36 @@ body::-webkit-scrollbar-thumb {
     font-weight: 600;
     font-size: 25px;
     color: #b3b6c5;
-  }
+}
+
+/* Responsive Landing Page Index */
+@media only screen and (max-width: 500px) {
+    .tentang-kami .sub-title {
+        text-align: center;
+    }
+
+    .tentang-kami .title {
+        text-align: center;
+        font-size: 25px;
+        padding: 0 28px;
+    }
+
+    .tentang-kami .about-content-wrap p {
+        text-align: center;
+        padding: 0 10px;
+    }
+
+    .tentang-kami .about-img-wrap .about-img-big img {
+        display: none;
+    }
+
+    .layanan-index .service-content .title {
+        text-align: center;
+        font-size: larger;
+    }
+
+    .layanan-index .service-content p {
+        text-align: center;
+        font-size: small;
+    }
+}

@@ -81,7 +81,7 @@
                         <form nameEmail="{{ $inbox->name }}" action="{{ route('inbox.destroy', $inbox->id) }}" method="POST" class="ms-2 hapus">
                           @method('DELETE')
                           @csrf
-                          <button type="submit" class="btn btn-danger btn-icon"><i class="link-icon" data-feather="trash"></i></button>
+                          <button type="submit" class="btn btn-icon"><i class="link-icon" data-feather="trash"></i></button>
                         </form>
                       </div>
                     </a>

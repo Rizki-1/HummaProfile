@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\BeritaStoreRequest;
+use App\Http\Requests\BeritaUpdateRequest;
 use App\Models\Berita;
 use App\Models\BeritaKategori;
 use App\Models\PivotBerita;
@@ -9,7 +11,6 @@ use Illuminate\Http\Request;
 use App\Models\KategoriBerita;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Requests\StoreBeritaRequest;
 use App\Http\Requests\UpdateBeritaRequest;
 use Illuminate\Validation\ValidationException;
 
@@ -41,7 +42,7 @@ class BeritaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreBeritaRequest $request)
+    public function store(BeritaStoreRequest $request)
     {
         // dd($request->all());
         try {
@@ -100,17 +101,23 @@ class BeritaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateBeritaRequest $request, $id)
+    public function update(BeritaUpdateRequest $request, $id)
     {
-        // dd($request->all());
         try {
             DB::beginTransaction();
 
             $berita = Berita::findOrFail($id);
+            if(!$berita){
+                return back()->with('message', [
+                    'icon' => 'error',
+                    'title' => 'Gagal!',
+                    'text' => 'ID berita tidak di temukan!'
+                ]);
+            }
             $berita->title = $request->title;
             $berita->description = $request->description;
 
-
+            $path = $berita->thumbnail;
             if ($request->hasFile('thumbnail') && $request->file('thumbnail')->isValid()) {
                 Storage::delete($berita->thumbnail);
                 $thumbnailName = $request->file("thumbnail")->hashName();
@@ -132,12 +139,12 @@ class BeritaController extends Controller
                 'title' => 'Berhasil!',
                 'text' => 'Berhasil mengupdate berita!'
             ]);
-        } catch (\Throwable $th) {
+        } catch (\Exception $e) {
             DB::rollBack();
             return redirect()->back()->with('message', [
-                'icon' => 'warning',
+                'icon' => 'error',
                 'title' => 'Gagal!',
-                'text' => 'Ada kesalahan server!',
+                'text' => 'Ada kesalahan server'
             ]);
         }
     }
@@ -180,15 +187,19 @@ class BeritaController extends Controller
         }
     }
 
-    public function filter(int $id)
+    public function filter(string $name)
     {
-        $nameKategori = KategoriBerita::findOrFail($id)->name;
+        $nameKategori = KategoriBerita::where('name',$name)->first();
+        if(!$nameKategori){
+            return back();
+        }
         $beritas = BeritaKategori::with(['berita', 'kategori'])
-            ->whereHas('kategori', function ($query) use ($id) {
-                $query->where('kategori_berita_id', $id);
-            })
-            ->paginate(9);
+        ->whereHas('kategori', function ($query) use ($nameKategori) {
+            $query->where('kategori_berita_id', $nameKategori->id);
+        })
+        ->paginate(9);
         $kategori = KategoriBerita::all();
+        $nameKategori = $nameKategori->name;
 
         return view('user.berita.filterberita', compact('beritas','kategori','nameKategori'));
     }

@@ -1,5 +1,4 @@
 @extends('layouts.nav-admin')
-
 @section('content')
   <title>{{ config('app.name', 'Laravel') }} - Layanan</title>
   <div class="card p-4 mb-4 flex-row justify-content-between align-items-center">
@@ -23,7 +22,7 @@
             <div class="mb-3 d-flex row">
               <div class="col-md-4 mb-3">
                 <label for="unknown" class="form-label">Nama Layanan</label>
-                <input required type="text" class="form-control @error('nama_layanan') is-invalid @enderror" name="nama_layanan" value="{{ $layanan->nama_layanan }}" placeholder="{{ $layanan->nama_layanan }}">
+                <input required type="text" class="form-control @error('nama_layanan') is-invalid @enderror" name="nama_layanan" value="{{ old('nama_layanan',$layanan->nama_layanan) }}" placeholder="{{ $layanan->nama_layanan }}">
                 @error('nama_layanan')
                   <div class="invalid-feedback">
                     <p>{{ $message }}</p>
@@ -32,8 +31,8 @@
               </div>
               <div class="col-md-4 mb-3">
                 <label for="unknown" class="form-label">Deskripsi Layanan</label>
-                <textarea required name="descripsi" class="form-control @error('descripsi') is-invalid @enderror" rows="1" placeholder="{{ $layanan->descripsi_layanan }}">{{ $layanan->descripsi_layanan }}</textarea>
-                @error('descripsi')
+                <textarea required name="descripsi_layanan" class="form-control @error('descripsi_layanan') is-invalid @enderror" rows="1" placeholder="{{ $layanan->descripsi_layanan }}">{{ old('descripsi_layanan',$layanan->descripsi_layanan) }}</textarea>
+                @error('descripsi_layanan')
                   <div class="invalid-feedback">
                     <p>{{ $message }}</p>
                   </div>
@@ -42,8 +41,10 @@
               <div class="col-md-4 mb-3">
                 <label for="unknown" class="form-label">Target Layanan</label>
                 <select required name="target_layanan_id" class="form-select @error('target_layanan_id') is-invalid @enderror">
-                  <option value="1" {{ $layanan->target_layanan_id == 1 ? 'selected' : '' }}>Siswa</option>
-                  <option value="2" {{ $layanan->target_layanan_id == 2 ? 'selected' : '' }}>Kelas Industry</option>
+                    @foreach ($categoris as $item)
+                    <option value="{{ $item->id }}" {{ old('target_layanan_id',$layanan->target_layanan_id) == $item->id ? 'selected' : '' }}>
+                        {{ $item->target }}</option>
+                    @endforeach
                 </select>
                 @error('target_layanan_id')
                   <div class="invalid-feedback">

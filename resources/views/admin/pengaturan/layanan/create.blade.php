@@ -34,8 +34,7 @@
                       </div>
                       <div class="col-3 mb-1 pe-2">
                         <label for="descripsi_layanan" class="form-label">Deskripsi Layanan</label>
-                        <textarea name="descripsi_layanan" id="descripsi_layanan" cols="10" rows="1" class="form-control @error('layanan-group.' . $i . '.descripsi_layanan') is-invalid
-                        @enderror" placeholder="Deskripsi Layanan"></textarea>
+                        <textarea name="descripsi_layanan" id="descripsi_layanan" cols="10" rows="1" class="form-control @error('layanan-group.' . $i . '.descripsi_layanan') is-invalid @enderror" placeholder="Deskripsi Layanan">{{ old('layanan-group.' . $i . '.descripsi_layanan') }}</textarea>
                         @error('layanan-group.' . $i . '.descripsi_layanan')
                         <div class="invalid-feedback">
                             <p>{{ $message }}</p>

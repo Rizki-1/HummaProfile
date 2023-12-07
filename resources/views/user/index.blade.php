@@ -18,7 +18,7 @@
   </div>
 
   <!-- About Start -->
-  <div class="section techwix-about-section-04 section-padding" style="padding-top: 80px">
+  <div class="section techwix-about-section-04 section-padding tentang-kami" style="padding-top: 80px">
     <div class="shape-1"></div>
     <div class="container">
       <!-- About Wrapper Start -->
@@ -32,7 +32,7 @@
                 <h2 class="title" data-aos="fade-up-right" data-aos-duration="600">Kami menyediakan berbagai layanan Software yang dirancang untuk mendukung Perusahaan dan bisnis Anda.</h2>
               </div>
               @foreach ($profile as $data)
-                <p class="text" data-aos="fade-up-right" data-aos-duration="700">{{ $data->tentang }}</p>
+                <p class="text text-tentang" data-aos="fade-up-right" data-aos-duration="700">{{ $data->tentang }}</p>
               @endforeach
             </div>
             <!-- About Content Wrap End -->
@@ -57,13 +57,13 @@
   <!-- About End -->
 
   <!-- Service Start -->
-  <div class="section techwix-service-section-02 service-card-content section-padding" style="background-color: #f8f8f8">
+  <div class="section techwix-service-section-02 service-card-content section-padding layanan-index" style="background-color: #f8f8f8">
     <div class="container">
       <!-- Service Wrap Start -->
       <div class="service-wrap">
         <div class="section-title text-center">
           <h3 class="sub-title" data-aos="fade-up" data-aos-duration="500">Layanan Perusahaan</h3>
-          <h2 class="title"  data-aos="fade-up" data-aos-duration="700">Kami menyediakan solusi Perangkat Lunak yang benar-benar terkemuka.</h2>
+          <h2 class="title" data-aos="fade-up" data-aos-duration="700">Kami menyediakan solusi Perangkat Lunak yang benar-benar terkemuka.</h2>
         </div>
         @if ($layanan->count() > 0)
           <div class="service-content-wrap choose-us-content-wrap">
@@ -73,8 +73,8 @@
                   <!-- Service Item Start -->
                   <div class="service-item service-0{{ ++$key }}">
                     <div class="service-content">
-                      <h3 class="title"><a>{{ $data->nama_layanan }}</a></h3>
-                      <p>{{ $data->descripsi_layanan }}</p>
+                      <h3 class="title"><a class="layanan-truncation-title">{{ $data->nama_layanan }}</a></h3>
+                      <p class="layanan-truncation-text">{{ $data->descripsi_layanan }}</p>
                     </div>
                   </div>
                   <!-- Service Item End -->
@@ -118,8 +118,7 @@
                   <!-- Choose Us Item Start -->
                   <div class="choose-us-item">
                     <div class="choose-us-img">
-                      <a href="{{ route('produk.detail', $produkRow->id) }}"><img class="picture-responsive"
-                          src="{{ asset('storage/' . $produkRow->foto_produk) }}" alt="Foto Produk"></a>
+                      <a href="{{ route('produk.detail', $produkRow->id) }}"><img class="picture-responsive" src="{{ asset('storage/' . $produkRow->foto_produk) }}" alt="Foto Produk"></a>
                       <div class="choose-us-content">
                         <h3 class="title text-truncate">{{ $produkRow->nama_produk }}</h3>
                         <p class="description-truncate">{{ $produkRow->keterangan_produk }}</p>
@@ -153,16 +152,16 @@
   <div class="section techwix-testimonial-section-02 techwix-testimonial-section-03 section-padding-02" style="padding: 60px 0;">
     <div class="container">
       <!-- Testimonial Wrap Start  -->
-      <div class="testimonial-wrap-02" data-aos="fade-up" data-aos-duration="800" data-aos-anchor-placement="center-bottom">
+      <div class="testimonial-wrap-02">
         <div class="section-title text-center">
-          <h3 class="sub-title">Testimoni</h3>
-          <h2 class="title">Pengalaman Lulusan Magang Kami</h2>
+          <h3 class="sub-title" data-aos="fade-up" data-aos-duration="500">Testimoni</h3>
+          <h2 class="title" data-aos="fade-up" data-aos-duration="700">Pengalaman Lulusan Magang Kami</h2>
         </div>
         <div class="testimonial-content-wrap-02">
           <div class="swiper-container testimonial-02-active">
             <div class="swiper-wrapper">
               @forelse ($testimoni as $tm)
-                <div class="swiper-slide">
+                <div class="swiper-slide" data-aos="fade-up" data-aos-duration="900">
                   <!--  Single Testimonial Start  -->
                   <div class="single-testimonial-02">
                     <div class="testimonial-thumb">
@@ -182,7 +181,7 @@
                   <!--  Single Testimonial End  -->
                 </div>
               @empty
-                <div class="swiper-slide">
+                <div class="swiper-slide" data-aos="fade-up" data-aos-duration="900">
                   <!--  Single Testimonial Start  -->
                   <div class="single-testimonial-02">
                     <div class="testimonial-thumb">
@@ -221,7 +220,7 @@
                   </div>
                   <!--  Single Testimonial End  -->
                 </div>
-                <div class="swiper-slide">
+                <div class="swiper-slide" data-aos="fade-up" data-aos-duration="900">
                   <!--  Single Testimonial Start  -->
                   <div class="single-testimonial-02">
                     <div class="testimonial-thumb">
@@ -241,7 +240,7 @@
                   </div>
                   <!--  Single Testimonial End  -->
                 </div>
-                <div class="swiper-slide">
+                <div class="swiper-slide" data-aos="fade-up" data-aos-duration="900">
                   <!--  Single Testimonial Start  -->
                   <div class="single-testimonial-02">
                     <div class="testimonial-thumb">
@@ -260,7 +259,7 @@
                   </div>
                   <!--  Single Testimonial End  -->
                 </div>
-                <div class="swiper-slide">
+                <div class="swiper-slide" data-aos="fade-up" data-aos-duration="900">
                   <!--  Single Testimonial Start  -->
                   <div class="single-testimonial-02">
                     <div class="testimonial-thumb">
@@ -284,7 +283,7 @@
             </div>
 
             <!-- Add Pagination -->
-            <div class="swiper-pagination"></div>
+            <div class="swiper-pagination" data-aos="fade-up" data-aos-duration="500"></div>
           </div>
         </div>
       </div>
@@ -297,14 +296,14 @@
   <div class="section techwix-brand-section techwix-brand-section-03">
     <div class="container">
       <!-- Brand Wrapper Start -->
-      <div class="brand-wrapper text-center py-5" style="padding-top: 0px" data-aos="fade-up" data-aos-duration="800" data-aos-anchor-placement="center-bottom">
+      <div class="brand-wrapper text-center py-5" style="padding-top: 0px">
         <div class="section-title text-center mb-3">
-          <h3 class="sub-title">Kerjasama Kelas Industri</h3>
-          <h2 class="title">MOU Dengan Sekolah</h2>
+          <h3 class="sub-title" data-aos="fade-up" data-aos-duration="500">Kerjasama Kelas Industri</h3>
+          <h2 class="title" data-aos="fade-up" data-aos-duration="700">MOU Dengan Sekolah</h2>
         </div>
 
         <!-- Brand Active Start -->
-        <div class="brand-active d-flex justify-content-center mt-5">
+        <div class="brand-active d-flex justify-content-center mt-5" data-aos="fade-up" data-aos-duration="1000">
           <div class="scroller">
             <ul class="scroller__inner">
               @forelse ($Mous as $mou)
@@ -368,14 +367,12 @@
       @if ($berita->count() > 0)
         <div class="techwix-blog-wrap" data-aos="fade-up" data-aos-duration="900">
           <div class="row justify-content-center">
-            @foreach ($berita->take(3) as $data)
+            @foreach ($berita->take(2) as $data)
               <div class="col-lg-4 col-md-6">
                 <!-- Single Blog Start -->
                 <div class="single-blog">
                   <div class="blog-image">
-                    <a style="height: 250px; width: 100%" href=""><img
-                        style="height: 100%; width: 100%; object-fit: cover;"
-                        src="{{ asset('storage/' . $data->thumbnail) }}" alt="{{ $data->title }}"></a>
+                    <a style="height: 250px; width: 100%" href="{{ route('detailBerita', $data->title) }}"><img style="height: 100%; width: 100%; object-fit: cover;" src="{{ asset('storage/' . $data->thumbnail) }}" alt="{{ $data->title }}"></a>
                     <div class="top-meta">
                       <span class="date">
                         <span>{{ \Carbon\Carbon::parse($data->created_at)->format('d') }}</span>
@@ -384,16 +381,22 @@
                     </div>
                   </div>
                   <div class="blog-content">
-                    <div class="blog-meta">
-                      @foreach ($data->kategori as $item)
-                        <a href="{{ route('filter-category', $item->id) }}" class="badge rounded-pill mb-1"
-                          style="background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; font-size: 12px;margin-right: 5px">{{ $item->name }}</a>
+                    <div class="blog-meta" style="display: flex; align-items: center;">
+                      @foreach ($data->kategori->take(2) as $item)
+                        <a href="{{ route('filter-category', $item->name) }}" class="badge rounded-pill mb-1 text-truncate" style="padding: 7px 13px; background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; font-size: 13px ;margin-right: 5px; font-weight: 700; max-width: 37%">{{ $item->name }}</a>
                       @endforeach
+                      @if ($data->kategori->count() > 2)
+                        <a class="badge rounded-pill mb-1" style="color: black"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="feather feather-more-horizontal">
+                            <circle cx="12" cy="12" r="1"></circle>
+                            <circle cx="19" cy="12" r="1"></circle>
+                            <circle cx="5" cy="12" r="1"></circle>
+                          </svg></a>
+                      @endif
                     </div>
-                    <h3 class="title"><a href="">{{ $data->title }}</a></h3>
+                    <h3 class="title"><a href="{{ route('detailBerita', $data->title) }}" class="text-truncate" style="max-width: 100%">{{ $data->title }}</a></h3>
                     <div class="blog-btn">
-                      <a class="blog-btn-link" href="{{ route('detailBerita', $data->title) }}">Selengkapnya <i
-                          class="fas fa-long-arrow-alt-right"></i></a>
+                      <a class="blog-btn-link" href="{{ route('detailBerita', $data->title) }}">Selengkapnya <i class="fas fa-long-arrow-alt-right"></i></a>
                     </div>
                   </div>
                 </div>
@@ -404,8 +407,7 @@
           <div class="row">
             <div class="col-lg-12">
               <div class="custome-more-text text-center" style="margin-top: 30px">
-                <p>Berita lainnya <a href="{{ route('beritaIndex') }}">Disini <i
-                      class="fas fa-long-arrow-alt-right"></i></a> </p>
+                <p>Berita lainnya <a href="{{ route('beritaIndex') }}">Disini <i class="fas fa-long-arrow-alt-right"></i></a> </p>
               </div>
             </div>
           </div>
@@ -431,8 +433,7 @@
       <div class="container" data-aos="fade-up" data-aos-duration="900">
         <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
         <div class="container-map">
-          <div id="map" style="height: 400px;z-index: 1;"
-            class="shadow-sm p-3 mb-5 bg-white rounded w-100 position-relative"></div>
+          <div id="map" style="height: 400px;z-index: 1;" class="shadow-sm p-3 mb-5 bg-white rounded w-100 position-relative"></div>
         </div>
       </div>
     </div>

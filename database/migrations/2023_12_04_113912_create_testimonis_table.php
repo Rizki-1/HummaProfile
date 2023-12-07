@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('testimonis', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('foto_siswa');
+            $table->string('foto_siswa')->default('testimoni/profiledefault.jpg');
             $table->string('asal_sekolah');
             $table->string('testimoni');
             $table->timestamps();

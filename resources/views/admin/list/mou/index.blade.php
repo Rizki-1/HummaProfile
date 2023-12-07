@@ -58,7 +58,7 @@
           </p>
         @endif
       @endforelse
-      {{ $mous->links('pagination::bootstrap-5') }}
+      {{ $mous->links('vendor.pagination.bootstrap-5') }}
     </div>
   </div>
   <script>

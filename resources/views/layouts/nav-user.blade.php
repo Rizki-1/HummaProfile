@@ -46,7 +46,7 @@
         <div class="header-wrap">
 
           <div class="header-logo">
-              <a class="light-logo" href="{{ route('homeindex') }}"><img src="{{ asset('ImageGlobal/logowithtext.png') }}" alt="HummaTech"></a>
+            <a class="light-logo" href="{{ route('homeindex') }}"><img src="{{ asset('ImageGlobal/logowithtext.png') }}" alt="HummaTech"></a>
             <a class="dark-logo" href="{{ route('homeindex') }}"><img src="{{ asset('cssUser/images/logohumma.png') }}" alt="HummaTech"></a>
           </div>
 
@@ -162,7 +162,7 @@
         <!-- Footer Widget Wrap Start -->
         <div class="footer-widget-wrap">
           <div class="row">
-            <div class="col-lg-3 col-sm-6">
+            <div class="col-lg-3 col-sm-6 footer-sign">
               <!-- Footer Widget Start -->
               <div class="footer-widget-about">
                 <a class="footer-logo" href="{{ route('homeindex') }}"><img src="{{ asset('cssUser/images/logohumma.png') }}" alt="Logo"></a>
@@ -170,7 +170,34 @@
               </div>
               <!-- Footer Widget End -->
             </div>
-            <div class="col-lg-3 col-sm-6">
+
+            <div class="mobile-footer">
+              <div class="footer-widget">
+                <h4 class="footer-widget-title">Sosial Media</h4>
+
+                <div class="widget-link">
+                  <ul class="link">
+                    @foreach (\App\Models\Sosmed::all() as $data)
+                      <li>
+                        <a class="text-capitalize" target="_blank" href="{{ $data->link }}">{{ $data->name }}</a>
+                      </li>
+                    @endforeach
+                  </ul>
+                </div>
+              </div>
+              <div class="footer-widget">
+                <h4 class="footer-widget-title">Layanan Kami</h4>
+
+                <div class="widget-link">
+                  <ul class="link">
+                    <li><a href="{{ route('home.siswaIndex') }}">Magang/PKL</a></li>
+                    <li><a href="{{ route('home.industriIndex') }}">Kelas Industri</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6 desktop-footer">
               <!-- Footer Widget Start -->
               <div class="footer-widget">
                 <h4 class="footer-widget-title">Sosial Media</h4>
@@ -178,14 +205,16 @@
                 <div class="widget-link">
                   <ul class="link">
                     @foreach (\App\Models\Sosmed::all() as $data)
-                      <li><a class="text-capitalize" target="_blank" href="{{ $data->link }}">{{ $data->name }}</a></li>
+                      <li>
+                        <a class="text-capitalize" target="_blank" href="{{ $data->link }}">{{ $data->name }}</a>
+                      </li>
                     @endforeach
                   </ul>
                 </div>
               </div>
               <!-- Footer Widget End -->
             </div>
-            <div class="col-lg-3 col-sm-6">
+            <div class="col-lg-3 col-sm-6 desktop-footer">
               <!-- Footer Widget Start -->
               <div class="footer-widget">
                 <h4 class="footer-widget-title">Layanan Kami</h4>
@@ -212,7 +241,7 @@
                           <i class="flaticon-phone-call"></i>
                         </div>
                         <div class="info-text">
-                          <span><a href="https://wa.me/{{ ltrim(preg_replace('/[^0-9]/', '', $data->no_telp), '0') }}">{{ $data->no_telp }}</a></span>
+                          <span><a target="_blank" href="https://wa.me/{{ ltrim(preg_replace('/[^0-9]/', '', $data->no_telp), '0') }}">{{ $data->no_telp }}</a></span>
                         </div>
                       </li>
                       <li>
@@ -220,7 +249,7 @@
                           <i class="far fa-envelope-open"></i>
                         </div>
                         <div class="info-text">
-                          <span><a href="mailto:{{ $data->email }}">{{ $data->email }}</a></span>
+                          <span><a target="_blank" href="mailto:{{ $data->email }}">{{ $data->email }}</a></span>
                         </div>
                       </li>
                       <li>
@@ -228,7 +257,8 @@
                           <i class="flaticon-pin"></i>
                         </div>
                         <div class="info-text">
-                          <span><a href="https://www.google.com/maps/place/Hummasoft+(Hummatech+Digital+Indonesia)/@-7.900074,112.606886,15z/data=!4m6!3m5!1s0x2e7881c2c4637501:0x10433eaf1fb2fb4c!8m2!3d-7.900074!4d112.606886!16s%2Fg%2F11cmn70zsx?entry=ttu">{{ $data->alamat }}</a></span>
+                          <span><a target="_blank"
+                              href="https://www.google.com/maps/place/Hummasoft+(Hummatech+Digital+Indonesia)/@-7.900074,112.606886,15z/data=!4m6!3m5!1s0x2e7881c2c4637501:0x10433eaf1fb2fb4c!8m2!3d-7.900074!4d112.606886!16s%2Fg%2F11cmn70zsx?entry=ttu">{{ $data->alamat }}</a></span>
                         </div>
                       </li>
                     </ul>

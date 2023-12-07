@@ -66,7 +66,7 @@
             <div class="contact-form" data-aos="fade-up-left" data-aos-duration="700">
               <div class="contact-form-wrap">
                 <div class="heading-wrap text-center">
-                  <span class="sub-title" >Butuh Bantuan?</span>
+                  <span class="sub-title" >Customer Support hummatech</span>
                   <h3 class="title">Hubungi Kami disini!</h3>
                 </div>
                 <form action="{{ route('inbox.store') }}" method="POST">
@@ -127,4 +127,25 @@
     </div>
   </div>
   <!-- Contact End -->
+  <script src="{{ asset('cssAdmin/js/jquery-ini.js') }}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @if (session('message'))
+        <script>
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3500,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                        toast.onmouseenter = Swal.stopTimer;
+                        toast.onmouseleave = Swal.resumeTimer;
+                    }
+                });
+                Toast.fire({
+                icon: "{{ session('message')['icon'] ?? 'question' }}",
+                title: "{{ session('message')['title'] ?? 'No title...' }}"
+            });
+        </script>
+    @endif
 @endsection

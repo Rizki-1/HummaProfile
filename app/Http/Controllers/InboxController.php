@@ -56,15 +56,13 @@ class InboxController extends Controller
 
             return to_route('contactIndex')->with('message', [
                 'icon' => 'success',
-                'title' => 'Berhasil!',
-                'text' => 'Berhasil mengirim pesan!'
+                'title' => 'Berhasil mengirim pesan!'
             ]);
         } catch (\Exception $e) {
             DB::rollBack();
             return back()->with('message', [
                 'icon' => 'error',
-                'title' => 'Gagal!',
-                'text' => 'Ada kesalahan saat membuat email!'
+                'title' => 'Ada kesalahan saat membuat email!'
             ]);
         }
     }
