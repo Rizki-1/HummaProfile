@@ -373,7 +373,7 @@
                 <!-- Single Blog Start -->
                 <div class="single-blog">
                   <div class="blog-image">
-                    <a style="height: 250px; width: 100%" href=""><img
+                    <a style="height: 250px; width: 100%" href="{{ route('detailBerita', $data->title) }}"><img
                         style="height: 100%; width: 100%; object-fit: cover;"
                         src="{{ asset('storage/' . $data->thumbnail) }}" alt="{{ $data->title }}"></a>
                     <div class="top-meta">
@@ -386,11 +386,11 @@
                   <div class="blog-content">
                     <div class="blog-meta">
                       @foreach ($data->kategori as $item)
-                        <a href="{{ route('filter-category', $item->id) }}" class="badge rounded-pill mb-1"
+                        <a href="{{ route('filter-category', $item->name) }}" class="badge rounded-pill mb-1"
                           style="background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; font-size: 12px;margin-right: 5px">{{ $item->name }}</a>
                       @endforeach
                     </div>
-                    <h3 class="title"><a href="">{{ $data->title }}</a></h3>
+                    <h3 class="title">{{ $data->title }}</h3>
                     <div class="blog-btn">
                       <a class="blog-btn-link" href="{{ route('detailBerita', $data->title) }}">Selengkapnya <i
                           class="fas fa-long-arrow-alt-right"></i></a>
