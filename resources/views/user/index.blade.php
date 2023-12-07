@@ -152,16 +152,16 @@
   <div class="section techwix-testimonial-section-02 techwix-testimonial-section-03 section-padding-02" style="padding: 60px 0;">
     <div class="container">
       <!-- Testimonial Wrap Start  -->
-      <div class="testimonial-wrap-02" data-aos="fade-up" data-aos-duration="800" data-aos-anchor-placement="center-bottom">
+      <div class="testimonial-wrap-02">
         <div class="section-title text-center">
-          <h3 class="sub-title">Testimoni</h3>
-          <h2 class="title">Pengalaman Lulusan Magang Kami</h2>
+          <h3 class="sub-title" data-aos="fade-up" data-aos-duration="500">Testimoni</h3>
+          <h2 class="title" data-aos="fade-up" data-aos-duration="700">Pengalaman Lulusan Magang Kami</h2>
         </div>
         <div class="testimonial-content-wrap-02">
           <div class="swiper-container testimonial-02-active">
             <div class="swiper-wrapper">
               @forelse ($testimoni as $tm)
-                <div class="swiper-slide">
+                <div class="swiper-slide" data-aos="fade-up" data-aos-duration="900">
                   <!--  Single Testimonial Start  -->
                   <div class="single-testimonial-02">
                     <div class="testimonial-thumb">
@@ -181,7 +181,7 @@
                   <!--  Single Testimonial End  -->
                 </div>
               @empty
-                <div class="swiper-slide">
+                <div class="swiper-slide" data-aos="fade-up" data-aos-duration="900">
                   <!--  Single Testimonial Start  -->
                   <div class="single-testimonial-02">
                     <div class="testimonial-thumb">
@@ -220,7 +220,7 @@
                   </div>
                   <!--  Single Testimonial End  -->
                 </div>
-                <div class="swiper-slide">
+                <div class="swiper-slide" data-aos="fade-up" data-aos-duration="900">
                   <!--  Single Testimonial Start  -->
                   <div class="single-testimonial-02">
                     <div class="testimonial-thumb">
@@ -240,7 +240,7 @@
                   </div>
                   <!--  Single Testimonial End  -->
                 </div>
-                <div class="swiper-slide">
+                <div class="swiper-slide" data-aos="fade-up" data-aos-duration="900">
                   <!--  Single Testimonial Start  -->
                   <div class="single-testimonial-02">
                     <div class="testimonial-thumb">
@@ -259,7 +259,7 @@
                   </div>
                   <!--  Single Testimonial End  -->
                 </div>
-                <div class="swiper-slide">
+                <div class="swiper-slide" data-aos="fade-up" data-aos-duration="900">
                   <!--  Single Testimonial Start  -->
                   <div class="single-testimonial-02">
                     <div class="testimonial-thumb">
@@ -283,7 +283,7 @@
             </div>
 
             <!-- Add Pagination -->
-            <div class="swiper-pagination"></div>
+            <div class="swiper-pagination" data-aos="fade-up" data-aos-duration="500"></div>
           </div>
         </div>
       </div>
@@ -296,14 +296,14 @@
   <div class="section techwix-brand-section techwix-brand-section-03">
     <div class="container">
       <!-- Brand Wrapper Start -->
-      <div class="brand-wrapper text-center py-5" style="padding-top: 0px" data-aos="fade-up" data-aos-duration="800" data-aos-anchor-placement="center-bottom">
+      <div class="brand-wrapper text-center py-5" style="padding-top: 0px">
         <div class="section-title text-center mb-3">
-          <h3 class="sub-title">Kerjasama Kelas Industri</h3>
-          <h2 class="title">MOU Dengan Sekolah</h2>
+          <h3 class="sub-title" data-aos="fade-up" data-aos-duration="500">Kerjasama Kelas Industri</h3>
+          <h2 class="title" data-aos="fade-up" data-aos-duration="700">MOU Dengan Sekolah</h2>
         </div>
 
         <!-- Brand Active Start -->
-        <div class="brand-active d-flex justify-content-center mt-5">
+        <div class="brand-active d-flex justify-content-center mt-5" data-aos="fade-up" data-aos-duration="1000">
           <div class="scroller">
             <ul class="scroller__inner">
               @forelse ($Mous as $mou)

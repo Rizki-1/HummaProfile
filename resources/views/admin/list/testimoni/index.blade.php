@@ -55,8 +55,8 @@
           <div class="card">
             <div class="card-body">
               <div class="d-flex gap-4 mb-4">
-                <div>
-                  <img src="{{ asset('storage/' . $test->foto_siswa) }}" alt="foto" class="foto">
+                <div class="">
+                  <img src="{{ asset('storage/' . $test->foto_siswa) }}" alt="foto" class="foto ">
                 </div>
                 <div style="display: flex; justify-content: center; align-items: center; width: 72%; flex-direction: column">
                   <h3 class="text-truncate" style="max-width: 90%">{{ $test->nama }}</h3>

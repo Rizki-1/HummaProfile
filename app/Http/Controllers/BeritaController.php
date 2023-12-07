@@ -187,19 +187,19 @@ class BeritaController extends Controller
         }
     }
 
-    public function filter(int $id)
+    public function filter(string $name)
     {
-        $nameKategori = KategoriBerita::where('id',$id)->first();
+        $nameKategori = KategoriBerita::where('name',$name)->first();
         if(!$nameKategori){
             return back();
         }
-        $nameKategori = $nameKategori->name;
         $beritas = BeritaKategori::with(['berita', 'kategori'])
-            ->whereHas('kategori', function ($query) use ($id) {
-                $query->where('kategori_berita_id', $id);
-            })
-            ->paginate(9);
+        ->whereHas('kategori', function ($query) use ($nameKategori) {
+            $query->where('kategori_berita_id', $nameKategori->id);
+        })
+        ->paginate(9);
         $kategori = KategoriBerita::all();
+        $nameKategori = $nameKategori->name;
 
         return view('user.berita.filterberita', compact('beritas','kategori','nameKategori'));
     }
