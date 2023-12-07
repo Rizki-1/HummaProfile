@@ -6,7 +6,7 @@
     <div>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb breadcrumb-dot mb-0">
-          <li class="breadcrumb-item"><a href="{{ route('category') }}">Kategori</a></li>
+          <li class="breadcrumb-item"><a href="{{ route('category-berita.index') }}">Kategori</a></li>
           <li class="breadcrumb-item active" aria-current="page">Create</li>
         </ol>
       </nav>
@@ -64,17 +64,5 @@
     </form>
   </div>
   <!-- Include Bootstrap CSS -->
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="{{ asset('js/formRepeater.js') }}"></script>
-
-  @if (session('message'))
-    <script>
-      Swal.fire({
-        title: "{{ session('message')['title'] ?? 'Tidak di isi' }}",
-        text: "{{ session('message')['text'] ?? 'Tesk tidak di isi' }}",
-        icon: "{{ session('message')['icon'] ?? 'question' }}"
-      });
-    </script>
-  @endif
 @endsection

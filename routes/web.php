@@ -8,6 +8,7 @@ use App\Http\Controllers\InboxController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\CabangPerusahaanController;
 use App\Http\Controllers\PengaturanController;
 use App\Http\Controllers\PersetujuanController;
 use App\Http\Controllers\KategoriBeritaController;
@@ -42,9 +43,6 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
     Route::resource("/berita", BeritaController::class);
     //kategory berita
     Route::resource('/category-berita', KategoriBeritaController::class);
-    Route::get('/category',[KategoriBeritaController::class, 'index'])->name('category');
-
-    Route::get('/category',[KategoriBeritaController::class, 'index'])->name('category');
     Route::resource("/inbox", InboxController::class)->only(['show', 'index', 'destroy']);
     Route::get('/inbox/reply/{id}', [InboxController::class, 'replyShow'])->name('inbox.reply.show');
     Route::post('/inbox/reply/{id}', [InboxController::class, 'reply'])->name('inbox.reply.post');
@@ -54,8 +52,6 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
     //produk
     Route::resource('/produk', ProdukController::class);
     // profile
-    Route::post('/profile.store', [PengaturanController::class, 'Profilestore'])->name('profile.store');
-    Route::put('/profile.update/{id}', [PengaturanController::class, 'Profileupdate'])->name('profile.update');
     //terima dan tolak kelas industri dan siswa magang
     // Route::patch('/terimasiswa/{id}', [PersetujuanController::class, 'setujuSiswaMagang'])->name('setujusiswa');
     // Route::patch('/tolaksiswa/{id}', [PersetujuanController::class, 'tolakSiswaMagang'])->name('tolakSiswa');
@@ -63,6 +59,7 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
     // Route::patch('/tolakindustri/{id}', [PersetujuanController::class, 'tolakIndustri'])->name('tolakindustri');
     //layanan perusahaan
     Route::resource('/layanan-perusahaan', LayananPerusahaanController::class)->except(['show']);
+    Route::resource('/cabang-perusahaan', CabangPerusahaanController::class)->except(['show']);
     Route::resource('/profile-perusahaan', ProfilePerusahaanController::class)->only(['index', 'update']);
     // List
     Route::get('/list-siswa-magang', [ListController::class, 'siswaMagang'])->name('list.siswa_magang');

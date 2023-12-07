@@ -1,26 +1,26 @@
 @extends('layouts.nav-admin')
 
 @section('content')
-  <title>{{ config('app.name', 'Laravel') }} - Kategori Berita</title>
+  <title>{{ config('app.name', 'Laravel') }} - Cabang Perusahaan</title>
   <div class="card p-4 mb-4 flex-row justify-content-between align-items-center">
     <div>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb breadcrumb-dot mb-0">
-          <li class="breadcrumb-item"><a href="{{ route('category-berita.index') }}">Kategori</a></li>
+          <li class="breadcrumb-item"><a href="{{ route('cabang-perusahaan.index') }}">Cabang Perusahaan</a></li>
           <li class="breadcrumb-item active" aria-current="page">Edit</li>
-          <li class="breadcrumb-item active" aria-current="page">{{ $category->name }}</li>
+          <li class="breadcrumb-item active" aria-current="page">{{ $cabang->name }}</li>
         </ol>
       </nav>
     </div>
   </div>
   <div class="card p-4">
-    <form action="{{ route('category-berita.update', $category->id) }}" method="POST">
+    <form action="{{ route('cabang-perusahaan.update', $cabang->id) }}" method="POST">
       @csrf
       @method('put')
       <div class="col-12 mb-4 pe-3">
-        <label for="unknown" class="form-label">Kategori Berita</label>
-        <input required type="text" class="form-control @error('category_name') is-invalid @enderror" placeholder="Kategori Berita" name="category_name" value="{{ old('category_name',$category->name) }}" required>
-        @error('category_name')
+        <label for="unknown" class="form-label">Cabang Perusahaan</label>
+        <input required type="text" class="form-control @error('cabang_name') is-invalid @enderror" placeholder="Cabang Perusahaan" name="cabang_name" value="{{ old('cabang_name',$cabang->name) }}" required>
+        @error('cabang_name')
           <div class="invalid-feedback">
             <p>{{ $message }}</p>
           </div>

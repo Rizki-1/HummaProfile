@@ -95,6 +95,14 @@ class BeritaController extends Controller
     {
         $kategoriBerita = KategoriBerita::all();
         $berita = Berita::where('id', $id)->first();
+        if(!$berita){
+            return back()->with('message', [
+                'icon' => 'error',
+                'title' => 'Error',
+                'text' => "ID tidak ditemukan!"
+            ]);
+        }
+
         return view('admin.berita.edit', compact('kategoriBerita','berita'));
     }
 
@@ -106,7 +114,7 @@ class BeritaController extends Controller
         try {
             DB::beginTransaction();
 
-            $berita = Berita::findOrFail($id);
+            $berita = Berita::where('id', $id)->first();
             if(!$berita){
                 return back()->with('message', [
                     'icon' => 'error',

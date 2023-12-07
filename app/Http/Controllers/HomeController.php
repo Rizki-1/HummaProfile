@@ -6,6 +6,7 @@ use App\Models\Mou;
 use App\Models\Inbox;
 use App\Models\Berita;
 use App\Models\BeritaKategori;
+use App\Models\CabangPerusahaan;
 use App\Models\Produk;
 use App\Models\Sosmed;
 use App\Models\SiswaMagang;
@@ -29,7 +30,8 @@ class HomeController extends Controller
         $produk = Produk::latest()->get();
         $Mous = Mou::all();
         $testimoni = Testimoni::latest()->get();
-        return view('user.index', compact('profile', 'berita', 'layanan', 'produk', 'Mous', 'testimoni'));
+        $cabang = CabangPerusahaan::all();
+        return view('user.index', compact('profile', 'berita', 'layanan', 'produk', 'Mous', 'testimoni', 'cabang'));
     }
 
     public function home()

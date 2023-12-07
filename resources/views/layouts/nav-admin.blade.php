@@ -137,7 +137,7 @@
                   <a href="{{ route('berita.index') }}" class="nav-link">Berita</a>
                 </li>
                 <li class="nav-item">
-                  <a href="{{ route('category') }}" class="nav-link">Kategori Berita</a>
+                  <a href="{{ route('category-berita.index') }}" class="nav-link">Kategori Berita</a>
                 </li>
               </ul>
             </div>
@@ -174,6 +174,9 @@
                 </li>
                 <li class="nav-item">
                   <a href="{{ route('layanan-perusahaan.index') }}" class="nav-link">Layanan Perusahaan</a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{ route('cabang-perusahaan.index') }}" class="nav-link">Cabang Perusahaan</a>
                 </li>
               </ul>
             </div>

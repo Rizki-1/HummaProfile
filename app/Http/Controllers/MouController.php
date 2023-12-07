@@ -25,7 +25,14 @@ class MouController extends Controller
     public function edit($id)
     {
         try {
-            $mou = Mou::FindOrFail($id);
+            $mou = Mou::where('id',$id)->first();
+            if(!$mou){
+                return back()->with('message', [
+                    'icon' => 'error',
+                    'title' => 'Error',
+                    'text' => "ID tidak ditemukan!"
+                ]);
+            }
             return view('admin.list.mou.edit', compact('mou'));
         } catch (\Throwable $th) {
             return back()->with('message', [

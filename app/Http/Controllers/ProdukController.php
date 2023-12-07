@@ -82,7 +82,15 @@ class ProdukController extends Controller
      */
     public function edit(string $id)
     {
-        $produks = Produk::findOrFail($id);
+        $produks = Produk::where('id',$id)->first();
+        if(!$produks){
+            return back()->with('message', [
+                'icon' => 'error',
+                'title' => 'Error',
+                'text' => "ID tidak ditemukan!"
+            ]);
+        }
+
         return view('admin.produk.edit', compact('produks'));
     }
 
@@ -141,7 +149,15 @@ class ProdukController extends Controller
         try {
             DB::beginTransaction();
 
-            $produk = Produk::findOrFail($id);
+            $produk = Produk::where('id',$id)->first();
+            if(!$produk){
+                return back()->with('message',[
+                'icon' => 'error',
+                'title' => 'Error',
+                'text' => "ID tidak ditemukan!"
+                ]);
+            }
+
             Storage::delete($produk->foto_produk);
             $produk->delete();
 

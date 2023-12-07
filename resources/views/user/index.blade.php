@@ -456,18 +456,14 @@
         popupAnchor: [0, -36]
     });
 
-    // Koordinat kantor pusat dengan marker kustom
-    var kantorPusat = L.marker([-7.900074, 112.606886], { icon: customIcon }).addTo(map);
-    kantorPusat.bindPopup('<b>Kantor Pusat</b>').openPopup();
-
-    // Koordinat cabang 1 dengan marker kustom
-    var cabang1 = L.marker([-7.5570422, 111.6597938], { icon: customIcon }).addTo(map);
-    cabang1.bindPopup('<b>Cabang 1</b>');
-
-    // Koordinat cabang 2 dengan marker kustom
-    var cabang2 = L.marker([-7.5573993, 111.5791793], { icon: customIcon }).addTo(map);
-    cabang2.bindPopup('<b>Cabang 2</b>');
-
+    @foreach ($cabang as $item)
+        var cabangPerusahaan = L.marker([{{ $item->latitude }}, {{ $item->longitude }}], { icon: customIcon }).addTo(map);
+        @if ($item->id == 1)
+            cabangPerusahaan.bindPopup('<b>{{ $item->name }}</b>').openPopup();
+        @else
+            cabangPerusahaan.bindPopup('<b>{{ $item->name }}</b>');
+        @endif
+    @endforeach
 
     var markerElements = document.querySelectorAll('.leaflet-marker-icon.leaflet-zoom-animated.leaflet-interactive');
 

@@ -26,7 +26,15 @@ class TestimoniController extends Controller
     public function edit($id)
     {
         try {
-            $test = Testimoni::FindOrFail($id);
+            $test = Testimoni::where('id',$id)->first();
+            if(!$test){
+                return back()->with('message', [
+                    'icon' => 'error',
+                    'title' => 'Error',
+                    'text' => "ID tidak ditemukan!"
+                ]);
+            }
+
             return view('admin.list.testimoni.edit', compact('test'));
         } catch (\Throwable $th) {
             return back()->with('message', [
@@ -71,7 +79,14 @@ class TestimoniController extends Controller
     public function update(testimoniUpdateRequest $request, $id)
     {
         try {
-            $testimoni = Testimoni::findOrFail($id);
+            $testimoni = Testimoni::where('id',$id)->first();
+            if(!$testimoni){
+                return back()->with('message', [
+                    'icon' => 'error',
+                    'title' => 'Error',
+                    'text' => "ID tidak ditemukan!"
+                ]);
+            }
 
             if (!$testimoni) {
                 return back()->with('message', [

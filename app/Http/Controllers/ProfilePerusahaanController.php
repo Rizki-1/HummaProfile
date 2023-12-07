@@ -22,7 +22,6 @@ class ProfilePerusahaanController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        // dump($request->all());
         try {
             $dataRequest = $request->all();
             $profile = ProfileCompany::where('id', $id)->first();
