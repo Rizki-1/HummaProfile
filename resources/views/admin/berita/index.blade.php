@@ -20,7 +20,7 @@
       <div class="d-flex justify-content-end">
         <form method="get" class="form-inline d-flex flex-row">
           <input class="form-control mr-sm-2 py-0" type="search" name="query" placeholder="Search" aria-label="Search" value="{{ request('query') }}">
-          <button class="btn btn-outline-success py-0 my-sm-0" type="submit"><i class="mdi mdi-magnify fs-4"></i></button>
+          <button class="btn btn-outline-primary py-0 my-sm-0" type="submit"><i class="mdi mdi-magnify fs-4"></i></button>
         </form>
       </div>
     @endif

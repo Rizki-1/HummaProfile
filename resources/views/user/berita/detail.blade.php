@@ -24,11 +24,10 @@
                     </span>
                   </div>
                 </div>
-                <div class="blog-content">
-                  <div class="blog-meta d-flex">
+                <div class="blog-content" style="overflow-wrap: anywhere; overflow: hidden">
+                  <div class="blog-meta d-flex" style="flex-wrap: wrap;">
                     @foreach ($berita->kategori as $item)
-                      <a href="{{ route('filter-category', $item->id) }}" class="badge rounded-pill mb-1"
-                        style="background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; font-size: 12px;margin-right: 5px">{{ $item->name }}</a>
+                      <a href="{{ route('filter-category', $item->id) }}" class="badge rounded-pill mb-1" style="padding: 7px 13px; background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; font-size: 13px; margin-right: 5px; font-weight: 700">{{ $item->name }}</a>
                     @endforeach
                   </div>
                   <h3 class="title" style="overflow-wrap: anywhere; line-height: 42px;">{{ $berita->title }}</h3>
@@ -58,7 +57,7 @@
                         <a class="post-link" href="{{ route('detailBerita', $data->title) }}">
                           <div class="post-thumb">
                             <img style="object-fit: cover" src="{{ asset('storage/' . $data->thumbnail) }}"
-                              alt="">
+                              alt="Foto Berita">
                           </div>
                           <div class="post-text">
                             <h4 class="title text-truncate detail-truncation">{{ $data->title }}</h4>

@@ -16,14 +16,14 @@
     </div>
   </div>
   <div class="card p-4">
-    <div class="d-flex justify-content-end mb-3">
+    @if ($produks->count() > 0)
+      <div class="d-flex justify-content-end mb-3">
         <form method="get" class="form-inline d-flex flex-row">
-            <input class="form-control mr-sm-2 py-0" type="search" name="query" placeholder="Search"
-                aria-label="Search" value="{{ request('query') }}">
-            <button class="btn btn-outline-primary py-0 my-sm-0" type="submit"><i
-                    class="mdi mdi-magnify fs-4"></i></button>
+          <input class="form-control mr-sm-2 py-0" type="search" name="query" placeholder="Search" aria-label="Search" value="{{ request('query') }}">
+          <button class="btn btn-outline-primary py-0 my-sm-0" type="submit"><i class="mdi mdi-magnify fs-4"></i></button>
         </form>
-    </div>
+      </div>
+    @endif
     <div class="row">
       @forelse ($produks as $row)
         <div class="col-md-4 mb-4">
@@ -57,9 +57,9 @@
         </div>
       @empty
         @if (!request('query'))
-            <p class="fw-bold text-center">Tidak ada produk. <a href="{{ route('produk.create') }}">Tambah!</a></p>
+          <p class="fw-bold text-center">Tidak ada produk. <a href="{{ route('produk.create') }}">Tambah!</a></p>
         @else
-            <p class="fw-bold text-center">Produk tidak ditemukan!</p>
+          <p class="fw-bold text-center">Produk tidak ditemukan!</p>
         @endif
       @endforelse
       <div>
@@ -67,27 +67,27 @@
       </div>
     </div>
   </div>
-    <script>
-    if(document.querySelectorAll('.hapus').length > 0){
-    document.querySelectorAll('.hapus').forEach(function(form) {
-      form.addEventListener('submit', function(event) {
-        event.preventDefault();
-        var nameProduk = form.getAttribute('nameProduk');
-        Swal.fire({
-          title: 'Apakah anda yakin?',
-          text: "Ingin menghapus produk '" + nameProduk + "'?",
-          icon: "question",
-          showCancelButton: true,
-          confirmButtonText: "Ya, Hapus!",
-          cancelButtonText: "Batal",
-          background: 'var(--bs-body-bg)',
-        }).then((result) => {
-          if (result.isConfirmed) {
-            form.submit();
-          }
+  <script>
+    if (document.querySelectorAll('.hapus').length > 0) {
+      document.querySelectorAll('.hapus').forEach(function(form) {
+        form.addEventListener('submit', function(event) {
+          event.preventDefault();
+          var nameProduk = form.getAttribute('nameProduk');
+          Swal.fire({
+            title: 'Apakah anda yakin?',
+            text: "Ingin menghapus produk '" + nameProduk + "'?",
+            icon: "question",
+            showCancelButton: true,
+            confirmButtonText: "Ya, Hapus!",
+            cancelButtonText: "Batal",
+            background: 'var(--bs-body-bg)',
+          }).then((result) => {
+            if (result.isConfirmed) {
+              form.submit();
+            }
+          });
         });
       });
-    });
-  }
+    }
   </script>
 @endsection
