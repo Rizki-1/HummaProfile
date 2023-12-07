@@ -45,14 +45,22 @@ class TestimoniController extends Controller
 
     public function store(testimoniRequest $request)
     {
-        $namaFoto = $request->file('foto_siswa')->hashName();
-        $path = $request->file('foto_siswa')->storeAs('testimoni', $namaFoto);
-        Testimoni::create([
-            'nama' => $request->nama,
-            'foto_siswa' => $path,
-            'asal_sekolah' => $request->asal_sekolah,
-            'testimoni' => $request->testimoni,
-        ]);
+        if ($request->hasFile('foto_siswa')) {
+            $namaFoto = $request->file('foto_siswa')->hashName();
+            $path = $request->file('foto_siswa')->storeAs('testimoni', $namaFoto);
+            Testimoni::create([
+                'nama' => $request->nama,
+                'foto_siswa' => $path,
+                'asal_sekolah' => $request->asal_sekolah,
+                'testimoni' => $request->testimoni,
+            ]);
+        }else{
+            Testimoni::create([
+                'nama' => $request->nama,
+                'asal_sekolah' => $request->asal_sekolah,
+                'testimoni' => $request->testimoni,
+            ]);
+        }
         return to_route('testimoni.index')->with('message', [
             'icon' => 'success',
             'title' => "Berhasil!",
