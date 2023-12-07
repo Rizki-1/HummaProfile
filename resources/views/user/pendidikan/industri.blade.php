@@ -135,7 +135,7 @@
           @if ($layananIndustri->count() > 0)
             <div class="row justify-content-center">
               @foreach ($layananIndustri as $key => $data)
-                <div class="col-xl-3 col-sm-6">
+                <div class="col-xl-3 col-sm-12">
                   <!-- Service Item Start -->
                   <div class="service-item service-0{{ ++$key }}">
                     <div class="service-content">
@@ -169,16 +169,14 @@
       <!-- Service Wrap Start -->
       <div class="service-wrap">
         <div class="section-title text-center">
-          <h3 class="sub-title" data-aos="fade-up" data-aos-duration="500">MOU</h3>
           <h2 class="title" data-aos="fade-up" data-aos-duration="700"
-            style="padding: 20px; text-transform: capitalize">Sekolah - sekolah yang sudah bekerjasama dengan <span
+            style="padding: 20px; text-transform: capitalize">List sekolah yang sudah melakukan tanda tangan MoU dengan <span
               style="color: #22B3E2">Humma</span>Tech</h2>
         </div>
-        {{-- data-aos="fade-up" data-aos-duration="900" --}}
-        <div class="service-content-wrap">
+        <div class="service-content-wrap" data-aos="fade-up" data-aos-duration="1000">
           <div class="sekolah-logo-container row">
             @forelse ($Mous as $data)
-              <div class="col-xl-3 col-sm-6">
+              <div class="col-xl-3 col-sm-12">
                 <div class="card-logo-sekolah">
                   <div class="img-sekolah">
                     <img src="{{ asset('storage/' . $data->foto_mou) }}" alt="MoU sekolah {{ $data->nama_mou }}">
@@ -189,7 +187,7 @@
                 </div>
               </div>
             @empty
-              <div class="col-xl-3 col-sm-6">
+              <div class="col-xl-3 col-sm-12">
                 <div class="card-logo-sekolah">
                   <div class="img-sekolah">
                     <img src="{{ asset('cssUser/sekolah/smk-1.png') }}">
@@ -199,7 +197,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-xl-3 col-sm-6">
+              <div class="col-xl-3 col-sm-12">
                 <div class="card-logo-sekolah">
                   <div class="img-sekolah">
                     <img src="{{ asset('cssUser/sekolah/smk-2.jpg') }}">
@@ -209,7 +207,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-xl-3 col-sm-6">
+              <div class="col-xl-3 col-sm-12">
                 <div class="card-logo-sekolah">
                   <div class="img-sekolah">
                     <img src="{{ asset('cssUser/sekolah/smk-3.jpg') }}">
@@ -219,7 +217,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-xl-3 col-sm-6">
+              <div class="col-xl-3 col-sm-12">
                 <div class="card-logo-sekolah">
                   <div class="img-sekolah">
                     <img src="{{ asset('cssUser/sekolah/smk-4.jpg') }}">
@@ -229,7 +227,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-xl-3 col-sm-6">
+              <div class="col-xl-3 col-sm-12">
                 <div class="card-logo-sekolah">
                   <div class="img-sekolah">
                     <img src="{{ asset('cssUser/sekolah/smk-5.jpg') }}">
@@ -239,7 +237,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-xl-3 col-sm-6">
+              <div class="col-xl-3 col-sm-12">
                 <div class="card-logo-sekolah">
                   <div class="img-sekolah">
                     <img src="{{ asset('cssUser/sekolah/smk-6.jpg') }}">
@@ -249,7 +247,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-xl-3 col-sm-6">
+              <div class="col-xl-3 col-sm-12">
                 <div class="card-logo-sekolah">
                   <div class="img-sekolah">
                     <img src="{{ asset('cssUser/sekolah/smk-7.jpg') }}">
@@ -259,7 +257,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-xl-3 col-sm-6">
+              <div class="col-xl-3 col-sm-12">
                 <div class="card-logo-sekolah">
                   <div class="img-sekolah">
                     <img src="{{ asset('cssUser/sekolah/smk-8.png') }}">
@@ -269,7 +267,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-xl-3 col-sm-6">
+              <div class="col-xl-3 col-sm-12">
                 <div class="card-logo-sekolah">
                   <div class="img-sekolah">
                     <img src="{{ asset('cssUser/sekolah/smk-9.png') }}">
@@ -279,7 +277,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-xl-3 col-sm-6">
+              <div class="col-xl-3 col-sm-12">
                 <div class="card-logo-sekolah">
                   <div class="img-sekolah">
                     <img src="{{ asset('cssUser/sekolah/smk-10.jpg') }}">
@@ -289,7 +287,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-xl-3 col-sm-6">
+              <div class="col-xl-3 col-sm-12">
                 <div class="card-logo-sekolah">
                   <div class="img-sekolah">
                     <img src="{{ asset('cssUser/sekolah/smk-11.png') }}">

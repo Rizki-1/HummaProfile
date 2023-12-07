@@ -61,7 +61,7 @@ video {
 }
 
 .sekolah-logo-container .card-logo-sekolah {
-    width: 250px;
+    width: 100%;
     height: 250px;
     display: flex;
     flex-direction: column;
