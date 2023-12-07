@@ -33,14 +33,95 @@
   </div>
   <!-- Page Banner End -->
 
+  <div class="section techwix-choose-us-section-02 section-padding-02"
+    style="padding-bottom: 110px; background-color: #ffffff">
+    <div class="container">
+      <!-- Choose Us Wrap Start -->
+      <div class="choose-us-wrap">
+        <div class="row">
+          <div class="col-lg-6">
+            <!-- Choose Us Left Start -->
+            <div class="choose-us-left">
+              <div class="section-title">
+                <h3 class="sub-title" data-aos="fade-up-right" data-aos-duration="500">Pendaftaran Magang</h3>
+                <h2 class="title" data-aos="fade-up-right" data-aos-duration="700">Dapatkan infomasi terkait pendaftaran
+                  magang di sini</h2>
+              </div>
+              <p class="text mb-3" data-aos="fade-up-right" data-aos-duration="900">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis non, voluptate cupiditate, expedita similique sed cumque ad mollitia sequi deleniti labore, odio autem. Incidunt, repudiandae a obcaecati aliquam nisi quisquam.</p>
+              <div data-aos="fade-up-right" data-aos-duration="1000"><a href="https://pkl.hummatech.com/" target="_blank"
+                  class="btn btn-primary">Daftar</a></div>
+            </div>
+            <!-- Choose Us Left End -->
+          </div>
+          <div class="col-lg-6">
+            <!-- Choose Us Right Start -->
+            <div class="choose-us-right">
+              <!-- Faq Accordion Start -->
+              <div class="faq-accordion">
+                <div class="accordion" id="accordionExample">
+                  <div class="accordion-item" data-aos="fade-up-left" data-aos-duration="500">
+                    <div class="accordion-header" id="headingOne">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                        <span class="title">Syarat & Ketentuan</span>
+                      </button>
+                    </div>
+                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                      data-bs-parent="#accordionExample" data-aos="fade-up-left" data-aos-duration="800">
+                      <div class="accordion-body">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem animi labore voluptatibus? Modi possimus quos doloremque nihil. Omnis, adipisci ex, ad sapiente vitae esse id vel mollitia, est numquam aliquam.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item" data-aos="fade-up-left" data-aos-duration="700">
+                    <div class="accordion-header" id="headingTwo">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                        <span class="title">Syarat & Ketentuan</span>
+                      </button>
+                    </div>
+                    <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo"
+                      data-bs-parent="#accordionExample" style="">
+                      <div class="accordion-body">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam quia facere molestiae doloremque cum tempore cumque, similique dolore soluta consequuntur maxime tempora! Autem perspiciatis facere porro iusto, hic eveniet sed!
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item" data-aos="fade-up-left" data-aos-duration="900">
+                    <div class="accordion-header" id="headingThree">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        <span class="title">Syarat & Ketentuan</span>
+                      </button>
+                    </div>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                      data-bs-parent="#accordionExample" style="">
+                      <div class="accordion-body">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo aperiam cupiditate, veritatis, ipsam accusantium esse voluptate ducimus distinctio a quidem animi nihil aut consectetur? Possimus veritatis tempora maiores doloremque soluta?
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Faq Accordion End -->
+            </div>
+            <!-- Choose Us Right End -->
+          </div>
+        </div>
+      </div>
+      <!-- Choose Us Wrap End -->
+    </div>
+  </div>
+
   <!-- Service Start -->
-  <div class="section techwix-service-section section-padding-02" style="padding-bottom: 70px">
+  <div class="section techwix-service-section section-padding-02" style="padding-bottom: 70px; padding-top: 20px">
     <div class="container">
       <!-- Service Wrap Start -->
       <div class="service-wrap">
         <div class="section-title text-center">
-          <h3 class="sub-title"  data-aos="fade-up" data-aos-duration="500">Layanan Magang/PKL</h3>
-          <h2 class="title"  data-aos="fade-up" data-aos-duration="700">Tingkatkan Pengalaman Anda dengan Layanan Perusahaan Kami</h2>
+          <h3 class="sub-title" data-aos="fade-up" data-aos-duration="500">Layanan Magang/PKL</h3>
+          <h2 class="title" data-aos="fade-up" data-aos-duration="700">Tingkatkan Pengalaman Anda dengan Layanan
+            Perusahaan Kami</h2>
         </div>
         <div class="service-content-wrap" data-aos="fade-up" data-aos-duration="900">
           @if ($layananSiswa->count() > 0)
@@ -73,89 +154,6 @@
     </div>
   </div>
   <!-- Service End -->
-
-
-  <div class="section techwix-choose-us-section-02 section-padding-02"
-    style="padding-bottom: 110px; background-color: #ffffff">
-    <div class="container">
-      <!-- Choose Us Wrap Start -->
-      <div class="choose-us-wrap">
-        <div class="row">
-          <div class="col-lg-6" >
-            <!-- Choose Us Left Start -->
-            <div class="choose-us-left" >
-              <div class="section-title">
-                <h3 class="sub-title" data-aos="fade-up-right" data-aos-duration="500">Pendaftaran Magang</h3>
-                <h2 class="title" data-aos="fade-up-right" data-aos-duration="700">Dapatkan infomasi terkait pendaftaran magang di sini</h2>
-              </div>
-              <p class="text mb-3" data-aos="fade-up-right" data-aos-duration="900">Accelerate innovation with world-class tech teams We’ll match you to an entire remote
-                team of incredible freelance talent for all your software development needs.</p>
-              <div data-aos="fade-up-right" data-aos-duration="1000"><a href="https://pkl.hummatech.com/" target="_blank" class="btn btn-primary">Daftar</a></div>
-            </div>
-            <!-- Choose Us Left End -->
-          </div>
-          <div class="col-lg-6">
-            <!-- Choose Us Right Start -->
-            <div class="choose-us-right">
-              <!-- Faq Accordion Start -->
-              <div class="faq-accordion">
-                <div class="accordion" id="accordionExample">
-                  <div class="accordion-item" data-aos="fade-up-left" data-aos-duration="500">
-                    <div class="accordion-header" id="headingOne">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                        <span class="title">How Long it takes finished projects ?</span>
-                      </button>
-                    </div>
-                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
-                      data-bs-parent="#accordionExample" data-aos="fade-up-left" data-aos-duration="800">
-                      <div class="accordion-body">
-                        Accelerate innovation with world-class tech teams We’ll match you to an entire remote team of
-                        incredible freelance talent for all your software.
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item" data-aos="fade-up-left" data-aos-duration="700">
-                    <div class="accordion-header" id="headingTwo">
-                      <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo" >
-                        <span class="title">Support &amp; Policy rules?</span>
-                      </button>
-                    </div>
-                    <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo"
-                      data-bs-parent="#accordionExample" style="">
-                      <div class="accordion-body">
-                        We can help you channel your potential implementing your idea. We take care of all your needs,
-                        crafting specific and targeted solutions.
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item" data-aos="fade-up-left" data-aos-duration="900">
-                    <div class="accordion-header" id="headingThree">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        <span class="title">Can we get refund?</span>
-                      </button>
-                    </div>
-                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                      data-bs-parent="#accordionExample" style="">
-                      <div class="accordion-body">
-                        Accelerate innovation with world-class tech teams We’ll match you to an entire remote team of
-                        incredible freelance talent for all your software.
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Faq Accordion End -->
-            </div>
-            <!-- Choose Us Right End -->
-          </div>
-        </div>
-      </div>
-      <!-- Choose Us Wrap End -->
-    </div>
-  </div>
 
   <!-- Testimonial Start  -->
   <div
@@ -192,10 +190,10 @@
                   <!--  Single Testimonial End  -->
                 </div>
               @empty
-              <div class="nodata gap-3 w-100">
-                <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="" >
-                <p style="">Data Testimoni tidak ada</p>
-              </div>
+                <div class="nodata gap-3 w-100">
+                  <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="">
+                  <p style="">Data Testimoni tidak ada</p>
+                </div>
               @endforelse
             </div>
 
