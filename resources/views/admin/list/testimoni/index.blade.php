@@ -1,31 +1,6 @@
 @extends('layouts.nav-admin')
 @section('content')
-  <style>
-    .tes {
-      background-color: pink;
-      padding: 10px
-    }
-
-    .foto {
-      width: 100px;
-      height: 100px;
-      object-fit: cover;
-      border-radius: 10px;
-    }
-
-    .edit-icon {
-      color: yellow !important;
-      margin: 0 !important;
-    }
-
-    .trash-icon {
-      color: red !important;
-    }
-
-    .danger-button:hover .trash-icon {
-      color: white !important;
-    }
-  </style>
+<link rel="stylesheet" href="{{ asset('cssAdmin/css/testimoni/styleindex.css') }}">
   <title>{{ config('app.name', 'Laravel') }} - Testimoni</title>
   <link rel="stylesheet" href="{{ asset('cssAdmin/css/berita/categoryBerita.css') }}">
   <div class="card px-4 py-3 mb-4 flex-row justify-content-between align-items-center">
@@ -51,19 +26,19 @@
     @endif
     <div class="row">
       @forelse ($testimoni as $test)
-        <div class="col-md-6">
+        <div class="col-md-6 mb-4">
           <div class="card">
             <div class="card-body">
               <div class="d-flex gap-4 mb-4">
                 <div class="">
                   <img src="{{ asset('storage/' . $test->foto_siswa) }}" alt="foto" class="foto ">
                 </div>
-                <div style="display: flex; justify-content: center; align-items: center; width: 72%; flex-direction: column">
-                  <h3 class="text-truncate" style="max-width: 90%">{{ $test->nama }}</h3>
-                  <h6 class="text-truncate" style="max-width: 90%">{{ $test->asal_sekolah }}</h5>
+                <div style="display: flex; width: 72%; flex-direction: column">
+                  <h4 class="text-truncate mb-1" style="max-width: 90%">{{ $test->nama }}</h4>
+                  <h6 class="text-truncate mb-3" style="max-width: 90%">{{ $test->asal_sekolah }}</h5>
+                  <p class="teststyle">{{ $test->testimoni }}</p>
                 </div>
               </div>
-              <p>{{ $test->testimoni }}</p>
               <div class="d-flex gap-2 mt-4 float-right justify-content-end">
                 <form nameTestimoni="{{ $test->nama }}" action="{{ route('testimoni.destroy', $test->id) }}" method="post" class="hapus">
                   @method('delete')

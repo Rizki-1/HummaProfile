@@ -3777,7 +3777,7 @@ div.tox .btn-group-sm>.tox-button {
     --bs-dropdown-link-hover-color: #050b15;
     --bs-dropdown-link-hover-bg: #e9ecef;
     --bs-dropdown-link-active-color: #fff;
-    --bs-dropdown-link-active-bg: #6571ff;
+    --bs-dropdown-link-active-bg: #00b1f0;
     --bs-dropdown-link-disabled-color: #aeb7c5;
     --bs-dropdown-item-padding-x: 1rem;
     --bs-dropdown-item-padding-y: 0.25rem;
@@ -20848,7 +20848,7 @@ div.tox .buy-now-wrapper .tox-button svg {
 }
 
 .sidebar .sidebar-body .nav .nav-item .nav-link[aria-expanded=true] {
-    color: #6571ff
+    color: #8592a9
 }
 
 .sidebar .sidebar-body .nav .nav-item .nav-link[aria-expanded=true] .link-arrow {
@@ -22395,7 +22395,7 @@ div.tox .btn-icon-text.btn-lg.tox-button .btn-icon-prepend {
 .dropdown-item.active):hover,
 .tt-menu .tt-suggestion:not(.dropdown-item:active,
 .dropdown-item.active):hover {
-    background-color: rgba(101, 113, 255, .1)
+    background-color: rgb(101 155 255 / 10%);
 }
 
 .dropdown-item:not(.dropdown-item:active,
@@ -22410,7 +22410,7 @@ div.tox .btn-icon-text.btn-lg.tox-button .btn-icon-prepend {
 .dropdown-item.active):hover i,
 .tt-menu .tt-suggestion:not(.dropdown-item:active,
 .dropdown-item.active):hover svg {
-    color: #6571ff
+    color: #00a1ff
 }
 
 .dropdown-item.active i,

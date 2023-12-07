@@ -1,6 +1,24 @@
 @extends('layouts.nav-user')
 
 @section('content')
+<style>
+  .nodata {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin: 3rem 0 0;
+  }
+
+  .nodata img {
+    height: 12rem;
+  }
+
+  .nodata p {
+    font-weight: 600;
+    font-size: 25px;
+    color: #b3b6c5;
+  }
+</style>
   <link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/forceLogo.css') }}">
   <link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/forceNav.css') }}">
   <div class="section techwix-blog-grid-section section-padding" style="background: #f8f8f8;">
@@ -52,8 +70,8 @@
             </div>
           @empty
             <div class="nodata gap-3 text-center">
-              <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="" style="height: 200px; ">
-              <p style="font-size: 30px;"><b>Tidak ada data berita</b></p>
+              <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="">
+              <p>Tidak ada data berita</p>
             </div>
           @endforelse
         </div>

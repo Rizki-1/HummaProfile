@@ -1,0 +1,33 @@
+.tes {
+    background-color: pink;
+    padding: 10px
+}
+
+.foto {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.edit-icon {
+    color: yellow !important;
+    margin: 0 !important;
+}
+
+.trash-icon {
+    color: red !important;
+}
+
+.danger-button:hover .trash-icon {
+    color: white !important;
+}
+
+.teststyle {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}

@@ -41,14 +41,14 @@
         <div class="row">
           <div class="col-lg-6">
             <!-- Choose Us Left Start -->
-            <div class="choose-us-left">
+            <div class="choose-us-left pendaftaran">
               <div class="section-title">
                 <h3 class="sub-title" data-aos="fade-up-right" data-aos-duration="500">Pendaftaran Magang</h3>
-                <h2 class="title" data-aos="fade-up-right" data-aos-duration="700">Dapatkan infomasi terkait pendaftaran
+                <h2 class="title text-capitalize" data-aos="fade-up-right" data-aos-duration="700">Dapatkan infomasi terkait pendaftaran
                   magang di sini</h2>
               </div>
               <p class="text mb-3" data-aos="fade-up-right" data-aos-duration="900">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis non, voluptate cupiditate, expedita similique sed cumque ad mollitia sequi deleniti labore, odio autem. Incidunt, repudiandae a obcaecati aliquam nisi quisquam.</p>
-              <div data-aos="fade-up-right" data-aos-duration="1000"><a href="https://pkl.hummatech.com/" target="_blank"
+              <div class="btn-pendaftaran" data-aos="fade-up-right" data-aos-duration="1000"><a href="https://pkl.hummatech.com/" target="_blank"
                   class="btn btn-primary">Daftar</a></div>
             </div>
             <!-- Choose Us Left End -->
@@ -120,7 +120,7 @@
       <div class="service-wrap">
         <div class="section-title text-center">
           <h3 class="sub-title" data-aos="fade-up" data-aos-duration="500">Layanan Magang/PKL</h3>
-          <h2 class="title" data-aos="fade-up" data-aos-duration="700">Tingkatkan Pengalaman Anda dengan Layanan
+          <h2 class="title text-capitalize" data-aos="fade-up" data-aos-duration="700">Tingkatkan Pengalaman Anda dengan Layanan
             Perusahaan Kami</h2>
         </div>
         <div class="service-content-wrap" data-aos="fade-up" data-aos-duration="900">
@@ -129,10 +129,10 @@
               @foreach ($layananSiswa as $key => $data)
                 <div class="col-xl-3 col-sm-6">
                   <!-- Service Item Start -->
-                  <div class="service-item service-0{{ ++$key }}">
+                  <div class="service-item layanan-industri-siswa service-0{{ ++$key }}">
                     <div class="service-content">
-                      <h3 class="title"><a>{{ $data->nama_layanan }}</a></h3>
-                      <p>{{ $data->descripsi_layanan }}</p>
+                      <h3 class="title"><a class="layanan-truncation-title">{{ $data->nama_layanan }}</a></h3>
+                      <p class="layanan-truncation-text">{{ $data->descripsi_layanan }}</p>
                     </div>
                   </div>
                   <!-- Service Item End -->

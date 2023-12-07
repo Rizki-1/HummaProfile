@@ -230,11 +230,10 @@
 
     .layanan-index .service-content .title {
         text-align: center;
-        font-size: larger;
+        font-size: 25px;
     }
 
     .layanan-index .service-content p {
         text-align: center;
-        font-size: small;
     }
 }
