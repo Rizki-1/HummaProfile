@@ -9498,3 +9498,42 @@ only screen and (max-width: 767px) {
     text-overflow: ellipsis;
     max-width: 100%;
 }
+
+.mobile-footer {
+    justify-content: center;
+    width: 100%;
+    display: flex;
+    gap: 20vw;
+    text-align: center;
+}
+
+.desktop-footer {
+    display: none;
+}
+
+@media screen and (min-width: 576px) {
+    .desktop-footer {
+        display: block;
+    }
+
+    .mobile-footer {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .footer-sign {
+        text-align: center;
+    }
+
+    .footer-widget-title {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .mobile-footer {
+        gap: 6vw;
+    }
+}
+
