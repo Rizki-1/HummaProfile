@@ -35,7 +35,7 @@
           <div class="col-md-6">
             <div class="drag-and-drop">
               <div class="berita-picture-container">
-                <img class="berita-picture-old" src="{{ asset('storage/Mou/' . $mou->foto_mou) }}" alt="Foto Berita">
+                <img class="berita-picture-old" src="{{ asset('storage/' . $mou->foto_mou) }}" alt="Foto Berita">
               </div>
               <input name="foto_mou" class="@error('foto_mou') is-invalid @enderror" type="file" id="myDropify" />
               @error('foto_mou')

@@ -46,7 +46,7 @@ class MouController extends Controller
             $foto_name = $request->file('foto_mou')->hashName();
             $path = $request->file('foto_mou')->storeAs('Mou', $foto_name);
             Mou::create([
-                'foto_mou' => $foto_name,
+                'foto_mou' => $path,
                 'nama_mou' => $request->nama_mou,
             ]);
             return to_route('mou.index')->with('message', [
@@ -85,13 +85,13 @@ class MouController extends Controller
             } else {
                 $foto_name = $Mou->foto_mou;
             }
-            $Mou->foto_mou = $foto_name;
+            $Mou->foto_mou = $path;
             $Mou->nama_mou = $request->nama_mou;
             $Mou->save();
             return to_route('mou.index')->with('message', [
                 'icon' => 'success',
                 'title' => 'Berhasil!',
-                'text' => 'Berhasil mendaftarkan MoU'
+                'text' => 'Berhasil meupdate MoU'
             ]);
         } catch (\Throwable $th) {
             DB::rollBack();
@@ -115,12 +115,12 @@ class MouController extends Controller
                     'text' => "ID MoU tidak ditemukan"
                 ]);
             }
-            Storage::delete('storage/mou/'.$Mou->foto_mou);
+            Storage::delete($Mou->foto_mou);
             $Mou->delete();
             return to_route('mou.index')->with('message', [
                 'icon' => 'success',
                 'title' => 'Berhasil!',
-                'text' => 'Berhasil mendaftarkan MoU'
+                'text' => 'Berhasil mehapus MoU'
             ]);
         } catch (\Throwable $th) {
             return back()->with('message', [

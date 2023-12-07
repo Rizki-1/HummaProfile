@@ -28,7 +28,7 @@
         <div class="col-md-4 mb-4 flex-row">
           <div class="card">
             <div class="image-container">
-              <img src="{{ asset('storage/mou/' . $row->foto_mou) }}" class="image-content" alt="Thumbnail {{ $row->nama_mou }}">
+              <img src="{{ asset('storage/' . $row->foto_mou) }}" class="image-content" alt="Thumbnail {{ $row->nama_mou }}">
             </div>
             <div class="image-hover">
               <div class="image-detail">

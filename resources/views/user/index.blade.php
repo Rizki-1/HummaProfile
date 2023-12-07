@@ -309,7 +309,7 @@
             <ul class="scroller__inner">
               @forelse ($Mous as $mou)
                 <li>
-                  <img src="{{ asset('storage/Mou/' . $mou->foto_mou) }}" alt="" srcset="">
+                  <img src="{{ asset('storage/' . $mou->foto_mou) }}" alt="Mou sekolah {{ $mou->nama_mou }}">
                 </li>
               @empty
                 <li>
