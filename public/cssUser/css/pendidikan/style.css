@@ -93,3 +93,32 @@ video {
     font-family: "Barlow", sans-serif;
     color: black;
 }
+
+@media only screen and (max-width: 500px) {
+    .pendaftaran .sub-title {
+        text-align: center;
+    }
+
+    .pendaftaran .title {
+        text-align: center;
+    }
+
+    .pendaftaran .text {
+        text-align: center;
+        padding: 0 10px;
+        padding-right: 0px !important;
+    }
+
+    .pendaftaran .btn-pendaftaran {
+        display: flex;
+        justify-content: center;
+    }
+
+    .layanan-industri-siswa {
+        text-align: center;
+    }
+    
+    .layanan-industri-siswa .title {
+        font-size: 25px;
+    }
+}

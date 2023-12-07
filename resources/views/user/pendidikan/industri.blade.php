@@ -41,17 +41,16 @@
         <div class="row">
           <div class="col-lg-6">
             <!-- Choose Us Left Start -->
-            <div class="choose-us-left">
+            <div class="choose-us-left pendaftaran">
               <div class="section-title">
                 <h3 class="sub-title" data-aos="fade-up-right" data-aos-duration="500">Pendaftaran kelas industri</h3>
-                <h2 class="title" data-aos="fade-up-right" data-aos-duration="700">Dapatkan infomasi terkait pendaftaran
+                <h2 class="title text-capitalize" data-aos="fade-up-right" data-aos-duration="700">Dapatkan infomasi terkait pendaftaran
                   kelas industri di sini</h2>
               </div>
               <p class="text mb-3" data-aos="fade-up-right" data-aos-duration="900">Kami menyediakan kesempatan untuk
                 meningkatkan keterampilan dan pengetahuan dalam dunia teknologi. Kelas industri kami menawarkan kurikulum
                 yang terkini dan diajarkan oleh para ahli industri yang berpengalaman.</p>
-              <div data-aos="fade-up-right" data-aos-duration="1000"><a href="https://class.hummatech.com/"
-                  target="_blank" class="btn btn-primary">Daftar</a></div>
+              <div data-aos="fade-up-right" class="btn-pendaftaran" data-aos-duration="1000"><a href="https://class.hummatech.com/" target="_blank" class="btn btn-primary">Daftar</a></div>
             </div>
             <!-- Choose Us Left End -->
           </div>
@@ -128,7 +127,7 @@
       <div class="service-wrap">
         <div class="section-title text-center">
           <h3 class="sub-title" data-aos="fade-up" data-aos-duration="500">Layanan Industri</h3>
-          <h2 class="title" data-aos="fade-up" data-aos-duration="700">Tingkatkan Pengalaman Anda dengan Layanan
+          <h2 class="title text-capitalize" data-aos="fade-up" data-aos-duration="700">Tingkatkan Pengalaman Anda dengan Layanan
             Perusahaan Kami</h2>
         </div>
         <div class="service-content-wrap" data-aos="fade-up" data-aos-duration="900">
@@ -137,7 +136,7 @@
               @foreach ($layananIndustri as $key => $data)
                 <div class="col-xl-3 col-sm-12">
                   <!-- Service Item Start -->
-                  <div class="service-item service-0{{ ++$key }}">
+                  <div class="service-item layanan-industri-siswa service-0{{ ++$key }}">
                     <div class="service-content">
                       <h3 class="title"><a class="layanan-truncation-title">{{ $data->nama_layanan }}</a></h3>
                       <p class="layanan-truncation-text">{{ $data->descripsi_layanan }}</p>
