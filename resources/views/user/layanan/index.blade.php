@@ -9,13 +9,13 @@
       <!-- Service Wrap Start -->
       <div class="service-wrap">
         <div class="section-title text-center">
-          <h3 class="sub-title">Layanan Perusahaan</h3>
-          <h2 class="title">Kami menyediakan solusi Perangkat Lunak yang benar-benar terkemuka.</h2>
+          <h3 class="sub-title" data-aos="fade-up" data-aos-duration="500">Layanan Perusahaan</h3>
+          <h2 class="title" data-aos="fade-up" data-aos-duration="700">Kami menyediakan solusi Perangkat Lunak yang benar-benar terkemuka.</h2>
         </div>
-        <div class="service-content-wrap choose-us-content-wrap">
+        <div class="service-content-wrap choose-us-content-wrap" data-aos="fade-up" data-aos-duration="900">
           <div class="row justify-content-center">
             @foreach ($layanan as $key => $data)
-              <div class="col-xl-3 col-sm-6">
+              <div class="col-xl-3 col-sm-6" >
                 <!-- Service Item Start -->
                 <div class="service-item service-0{{ ++$key }}">
                   <div class="service-content">

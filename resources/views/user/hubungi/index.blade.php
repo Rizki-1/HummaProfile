@@ -12,12 +12,12 @@
           <div class="col-xxl-5 col-lg-6">
             <!-- Contact Info Start -->
             <div class="contact-info">
-              <div class="section-title">
+              <div class="section-title" data-aos="fade-up-right" data-aos-duration="500">
                 <h2 class="title">Dapatkan informasi lebih lanjut, Silahkan Hubungi Kami</h2>
               </div>
               <ul>
                 @foreach ($profile as $data)
-                  <li>
+                  <li data-aos="fade-up-right" data-aos-duration="700">
                     <!-- Contact Info Item Start -->
                     <div class="contact-info-item d-flex align-items-center">
                       <div class="contact-info-icon">
@@ -30,7 +30,7 @@
                     </div>
                     <!-- Contact Info Item End -->
                   </li>
-                  <li>
+                  <li data-aos="fade-up-right" data-aos-duration="900">
                     <!-- Contact Info Item Start -->
                     <div class="contact-info-item d-flex align-items-center">
                       <div class="contact-info-icon">
@@ -43,7 +43,7 @@
                     </div>
                     <!-- Contact Info Item End -->
                   </li>
-                  <li>
+                  <li data-aos="fade-up-right" data-aos-duration="1100">
                     <!-- Contact Info Item Start -->
                     <div class="contact-info-item d-flex align-items-center">
                       <div class="contact-info-icon">
@@ -63,10 +63,10 @@
           </div>
           <div class="col-xxl-7 col-lg-6">
             <!-- Contact Form Start -->
-            <div class="contact-form">
+            <div class="contact-form" data-aos="fade-up-left" data-aos-duration="700">
               <div class="contact-form-wrap">
                 <div class="heading-wrap text-center">
-                  <span class="sub-title">Butuh Bantuan?</span>
+                  <span class="sub-title" >Butuh Bantuan?</span>
                   <h3 class="title">Hubungi Kami disini!</h3>
                 </div>
                 <form action="{{ route('inbox.store') }}" method="POST">

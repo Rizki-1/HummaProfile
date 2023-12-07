@@ -7,10 +7,10 @@
     <div class="container">
       <div class="techwix-blog-grid-wrap">
         <div class="section-title text-center mb-4 mt-4">
-          <h3 class="sub-title">Berita</h3>
-          <h2 class="title">Berita terbaru terkait perusahaan kami</h2>
+          <h3 class="sub-title" data-aos="fade-up" data-aos-duration="500">Berita</h3>
+          <h2 class="title" data-aos="fade-up" data-aos-duration="700">Berita terbaru terkait perusahaan kami</h2>
         </div>
-        <div class="row justify-content-center">
+        <div class="row justify-content-center" data-aos="fade-up" data-aos-duration="900">
             @forelse ($beritaAll as $data)
             <div class="col-lg-4 col-md-6">
                 <!-- Single Blog Start -->
@@ -60,9 +60,9 @@
     <div class="container d-flex justify-content-center">
       <div class="sidebar-widget">
         <div class="widget-title text-center">
-          <h3 class="title">Kategori Berita</h3>
+          <h3 class="title" data-aos="fade-up" data-aos-duration="600">Kategori Berita</h3>
         </div>
-        <ul class="sidebar-tag">
+        <ul class="sidebar-tag" data-aos="fade-up" data-aos-duration="800">
           @foreach ($kategori as $data)
             <li><a href="{{ route('filter-category', $data->id) }}">{{ $data->name }}</a></li>
           @endforeach

@@ -26,10 +26,10 @@
       <!-- Choose Us Wrap Start -->
       <div class="choose-us-wrap py-3">
         <div class="section-title text-center">
-          <h3 class="sub-title">Produk</h3>
-          <h2 class="title">Produk yang kami hasilkan</h2>
+          <h3 class="sub-title" data-aos="fade-up" data-aos-duration="600">Produk</h3>
+          <h2 class="title" data-aos="fade-up" data-aos-duration="800">Produk yang kami hasilkan</h2>
         </div>
-        <div class="choose-us-content-wrap">
+        <div class="choose-us-content-wrap" data-aos="fade-up" data-aos-duration="1000">
           @if($produk->count() > 0)
           <div class="row justify-content-center">
             @foreach ($produk as $produkRow)

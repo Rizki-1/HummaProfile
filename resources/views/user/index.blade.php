@@ -27,22 +27,19 @@
           <div class="col-lg-6">
             <!-- About Content Wrap Start -->
             <div class="about-content-wrap">
-              <div class="section-title" data-aos="fade-right" data-aos-duration="500" data-aos-offset="200" data-aos-easing="ease-in-sine">
-                <h3 class="sub-title">Tentang Kami</h3>
-                <h2 class="title">Kami
-                  menyediakan berbagai layanan Software yang dirancang untuk mendukung Perusahaan
-                  dan bisnis Anda.
-                </h2>
+              <div class="section-title">
+                <h3 class="sub-title" data-aos="fade-up-right" data-aos-duration="500">Tentang Kami</h3>
+                <h2 class="title" data-aos="fade-up-right" data-aos-duration="600">Kami menyediakan berbagai layanan Software yang dirancang untuk mendukung Perusahaan dan bisnis Anda.</h2>
               </div>
               @foreach ($profile as $data)
-                <p class="text" data-aos="fade-up">{{ $data->tentang }}</p>
+                <p class="text" data-aos="fade-up-right" data-aos-duration="700">{{ $data->tentang }}</p>
               @endforeach
             </div>
             <!-- About Content Wrap End -->
           </div>
           <div class="col-lg-6">
             <!-- About Image Wrap Start -->
-            <div class="about-img-wrap">
+            <div class="about-img-wrap" data-aos="fade-up-left" data-aos-duration="500">
               <div class="about-img about-img-big">
                 <img style="height: 540px" src="{{ asset('ImageGlobal/lp-3.jpg') }}" alt="">
               </div>
@@ -63,14 +60,14 @@
   <div class="section techwix-service-section-02 service-card-content section-padding" style="background-color: #f8f8f8">
     <div class="container">
       <!-- Service Wrap Start -->
-      <div class="service-wrap" data-aos="fade-up" data-aos-duration="800" data-aos-anchor-placement="center-bottom">
+      <div class="service-wrap">
         <div class="section-title text-center">
-          <h3 class="sub-title">Layanan Perusahaan</h3>
-          <h2 class="title">Kami menyediakan solusi Perangkat Lunak yang benar-benar terkemuka.</h2>
+          <h3 class="sub-title" data-aos="fade-up" data-aos-duration="500">Layanan Perusahaan</h3>
+          <h2 class="title"  data-aos="fade-up" data-aos-duration="700">Kami menyediakan solusi Perangkat Lunak yang benar-benar terkemuka.</h2>
         </div>
         @if ($layanan->count() > 0)
           <div class="service-content-wrap choose-us-content-wrap">
-            <div class="row justify-content-center">
+            <div class="row justify-content-center" data-aos="fade-up" data-aos-duration="900">
               @foreach ($layanan->take(4) as $key => $data)
                 <div class="col-xl-3 col-sm-6">
                   <!-- Service Item Start -->
@@ -84,11 +81,10 @@
                 </div>
               @endforeach
             </div>
-            <div class="row">
+            <div class="row" data-aos="fade-up" data-aos-duration="1000">
               <div class="col-lg-12">
                 <div class="more-choose-content text-center">
-                  <p>Lihat Selengkapnya <a href="{{ route('layananIndex') }}">Disini <i
-                        class="fas fa-long-arrow-alt-right"></i></a>
+                  <p>Lihat Selengkapnya <a href="{{ route('layananIndex') }}">Disini <i class="fas fa-long-arrow-alt-right"></i></a>
                   </p>
                 </div>
               </div>
@@ -109,13 +105,13 @@
   <div class="section techwix-choose-us-section section-padding" style="padding-top: 50px">
     <div class="container">
       <!-- Choose Us Wrap Start -->
-      <div class="choose-us-wrap" data-aos="fade-up" data-aos-duration="800" data-aos-anchor-placement="center-bottom">
+      <div class="choose-us-wrap">
         <div class="section-title text-center">
-          <h3 class="sub-title">Produk</h3>
-          <h2 class="title">Produk yang kami hasilkan</h2>
+          <h3 class="sub-title" data-aos="fade-up" data-aos-duration="500">Produk</h3>
+          <h2 class="title" data-aos="fade-up" data-aos-duration="700">Produk yang kami hasilkan</h2>
         </div>
         @if ($produk->count() > 0)
-          <div class="choose-us-content-wrap">
+          <div class="choose-us-content-wrap" data-aos="fade-up" data-aos-duration="900">
             <div class="row justify-content-center">
               @foreach ($produk->take(3) as $produkRow)
                 <div class="col-lg-4 col-md-6">
@@ -136,9 +132,8 @@
             </div>
             <div class="row">
               <div class="col-lg-12">
-                <div class="more-choose-content text-center">
-                  <p>Produk lainnya <a href="{{ route('produkIndex') }}">Disini <i
-                        class="fas fa-long-arrow-alt-right"></i></a> </p>
+                <div class="more-choose-content text-center" data-aos="fade-up" data-aos-duration="1000">
+                  <p>Produk lainnya <a href="{{ route('produkIndex') }}">Disini <i class="fas fa-long-arrow-alt-right"></i></a> </p>
                 </div>
               </div>
             </div>
@@ -362,16 +357,16 @@
   <!-- Brand Logo End -->
 
   {{-- Berita Start --}}
-  <div class="section techwix-blog-section section-padding-02" style="padding-top: 70px;" data-aos="fade-up" data-aos-duration="400" data-aos-anchor-placement="center-bottom">
+  <div class="section techwix-blog-section section-padding-02" style="padding-top: 70px;" data-aos-anchor-placement="center-bottom">
     <div class="container">
       <!-- Section Title Start -->
       <div class="section-title text-center">
-        <h4 class="sub-title">Berita</h4>
-        <h2 class="title">Berita terbaru terkait perusahaan kami</h2>
+        <h4 class="sub-title" data-aos="fade-up" data-aos-duration="500">Berita</h4>
+        <h2 class="title" data-aos="fade-up" data-aos-duration="700">Berita terbaru terkait perusahaan kami</h2>
       </div>
       <!-- Section Title End -->
       @if ($berita->count() > 0)
-        <div class="techwix-blog-wrap">
+        <div class="techwix-blog-wrap" data-aos="fade-up" data-aos-duration="900">
           <div class="row justify-content-center">
             @foreach ($berita->take(3) as $data)
               <div class="col-lg-4 col-md-6">
@@ -416,7 +411,7 @@
           </div>
         </div>
       @else
-        <div class="nodata gap-3">
+        <div class="nodata gap-3" data-aos="fade-up" data-aos-duration="600">
           <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="">
           <p>Data Berita tidak tersedia</p>
         </div>
@@ -430,10 +425,10 @@
     <div class="container">
       <!-- Section Title Start -->
       <div class="section-title text-center">
-        <h4 class="sub-title">Cabang Kami</h4>
-        <h2 class="title">Beberapa Cabang Dari PT HummaTech</h2>
+        <h4 class="sub-title" data-aos="fade-up" data-aos-duration="500">Cabang Kami</h4>
+        <h2 class="title" data-aos="fade-up" data-aos-duration="700">Beberapa Cabang Dari PT HummaTech</h2>
       </div>
-      <div class="container">
+      <div class="container" data-aos="fade-up" data-aos-duration="900">
         <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
         <div class="container-map">
           <div id="map" style="height: 400px;z-index: 1;"
@@ -496,7 +491,6 @@
   </script>
 
   <script>
-    // Fungsi untuk menangani smooth scroll
     function scrollTo(element, to, duration) {
       const start = element.scrollTop;
       const change = to - start;
