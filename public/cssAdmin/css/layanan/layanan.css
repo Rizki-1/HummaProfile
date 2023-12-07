@@ -1,3 +1,75 @@
 .btn-outline-warning:hover {
     color: white !important;
 }
+
+.dropify-wrapper {
+    width: 123px !important;
+    height: 123px !important;
+    font-size: 0px !important;
+    min-width: 123px !important;
+}
+
+.file-icon {
+    display: none !important;
+}
+
+.upload-icon-container {
+    position: absolute;
+    left: 63px;
+    top: 86px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.overflow-tohide {
+    overflow: hidden;
+}
+
+.upload-icon {
+    width: 50px;
+    height: 50px;
+    color: #d5d5d5;
+}
+
+.dropify-wrapper input {
+    width: 125px !important;
+    height: 125px !important;
+}
+
+.image-container {
+    width: 39px;
+    height: 39px;
+}
+
+.table td img {
+    border-radius: 5px !important;
+}
+
+.image-old {
+    opacity: 1;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 67px;
+    height: 67px;
+    position: absolute;
+    left: 53px;
+    top: 81px;
+    z-index: 1;
+    transition: all 1s;
+    pointer-events: none;
+}
+
+.detect {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: red;
+}
+
+.hover:hover .image-old {
+    top: 60px;
+    opacity: 0;
+}
+
+

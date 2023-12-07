@@ -22,22 +22,22 @@ class LayananRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'layanan-group.*.target_layanan_id' => 'required|exists:target_layanans,id',
-            'layanan-group.*.layanan' => 'required|min:5|max:255|string|unique:layanan_perusahaans,nama_layanan||distinct',
-            'layanan-group.*.descripsi_layanan' => 'required|min:5|max:1000|string',
+            'target_layanan_id' => 'required|exists:target_layanans,id',
+            'layanan' => 'required|min:5|max:255|string|unique:layanan_perusahaans,nama_layanan||distinct',
+            'descripsi_layanan' => 'required|min:5|max:1000|string',
         ];
     }
 
     public function messages(): array
     {
         return [
-            'layanan-group.*.target_layanan_id.required' => 'target layanan harus di isi',
-            'layanan-group.*.target_layanan_id.exists' => 'target layanan tidak valid',
-            'layanan-group.*.layanan.required' => 'layanan harus di isi',
-            'layanan-group.*.layanan.min' => 'layanan minimal :min',
-            'layanan-group.*.layanan.max' => 'layanan maksimal :max',
-            'layanan-group.*.layanan.string' => 'layanan harus valid',
-            'layanan-group.*.layanan.unique' => 'layanan ini sudah digunakan',
+            'target_layanan_id.required' => 'target layanan harus di isi',
+            'target_layanan_id.exists' => 'target layanan tidak valid',
+            'layanan.required' => 'layanan harus di isi',
+            'layanan.min' => 'layanan minimal :min',
+            'layanan.max' => 'layanan maksimal :max',
+            'layanan.string' => 'layanan harus valid',
+            'layanan.unique' => 'layanan ini sudah digunakan',
         ];
     }
 }

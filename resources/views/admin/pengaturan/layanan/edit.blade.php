@@ -1,5 +1,6 @@
 @extends('layouts.nav-admin')
 @section('content')
+  <link rel="stylesheet" href="{{ asset('cssAdmin/css/layanan/layanan.css') }}">
   <title>{{ config('app.name', 'Laravel') }} - Layanan</title>
   <div class="card p-4 mb-4 flex-row justify-content-between align-items-center">
     <div>
@@ -20,33 +21,50 @@
             @csrf
             @method('PUT')
             <div class="mb-3 d-flex row">
-              <div class="col-md-4 mb-3">
+              <div class="col-md-2 hover">
+                <label for="myDropify" class="form-label">Icon Layanan</label>
+                <div class="upload-icon-container">
+                  <i class="link-icon upload-icon" data-feather="upload-cloud"></i>
+                </div>
+                <div class="image-old">
+                  <img style="width: 100%; height: 100%; object-fit: cover" src="{{ asset('ImageGlobal/FotoPemandangan.png') }}" alt="">
+                </div>
+                <input name="thumbnail" class="@error('thumbnail') is-invalid @enderror" type="file" id="myDropify" />
+                @error('thumbnail')
+                  <div>
+                    <p class="text-danger mt-2">{{ $message }}</p>
+                  </div>
+                @enderror
+              </div>
+              <div class="col-md-12">
+                <hr>
+              </div>
+              <div class="col-md-6 mb-3">
                 <label for="unknown" class="form-label">Nama Layanan</label>
-                <input required type="text" class="form-control @error('nama_layanan') is-invalid @enderror" name="nama_layanan" value="{{ old('nama_layanan',$layanan->nama_layanan) }}" placeholder="{{ $layanan->nama_layanan }}">
+                <input required type="text" class="form-control @error('nama_layanan') is-invalid @enderror" name="nama_layanan" value="{{ old('nama_layanan', $layanan->nama_layanan) }}" placeholder="{{ $layanan->nama_layanan }}">
                 @error('nama_layanan')
                   <div class="invalid-feedback">
                     <p>{{ $message }}</p>
                   </div>
                 @enderror
-              </div>
-              <div class="col-md-4 mb-3">
-                <label for="unknown" class="form-label">Deskripsi Layanan</label>
-                <textarea required name="descripsi_layanan" class="form-control @error('descripsi_layanan') is-invalid @enderror" rows="1" placeholder="{{ $layanan->descripsi_layanan }}">{{ old('descripsi_layanan',$layanan->descripsi_layanan) }}</textarea>
-                @error('descripsi_layanan')
+
+                <label for="unknown" class="form-label mt-3">Target Layanan</label>
+                <select required name="target_layanan_id" class="form-select @error('target_layanan_id') is-invalid @enderror">
+                  @foreach ($categoris as $item)
+                    <option value="{{ $item->id }}" {{ old('target_layanan_id', $layanan->target_layanan_id) == $item->id ? 'selected' : '' }}>
+                      {{ $item->target }}</option>
+                  @endforeach
+                </select>
+                @error('target_layanan_id')
                   <div class="invalid-feedback">
                     <p>{{ $message }}</p>
                   </div>
                 @enderror
               </div>
-              <div class="col-md-4 mb-3">
-                <label for="unknown" class="form-label">Target Layanan</label>
-                <select required name="target_layanan_id" class="form-select @error('target_layanan_id') is-invalid @enderror">
-                    @foreach ($categoris as $item)
-                    <option value="{{ $item->id }}" {{ old('target_layanan_id',$layanan->target_layanan_id) == $item->id ? 'selected' : '' }}>
-                        {{ $item->target }}</option>
-                    @endforeach
-                </select>
-                @error('target_layanan_id')
+              <div class="col-md-6 mb-3">
+                <label for="unknown" class="form-label">Deskripsi Layanan</label>
+                <textarea required name="descripsi_layanan" class="form-control @error('descripsi_layanan') is-invalid @enderror" rows="5" placeholder="{{ $layanan->descripsi_layanan }}">{{ old('descripsi_layanan', $layanan->descripsi_layanan) }}</textarea>
+                @error('descripsi_layanan')
                   <div class="invalid-feedback">
                     <p>{{ $message }}</p>
                   </div>

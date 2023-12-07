@@ -73,6 +73,9 @@
                   <!-- Service Item Start -->
                   <div class="service-item service-0{{ ++$key }}">
                     <div class="service-content">
+                      <div class="image-layanan">
+                        <img style="width: 100%; height: 100%; object-fit: cover" src="{{ asset('ImageGlobal/FotoPemandangan.png') }}" alt="">
+                      </div>
                       <h3 class="title"><a class="layanan-truncation-title">{{ $data->nama_layanan }}</a></h3>
                       <p class="layanan-truncation-text">{{ $data->descripsi_layanan }}</p>
                     </div>
@@ -209,7 +212,7 @@
                     <div class="testimonial-content">
                       <img src="{{ asset('cssUser/images/testi-icon.png') }}" alt="">
                       <div class="truncation">
-                        <p>Matahari tidak akan bertahan selamanya, sama seperti mimpi kita ketika kita tidak berusaha
+                        <p>Bintang tidak akan bertahan selamanya, sama seperti mimpi kita ketika kita tidak berusaha
                           menggapainya</p>
                       </div>
                       <span class="name d-inline-block text-truncate" style="max-width: 40%">Hummatech Team
@@ -383,7 +386,8 @@
                   <div class="blog-content">
                     <div class="blog-meta" style="display: flex; align-items: center;">
                       @foreach ($data->kategori->take(2) as $item)
-                        <a href="{{ route('filter-category', $item->name) }}" class="badge rounded-pill mb-1 text-truncate" style="padding: 7px 13px; background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; font-size: 13px ;margin-right: 5px; font-weight: 700; max-width: 37%">{{ $item->name }}</a>
+                        <a href="{{ route('filter-category', $item->name) }}" class="badge rounded-pill mb-1 text-truncate"
+                          style="padding: 7px 13px; background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; font-size: 13px ;margin-right: 5px; font-weight: 700; max-width: 37%">{{ $item->name }}</a>
                       @endforeach
                       @if ($data->kategori->count() > 2)
                         <a class="badge rounded-pill mb-1" style="color: black"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -450,10 +454,10 @@
 
     // Menggunakan gambar kustom sebagai ikon marker
     var customIcon = L.icon({
-        iconUrl: '{{ asset('cssUser/css/images/marker-icon-2x.png') }}',
-        iconSize: [36, 36],
-        iconAnchor: [18, 36],
-        popupAnchor: [0, -36]
+      iconUrl: '{{ asset('cssUser/css/images/marker-icon-2x.png') }}',
+      iconSize: [36, 36],
+      iconAnchor: [18, 36],
+      popupAnchor: [0, -36]
     });
 
     @foreach ($cabang as $item)
@@ -467,9 +471,9 @@
 
     var markerElements = document.querySelectorAll('.leaflet-marker-icon.leaflet-zoom-animated.leaflet-interactive');
 
-    markerElements.forEach(function (element) {
-        element.style.width = '36px';
-        element.style.height = '36px';
+    markerElements.forEach(function(element) {
+      element.style.width = '36px';
+      element.style.height = '36px';
     });
 
     const scrollers = document.querySelectorAll(".scroller");

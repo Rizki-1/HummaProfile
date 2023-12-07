@@ -26,7 +26,7 @@
     @endif
     <div class="row">
       @forelse ($testimoni as $test)
-        <div class="col-md-6 mb-4">
+        <div class="col-md-6 mb-4 mt-3">
           <div class="card">
             <div class="card-body">
               <div class="d-flex gap-4 mb-4">

@@ -33,8 +33,7 @@
   </div>
   <!-- Page Banner End -->
 
-  <div class="section techwix-choose-us-section-02 section-padding-02"
-    style="padding-bottom: 110px; padding-top: 100px; background-color: #ffffff">
+  <div class="section techwix-choose-us-section-02 section-padding-02" style="padding-bottom: 110px; padding-top: 100px; background-color: #ffffff">
     <div class="container">
       <!-- Choose Us Wrap Start -->
       <div class="choose-us-wrap">
@@ -62,13 +61,11 @@
                 <div class="accordion" id="accordionExample">
                   <div class="accordion-item" data-aos="fade-up-left" data-aos-duration="500">
                     <div class="accordion-header" id="headingOne">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                         <span class="title">Syarat & Ketentuan</span>
                       </button>
                     </div>
-                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
-                      data-bs-parent="#accordionExample" data-aos="fade-up-left" data-aos-duration="800">
+                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample" data-aos="fade-up-left" data-aos-duration="800">
                       <div class="accordion-body">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem animi labore voluptatibus? Modi
                         possimus quos doloremque nihil. Omnis, adipisci ex, ad sapiente vitae esse id vel mollitia, est
@@ -78,13 +75,11 @@
                   </div>
                   <div class="accordion-item" data-aos="fade-up-left" data-aos-duration="700">
                     <div class="accordion-header" id="headingTwo">
-                      <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                         <span class="title">Syarat & Ketentuan</span>
                       </button>
                     </div>
-                    <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo"
-                      data-bs-parent="#accordionExample" style="">
+                    <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample" style="">
                       <div class="accordion-body">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam quia facere molestiae doloremque
                         cum tempore cumque, similique dolore soluta consequuntur maxime tempora! Autem perspiciatis facere
@@ -94,13 +89,11 @@
                   </div>
                   <div class="accordion-item" data-aos="fade-up-left" data-aos-duration="900">
                     <div class="accordion-header" id="headingThree">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                         <span class="title">Syarat & Ketentuan</span>
                       </button>
                     </div>
-                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                      data-bs-parent="#accordionExample" style="">
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample" style="">
                       <div class="accordion-body">
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo aperiam cupiditate, veritatis,
                         ipsam accusantium esse voluptate ducimus distinctio a quidem animi nihil aut consectetur? Possimus
@@ -138,6 +131,9 @@
                   <!-- Service Item Start -->
                   <div class="service-item layanan-industri-siswa service-0{{ ++$key }}">
                     <div class="service-content">
+                      <div class="image-layanan">
+                        <img style="width: 100%; height: 100%; object-fit: cover" src="{{ asset('ImageGlobal/FotoPemandangan.png') }}" alt="">
+                      </div>
                       <h3 class="title"><a class="layanan-truncation-title">{{ $data->nama_layanan }}</a></h3>
                       <p class="layanan-truncation-text">{{ $data->descripsi_layanan }}</p>
                     </div>
@@ -168,8 +164,7 @@
       <!-- Service Wrap Start -->
       <div class="service-wrap">
         <div class="section-title text-center">
-          <h2 class="title" data-aos="fade-up" data-aos-duration="700"
-            style="padding: 20px; text-transform: capitalize">List sekolah yang sudah melakukan tanda tangan MoU dengan
+          <h2 class="title" data-aos="fade-up" data-aos-duration="700" style="padding: 20px; text-transform: capitalize">List sekolah yang sudah melakukan tanda tangan MoU dengan
             <span style="color: #22B3E2">Humma</span>Tech
           </h2>
         </div>

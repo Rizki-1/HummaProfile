@@ -42,6 +42,8 @@
                     <thead>
                       <tr>
                         <th class="sorting sorting_asc" tabindex="0" style="width: 144.302px;">
+                          Icon Layanan</th>
+                        <th class="sorting sorting_asc" tabindex="0" style="width: 144.302px;">
                           Nama Layanan</th>
                         <th class="sorting sorting_asc" tabindex="0" style="width: 144.302px;">
                           Deckripsi layanan</th>
@@ -52,6 +54,11 @@
                     <tbody>
                       @forelse ($layanan as $row)
                         <tr class="odd">
+                          <td>
+                            <div class="image-container">
+                                <img style="width: 100%; height: 100%; object-fit: cover" src="{{ asset('ImageGlobal/FotoPemandangan.png') }}" alt="">
+                            </div>
+                          </td>
                           <td class="sorting_1 height-thing" style="transform: translateY(10px)">{{ Str::limit($row->nama_layanan, 50) }}</td>
                           <td class="sorting_1 height-thing" style="transform: translateY(10px)">
                             {{ Str::limit($row->descripsi_layanan, 50) }}
@@ -69,7 +76,9 @@
                       @empty
                         <div>
                           <tr>
-                            <td colspan="3"><p class="fw-bold mt-3 mb-3 text-center">Tidak ada layanan <a href="{{ route('layanan-perusahaan.create') }}">Tambah!</a></p></td>
+                            <td colspan="3">
+                              <p class="fw-bold mt-3 mb-3 text-center">Tidak ada layanan <a href="{{ route('layanan-perusahaan.create') }}">Tambah!</a></p>
+                            </td>
                           </tr>
                         </div>
                       @endforelse

@@ -22,7 +22,6 @@
                 <div class="service-item service-0{{ ++$key }}">
                   <div class="service-content">
                     <h3 class="title"><a>{{ $data->nama_layanan }}</a></h3>
-
                     <p>{{ $data->descripsi_layanan }}</p>
                   </div>
                 </div>

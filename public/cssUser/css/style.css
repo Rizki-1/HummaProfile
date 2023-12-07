@@ -9499,6 +9499,14 @@ only screen and (max-width: 767px) {
     max-width: 100%;
 }
 
+.image-layanan {
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
 .mobile-footer {
     justify-content: center;
     width: 100%;
@@ -9537,3 +9545,6 @@ only screen and (max-width: 767px) {
     }
 }
 
+/* .swiper-slide {
+    width: 500px !important;
+} */

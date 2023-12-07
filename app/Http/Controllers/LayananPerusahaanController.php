@@ -49,13 +49,11 @@ class LayananPerusahaanController extends Controller
         try {
             DB::beginTransaction();
 
-            foreach ($request->input("layanan-group") as $row) {
-                LayananPerusahaan::create([
-                    'target_layanan_id' => $row['target_layanan_id'],
-                    'nama_layanan' => $row['layanan'],
-                    'descripsi_layanan' => $row['descripsi_layanan']
-                ]);
-            }
+            LayananPerusahaan::create([
+                'target_layanan_id' => $request->target_layanan_id,
+                'nama_layanan' => $request->layanan,
+                'descripsi_layanan' => $request->descripsi_layanan,
+            ]);
 
             DB::commit();
             return to_route('layanan-perusahaan.index')->with('message', [
