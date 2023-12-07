@@ -50,23 +50,29 @@
                       </tr>
                     </thead>
                     <tbody>
-                      @foreach ($layanan as $row)
+                      @forelse ($layanan as $row)
                         <tr class="odd">
                           <td class="sorting_1 height-thing" style="transform: translateY(10px)">{{ Str::limit($row->nama_layanan, 50) }}</td>
                           <td class="sorting_1 height-thing" style="transform: translateY(10px)">
                             {{ Str::limit($row->descripsi_layanan, 50) }}
                             <!-- Ganti angka 50 dengan jumlah kata maksimum yang ingin Anda tampilkan -->
-                        </td>
+                          </td>
                           <td class="d-flex gap-2">
                             <a href="{{ route('layanan-perusahaan.edit', $row->id) }}" class="btn btn-outline-warning btn-icon"><i class="link-icon edit-icon" data-feather="edit"></i></a>
                             <form nameLayanan="{{ $row->nama_layanan }}" id="deleteForm" action="{{ route('layanan-perusahaan.destroy', $row->id) }}" method="POST" class="hapus">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-outline-danger btn-icon"><i class="link-icon trash-icon" data-feather="trash"></i></button>
+                              @csrf
+                              @method('DELETE')
+                              <button type="submit" class="btn btn-outline-danger btn-icon"><i class="link-icon trash-icon" data-feather="trash"></i></button>
                             </form>
                           </td>
                         </tr>
-                      @endforeach
+                      @empty
+                        <div>
+                          <tr>
+                            <td colspan="3"><p class="fw-bold mt-3 mb-3 text-center">Tidak ada layanan <a href="{{ route('layanan-perusahaan.create') }}">Tambah!</a></p></td>
+                          </tr>
+                        </div>
+                      @endforelse
                     </tbody>
                   </table>
                   <style>
@@ -87,7 +93,7 @@
     </div>
   </div>
   <script>
-     document.getElementById('selectTarget').addEventListener('change', function() {
+    document.getElementById('selectTarget').addEventListener('change', function() {
       var selectedCategoryId = this.value;
       var currentUrl = window.location.href;
       var newUrl;
@@ -104,26 +110,26 @@
       window.location.href = newUrl;
     });
 
-    if(document.querySelectorAll('.hapus').length > 0){
-    document.querySelectorAll('.hapus').forEach(function(form) {
-      form.addEventListener('submit', function(event) {
-        event.preventDefault();
-        var nameLayanan = form.getAttribute('nameLayanan');
-        Swal.fire({
-          title: 'Apakah anda yakin?',
-          text: "Ingin menghapus layanan '" + nameLayanan + "'?",
-          icon: "question",
-          showCancelButton: true,
-          confirmButtonText: "Ya, Hapus!",
-          cancelButtonText: "Batal",
-          background: 'var(--bs-body-bg)',
-        }).then((result) => {
-          if (result.isConfirmed) {
-            form.submit();
-          }
+    if (document.querySelectorAll('.hapus').length > 0) {
+      document.querySelectorAll('.hapus').forEach(function(form) {
+        form.addEventListener('submit', function(event) {
+          event.preventDefault();
+          var nameLayanan = form.getAttribute('nameLayanan');
+          Swal.fire({
+            title: 'Apakah anda yakin?',
+            text: "Ingin menghapus layanan '" + nameLayanan + "'?",
+            icon: "question",
+            showCancelButton: true,
+            confirmButtonText: "Ya, Hapus!",
+            cancelButtonText: "Batal",
+            background: 'var(--bs-body-bg)',
+          }).then((result) => {
+            if (result.isConfirmed) {
+              form.submit();
+            }
+          });
         });
       });
-    });
-  }
+    }
   </script>
 @endsection

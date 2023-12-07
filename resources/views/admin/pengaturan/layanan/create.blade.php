@@ -36,9 +36,9 @@
                         <label for="descripsi_layanan" class="form-label">Deskripsi Layanan</label>
                         <textarea name="descripsi_layanan" id="descripsi_layanan" cols="10" rows="1" class="form-control @error('layanan-group.' . $i . '.descripsi_layanan') is-invalid @enderror" placeholder="Deskripsi Layanan">{{ old('layanan-group.' . $i . '.descripsi_layanan') }}</textarea>
                         @error('layanan-group.' . $i . '.descripsi_layanan')
-                        <div class="invalid-feedback">
+                          <div class="invalid-feedback">
                             <p>{{ $message }}</p>
-                        </div>
+                          </div>
                         @enderror
                       </div>
                       <div class="col-6 mb-4 ps-2">
@@ -98,7 +98,10 @@
               @endforelse
             </div>
             <div class="hstack gap-2 justify-content-between">
-              <button type="submit" class="btn btn-primary">Tambah</button>
+              <div>
+                <button type="submit" class="btn btn-primary">Tambah</button>
+                <a href="{{ route('layanan-perusahaan.index') }}" class="btn btn-secondary">Cancel</a>
+              </div>
               <input required class="btn btn-outline-success waves-effect waves-light" data-repeater-create type="button" value="+ Tambah" />
             </div>
           </form>
