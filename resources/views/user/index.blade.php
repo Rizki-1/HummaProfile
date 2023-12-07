@@ -18,7 +18,7 @@
   </div>
 
   <!-- About Start -->
-  <div class="section techwix-about-section-04 section-padding">
+  <div class="section techwix-about-section-04 section-padding" style="padding-top: 80px">
     <div class="shape-1"></div>
     <div class="container">
       <!-- About Wrapper Start -->
@@ -473,11 +473,11 @@
         const scrollerContent = Array.from(scrollerInner.children);
 
         const totalWidth = scrollerContent.reduce(
-          (acc, item) => acc + item.offsetWidth + 40,
+          (acc, item) => acc + item.offsetWidth + 600,
           0
         );
 
-        const durasiAnimasi = totalWidth / 20;
+        const durasiAnimasi = totalWidth / 50;
 
         scrollerInner.style.animationDuration = `${durasiAnimasi}s`;
 

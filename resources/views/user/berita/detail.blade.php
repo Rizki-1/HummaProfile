@@ -26,9 +26,9 @@
                 </div>
                 <div class="blog-content">
                   <div class="blog-meta d-flex">
-                    @foreach ($berita->kategori as $data)
-                      <span class="badge rounded-pill mb-1"
-                        style="background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; font-size: 12px; width: 100px; height: 30px; margin-right: 5px; display: flex; align-items: center; justify-content: center">{{ $data->name }}</span>
+                    @foreach ($berita->kategori as $item)
+                      <a href="{{ route('filter-category', $item->id) }}" class="badge rounded-pill mb-1"
+                        style="background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; font-size: 12px;margin-right: 5px">{{ $item->name }}</a>
                     @endforeach
                   </div>
                   <h3 class="title" style="overflow-wrap: anywhere; line-height: 42px;">{{ $berita->title }}</h3>
@@ -84,7 +84,7 @@
                 <!-- Widget Category Start -->
                 <ul class="sidebar-tag">
                   @foreach ($kategoriBerita as $data)
-                    <li><a href="{{ route('filter-category',$data->id) }}">{{ $data->name }}</a></li>
+                    <li><a href="{{ route('filter-category', $data->id) }}">{{ $data->name }}</a></li>
                   @endforeach
                 </ul>
                 <!-- Widget Category End -->
