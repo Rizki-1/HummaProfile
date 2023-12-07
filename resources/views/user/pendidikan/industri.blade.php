@@ -139,8 +139,8 @@
                   <!-- Service Item Start -->
                   <div class="service-item service-0{{ ++$key }}">
                     <div class="service-content">
-                      <h3 class="title"><a>{{ $data->nama_layanan }}</a></h3>
-                      <p>{{ $data->descripsi_layanan }}</p>
+                      <h3 class="title"><a class="layanan-truncation-title">{{ $data->nama_layanan }}</a></h3>
+                      <p class="layanan-truncation-text">{{ $data->descripsi_layanan }}</p>
                     </div>
                   </div>
                   <!-- Service Item End -->

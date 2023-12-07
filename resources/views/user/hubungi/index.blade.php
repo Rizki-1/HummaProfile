@@ -66,7 +66,7 @@
             <div class="contact-form" data-aos="fade-up-left" data-aos-duration="700">
               <div class="contact-form-wrap">
                 <div class="heading-wrap text-center">
-                  <span class="sub-title" >Butuh Bantuan?</span>
+                  <span class="sub-title" >Customer Support hummatech</span>
                   <h3 class="title">Hubungi Kami disini!</h3>
                 </div>
                 <form action="{{ route('inbox.store') }}" method="POST">
