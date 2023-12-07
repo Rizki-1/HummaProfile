@@ -27,10 +27,10 @@
                   </div>
                 </div>
                 <div class="blog-content">
-                  <div class="blog-meta">
+                  <div class="blog-meta" style="display: flex; align-items: center;">
                     @foreach ($data->kategori->take(2) as $item)
-                      <a href="{{ route('filter-category', $item->name) }}" class="badge rounded-pill mb-1"
-                        style="background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; font-size: 12px;margin-right: 5px">{{ $item->name }}</a>
+                      <a href="{{ route('filter-category', $item->name) }}" class="badge rounded-pill mb-1 text-truncate"
+                        style="padding: 7px 13px; background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; font-size: 13px;margin-right: 5px; max-width: 37%">{{ $item->name }}</a>
                     @endforeach
                     @if ($data->kategori->count() > 2)
                       <a class="badge rounded-pill mb-1" style="color: black"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"

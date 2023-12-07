@@ -15,7 +15,7 @@
               <!-- Single Blog Start -->
               <div class="single-blog-post single-blog">
                 <div class="blog-image" data-aos="fade-up" data-aos-duration="500">
-                  <a style="width: 100%; height: 100%"><img style="width: 100%;"
+                  <a style="width: 100%; height: 100%" href="{{ asset('storage/'. $berita->thumbnail) }}"><img style="width: 100%;"
                       src="{{ asset('storage/' . $berita->thumbnail) }}" alt=""></a>
                   <div class="top-meta">
                     <span class="date">
