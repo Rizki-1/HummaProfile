@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\TargetLayanan;
 use App\Models\LayananPerusahaan;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\LayananStore;
+use App\Http\Requests\LayananUpdate;
 use App\Http\Requests\LayananRequest;
 
 class LayananPerusahaanController extends Controller
@@ -82,9 +84,9 @@ class LayananPerusahaanController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(LayananUpdate $request, string $id)
     {
-
+        dd($request->all());
         try {
             DB::beginTransaction();
 
