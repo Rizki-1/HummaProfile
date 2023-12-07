@@ -3,7 +3,7 @@
 @section('content')
   <link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/style.css') }}">
 
-  <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+  <div id="carouselExampleSlidesOnly" class="carousel slide custome-carousel" data-bs-ride="carousel">
     <div class="carousel-inner parallax-scroll">
       <div class="carousel-item active">
         <img src="{{ asset('ImageGlobal/lp-2.jpg') }}" class="d-block w-100" alt="...">
@@ -27,14 +27,15 @@
           <div class="col-lg-6">
             <!-- About Content Wrap Start -->
             <div class="about-content-wrap">
-              <div class="section-title">
+              <div class="section-title" data-aos="fade-right" data-aos-duration="500" data-aos-offset="200" data-aos-easing="ease-in-sine">
                 <h3 class="sub-title">Tentang Kami</h3>
-                <h2 class="title">Kami menyediakan berbagai layanan Software yang dirancang untuk mendukung Perusahaan
+                <h2 class="title">Kami
+                  menyediakan berbagai layanan Software yang dirancang untuk mendukung Perusahaan
                   dan bisnis Anda.
                 </h2>
               </div>
               @foreach ($profile as $data)
-                <p class="text">{{ $data->tentang }}</p>
+                <p class="text" data-aos="fade-up">{{ $data->tentang }}</p>
               @endforeach
             </div>
             <!-- About Content Wrap End -->
@@ -62,7 +63,7 @@
   <div class="section techwix-service-section-02 service-card-content section-padding" style="background-color: #f8f8f8">
     <div class="container">
       <!-- Service Wrap Start -->
-      <div class="service-wrap">
+      <div class="service-wrap" data-aos="fade-up" data-aos-duration="800" data-aos-anchor-placement="center-bottom">
         <div class="section-title text-center">
           <h3 class="sub-title">Layanan Perusahaan</h3>
           <h2 class="title">Kami menyediakan solusi Perangkat Lunak yang benar-benar terkemuka.</h2>
@@ -86,7 +87,8 @@
             <div class="row">
               <div class="col-lg-12">
                 <div class="more-choose-content text-center">
-                  <p>Lihat Selengkapnya <a href="{{ route('layananIndex') }}">Disini <i class="fas fa-long-arrow-alt-right"></i></a>
+                  <p>Lihat Selengkapnya <a href="{{ route('layananIndex') }}">Disini <i
+                        class="fas fa-long-arrow-alt-right"></i></a>
                   </p>
                 </div>
               </div>
@@ -104,10 +106,10 @@
   </div>
   <!-- Service End -->
 
-  <div class="section techwix-choose-us-section section-padding" style="padding-top: 100px">
+  <div class="section techwix-choose-us-section section-padding" style="padding-top: 50px">
     <div class="container">
       <!-- Choose Us Wrap Start -->
-      <div class="choose-us-wrap">
+      <div class="choose-us-wrap" data-aos="fade-up" data-aos-duration="800" data-aos-anchor-placement="center-bottom">
         <div class="section-title text-center">
           <h3 class="sub-title">Produk</h3>
           <h2 class="title">Produk yang kami hasilkan</h2>
@@ -120,7 +122,8 @@
                   <!-- Choose Us Item Start -->
                   <div class="choose-us-item">
                     <div class="choose-us-img">
-                      <a href="{{ route('produk.detail', $produkRow->id) }}"><img class="picture-responsive" src="{{ asset('storage/' . $produkRow->foto_produk) }}" alt="Foto Produk"></a>
+                      <a href="{{ route('produk.detail', $produkRow->id) }}"><img class="picture-responsive"
+                          src="{{ asset('storage/' . $produkRow->foto_produk) }}" alt="Foto Produk"></a>
                       <div class="choose-us-content">
                         <h3 class="title text-truncate">{{ $produkRow->nama_produk }}</h3>
                         <p class="description-truncate">{{ $produkRow->keterangan_produk }}</p>
@@ -134,7 +137,8 @@
             <div class="row">
               <div class="col-lg-12">
                 <div class="more-choose-content text-center">
-                  <p>Produk lainnya <a href="{{ route('produkIndex') }}">Disini <i class="fas fa-long-arrow-alt-right"></i></a> </p>
+                  <p>Produk lainnya <a href="{{ route('produkIndex') }}">Disini <i
+                        class="fas fa-long-arrow-alt-right"></i></a> </p>
                 </div>
               </div>
             </div>
@@ -154,7 +158,7 @@
   <div class="section techwix-testimonial-section-02 techwix-testimonial-section-03 section-padding-02" style="padding: 60px 0;">
     <div class="container">
       <!-- Testimonial Wrap Start  -->
-      <div class="testimonial-wrap-02">
+      <div class="testimonial-wrap-02" data-aos="fade-up" data-aos-duration="800" data-aos-anchor-placement="center-bottom">
         <div class="section-title text-center">
           <h3 class="sub-title">Testimoni</h3>
           <h2 class="title">Pengalaman Lulusan Magang Kami</h2>
@@ -211,7 +215,8 @@
                     <div class="testimonial-content">
                       <img src="{{ asset('cssUser/images/testi-icon.png') }}" alt="">
                       <div class="truncation">
-                        <p>Matahari tidak akan bertahan selamanya, sama seperti mimpi kita ketika kita tidak berusaha menggapainya</p>
+                        <p>Matahari tidak akan bertahan selamanya, sama seperti mimpi kita ketika kita tidak berusaha
+                          menggapainya</p>
                       </div>
                       <span class="name d-inline-block text-truncate" style="max-width: 40%">Hummatech Team
                       </span>
@@ -230,7 +235,8 @@
                     <div class="testimonial-content">
                       <img src="{{ asset('cssUser/images/testi-icon.png') }}" alt="">
                       <div class="truncation">
-                        <p>Tomat itu buah atau sayur? beritahu kami +62 849 3948 3984, semoga beruntung karena no hp ini palsu</p>
+                        <p>Tomat itu buah atau sayur? beritahu kami +62 849 3948 3984, semoga beruntung karena no hp ini
+                          palsu</p>
                       </div>
                       <span class="name d-inline-block text-truncate" style="max-width: 40%">Hummatech Team
                       </span>
@@ -268,7 +274,8 @@
                     <div class="testimonial-content">
                       <img src="{{ asset('cssUser/images/testi-icon.png') }}" alt="">
                       <div class="truncation">
-                        <p>Manusia akan tinggal di mars pada masa yang akan datang, Anda mungkin akan menjadi salah satunya</p>
+                        <p>Manusia akan tinggal di mars pada masa yang akan datang, Anda mungkin akan menjadi salah
+                          satunya</p>
                       </div>
                       <span class="name d-inline-block text-truncate" style="max-width: 40%">Hummatech Team
                       </span>
@@ -295,7 +302,7 @@
   <div class="section techwix-brand-section techwix-brand-section-03">
     <div class="container">
       <!-- Brand Wrapper Start -->
-      <div class="brand-wrapper text-center py-5" style="padding-top: 0px">
+      <div class="brand-wrapper text-center py-5" style="padding-top: 0px" data-aos="fade-up" data-aos-duration="800" data-aos-anchor-placement="center-bottom">
         <div class="section-title text-center mb-3">
           <h3 class="sub-title">Kerjasama Kelas Industri</h3>
           <h2 class="title">MOU Dengan Sekolah</h2>
@@ -355,7 +362,7 @@
   <!-- Brand Logo End -->
 
   {{-- Berita Start --}}
-  <div class="section techwix-blog-section section-padding-02" style="padding-top: 70px;">
+  <div class="section techwix-blog-section section-padding-02" style="padding-top: 70px;" data-aos="fade-up" data-aos-duration="400" data-aos-anchor-placement="center-bottom">
     <div class="container">
       <!-- Section Title Start -->
       <div class="section-title text-center">
@@ -371,7 +378,9 @@
                 <!-- Single Blog Start -->
                 <div class="single-blog">
                   <div class="blog-image">
-                    <a style="height: 250px; width: 100%" href=""><img style="height: 100%; width: 100%; object-fit: cover;" src="{{ asset('storage/' . $data->thumbnail) }}" alt="{{ $data->title }}"></a>
+                    <a style="height: 250px; width: 100%" href=""><img
+                        style="height: 100%; width: 100%; object-fit: cover;"
+                        src="{{ asset('storage/' . $data->thumbnail) }}" alt="{{ $data->title }}"></a>
                     <div class="top-meta">
                       <span class="date">
                         <span>{{ \Carbon\Carbon::parse($data->created_at)->format('d') }}</span>
@@ -382,12 +391,14 @@
                   <div class="blog-content">
                     <div class="blog-meta">
                       @foreach ($data->kategori as $item)
-                        <a href="{{ route('filter-category', $item->id) }}" class="badge rounded-pill mb-1" style="background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; font-size: 12px;margin-right: 5px">{{ $item->name }}</a>
+                        <a href="{{ route('filter-category', $item->id) }}" class="badge rounded-pill mb-1"
+                          style="background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; font-size: 12px;margin-right: 5px">{{ $item->name }}</a>
                       @endforeach
                     </div>
                     <h3 class="title"><a href="">{{ $data->title }}</a></h3>
                     <div class="blog-btn">
-                      <a class="blog-btn-link" href="{{ route('detailBerita', $data->title) }}">Selengkapnya <i class="fas fa-long-arrow-alt-right"></i></a>
+                      <a class="blog-btn-link" href="{{ route('detailBerita', $data->title) }}">Selengkapnya <i
+                          class="fas fa-long-arrow-alt-right"></i></a>
                     </div>
                   </div>
                 </div>
@@ -398,7 +409,8 @@
           <div class="row">
             <div class="col-lg-12">
               <div class="custome-more-text text-center" style="margin-top: 30px">
-                <p>Berita lainnya <a href="{{ route('beritaIndex') }}">Disini <i class="fas fa-long-arrow-alt-right"></i></a> </p>
+                <p>Berita lainnya <a href="{{ route('beritaIndex') }}">Disini <i
+                      class="fas fa-long-arrow-alt-right"></i></a> </p>
               </div>
             </div>
           </div>
@@ -424,7 +436,8 @@
       <div class="container">
         <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
         <div class="container-map">
-          <div id="map" style="height: 400px;z-index: 1;" class="shadow-sm p-3 mb-5 bg-white rounded w-100 position-relative"></div>
+          <div id="map" style="height: 400px;z-index: 1;"
+            class="shadow-sm p-3 mb-5 bg-white rounded w-100 position-relative"></div>
         </div>
       </div>
     </div>

@@ -117,7 +117,7 @@
       <div class="offcanvas-header">
         <!-- Offcanvas Logo Start -->
         <div class="offcanvas-logo">
-          <a href="index.html"><img src="assets/images/logo-white.png" alt=""></a>
+          <a href="{{ route('homeindex') }}"><img src="{{ asset('ImageGlobal/logowithtext.png') }}" alt=""></a>
         </div>
         <!-- Offcanvas Logo End -->
         <button type="button" class="close-btn" data-bs-dismiss="offcanvas"><i class="flaticon-close"></i></button>
@@ -130,10 +130,10 @@
             <li class="{{ request()->routeIs('homeindex') ? 'active-menu' : '' }}">
               <a href="/">Beranda</a>
             </li>
-            <li class="{{ request()->routeIs('home.siswaIndex') ? 'active' : '' }}">
+            <li class="{{ request()->routeIs('home.siswaIndex') ? 'active-menu' : '' }}">
               <a href="{{ route('home.siswaIndex') }}">Magang/PKL</a>
             </li>
-            <li class="{{ request()->routeIs('home.industriIndex') ? 'active' : '' }}">
+            <li class="{{ request()->routeIs('home.industriIndex') ? 'active-menu' : '' }}">
               <a href="{{ route('home.industriIndex') }}">Kelas Industri</a>
             </li>
             <li class="{{ request()->routeIs('produkIndex') ? 'active-menu' : '' }}">
@@ -281,7 +281,7 @@
 
   <!-- Plugins JS -->
   <script src="{{ asset('cssUser/js/plugins/swiper-bundle.min.js') }}"></script>
-  <script src="{{ asset('cssUser/js/plugins/aos.j') }}s"></script>
+  <script src="{{ asset('cssUser/js/plugins/aos.js') }}"></script>
   <script src="{{ asset('cssUser/js/plugins/waypoints.min.js') }}"></script>
   <script src="{{ asset('cssUser/js/plugins/back-to-top.js') }}"></script>
   <script src="{{ asset('cssUser/js/plugins/jquery.counterup.min.js') }}"></script>

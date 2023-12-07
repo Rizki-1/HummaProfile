@@ -28,7 +28,7 @@
                   <div class="blog-meta d-flex">
                     @foreach ($berita->kategori as $data)
                       <span class="badge rounded-pill mb-1"
-                        style="background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; font-size: 12px; width: 100px; height: 30px; margin-right: 5px">{{ $data->name }}</span>
+                        style="background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; font-size: 12px; width: 100px; height: 30px; margin-right: 5px; display: flex; align-items: center; justify-content: center">{{ $data->name }}</span>
                     @endforeach
                   </div>
                   <h3 class="title" style="overflow-wrap: anywhere; line-height: 42px;">{{ $berita->title }}</h3>

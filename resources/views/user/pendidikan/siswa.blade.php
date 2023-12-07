@@ -34,15 +34,15 @@
   <!-- Page Banner End -->
 
   <!-- Service Start -->
-  <div class="section techwix-service-section section-padding-02" style="padding: 70px">
+  <div class="section techwix-service-section section-padding-02" style="padding-bottom: 70px">
     <div class="container">
       <!-- Service Wrap Start -->
       <div class="service-wrap">
         <div class="section-title text-center">
-          <h3 class="sub-title">Layanan Magang/PKL</h3>
-          <h2 class="title">Tingkatkan Pengalaman Anda dengan Layanan Perusahaan Kami</h2>
+          <h3 class="sub-title"  data-aos="fade-up" data-aos-duration="500">Layanan Magang/PKL</h3>
+          <h2 class="title"  data-aos="fade-up" data-aos-duration="700">Tingkatkan Pengalaman Anda dengan Layanan Perusahaan Kami</h2>
         </div>
-        <div class="service-content-wrap">
+        <div class="service-content-wrap" data-aos="fade-up" data-aos-duration="900">
           @if ($layananSiswa->count() > 0)
             <div class="row justify-content-center">
               @foreach ($layananSiswa as $key => $data)
@@ -81,16 +81,16 @@
       <!-- Choose Us Wrap Start -->
       <div class="choose-us-wrap">
         <div class="row">
-          <div class="col-lg-6">
+          <div class="col-lg-6" >
             <!-- Choose Us Left Start -->
-            <div class="choose-us-left">
+            <div class="choose-us-left" >
               <div class="section-title">
-                <h3 class="sub-title">Pendaftaran Magang</h3>
-                <h2 class="title">Dapatkan infomasi terkait pendaftaran magang di sini</h2>
+                <h3 class="sub-title" data-aos="fade-up-right" data-aos-duration="500">Pendaftaran Magang</h3>
+                <h2 class="title" data-aos="fade-up-right" data-aos-duration="700">Dapatkan infomasi terkait pendaftaran magang di sini</h2>
               </div>
-              <p class="text mb-3">Accelerate innovation with world-class tech teams We’ll match you to an entire remote
+              <p class="text mb-3" data-aos="fade-up-right" data-aos-duration="900">Accelerate innovation with world-class tech teams We’ll match you to an entire remote
                 team of incredible freelance talent for all your software development needs.</p>
-              <div><a href="https://pkl.hummatech.com/" target="_blank" class="btn btn-primary">Daftar</a></div>
+              <div data-aos="fade-up-right" data-aos-duration="1000"><a href="https://pkl.hummatech.com/" target="_blank" class="btn btn-primary">Daftar</a></div>
             </div>
             <!-- Choose Us Left End -->
           </div>
@@ -100,7 +100,7 @@
               <!-- Faq Accordion Start -->
               <div class="faq-accordion">
                 <div class="accordion" id="accordionExample">
-                  <div class="accordion-item">
+                  <div class="accordion-item" data-aos="fade-up-left" data-aos-duration="500">
                     <div class="accordion-header" id="headingOne">
                       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
@@ -108,17 +108,17 @@
                       </button>
                     </div>
                     <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
-                      data-bs-parent="#accordionExample" style="">
+                      data-bs-parent="#accordionExample" data-aos="fade-up-left" data-aos-duration="800">
                       <div class="accordion-body">
                         Accelerate innovation with world-class tech teams We’ll match you to an entire remote team of
                         incredible freelance talent for all your software.
                       </div>
                     </div>
                   </div>
-                  <div class="accordion-item">
+                  <div class="accordion-item" data-aos="fade-up-left" data-aos-duration="700">
                     <div class="accordion-header" id="headingTwo">
                       <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                        data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo" >
                         <span class="title">Support &amp; Policy rules?</span>
                       </button>
                     </div>
@@ -130,7 +130,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="accordion-item">
+                  <div class="accordion-item" data-aos="fade-up-left" data-aos-duration="900">
                     <div class="accordion-header" id="headingThree">
                       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -165,10 +165,10 @@
       <!-- Testimonial Wrap Start  -->
       <div class="testimonial-wrap-02">
         <div class="section-title text-center">
-          <h3 class="sub-title">Testimoni</h3>
-          <h2 class="title">Pengalaman Lulusan Magang Kami</h2>
+          <h3 class="sub-title" data-aos="fade-up" data-aos-duration="500">Testimoni</h3>
+          <h2 class="title" data-aos="fade-up" data-aos-duration="700">Pengalaman Lulusan Magang Kami</h2>
         </div>
-        <div class="testimonial-content-wrap-02">
+        <div class="testimonial-content-wrap-02" data-aos="fade-up" data-aos-duration="900">
           <div class="swiper-container testimonial-02-active">
             <div class="swiper-wrapper">
               @forelse ($testimoni->take(5) as $tm)

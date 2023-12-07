@@ -4,7 +4,7 @@
   <link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/forceNav.css') }}">
   <link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/forceLogo.css') }}">
   <!-- Service Start -->
-  <div class="section techwix-service-section-02 service-card-content section-padding">
+  <div class="section techwix-service-section-02 service-card-content section-padding" style="padding-bottom: 0px">
     <div class="container">
       <!-- Service Wrap Start -->
       <div class="service-wrap">

@@ -34,15 +34,15 @@
   <!-- Page Banner End -->
 
   <!-- Service Start -->
-  <div class="section techwix-service-section section-padding-02" style="padding: 70px">
+  <div class="section techwix-service-section section-padding-02" style="padding-bottom: 70px">
     <div class="container">
       <!-- Service Wrap Start -->
       <div class="service-wrap">
         <div class="section-title text-center">
-          <h3 class="sub-title">Layanan Industri</h3>
-          <h2 class="title">Tingkatkan Pengalaman Anda dengan Layanan Perusahaan Kami</h2>
+          <h3 class="sub-title" data-aos="fade-up" data-aos-duration="500">Layanan Industri</h3>
+          <h2 class="title" data-aos="fade-up" data-aos-duration="700">Tingkatkan Pengalaman Anda dengan Layanan Perusahaan Kami</h2>
         </div>
-        <div class="service-content-wrap">
+        <div class="service-content-wrap" data-aos="fade-up" data-aos-duration="900">
           @if ($layananIndustri->count() > 0)
           <div class="row justify-content-center">
             @foreach ($layananIndustri as $key => $data)
@@ -75,7 +75,7 @@
   <!-- Service End -->
 
   <div class="section techwix-choose-us-section-02 section-padding-02"
-    style="padding-bottom: 110px; background-color: #ffffff">
+    style="padding-bottom: 110px; padding-top: 20px; background-color: #ffffff">
     <div class="container">
       <!-- Choose Us Wrap Start -->
       <div class="choose-us-wrap">
@@ -84,11 +84,11 @@
             <!-- Choose Us Left Start -->
             <div class="choose-us-left">
               <div class="section-title">
-                <h3 class="sub-title">Pendaftaran kelas industri</h3>
-                <h2 class="title">Dapatkan infomasi terkait pendaftaran kelas industri di sini</h2>
+                <h3 class="sub-title" data-aos="fade-up-right" data-aos-duration="500">Pendaftaran kelas industri</h3>
+                <h2 class="title" data-aos="fade-up-right" data-aos-duration="700">Dapatkan infomasi terkait pendaftaran kelas industri di sini</h2>
               </div>
-              <p class="text mb-3">Kami menyediakan kesempatan untuk meningkatkan keterampilan dan pengetahuan dalam dunia teknologi. Kelas industri kami menawarkan kurikulum yang terkini dan diajarkan oleh para ahli industri yang berpengalaman.</p>
-              <div><a href="https://class.hummatech.com/" target="_blank" class="btn btn-primary">Daftar</a></div>
+              <p class="text mb-3" data-aos="fade-up-right" data-aos-duration="900">Kami menyediakan kesempatan untuk meningkatkan keterampilan dan pengetahuan dalam dunia teknologi. Kelas industri kami menawarkan kurikulum yang terkini dan diajarkan oleh para ahli industri yang berpengalaman.</p>
+              <div data-aos="fade-up-right" data-aos-duration="1000"><a href="https://class.hummatech.com/" target="_blank" class="btn btn-primary">Daftar</a></div>
             </div>
             <!-- Choose Us Left End -->
           </div>
@@ -98,7 +98,7 @@
               <!-- Faq Accordion Start -->
               <div class="faq-accordion">
                 <div class="accordion" id="accordionExample">
-                  <div class="accordion-item">
+                  <div class="accordion-item" data-aos="fade-up-left" data-aos-duration="500">
                     <div class="accordion-header" id="headingOne">
                       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
@@ -113,7 +113,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="accordion-item">
+                  <div class="accordion-item" data-aos="fade-up-left" data-aos-duration="700">
                     <div class="accordion-header" id="headingTwo">
                       <button class="accordion-button" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
@@ -128,7 +128,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="accordion-item">
+                  <div class="accordion-item" data-aos="fade-up-left" data-aos-duration="900">
                     <div class="accordion-header" id="headingThree">
                       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
