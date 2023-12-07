@@ -26,4 +26,15 @@ class MouStoreRequest extends FormRequest
             'nama_mou' => 'required|unique:mous,nama_mou'
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'foto_mou.required' => 'foto mou harus di isi',
+            'foto_mou.image' => 'foto mou harus valid',
+            'foto_mou.file' => 'foto mou harus valid',
+            'nama_mou.required' => 'nama mou harus di isi',
+            'nama_mou.unique' => 'nama mou sudah ada',
+        ];
+    }
 }
