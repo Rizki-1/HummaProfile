@@ -31,12 +31,12 @@ class InboxStoreRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'name.required' => 'nama harus di isi',
-            'name.string' => 'nama harus valid',
-            'name.min' => 'nama minimal :min',
-            'name.max' => 'nama maksimal :max',
-            'email.required' => 'email harud di isi',
-            'email.email' => 'email harud valid',
+            'name.required' => 'Nama harus di isi',
+            'name.string' => 'Nama harus valid',
+            'name.min' => 'Nama minimal :min',
+            'name.max' => 'Nama maksimal :max',
+            'email.required' => 'Email harus di isi',
+            'email.email' => 'Email harud valid',
             'message.required' => 'pesan harus di isi',
             'message.max' => 'pesan maksimal :max',
             'message.min' => 'pesan minimal :min',
