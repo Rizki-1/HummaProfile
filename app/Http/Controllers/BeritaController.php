@@ -189,7 +189,11 @@ class BeritaController extends Controller
 
     public function filter(int $id)
     {
-        $nameKategori = KategoriBerita::findOrFail($id)->name;
+        $nameKategori = KategoriBerita::where('id',$id)->first();
+        if(!$nameKategori){
+            return back();
+        }
+        $nameKategori = $nameKategori->name;
         $beritas = BeritaKategori::with(['berita', 'kategori'])
             ->whereHas('kategori', function ($query) use ($id) {
                 $query->where('kategori_berita_id', $id);
