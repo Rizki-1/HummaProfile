@@ -170,8 +170,9 @@
       <div class="service-wrap">
         <div class="section-title text-center">
           <h2 class="title" data-aos="fade-up" data-aos-duration="700"
-            style="padding: 20px; text-transform: capitalize">List sekolah yang sudah melakukan tanda tangan MoU dengan <span
-              style="color: #22B3E2">Humma</span>Tech</h2>
+            style="padding: 20px; text-transform: capitalize">List sekolah yang sudah melakukan tanda tangan MoU dengan
+            <span style="color: #22B3E2">Humma</span>Tech
+          </h2>
         </div>
         <div class="service-content-wrap" data-aos="fade-up" data-aos-duration="1000">
           <div class="sekolah-logo-container row">

@@ -18,7 +18,7 @@
   </div>
 
   <!-- About Start -->
-  <div class="section techwix-about-section-04 section-padding" style="padding-top: 80px">
+  <div class="section techwix-about-section-04 section-padding tentang-kami" style="padding-top: 80px">
     <div class="shape-1"></div>
     <div class="container">
       <!-- About Wrapper Start -->
@@ -32,7 +32,7 @@
                 <h2 class="title" data-aos="fade-up-right" data-aos-duration="600">Kami menyediakan berbagai layanan Software yang dirancang untuk mendukung Perusahaan dan bisnis Anda.</h2>
               </div>
               @foreach ($profile as $data)
-                <p class="text" data-aos="fade-up-right" data-aos-duration="700">{{ $data->tentang }}</p>
+                <p class="text text-tentang" data-aos="fade-up-right" data-aos-duration="700">{{ $data->tentang }}</p>
               @endforeach
             </div>
             <!-- About Content Wrap End -->
@@ -57,7 +57,7 @@
   <!-- About End -->
 
   <!-- Service Start -->
-  <div class="section techwix-service-section-02 service-card-content section-padding" style="background-color: #f8f8f8">
+  <div class="section techwix-service-section-02 service-card-content section-padding layanan-index" style="background-color: #f8f8f8">
     <div class="container">
       <!-- Service Wrap Start -->
       <div class="service-wrap">
