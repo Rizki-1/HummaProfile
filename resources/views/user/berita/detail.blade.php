@@ -14,7 +14,7 @@
             <div class="blog-details-post">
               <!-- Single Blog Start -->
               <div class="single-blog-post single-blog">
-                <div class="blog-image">
+                <div class="blog-image" data-aos="fade-up" data-aos-duration="500">
                   <a style="width: 100%; height: 100%"><img style="width: 100%;"
                       src="{{ asset('storage/' . $berita->thumbnail) }}" alt=""></a>
                   <div class="top-meta">
@@ -25,14 +25,14 @@
                   </div>
                 </div>
                 <div class="blog-content">
-                  <div class="blog-meta d-flex">
+                  <div class="blog-meta d-flex" data-aos="fade-up" data-aos-duration="500">
                     @foreach ($berita->kategori as $item)
                       <a href="{{ route('filter-category', $item->id) }}" class="badge rounded-pill mb-1"
-                        style="background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; font-size: 12px;margin-right: 5px">{{ $item->name }}</a>
+                          style="background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; font-size: 12px;margin-right: 5px">{{ $item->name }}</a>
                     @endforeach
                   </div>
-                  <h3 class="title" style="overflow-wrap: anywhere; line-height: 42px;">{{ $berita->title }}</h3>
-                  <p class="text" style="overflow-wrap: anywhere; line-height: 25px">{{ $berita->description }}</p>
+                  <h3 class="title" data-aos="fade-up" data-aos-duration="700" style="overflow-wrap: anywhere; line-height: 42px;">{{ $berita->title }}</h3>
+                  <p class="text" data-aos="fade-up" data-aos-duration="900" style="overflow-wrap: anywhere; line-height: 25px">{{ $berita->description }}</p>
                 </div>
               </div>
               <!-- Single Blog End -->
@@ -47,11 +47,11 @@
               <div class="sidebar-widget">
                 <!-- Widget Title Start -->
                 <div class="widget-title">
-                  <h3 class="title">Berita Lainnya</h3>
+                  <h3 class="title" data-aos="fade-up-left" data-aos-duration="500">Berita Lainnya</h3>
                 </div>
                 <!-- Widget Title End -->
                 <!-- Widget Recent Post Start -->
-                <div class="recent-posts">
+                <div class="recent-posts" data-aos="fade-up-left" data-aos-duration="600">
                   <ul>
                     @foreach ($beritaRandom->take(5) as $data)
                       <li>
@@ -78,11 +78,11 @@
               <div class="sidebar-widget">
                 <!-- Widget Title Start -->
                 <div class="widget-title">
-                  <h3 class="title">Kategori Berita</h3>
+                  <h3 class="title" data-aos="fade-up-left" data-aos-duration="600">Kategori Berita</h3>
                 </div>
                 <!-- Widget Title End -->
                 <!-- Widget Category Start -->
-                <ul class="sidebar-tag">
+                <ul class="sidebar-tag" data-aos="fade-up-left" data-aos-duration="600">
                   @foreach ($kategoriBerita as $data)
                     <li><a href="{{ route('filter-category', $data->id) }}">{{ $data->name }}</a></li>
                   @endforeach
