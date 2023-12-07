@@ -20871,7 +20871,7 @@ div.tox .buy-now-wrapper .tox-button svg {
 }
 
 .sidebar .sidebar-body .nav .nav-item:hover .nav-link {
-    color: #6571ff
+    color: #00a1ff
 }
 
 .sidebar .sidebar-body .nav .nav-item:hover .nav-link .link-title {
@@ -20879,26 +20879,26 @@ div.tox .buy-now-wrapper .tox-button svg {
 }
 
 .sidebar .sidebar-body .nav .nav-item:hover .nav-link .link-icon {
-    color: #6571ff;
+    color:#00a1ff;
     fill: rgba(239, 243, 255, .5)
 }
 
 .sidebar .sidebar-body .nav .nav-item.active .nav-link {
-    color: #6571ff
+    color:#00a1ff
 }
 
 .sidebar .sidebar-body .nav .nav-item.active .nav-link::before {
     content: "";
     width: 3px;
     height: 26px;
-    background: #6571ff;
+    background:#00a1ff;
     position: absolute;
     left: -25px
 }
 
 .sidebar .sidebar-body .nav .nav-item.active .nav-link .link-icon {
     fill: rgba(239, 243, 255, .5);
-    color: #6571ff
+    color:#00a1ff
 }
 
 .sidebar .sidebar-body .nav.sub-menu {
@@ -20933,22 +20933,22 @@ div.tox .buy-now-wrapper .tox-button svg {
 }
 
 .sidebar .sidebar-body .nav.sub-menu .nav-item .nav-link.active {
-    color: #6571ff
+    color: #00a1ff
 }
 
 .sidebar .sidebar-body .nav.sub-menu .nav-item .nav-link.active::before {
-    border: 1px solid #6571ff;
-    background: #6571ff
+    border: 1px solid #00a1ff;
+    background: #00a1ff
 }
 
 .sidebar .sidebar-body .nav.sub-menu .nav-item:hover .nav-link {
-    color: #6571ff;
+    color: #00a1ff;
     margin-left: 3px
 }
 
 .sidebar .sidebar-body .nav.sub-menu .nav-item:hover .nav-link::before {
-    border: 1px solid #6571ff;
-    background: #6571ff
+    border: 1px solid #00a1ff;
+    background: #00a1ff
 }
 
 @media (max-width:991px) {

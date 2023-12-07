@@ -182,6 +182,7 @@ class BeritaController extends Controller
 
     public function filter(int $id)
     {
+        $nameKategori = KategoriBerita::findOrFail($id)->name;
         $beritas = BeritaKategori::with(['berita', 'kategori'])
             ->whereHas('kategori', function ($query) use ($id) {
                 $query->where('kategori_berita_id', $id);
@@ -189,6 +190,6 @@ class BeritaController extends Controller
             ->paginate(9);
         $kategori = KategoriBerita::all();
 
-        return view('user.berita.filterberita', compact('beritas','kategori'));
+        return view('user.berita.filterberita', compact('beritas','kategori','nameKategori'));
     }
 }

@@ -52,14 +52,17 @@
                     <tbody>
                       @foreach ($layanan as $row)
                         <tr class="odd">
-                          <td class="sorting_1 height-thing" style="transform: translateY(10px)">{{ $row->nama_layanan }}</td>
-                          <td class="sorting_1 height-thing" style="transform: translateY(10px)">{{ $row->descripsi_layanan }}</td>
+                          <td class="sorting_1 height-thing" style="transform: translateY(10px)">{{ Str::limit($row->nama_layanan, 50) }}</td>
+                          <td class="sorting_1 height-thing" style="transform: translateY(10px)">
+                            {{ Str::limit($row->descripsi_layanan, 50) }}
+                            <!-- Ganti angka 50 dengan jumlah kata maksimum yang ingin Anda tampilkan -->
+                        </td>
                           <td class="d-flex gap-2">
                             <a href="{{ route('edit.layanan', $row->id) }}" class="btn btn-outline-warning btn-icon"><i class="link-icon edit-icon" data-feather="edit"></i></a>
-                            <form action="{{ route('layanan-perusahaan.destroy', $row->id) }}" method="POST">
-                              @csrf
-                              @method('DELETE')
-                              <button type="submit" class="btn btn-outline-danger btn-icon"><i class="link-icon trash-icon" data-feather="trash"></i></button>
+                            <form id="deleteForm" action="{{ route('layanan-perusahaan.destroy', $row->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="button" class="btn btn-outline-danger btn-icon" onclick="confirmDelete()"><i class="link-icon trash-icon" data-feather="trash"></i></button>
                             </form>
                           </td>
                         </tr>
@@ -83,7 +86,42 @@
       </div>
     </div>
   </div>
+  <script>
+     document.getElementById('selectTarget').addEventListener('change', function() {
+      var selectedCategoryId = this.value;
+      var currentUrl = window.location.href;
+      var newUrl;
+      if (selectedCategoryId == 1) {
+        newUrl = currentUrl.replace(/ct=[^&]*/, '');
+      } else {
+        var ctParam = 'ct=' + selectedCategoryId;
+        if (currentUrl.includes('ct=')) {
+          newUrl = currentUrl.replace(/ct=[^&]*/, ctParam);
+        } else {
+          newUrl = currentUrl + (currentUrl.includes('?') ? '&' : '?') + ctParam;
+        }
+      }
+      window.location.href = newUrl;
+    });
+
+    function confirmDelete() {
+        Swal.fire({
+        title: "Apakah Anda yakin?",
+        text: "Apakah anda yakin ingin menghapus layanan " + name,
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+      }).then((result) => {
+        if (result.isConfirmed) {
+            document.getElementById('deleteForm').submit();
+        }
+      })
+    }
+  </script>
   {{-- <script>
+
     document.getElementById('selectTarget').addEventListener('change', function() {
       var selectedCategoryId = this.value;
       var currentUrl = window.location.href;
@@ -158,7 +196,7 @@
       });
     }
 
-    function showDeletePopup(id, name) {
+      function showDeletePopup(id, name) {
       Swal.fire({
         title: "Apakah Anda yakin?",
         text: "Apakah anda yakin ingin menghapus layanan " + name,

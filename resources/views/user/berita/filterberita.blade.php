@@ -5,6 +5,9 @@
   <div class="section techwix-blog-grid-section section-padding" style="background-color: #f8f8f8;">
     <div class="container">
       <div class="techwix-blog-grid-wrap" data-aos="fade-up" data-aos-duration="500">
+        <div class="section-title text-center mb-4 mt-4">
+          <h2 class="title" data-aos="fade-up" data-aos-duration="500">{{$nameKategori}}</h2>
+        </div>
         <div class="row justify-content-center">
           @foreach ($beritas as $berita)
             <div class="col-lg-4 col-md-6">
