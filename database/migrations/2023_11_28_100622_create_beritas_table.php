@@ -15,7 +15,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('thumbnail');
             $table->string('title')->unique();
-            $table->text('description');
+            $table->longText('description');
             $table->timestamps();
         });
     }

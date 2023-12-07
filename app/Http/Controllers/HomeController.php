@@ -93,8 +93,11 @@ class HomeController extends Controller
         return view('user.berita.detail', compact('berita', 'beritaAll', 'beritaRandom', 'kategoriBerita'));
     }
 
-    public function detailProduk(string $berita) {
-        $produk = Produk::findOrFail($berita);
+    public function detailProduk(string $name) {
+        $produk = Produk::where('nama_produk',$name)->first();
+        if(!$produk){
+            return back();
+        }
         $produkLainnya = Produk::inRandomOrder()->get();
         return view('user.produk.detailProduk', compact('produk', 'produkLainnya'));
     }

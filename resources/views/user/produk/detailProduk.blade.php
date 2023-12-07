@@ -25,7 +25,7 @@
                     </span>
                   </div>
                   <h3 class="title" data-aos="fade-up" data-aos-duration="700" style="overflow-wrap: anywhere; line-height: 42px;">{{ $produk->nama_produk }}</h3>
-                  <p class="text" data-aos="fade-up" data-aos-duration="900" style="overflow-wrap: anywhere; line-height: 25px">{{ $produk->keterangan_produk }}</p>
+                  <p class="text" data-aos="fade-up" data-aos-duration="900" style="overflow-wrap: anywhere; line-height: 25px">{!! Str::markdown($produk->keterangan_produk) !!}</p>
                 </div>
               </div>
               <!-- Single Blog End -->
@@ -48,7 +48,7 @@
                   <ul>
                     @foreach ($produkLainnya->take(5) as $data)
                       <li>
-                        <a class="post-link" href="{{ route('produk.detail', $data->id) }}">
+                        <a class="post-link" href="{{ route('produk.detail', $data->nama_produk) }}">
                           <div class="post-thumb">
                             <img style="object-fit: cover" src="{{ asset('storage/' . $data->foto_produk) }}" alt="">
                           </div>

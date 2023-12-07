@@ -31,7 +31,7 @@
                     @endforeach
                   </div>
                   <h3 class="title" data-aos="fade-up" data-aos-duration="700" style="overflow-wrap: anywhere; line-height: 42px;">{{ $berita->title }}</h3>
-                  <p class="text" data-aos="fade-up" data-aos-duration="900" style="overflow-wrap: anywhere; line-height: 25px">{{ $berita->description }}</p>
+                  <p class="text" data-aos="fade-up" data-aos-duration="900" style="overflow-wrap: anywhere; line-height: 25px">{!! Str::markdown($berita->description) !!}</p>
                 </div>
               </div>
               <!-- Single Blog End -->

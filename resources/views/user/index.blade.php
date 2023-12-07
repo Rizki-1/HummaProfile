@@ -118,7 +118,7 @@
                   <!-- Choose Us Item Start -->
                   <div class="choose-us-item">
                     <div class="choose-us-img">
-                      <a href="{{ route('produk.detail', $produkRow->id) }}"><img class="picture-responsive" src="{{ asset('storage/' . $produkRow->foto_produk) }}" alt="Foto Produk"></a>
+                      <a href="{{ route('produk.detail', $produkRow->nama_produk) }}"><img class="picture-responsive" src="{{ asset('storage/' . $produkRow->foto_produk) }}" alt="Foto Produk"></a>
                       <div class="choose-us-content">
                         <h3 class="title text-truncate">{{ $produkRow->nama_produk }}</h3>
                         <p class="description-truncate">{{ $produkRow->keterangan_produk }}</p>
@@ -431,7 +431,7 @@
         <h2 class="title" data-aos="fade-up" data-aos-duration="700">Beberapa Cabang Dari PT HummaTech</h2>
       </div>
       <div class="container" data-aos="fade-up" data-aos-duration="900">
-        <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+        <link rel="stylesheet" href="{{ asset('cssUser/css/leaflet.css') }}" />
         <div class="container-map">
           <div id="map" style="height: 400px;z-index: 1;" class="shadow-sm p-3 mb-5 bg-white rounded w-100 position-relative"></div>
         </div>
@@ -448,17 +448,33 @@
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
-    // Koordinat kantor pusat
-    var kantorPusat = L.marker([-7.900074, 112.606886]).addTo(map);
+    // Menggunakan gambar kustom sebagai ikon marker
+    var customIcon = L.icon({
+        iconUrl: '{{ asset('cssUser/css/images/marker-icon-2x.png') }}',
+        iconSize: [36, 36],
+        iconAnchor: [18, 36],
+        popupAnchor: [0, -36]
+    });
+
+    // Koordinat kantor pusat dengan marker kustom
+    var kantorPusat = L.marker([-7.900074, 112.606886], { icon: customIcon }).addTo(map);
     kantorPusat.bindPopup('<b>Kantor Pusat</b>').openPopup();
 
-    // Koordinat cabang 1
-    var cabang1 = L.marker([-7.5570422, 111.6597938]).addTo(map);
+    // Koordinat cabang 1 dengan marker kustom
+    var cabang1 = L.marker([-7.5570422, 111.6597938], { icon: customIcon }).addTo(map);
     cabang1.bindPopup('<b>Cabang 1</b>');
 
-    // Koordinat cabang 2
-    var cabang2 = L.marker([-7.5573993, 111.5791793]).addTo(map);
+    // Koordinat cabang 2 dengan marker kustom
+    var cabang2 = L.marker([-7.5573993, 111.5791793], { icon: customIcon }).addTo(map);
     cabang2.bindPopup('<b>Cabang 2</b>');
+
+
+    var markerElements = document.querySelectorAll('.leaflet-marker-icon.leaflet-zoom-animated.leaflet-interactive');
+
+    markerElements.forEach(function (element) {
+        element.style.width = '36px';
+        element.style.height = '36px';
+    });
 
     const scrollers = document.querySelectorAll(".scroller");
 

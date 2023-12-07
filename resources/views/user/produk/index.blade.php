@@ -37,7 +37,7 @@
               <!-- Choose Us Item Start -->
               <div class="choose-us-item">
                 <div class="choose-us-img">
-                  <a href="{{ route('produk.detail', $produkRow->id) }}">
+                  <a href="{{ route('produk.detail', $produkRow->nama_produk) }}">
                     <img class="picture-responsive" src="{{ asset('storage/' . $produkRow->foto_produk) }}" alt="Foto Produk"></a>
                     <div class="choose-us-content">
                       <h3 class="title text-truncate">{{ $produkRow->nama_produk }}</h3>

@@ -86,7 +86,7 @@ Route::get('/berita', [HomeController::class, 'indexBerita'])->name('beritaIndex
 Route::get('/berita/{name}', [HomeController::class, 'detailBerita'])->name('detailBerita');
 Route::post('/inbox', [InboxController::class,'store'])->name('inbox.store');
 Route::get('/layanan', [HomeController::class, 'indexLayanan'])->name('layananIndex');
-Route::get('/produk/{id}', [HomeController::class, 'detailProduk'])->name('produk.detail');
+Route::get('/produk/{name}', [HomeController::class, 'detailProduk'])->name('produk.detail');
 Route::get('/category-berita/{name}', [BeritaController::class, 'filter'])->name('filter-category');
 
 //formLandingPage

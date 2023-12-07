@@ -3,6 +3,7 @@
 @section('content')
   <title>{{ config('app.name', 'Laravel') }} - Berita</title>
   <link rel="stylesheet" href="{{ asset('cssAdmin/vendors/select2/select2.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('cssAdmin/vendors/easymde/easymde.min.css') }}">
   <script src="{{ asset('cssAdmin/js/select2.js') }}"></script>
   <script src="{{ asset('cssAdmin/vendors/select2/select2.min.js') }}"></script>
   <div class="card p-4 mb-4 flex-row justify-content-between align-items-center">
@@ -47,15 +48,6 @@
                 </div>
               @enderror
             </div>
-            <div>
-              <label class="form-label" for="description">Deskripsi Berita</label>
-              <textarea class="form-control @error('description') is-invalid @enderror" id="description" placeholder="Deskripsi Berita" name="description" rows="7">{{ old('description') }}</textarea>
-              @error('description')
-                <div class="invalid-feedback">
-                  <p>{{ $message }}</p>
-                </div>
-              @enderror
-            </div>
           </div>
           <div class="col-md-6">
             <label for="myDropify" class="form-label">Upload Gambar Berita</label>
@@ -66,6 +58,15 @@
               </div>
             @enderror
           </div>
+          <div>
+            <label class="form-label" for="easyMdeEditor">Deskripsi Berita</label>
+              <textarea class="form-control @error('description') is-invalid @enderror" id="easyMdeEditor" placeholder="Deskripsi Berita" name="description" rows="7">{{ old('description') }}</textarea>
+              @error('description')
+                <div class="invalid-feedback">
+                  <p>{{ $message }}</p>
+                </div>
+              @enderror
+          </div>
           <div class="col-md-6 col-12 mt-4">
             <button type="submit" class="btn btn-primary me-2">Tambah</button>
             <a class="btn btn-secondary" href="{{ route('berita.index') }}">Cancel</a>
@@ -75,6 +76,8 @@
     </form>
   </div>
   <!-- Initialize Select2 -->
+  <script src="{{ asset('cssAdmin/vendors/easymde/easymde.min.js') }}"></script>
+  <script src="{{ asset('cssAdmin/js/email.js') }}"></script>
   <script>
     $(document).ready(function() {
       $('#category').select2();
