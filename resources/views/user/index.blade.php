@@ -2,7 +2,6 @@
 
 @section('content')
   <link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/style.css') }}">
-  <link rel="stylesheet" href="{{ asset('cssUser/css/gallery/style.css') }}">
 
   <div class="container-custome-header">
     <div class="custome-header">
@@ -448,81 +447,6 @@
     </div>
   </div>
   {{-- Berita End --}}
-
-  {{-- Gallery Start --}}
-  <div class="section techwix-service-section section-padding-02" style="padding-bottom: 70px; padding-top: 20px">
-    <div class="container">
-      <!-- Service Wrap Start -->
-      <div class="service-wrap">
-        <div class="section-title text-center">
-          <h2 class="title" data-aos="fade-up" data-aos-duration="700"
-            style="padding: 20px; text-transform: capitalize">Gallery
-            <span style="color: #22B3E2">Humma</span>Tech
-          </h2>
-        </div>
-        <div class="service-content-wrap" data-aos="fade-up" data-aos-duration="1000">
-          {{-- Gallery --}}
-          <div id="gallery" class="container-fluid">
-            <ul id="lightgallery">
-              @forelse ($gallery as $data)
-                <li data-responsive="" data-src="">
-                  <a href="">
-                    <img src="{{ asset('storage/galery/' . $data->picture) }}" alt="">
-                  </a>
-                </li>
-              @empty
-                <li data-responsive="" data-src="">
-                  <a href="">
-                    <img src="{{ asset('ImageGlobal/gallery/gallery_1.jpg') }}" class="img-responsive">
-                  </a>
-                </li>
-                <li data-responsive="" data-src="">
-                  <a href="">
-                    <img src="{{ asset('ImageGlobal/gallery/gallery_2.jpg') }}" class="img-responsive">
-                  </a>
-                </li>
-                <li data-responsive="" data-src="">
-                  <a href="">
-                    <img src="{{ asset('ImageGlobal/gallery/gallery_3.jpg') }}" class="img-responsive">
-                  </a>
-                </li>
-                <li data-responsive="" data-src="">
-                  <a href="">
-                    <img src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}" class="img-responsive">
-                  </a>
-                </li>
-                <li data-responsive="" data-src="">
-                  <a href="">
-                    <img src="{{ asset('ImageGlobal/gallery/gallery_5.jpg') }}" class="img-responsive">
-                  </a>
-                </li>
-                <li data-responsive="" data-src="">
-                  <a href="">
-                    <img src="{{ asset('ImageGlobal/gallery/gallery_6.jpg') }}" class="img-responsive">
-                  </a>
-                </li>
-                <li data-responsive="" data-src="">
-                  <a href="">
-                    <img src="{{ asset('ImageGlobal/gallery/gallery_7.jpg') }}" class="img-responsive">
-                  </a>
-                </li>
-                <li data-responsive="" data-src="">
-                  <a href="">
-                    <img src="{{ asset('ImageGlobal/gallery/gallery_8.jpg') }}" class="img-responsive">
-                  </a>
-                </li>
-              @endforelse
-            </ul>
-          </div>
-          {{-- End Gallery --}}
-        </div>
-        <div class="d-flex justify-content-center mt-5">
-        </div>
-      </div>
-      <!-- Service Wrap End -->
-    </div>
-  </div>
-  {{-- Gallery End --}}
 
   <!-- Cabang Start -->
   <div class="section techwix-blog-section section-padding-02" style="background-color: #f8f8f8">
