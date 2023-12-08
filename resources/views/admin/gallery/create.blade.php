@@ -44,7 +44,7 @@
           </div>
           <div class="col-md-6 col-12 mt-4">
             <button type="submit" class="btn btn-primary me-2">Tambah</button>
-            <a class="btn btn-secondary" href="{{ route('berita.index') }}">Cancel</a>
+            <a class="btn btn-secondary" href="{{ route('gallery.index') }}">Cancel</a>
           </div>
         </div>
     </div>

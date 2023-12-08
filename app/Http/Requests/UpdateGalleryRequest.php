@@ -22,7 +22,7 @@ class UpdateGalleryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'picture' => 'required|image|mimes:png,jpg',
+            'picture' => 'image|mimes:png,jpg',
             'target_layanan_id' => 'required|exists:target_layanans,id',
         ];
     }
