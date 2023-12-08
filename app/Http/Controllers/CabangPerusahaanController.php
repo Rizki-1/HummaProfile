@@ -33,13 +33,11 @@ class CabangPerusahaanController extends Controller
     {
         try {
             DB::beginTransaction();
-            foreach ($request->input("cabang-group") as $row) {
                 $cabangPerusahaan = new CabangPerusahaan;
-                $cabangPerusahaan->name = $row['cabang_name'];
-                $cabangPerusahaan->latitude = $row['latitude'];
-                $cabangPerusahaan->longitude = $row['longitude'];
+                $cabangPerusahaan->name = $request->cabang_name;
+                $cabangPerusahaan->latitude = $request->latitude;
+                $cabangPerusahaan->longitude = $request->longitude;
                 $cabangPerusahaan->save();
-            }
 
             DB::commit();
             return to_route('cabang-perusahaan.index')->with('message', [
@@ -92,6 +90,8 @@ class CabangPerusahaanController extends Controller
             }
 
             $cabangPerusahaan->name = $request->cabang_name;
+            $cabangPerusahaan->latitude = $request->latitude;
+            $cabangPerusahaan->longitude = $request->longitude;
             $cabangPerusahaan->save();
 
             DB::commit();

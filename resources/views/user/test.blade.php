@@ -1,355 +1,79 @@
-{{-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<link rel="stylesheet" href="{{ asset('cssUser/css/plugins/bootstrap.min.css') }}">
-<script src="{{ asset('cssAdmin/js/jquery-ini.js') }}"></script>
-<!------ Include the above in your HEAD tag ---------->
-
-<!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <title>LightGallery</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://cdn.jsdelivr.net/lightgallery/1.3.9/css/lightgallery.min.css" rel="stylesheet">
+    <meta charset="utf-8" />
+    <title>Search for feature layer data (feature service)</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+    <!-- Load Esri Leaflet from CDN -->
+    <script src="https://unpkg.com/esri-leaflet@3.0.10/dist/esri-leaflet.js"></script>
+    <!-- Load Esri Leaflet Geocoder from CDN -->
+    <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@3.1.4/dist/esri-leaflet-geocoder.css"
+        crossorigin="" />
+    <script src="https://unpkg.com/esri-leaflet-geocoder@3.1.4/dist/esri-leaflet-geocoder.js" crossorigin=""></script>
     <style>
-        body {
-            background-color: #152836
-        }
-
-        h2 {
-            color: #fff;
-            margin-bottom: 40px;
-            text-align: center;
-            font-weight: 100;
-        }
-
-        body {
-            background-color: #152836
-        }
-
-        h2 {
-            color: #fff;
-            margin-bottom: 40px;
-            text-align: center;
-            font-weight: 100;
-        }
-
-        .demo-gallery>ul {
-            margin-bottom: 0;
-        }
-
-        .demo-gallery>ul>li {
-            float: left;
-            height: max-content;
-            width: 200px;
-        }
-
-        .demo-gallery>ul>li a {
-            border: 3px solid #FFF;
-            border-radius: 3px;
-            display: block;
-            overflow: hidden;
-            position: relative;
-            float: left;
-        }
-
-        .demo-gallery>ul>li a>img {
-            -webkit-transition: -webkit-transform 0.15s ease 0s;
-            -moz-transition: -moz-transform 0.15s ease 0s;
-            -o-transition: -o-transform 0.15s ease 0s;
-            transition: transform 0.15s ease 0s;
-            -webkit-transform: scale3d(1, 1, 1);
-            transform: scale3d(1, 1, 1);
+        html,
+        body,
+        #map {
+            padding: 0;
+            margin: 0;
             height: 100%;
             width: 100%;
-        }
-
-        .demo-gallery>ul>li a:hover>img {
-            -webkit-transform: scale3d(1.1, 1.1, 1.1);
-            transform: scale3d(1.1, 1.1, 1.1);
-        }
-
-        .demo-gallery>ul>li a:hover .demo-gallery-poster>img {
-            opacity: 1;
-        }
-
-        .demo-gallery>ul>li a .demo-gallery-poster {
-            background-color: rgba(0, 0, 0, 0.1);
-            bottom: 0;
-            left: 0;
-            position: absolute;
-            right: 0;
-            top: 0;
-            -webkit-transition: background-color 0.15s ease 0s;
-            -o-transition: background-color 0.15s ease 0s;
-            transition: background-color 0.15s ease 0s;
-        }
-
-        .demo-gallery>ul>li a .demo-gallery-poster>img {
-            left: 50%;
-            margin-left: -10px;
-            margin-top: -10px;
-            opacity: 0;
-            position: absolute;
-            top: 50%;
-            -webkit-transition: opacity 0.3s ease 0s;
-            -o-transition: opacity 0.3s ease 0s;
-            transition: opacity 0.3s ease 0s;
-        }
-
-        .demo-gallery>ul>li a:hover .demo-gallery-poster {
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-
-        .demo-gallery .justified-gallery>a>img {
-            -webkit-transition: -webkit-transform 0.15s ease 0s;
-            -moz-transition: -moz-transform 0.15s ease 0s;
-            -o-transition: -o-transform 0.15s ease 0s;
-            transition: transform 0.15s ease 0s;
-            -webkit-transform: scale3d(1, 1, 1);
-            transform: scale3d(1, 1, 1);
-            height: 100%;
-            width: 100%;
-        }
-
-        .demo-gallery .justified-gallery>a:hover>img {
-            -webkit-transform: scale3d(1.1, 1.1, 1.1);
-            transform: scale3d(1.1, 1.1, 1.1);
-        }
-
-        .demo-gallery .justified-gallery>a:hover .demo-gallery-poster>img {
-            opacity: 1;
-        }
-
-        .demo-gallery .justified-gallery>a .demo-gallery-poster {
-            background-color: rgba(0, 0, 0, 0.1);
-            bottom: 0;
-            left: 0;
-            position: absolute;
-            right: 0;
-            top: 0;
-            -webkit-transition: background-color 0.15s ease 0s;
-            -o-transition: background-color 0.15s ease 0s;
-            transition: background-color 0.15s ease 0s;
-        }
-
-        .demo-gallery .justified-gallery>a .demo-gallery-poster>img {
-            left: 50%;
-            margin-left: -10px;
-            margin-top: -10px;
-            opacity: 0;
-            position: absolute;
-            top: 50%;
-            -webkit-transition: opacity 0.3s ease 0s;
-            -o-transition: opacity 0.3s ease 0s;
-            transition: opacity 0.3s ease 0s;
-        }
-
-        .demo-gallery .justified-gallery>a:hover .demo-gallery-poster {
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-
-        .demo-gallery .video .demo-gallery-poster img {
-            height: 48px;
-            margin-left: -24px;
-            margin-top: -24px;
-            opacity: 0.8;
-            width: 48px;
-        }
-
-        .demo-gallery.dark>ul>li a {
-            border: 3px solid #04070a;
-        }
-
-        .home .demo-gallery {
-            padding-bottom: 80px;
-        }
-
-        /* Skeleton */
-        #lightgallery {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .gallery-item {
-            position: relative;
-            width: 100%;
-        }
-
-        .skeleton {
-            position: absolute;
-            background-color: #e2e5e7;
-            overflow: hidden;
-            width: 100%;
-            height: 100%;
-        }
-
-        .skeleton::before {
-            content: '';
-            display: block;
-            position: absolute;
-            top: 0;
-            left: -40px;
-            width: 40px;
-            height: 100%;
-            background: linear-gradient(90deg,
-                    rgba(255, 255, 255, 0),
-                    rgba(255, 255, 255, 0.5),
-                    rgba(255, 255, 255, 0));
-            animation: shine 1s linear infinite;
-        }
-
-        @keyframes shine {
-            to {
-                left: 100%;
-                /* Adjust the final position based on your needs */
-            }
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            color: #323232;
         }
     </style>
 </head>
 
-<body class="home">
-    <div class="container" style="margin-top:40px;">
-        <h2>Jquery LightGallery</h2>
-        <div class="demo-gallery">
-            <ul id="lightgallery" class="list-unstyled">
-                <li class="col-xs-6 col-sm-4 col-md-2 col-lg-2 gallery-item"
-                    data-responsive="https://sachinchoolur.github.io/lightgallery.js/static/img/1-1600.jpg"
-                    data-src="https://sachinchoolur.github.io/lightgallery.js/static/img/1-1600.jpg">
-                    <div class="skeleton"></div>
-                    <a href="" class="opacity-0">
-                        <img class="img-responsive" src="{{ asset('ImageGlobal/lp-3.jpg') }}">
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <script src="{{ asset('js/galleryFunction.js') }}"></script>
+<body>
+    <div id="map"></div>
     <script>
-        $(document).ready(function() {
-            function replaceSkeletonWithImage(skeleton, imageSource) {
-                skeleton.next('img').attr('src', imageSource);
-                skeleton.remove();
+        const apiKey = "AAPKd1f57bfd86514fd59f24f6aca0d9448884U7xkqJAeGXaT01_f2vvcrnXPo4iuG3QNoFDU9Mx32AHdMkwMl5VAn4l_V2hwiL";
+        const map = L.map("map").setView([-7.900074, 112.606886], 7);
+        const markerLayer = L.layerGroup().addTo(map); // LayerGroup untuk menyimpan marker
 
-                $('#lightgallery .gallery-item a').each(function() {
-                    $(this).removeClass('opacity-0');
-                });
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        const arcgisOnlineProvider = L.esri.Geocoding.arcgisOnlineProvider({
+            apikey: apiKey
+        });
+
+        const gisDayProvider = L.esri.Geocoding.featureLayerProvider({
+            url: "https://services.arcgis.com/BG6nSlhZSAWtExvp/ArcGIS/rest/services/GIS_Day_Registration_Form_2019_Hosted_View_Layer/FeatureServer/0",
+            searchFields: ["event_name", "host_organization"],
+            label: "GIS Day Events 2019",
+            bufferRadius: 5000,
+            formatSuggestion: function(feature) {
+                return feature.properties.event_name + " - " + feature.properties.host_organization;
+            }
+        });
+
+        L.esri.Geocoding.geosearch({
+            providers: [arcgisOnlineProvider, gisDayProvider]
+        }).addTo(map);
+
+        let isMarkerAdded = false; // Variabel untuk melacak apakah marker sudah ditambahkan
+
+        // Menambahkan event listener untuk menangkap klik pada peta
+        map.on('click', function(e) {
+            // Menghapus marker yang sudah ada jika sudah ditambahkan sebelumnya
+            if (isMarkerAdded) {
+                markerLayer.clearLayers();
             }
 
-            // Loop through gallery items and lazy-load images
-            $('#lightgallery .gallery-item').each(function() {
-                var skeleton = $(this).children('.skeleton');
-                var imageSource = $(this).attr('data-src');
+            // Menampilkan latitude dan longitude pada console untuk debug
+            console.log('Latitude:', e.latlng.lat, 'Longitude:', e.latlng.lng);
 
-                // Lazy-load the image and replace the skeleton when loaded
-                $('<img>').attr('src', imageSource).on('load', function() {
-                    setInterval(() => {
-
-                    }, 2000);
-                    replaceSkeletonWithImage(skeleton, imageSource);
-                });
-            });
-            $('#lightgallery').lightGallery();
+            // Menambahkan marker pada lokasi klik
+            L.marker(e.latlng).addTo(markerLayer);
+            isMarkerAdded = true; // Mengubah status menjadi marker sudah ditambahkan
         });
     </script>
+
 </body>
 
-</html> --}}
-
-
-{{-- Gallery --}}
-{{-- <link rel="stylesheet" href="{{ asset('cssUser/css/gallery/lightgallery.min.css') }}"> --}}
-<link href="https://cdn.jsdelivr.net/lightgallery/1.3.9/css/lightgallery.min.css" rel="stylesheet">
-          <link rel="stylesheet" href="{{ asset('cssUser/css/gallery/style.css') }}">
-          <script src="{{ asset('cssAdmin/js/jquery-ini.js') }}"></script>
-          <link rel="stylesheet" href="{{ asset('cssUser/css/plugins/bootstrap.min.css') }}">
-          <body class="home">
-          <div class="container" style="margin-top:40px;">
-          <div class="demo-gallery">
-          <div id="gallery" class="container-fluid">
-            <ul id="lightgallery" class="list-unstyled">
-                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_1.jpg') }}" data-src="{{ asset('ImageGlobal/gallery/gallery_1.jpg') }}">
-                  <div class="skeleton"></div>
-                  <a href="" class="opacity-0">
-                    <img src="{{ asset('ImageGlobal/gallery/gallery_1.jpg') }}" class="img-responsive">
-                  </a>
-                </li>
-                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_2.jpg') }}" data-src="{{ asset('ImageGlobal/gallery/gallery_2.jpg') }}">
-                  <div class="skeleton"></div>
-                  <a href="" class="opacity-0">
-                    <img src="{{ asset('ImageGlobal/gallery/gallery_2.jpg') }}" class="img-responsive">
-                  </a>
-                </li>
-                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_3.jpg') }}" data-src="{{ asset('ImageGlobal/gallery/gallery_3.jpg') }}">
-                  <div class="skeleton"></div>
-                  <a href="" class="opacity-0">
-                    <img src="{{ asset('ImageGlobal/gallery/gallery_3.jpg') }}" class="img-responsive">
-                  </a>
-                </li>
-                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}" data-src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}">
-                  <div class="skeleton"></div>
-                  <a href="" class="opacity-0">
-                    <img src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}" class="img-responsive">
-                  </a>
-                </li>
-                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_5.jpg') }}" data-src="{{ asset('ImageGlobal/gallery/gallery_5.jpg') }}">
-                  <div class="skeleton"></div>
-                  <a href="" class="opacity-0">
-                    <img src="{{ asset('ImageGlobal/gallery/gallery_5.jpg') }}" class="img-responsive">
-                  </a>
-                </li>
-                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_6.jpg') }}" data-src="{{ asset('ImageGlobal/gallery/gallery_6.jpg') }}">
-                  <div class="skeleton"></div>
-                  <a href="" class="opacity-0">
-                    <img src="{{ asset('ImageGlobal/gallery/gallery_6.jpg') }}" class="img-responsive">
-                  </a>
-                </li>
-                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_7.jpg') }}" data-src="{{ asset('ImageGlobal/gallery/gallery_7.jpg') }}">
-                  <div class="skeleton"></div>
-                  <a href="" class="opacity-0">
-                    <img src="{{ asset('ImageGlobal/gallery/gallery_7.jpg') }}" class="img-responsive">
-                  </a>
-                </li>
-                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_8.jpg') }}" data-src="{{ asset('ImageGlobal/gallery/gallery_8.jpg') }}">
-                  <div class="skeleton"></div>
-                  <a href="" class="opacity-0">
-                    <img src="{{ asset('ImageGlobal/gallery/gallery_8.jpg') }}" class="img-responsive">
-                  </a>
-                </li>
-            </ul>
-          </div>
-          </div>
-          </div>
-
-              <script src="{{ asset('js/galleryFunction.js') }}"></script>
-              <script>
-                  $(document).ready(function() {
-                      function replaceSkeletonWithImage(skeleton, imageSource) {
-                          skeleton.next('img').attr('src', imageSource);
-                          skeleton.remove();
-
-                          $('#lightgallery .gallery-item a').each(function() {
-                              $(this).removeClass('opacity-0');
-                          });
-                      }
-
-                      // Loop through gallery items and lazy-load images
-                      $('#lightgallery .gallery-item').each(function() {
-                          var skeleton = $(this).children('.skeleton');
-                          var imageSource = $(this).attr('data-src');
-
-                          // Lazy-load the image and replace the skeleton when loaded
-                          $('<img>').attr('src', imageSource).on('load', function() {
-                              setInterval(() => {
-
-                                  replaceSkeletonWithImage(skeleton, imageSource);
-                              }, 2000);
-                          });
-                      });
-                    });
-                    $('#lightgallery').lightGallery();
-              </script>
-              </body>
-          {{-- End Gallery --}}
+</html>
