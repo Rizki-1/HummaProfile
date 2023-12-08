@@ -33,7 +33,7 @@
                     </div>
                     <div class="col-md-4">
                         <label for="unknown" class="form-label">Latitude</label>
-                        <input required type="text" class="form-control @error('cabang-group.' . $i . '.latitude') is-invalid @enderror" placeholder="Latitude Perusahaan" name="latitude" value="{{ $cabang['latitude'] }}" required>
+                        <input required type="text" class="form-control @error('cabang-group.' . $i . '.latitude') is-invalid @enderror" placeholder="Contoh -7.900074" name="latitude" value="{{ $cabang['latitude'] }}" required>
                         @error('cabang-group.' . $i . '.latitude')
                         <div class="invalid-feedback">
                             <p>{{ $message }}</p>
@@ -42,7 +42,7 @@
                     </div>
                     <div class="col-md-4">
                         <label for="unknown" class="form-label">Longitude</label>
-                        <input required type="text" class="form-control @error('cabang-group.' . $i . '.longitude') is-invalid @enderror" placeholder="Longitude Perusahaan" name="longitude" value="{{ $cabang['longitude'] }}" required>
+                        <input required type="text" class="form-control @error('cabang-group.' . $i . '.longitude') is-invalid @enderror" placeholder="Contoh 112.606886" name="longitude" value="{{ $cabang['longitude'] }}" required>
                         @error('cabang-group.' . $i . '.longitude')
                         <div class="invalid-feedback">
                             <p>{{ $message }}</p>
