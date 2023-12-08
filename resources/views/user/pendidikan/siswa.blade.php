@@ -3,6 +3,7 @@
 @section('content')
   {{-- <link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/forceNav.css') }}"> --}}
   <link rel="stylesheet" href="{{ asset('cssUser/css/pendidikan/style.css') }}">
+  <link rel="stylesheet" href="{{ asset('cssUser/css/gallery/style.css') }}">
 
   <!-- Page Banner Start -->
   <div class="section" style="padding-top: 0px">
@@ -39,7 +40,8 @@
   </div>
   <!-- Page Banner End -->
 
-  <div class="section techwix-choose-us-section-02 section-padding-02" style="padding-bottom: 110px; background-color: #ffffff">
+  <div class="section techwix-choose-us-section-02 section-padding-02"
+    style="padding-bottom: 110px; background-color: #ffffff">
     <div class="container">
       <!-- Choose Us Wrap Start -->
       <div class="choose-us-wrap">
@@ -69,11 +71,13 @@
                 <div class="accordion" id="accordionExample">
                   <div class="accordion-item" data-aos="fade-up-left" data-aos-duration="500">
                     <div class="accordion-header" id="headingOne">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                         <span class="title">Syarat & Ketentuan</span>
                       </button>
                     </div>
-                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample" data-aos="fade-up-left" data-aos-duration="800">
+                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                      data-bs-parent="#accordionExample" data-aos="fade-up-left" data-aos-duration="800">
                       <div class="accordion-body">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem animi labore voluptatibus? Modi
                         possimus quos doloremque nihil. Omnis, adipisci ex, ad sapiente vitae esse id vel mollitia, est
@@ -83,11 +87,13 @@
                   </div>
                   <div class="accordion-item" data-aos="fade-up-left" data-aos-duration="700">
                     <div class="accordion-header" id="headingTwo">
-                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                         <span class="title">Syarat & Ketentuan</span>
                       </button>
                     </div>
-                    <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample" style="">
+                    <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo"
+                      data-bs-parent="#accordionExample" style="">
                       <div class="accordion-body">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam quia facere molestiae doloremque
                         cum tempore cumque, similique dolore soluta consequuntur maxime tempora! Autem perspiciatis facere
@@ -97,11 +103,13 @@
                   </div>
                   <div class="accordion-item" data-aos="fade-up-left" data-aos-duration="900">
                     <div class="accordion-header" id="headingThree">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                         <span class="title">Syarat & Ketentuan</span>
                       </button>
                     </div>
-                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample" style="">
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                      data-bs-parent="#accordionExample" style="">
                       <div class="accordion-body">
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo aperiam cupiditate, veritatis,
                         ipsam accusantium esse voluptate ducimus distinctio a quidem animi nihil aut consectetur? Possimus
@@ -140,7 +148,8 @@
                   <!-- Service Item Start -->
                   <div class="service-item layanan-industri-siswa service-0{{ ++$key }}">
                     <div class="image-layanan">
-                      <img style="width: 100%; height: 100%; object-fit: cover" src="{{ asset('ImageGlobal/FotoPemandangan.png') }}" alt="">
+                      <img style="width: 100%; height: 100%; object-fit: cover"
+                        src="{{ asset('ImageGlobal/FotoPemandangan.png') }}" alt="">
                     </div>
                     <div class="service-content">
                       <h3 class="title"><a class="layanan-truncation-title">{{ $data->nama_layanan }}</a></h3>
@@ -167,8 +176,85 @@
   </div>
   <!-- Service End -->
 
+  <!-- Service Start -->
+  <div class="section techwix-service-section section-padding-02" style="padding-bottom: 70px; padding-top: 20px">
+    <div class="container">
+      <!-- Service Wrap Start -->
+      <div class="service-wrap">
+        <div class="section-title text-center">
+          <h2 class="title" data-aos="fade-up" data-aos-duration="700"
+            style="padding: 20px; text-transform: capitalize">Gallery
+            <span style="color: #22B3E2">Humma</span>Tech
+          </h2>
+        </div>
+        <div class="service-content-wrap" data-aos="fade-up" data-aos-duration="1000">
+          {{-- Gallery --}}
+          <div id="gallery" class="container-fluid">
+            <ul id="lightgallery">
+              @forelse ($gallery as $data)
+                <li data-responsive="" data-src="">
+                  <a href="">
+                    <img src="{{ asset('storage/galery/' . $data->picture) }}" alt="">
+                  </a>
+                </li>
+              @empty
+                <li data-responsive="" data-src="">
+                  <a href="">
+                    <img src="{{ asset('ImageGlobal/gallery/gallery_1.jpg') }}" class="img-responsive">
+                  </a>
+                </li>
+                <li data-responsive="" data-src="">
+                  <a href="">
+                    <img src="{{ asset('ImageGlobal/gallery/gallery_2.jpg') }}" class="img-responsive">
+                  </a>
+                </li>
+                <li data-responsive="" data-src="">
+                  <a href="">
+                    <img src="{{ asset('ImageGlobal/gallery/gallery_3.jpg') }}" class="img-responsive">
+                  </a>
+                </li>
+                <li data-responsive="" data-src="">
+                  <a href="">
+                    <img src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}" class="img-responsive">
+                  </a>
+                </li>
+                <li data-responsive="" data-src="">
+                  <a href="">
+                    <img src="{{ asset('ImageGlobal/gallery/gallery_5.jpg') }}" class="img-responsive">
+                  </a>
+                </li>
+                <li data-responsive="" data-src="">
+                  <a href="">
+                    <img src="{{ asset('ImageGlobal/gallery/gallery_6.jpg') }}" class="img-responsive">
+                  </a>
+                </li>
+                <li data-responsive="" data-src="">
+                  <a href="">
+                    <img src="{{ asset('ImageGlobal/gallery/gallery_7.jpg') }}" class="img-responsive">
+                  </a>
+                </li>
+                <li data-responsive="" data-src="">
+                  <a href="">
+                    <img src="{{ asset('ImageGlobal/gallery/gallery_8.jpg') }}" class="img-responsive">
+                  </a>
+                </li>
+              @endforelse
+            </ul>
+          </div>
+          {{-- End Gallery --}}
+        </div>
+        <div class="d-flex justify-content-center mt-5">
+        </div>
+      </div>
+      <!-- Service Wrap End -->
+    </div>
+  </div>
+  <!-- Service End -->
+
   <!-- Testimonial Start  -->
-  <div class="section bg-cover techwix-testimonial-section-02 techwix-testimonial-section-03 techwix-testimonial-section-05 section-padding" style="padding: 40px;">
+  <div
+    class="section bg-cover techwix-testimonial-section-02 techwix-testimonial-section-03 techwix-testimonial-section-05 section-padding"
+    style="padding: 40px;">
     <div class="container">
       <!-- Testimonial Wrap Start  -->
       <div class="testimonial-wrap-02">

@@ -7,6 +7,7 @@ use App\Models\Inbox;
 use App\Models\Berita;
 use App\Models\BeritaKategori;
 use App\Models\CabangPerusahaan;
+use App\Models\Gallery;
 use App\Models\Produk;
 use App\Models\Sosmed;
 use App\Models\SiswaMagang;
@@ -24,6 +25,7 @@ class HomeController extends Controller
     // User Controller
     public function index()
     {
+        $gallery = Gallery::latest()->get();
         $profile = ProfileCompany::all();
         $berita = Berita::latest()->get();
         $layanan = LayananPerusahaan::latest()->get();
@@ -31,7 +33,7 @@ class HomeController extends Controller
         $Mous = Mou::all();
         $testimoni = Testimoni::latest()->get();
         $cabang = CabangPerusahaan::all();
-        return view('user.index', compact('profile', 'berita', 'layanan', 'produk', 'Mous', 'testimoni', 'cabang'));
+        return view('user.index', compact('profile', 'berita', 'layanan', 'produk', 'Mous', 'testimoni', 'cabang', 'gallery'));
     }
 
     public function home()
@@ -41,17 +43,19 @@ class HomeController extends Controller
 
     public function indexSiswa()
     {
+        $gallery = Gallery::latest()->where('target_layanan_id', '1');
         $testimoni = Testimoni::inRandomOrder()->get();
         $layananSiswa = LayananPerusahaan::where('target_layanan_id', 1)->paginate(4);
-        return view('user.pendidikan.siswa', compact('layananSiswa', 'testimoni'));
+        return view('user.pendidikan.siswa', compact('layananSiswa', 'testimoni', 'gallery'));
     }
 
     public function indexIndustri()
     {
+        $gallery = Gallery::latest()->where('target_layanan_id', '2');
         $Mous = Mou::all();
         $testimoni = Testimoni::inRandomOrder()->get();
         $layananIndustri = LayananPerusahaan::where('target_layanan_id', 2)->paginate(4);
-        return view('user.pendidikan.industri', compact('layananIndustri', 'testimoni', 'Mous'));
+        return view('user.pendidikan.industri', compact('layananIndustri', 'testimoni', 'Mous', 'gallery'));
     }
 
     public function indexProduk()
