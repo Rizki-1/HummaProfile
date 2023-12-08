@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Gallery;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreGalleryRequest;
 use App\Http\Requests\UpdateGalleryRequest;
+use App\Models\TargetLayanan;
 
 class GalleryController extends Controller
 {
@@ -22,7 +24,8 @@ class GalleryController extends Controller
      */
     public function create()
     {
-        return view('admin.gallery.create');
+        $target = TargetLayanan::all();
+        return view('admin.gallery.create', compact('target'));
     }
 
     /**
@@ -30,7 +33,18 @@ class GalleryController extends Controller
      */
     public function store(StoreGalleryRequest $request)
     {
-        //
+        // dd($request->all());
+       $fotoName = $request->file('picture')->hashName();
+       $path = $request->file('picture')->storeAs('galery', $fotoName);
+       Gallery::create([
+        'picture' => $fotoName,
+        'target_layanan_id' => $request->target_layanan_id,
+       ]);
+       return redirect()->back()->with('message', [
+        'icon' => 'success',
+        'title' => 'Berhasil!',
+        'text' => 'Berhasil menambahkan cabang baru!'
+       ]);
     }
 
     /**
@@ -54,7 +68,29 @@ class GalleryController extends Controller
      */
     public function update(UpdateGalleryRequest $request, Gallery $gallery)
     {
-        //
+        try {
+            if ($request->hasFile('picture')) {
+                Storage::delete('gelery/'.$gallery->picture);
+                $fotoName = $request->file('picture')->hashName();
+                $path = $request->file('picture')->storeAs('galery', $fotoName);
+            }else {
+                $fotoName = $gallery->picture;
+            }
+            $gallery->picture = $fotoName;
+            $gallery->target_layanan_id = $request->target_layanan_id;
+            $gallery->save();
+            return redirect()->back()->with('message', [
+                'icon' => 'success',
+                'title' => 'Berhasil!',
+                'text' => 'Berhasil mengupdate data'
+            ]);
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('message', [
+                'icon' => 'error',
+                'title' => 'gagal!',
+                'text' => 'Gagal ada kesalahan data'
+            ]);
+        }
     }
 
     /**
@@ -62,6 +98,20 @@ class GalleryController extends Controller
      */
     public function destroy(Gallery $gallery)
     {
-        //
+        try {
+            Storage::delete('galery/'.$gallery->picture);
+            $gallery->delete();
+            return redirect()->back()->with('message', [
+                'icon' => 'success',
+                'title' => 'Berhasil!',
+                'text' => 'Berhasil menghapus data '
+            ]);
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('message', [
+                'icon' => 'error',
+                'title' => 'gagal!',
+                'text' => 'Gagal ada kesalahan data'
+            ]);
+        }
     }
 }

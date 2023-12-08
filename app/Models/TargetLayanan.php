@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\SyaratKetentuan;
 use App\Models\LayananPerusahaan;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -23,5 +24,10 @@ class TargetLayanan extends Model
     public function layanan(): HasMany
     {
         return $this->hasMany(LayananPerusahaan::class);
+    }
+
+    public function Syarat(): HasMany
+    {
+        return $this->hasMany(SyaratKetentuan::class);
     }
 }

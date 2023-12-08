@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('galleries', function (Blueprint $table) {
+        Schema::create('syarat_ketentuans', function (Blueprint $table) {
             $table->id();
-            $table->string('picture');
             $table->foreignId('target_layanan_id')->constrained();
+            $table->string('syarat_ketentuan');
             $table->timestamps();
         });
     }
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('galleries');
+        Schema::dropIfExists('syarat_ketentuans');
     }
 };

@@ -22,8 +22,8 @@
         <div class="row mb-3">
           <div class="col-md-12 mb-3">
             <label for="myDropify" class="form-label">Upload Gambar Berita</label>
-            <input name="thumbnail" class="@error('thumbnail') is-invalid @enderror" type="file" id="myDropify" />
-            @error('thumbnail')
+            <input name="picture" class="@error('picture') is-invalid @enderror" type="file" id="myDropify" />
+            @error('picture')
               <div>
                 <p class="text-danger mt-2">{{ $message }}</p>
               </div>
@@ -31,12 +31,12 @@
           </div>
           <div class="col-md-12 mb-3">
             <label for="filter" class="form-label">Target Gallery</label>
-            <select required name="filter" class="form-select @error('filter') is-invalid @enderror">
-              <option value="">--Pilih target gallery--</option>
-              <option value="1">Magang / Pkl</option>
-              <option value="2">Kelas Industry</option>
+            <select required name="target_layanan_id" class="form-select @error('target_layanan_id') is-invalid @enderror">
+                @foreach ($target as $item)
+                <option value="{{ $item->id }}">{{ $item->target }}</option>
+                @endforeach
             </select>
-            @error('filter')
+            @error('target_layanan_id')
               <div class="invalid-feedback">
                 <p>{{ $message }}</p>
               </div>
