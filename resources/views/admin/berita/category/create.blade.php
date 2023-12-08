@@ -24,7 +24,7 @@
                   <div class="col-12 mb-4 pe-3 d-flex gap-3 align-items-center">
                     <div class="col-md-11">
                         <label for="unknown" class="form-label">Kategori Berita</label>
-                        <input required type="text" class="form-control @error('category-group.' . $i . '.category_name') is-invalid @enderror" placeholder="Kategori Berita" name="category_name" value="{{ $category['category_name'] }}" required>
+                        <input required type="text" class="form-control @error('category-group.' . $i . '.category_name') is-invalid @enderror" placeholder="{{ $category['category_name'] }}" name="category_name" value="{{ $category['category_name'] }}" required>
                         @error('category-group.' . $i . '.category_name')
                         <div class="invalid-feedback">
                             <p>{{ $message }}</p>
@@ -45,7 +45,7 @@
                   <div class="col-12 mb-4 pe-3 d-flex gap-3 align-items-center">
                     <div class="col-md-11">
                       <label for="unknown" class="form-label">Kategori Berita</label>
-                      <input required type="text" class="form-control" placeholder="Kategori Berita" name="category_name" value="" required>
+                      <input required type="text" class="form-control" placeholder="Viral Sekantor!!" name="category_name" value="" required>
                     </div>
                     <div class="col-md-2">
                       <input required id="button-hapus-detail" class="btn btn-outline-danger waves-effect waves-light d-flex justify-content-center align-items-center mt-4" data-repeater-delete type="button" value="Hapus" />

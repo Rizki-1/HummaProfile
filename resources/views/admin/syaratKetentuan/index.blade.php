@@ -44,7 +44,7 @@
                         <th class="sorting sorting_asc" tabindex="0" style="width: 144.302px;">
                           Syarat Ketentuan</th>
                         <th class="sorting sorting_asc" tabindex="0" style="width: 144.302px;">
-                          Options</th>
+                          Aksi</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -54,7 +54,7 @@
                           <td class="d-flex gap-2">
                             <a href="{{ route('syarat-dan-ketentuan.edit', $row->id) }}" class="btn btn-outline-warning btn-icon"><i class="link-icon edit-icon" data-feather="edit"></i></a>
                             <form nameLayanan="{{ $row->nama_layanan }}" id="deleteForm" action="{{ route('syarat-dan-ketentuan.destroy', $row->id) }}" method="POST" class="hapus">
-                              @csrf
+                              @csrf 
                               @method('DELETE')
                               <button type="submit" class="btn btn-outline-danger btn-icon"><i class="link-icon trash-icon" data-feather="trash"></i></button>
                             </form>
@@ -64,7 +64,7 @@
                         <div>
                           <tr>
                             <td colspan="3">
-                              <p class="fw-bold mt-3 mb-3 text-center">Tidak ada layanan <a href="{{ route('syarat-dan-ketentuan.create') }}">Tambah!</a></p>
+                              <p class="fw-bold mt-3 mb-3 text-center">Masih belum ada syarat ketentuan</p>
                             </td>
                           </tr>
                         </div>

@@ -41,7 +41,7 @@
             </div>
             <div class="mb-3">
               <label class="form-label" for="title">Judul Berita</label>
-              <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" placeholder="Judul Berita" value="{{ old('title') }}">
+              <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" placeholder="Mischool Is The Best" value="{{ old('title') }}">
               @error('title')
                 <div class="invalid-feedback">
                   <p>{{ $message }}</p>
@@ -60,7 +60,7 @@
           </div>
           <div>
             <label class="form-label" for="easyMdeEditor">Deskripsi Berita</label>
-              <textarea class="form-control @error('description') is-invalid @enderror" id="easyMdeEditor" placeholder="Deskripsi Berita" name="description" rows="7">{{ old('description') }}</textarea>
+              <textarea class="form-control @error('description') is-invalid @enderror" id="easyMdeEditor" placeholder="Team Mischool menyelesaikan project baru hanya dalam 3 hari" name="description" rows="7">{{ old('description') }}</textarea>
               @error('description')
                 <div class="invalid-feedback">
                   <p>{{ $message }}</p>

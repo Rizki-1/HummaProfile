@@ -213,10 +213,104 @@
                   <!--  Single Testimonial End  -->
                 </div>
               @empty
-                <div class="nodata gap-3 w-100">
-                  <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="">
-                  <p style="">Data Testimoni tidak ada</p>
+              <div class="swiper-slide" data-aos="fade-up" data-aos-duration="900">
+                <!--  Single Testimonial Start  -->
+                <div class="single-testimonial-02">
+                  <div class="testimonial-thumb">
+                    <img src="{{ asset('ImageGlobal/FotoPemandangan.png') }}" alt="">
+                  </div>
+                  <div class="testimonial-content">
+                    <img src="{{ asset('cssUser/images/testi-icon.png') }}" alt="">
+                    <div class="truncation">
+                      <p>Tetaplah semangat meskipun kamu tidak akan bisa mendapatkan dia</p>
+                    </div>
+                    <span class="name d-inline-block text-truncate" style="max-width: 40%">Hummatech Team
+                    </span>
+                    <span class="designation d-inline-block text-truncate" style="max-width: 40%">/
+                      Love from us</span>
+                  </div>
                 </div>
+                <!--  Single Testimonial End  -->
+              </div>
+              <div class="swiper-slide">
+                <!--  Single Testimonial Start  -->
+                <div class="single-testimonial-02">
+                  <div class="testimonial-thumb">
+                    <img src="{{ asset('ImageGlobal/FotoPemandangan.png') }}" alt="">
+                  </div>
+                  <div class="testimonial-content">
+                    <img src="{{ asset('cssUser/images/testi-icon.png') }}" alt="">
+                    <div class="truncation">
+                      <p>Bintang tidak akan bertahan selamanya, sama seperti mimpi kita ketika kita tidak berusaha
+                        menggapainya</p>
+                    </div>
+                    <span class="name d-inline-block text-truncate" style="max-width: 40%">Hummatech Team
+                    </span>
+                    <span class="designation d-inline-block text-truncate" style="max-width: 40%">/
+                      Love from us</span>
+                  </div>
+                </div>
+                <!--  Single Testimonial End  -->
+              </div>
+              <div class="swiper-slide" data-aos="fade-up" data-aos-duration="900">
+                <!--  Single Testimonial Start  -->
+                <div class="single-testimonial-02">
+                  <div class="testimonial-thumb">
+                    <img src="{{ asset('ImageGlobal/FotoPemandangan.png') }}" alt="">
+                  </div>
+                  <div class="testimonial-content">
+                    <img src="{{ asset('cssUser/images/testi-icon.png') }}" alt="">
+                    <div class="truncation">
+                      <p>Tomat itu buah atau sayur? beritahu kami +62 849 3948 3984, semoga beruntung karena no hp ini
+                        palsu</p>
+                    </div>
+                    <span class="name d-inline-block text-truncate" style="max-width: 40%">Hummatech Team
+                    </span>
+                    <span class="designation d-inline-block text-truncate" style="max-width: 40%">/
+                      Love from us</span>
+                  </div>
+                </div>
+                <!--  Single Testimonial End  -->
+              </div>
+              <div class="swiper-slide" data-aos="fade-up" data-aos-duration="900">
+                <!--  Single Testimonial Start  -->
+                <div class="single-testimonial-02">
+                  <div class="testimonial-thumb">
+                    <img src="{{ asset('ImageGlobal/FotoPemandangan.png') }}" alt="">
+                  </div>
+                  <div class="testimonial-content">
+                    <img src="{{ asset('cssUser/images/testi-icon.png') }}" alt="">
+                    <div class="truncation">
+                      <p>Apakah kita tidur lebih awal jika kita tidur jam 1 malam? atau tidur lebih lambat?</p>
+                    </div>
+                    <span class="name d-inline-block text-truncate" style="max-width: 40%">Hummatech Team
+                    </span>
+                    <span class="designation d-inline-block text-truncate" style="max-width: 40%">/
+                      Love from us</span>
+                  </div>
+                </div>
+                <!--  Single Testimonial End  -->
+              </div>
+              <div class="swiper-slide" data-aos="fade-up" data-aos-duration="900">
+                <!--  Single Testimonial Start  -->
+                <div class="single-testimonial-02">
+                  <div class="testimonial-thumb">
+                    <img src="{{ asset('ImageGlobal/FotoPemandangan.png') }}" alt="">
+                  </div>
+                  <div class="testimonial-content">
+                    <img src="{{ asset('cssUser/images/testi-icon.png') }}" alt="">
+                    <div class="truncation">
+                      <p>Manusia akan tinggal di mars pada masa yang akan datang, Anda mungkin akan menjadi salah
+                        satunya</p>
+                    </div>
+                    <span class="name d-inline-block text-truncate" style="max-width: 40%">Hummatech Team
+                    </span>
+                    <span class="designation d-inline-block text-truncate" style="max-width: 40%">/
+                      Love from us</span>
+                  </div>
+                </div>
+                <!--  Single Testimonial End  -->
+              </div>
               @endforelse
             </div>
 

@@ -19,7 +19,7 @@
           <div class="col-md-6">
             <div class="mb-3">
               <label for="namaproduk" class="form-label">Nama Produk</label>
-              <input required type="text" name="nama_produk" class="form-control @error('nama_produk') is-invalid @enderror" value="{{ old('nama_produk') }}" id="namaproduk" autocomplete="off" placeholder="Nama Produk">
+              <input required type="text" name="nama_produk" class="form-control @error('nama_produk') is-invalid @enderror" value="{{ old('nama_produk') }}" id="namaproduk" autocomplete="off" placeholder="Hummaprofile">
               @error('nama_produk')
                 <div class="invalid-feedback">
                   <p>{{ $message }}</p>
@@ -29,7 +29,7 @@
             <div class="mb-3">
               <label for="tanggal" class="form-label">Tanggal Dibuat</label>
               <div class="input-group flatpickr mb-3" id="flatpickr-date">
-                <input required name="dibuat" type="text" class="form-control @error('dibuat') is-invalid @enderror" value="{{ old('dibuat') }}" id="tanggal" placeholder="Select date" data-input>
+                <input required name="dibuat" type="text" class="form-control @error('dibuat') is-invalid @enderror" value="{{ old('dibuat') }}" id="tanggal" placeholder="2023 - 12 - 15" data-input>
                 @error('dibuat')
                   <div class="invalid-feedback">
                     <p>{{ $message }}</p>
@@ -38,7 +38,7 @@
                 <span class="input-group-text input-group-addon" data-toggle><i data-feather="calendar"></i></span>
               </div>
             </div>
-            <div class="mb-3">
+            {{-- <div class="mb-3">
                 <label for="link" class="form-label">link (opsional)</label>
                 <div class="input-group flatpickr mb-3" id="">
                     <input type="text" name="link" class="form-control @error('link') is-invalid @enderror" value="{{ old('link') }}" placeholder="link(opsional)">
@@ -48,7 +48,7 @@
                     </div>
                     @enderror
                 </div>
-            </div>
+            </div> --}}
           </div>
           <div class="col-md-6">
             <label for="myDropify" class="form-label">Upload Gambar Produk</label>
@@ -59,8 +59,8 @@
           </div>
         </div>
           <div class="mb-3">
-              <label for="easyMdeEditor" class="form-label">Keterangan Produk</label>
-              <textarea name="keterangan_produk" class="form-control @error('keterangan_produk') is-invalid @enderror" id="easyMdeEditor" rows="2" placeholder="Keterangan Produk">{{ old('keterangan_produk') }}</textarea>
+              <label for="easyMdeEditor" class="form-label">Deskripsi Produk</label>
+              <textarea name="keterangan_produk" class="form-control @error('keterangan_produk') is-invalid @enderror" id="easyMdeEditor" rows="2" placeholder="Hummaprofile adalah website company profile untuk Hummatech">{{ old('keterangan_produk') }}</textarea>
               @error('keterangan_produk')
                   <div class="invalid-feedback">
                       <p>{{ $message }}</p>

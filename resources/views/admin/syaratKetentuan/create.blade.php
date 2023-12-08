@@ -17,9 +17,9 @@
       @csrf
       <div class="row">
         <div class="col-md-12">
-          <label class="form-label" for="select">Target Syarat Dan Ketentuan</label>
+          <label class="form-label" for="select">Tampilkan Di</label>
           <select required name="target_layanan_id" class="form-select @error('target_layanan_id') is-invalid @enderror">
-            <option value="">--Pilih Target Layanan--</option>
+            <option value="">--Pilih salah satu--</option>
             @foreach ($layanan as $lyn)
               <option value="{{ $lyn->id }}">{{ $lyn->target }}</option>
             @endforeach
@@ -39,7 +39,7 @@
                     <input type="hidden" name="syarat" value="">
                     <label for="unknown" class="form-label">Syarat Dan Ketentuan</label>
                     <div class="col-md-12 mb-3 d-flex gap-3">
-                      <textarea type="text" class="form-control @error('syarat') is-invalid @enderror" placeholder="Syarat Dan Ketentuan" name="syarat" value="" rows="3" required></textarea>
+                      <textarea type="text" class="form-control @error('syarat') is-invalid @enderror" placeholder="Syarat dan ketentuan" name="syarat" value="" rows="3" required></textarea>
                       @error('syarat')
                         <div class="invalid-feedback">
                           <p>{{ $message }}</p>

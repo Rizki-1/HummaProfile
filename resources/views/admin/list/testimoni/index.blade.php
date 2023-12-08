@@ -52,7 +52,7 @@
         </div>
       @empty
         @if (!request('query'))
-          <p class="fw-bold text-center">Tidak ada testimoni. <a href="{{ route('testimoni.create') }}">Tambah!</a></p>
+          <p class="fw-bold text-center">Masih belum ada testimoni</p>
         @else
           <p class="fw-bold text-center">Data tidak ditemukan.</p>
         @endif

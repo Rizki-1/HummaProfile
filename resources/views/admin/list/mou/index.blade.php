@@ -51,7 +51,7 @@
         </div>
       @empty
         @if (!request('query'))
-          <p class="fw-bold text-center">Tidak ada MOU yang terdaftar. <a href="{{ route('mou.create') }}">Daftarkan!</a>
+          <p class="fw-bold text-center">Belum ada sekolah yang bekerja sama</a>
           </p>
         @else
           <p class="fw-bold text-center">Data tidak ditemukan.

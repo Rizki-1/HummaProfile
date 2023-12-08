@@ -21,7 +21,7 @@
             @csrf
             <div class="row">
               <div class="col-md-12 mb-3 pe-3">
-                <label for="myDropify" class="form-label">Icon Layanan</label>
+                <label for="myDropify" class="form-label">Logo Layanan</label>
                 <div class="upload-icon-container">
                   <i class="link-icon upload-icon" data-feather="upload-cloud"></i>
                 </div>
@@ -38,7 +38,7 @@
               <div class="col-md-6 mb-4 pe-3 second-container">
                 <div class="mb-3">
                   <label for="unknown" class="form-label">Nama Layanan</label>
-                  <input required type="text" class="form-control @error('layanan') is-invalid @enderror" value="{{ old('layanan') }}" placeholder="Nama Layanan baru" name="layanan"  required>
+                  <input required type="text" class="form-control @error('layanan') is-invalid @enderror" value="{{ old('layanan') }}" placeholder="Penerimaan Siswa Magang" name="layanan"  required>
                   @error('layanan')
                     <div class="invalid-feedback">
                       <p>{{ $message }}</p>
@@ -46,10 +46,10 @@
                   @enderror
                 </div>
                 <div>
-                  <label for="target_layanan" class="form-label">Target Layanan</label>
+                  <label for="target_layanan" class="form-label">Tampilkan Di</label>
                   <div>
                     <select name="target_layanan_id" id="target_layanan" class="form-select @error('target_layanan_id') is-invalid @enderror">
-                      <option value="" disabled selected>--Pilih Target Layanan--
+                      <option value="" disabled selected>--Pilih salah satu--
                       </option>
                       @foreach ($categoris as $item)
                         <option value="{{ $item->id }}">{{ $item->target }}</option>
@@ -65,7 +65,7 @@
               </div>
               <div class="col-md-6 mb-4 ps-2">
                 <label for="descripsi_layanan" class="form-label">Deskripsi Layanan</label>
-                <textarea required name="descripsi_layanan" id="descripsi_layanan" cols="10" rows="5" class="form-control @error('descripsi_layanan') is-invalid @enderror" placeholder="Deskripsi Layanan">{{ old('descripsi_layanan') }}</textarea>
+                <textarea required name="descripsi_layanan" id="descripsi_layanan" cols="10" rows="5" class="form-control @error('descripsi_layanan') is-invalid @enderror" placeholder="Kita menerima anak magang untuk bisa berkembang di dunia kerja">{{ old('descripsi_layanan') }}</textarea>
                 @error('descripsi_layanan')
                   <div class="invalid-feedback">
                     <p>{{ $message }}</p>

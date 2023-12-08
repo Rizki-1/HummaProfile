@@ -20,7 +20,7 @@
         <div class="col-6">
           <div class="mb-3">
             <label for="nama">Nama</label>
-            <input type="text" class="form-control mb-3 @error('nama') is-invalid  @enderror" name="nama" value="{{ $test->nama }}">
+            <input type="text" class="form-control mb-3 @error('nama') is-invalid  @enderror" name="nama" value="{{ $test->nama }}" placeholder="{{ $test->nama }}">
             @error('nama')
               <div class="invalid-feedback">
                 <p>{{ $message }}</p>
@@ -29,7 +29,7 @@
           </div>
           <div class="mb-3">
             <label for="asal_sekolah">Asal sekolah</label>
-            <input type="text" class="form-control mb-3  @error('testimoni') is-invalid @enderror" name="asal_sekolah" value="{{ $test->asal_sekolah }}">
+            <input type="text" class="form-control mb-3  @error('testimoni') is-invalid @enderror" name="asal_sekolah" placeholder="{{ $test->asal_sekolah }}" value="{{ $test->asal_sekolah }}">
             @error('asal_sekolah')
               <div class="invalid-feedback">
                 <p>{{ $message }}</p>
@@ -38,7 +38,7 @@
           </div>
           <div class="mb-3">
             <label for="nama">Testimoni</label>
-            <textarea required class="form-control @error('testimoni') is-invalid @enderror" id="testimoni" placeholder="Deskripsi Berita" name="testimoni" rows="7">{{ $test->testimoni }}</textarea>
+            <textarea required class="form-control @error('testimoni') is-invalid @enderror" id="testimoni" placeholder="{{ $test->testimoni }}" name="testimoni" rows="7">{{ $test->testimoni }}</textarea>
             @error('testimoni')
               <div class="invalid-feedback">
                 <p>{{ $message }}</p>
@@ -47,7 +47,7 @@
           </div>
         </div>
         <div class="col-md-6">
-          <label for="myDropify" style="width: 100%">Foto Lama</label>
+          <label for="myDropify" style="width: 100%">Upload foto</label>
           <div class="drag-and-drop">
             <div class="berita-picture-container">
               <img class="berita-picture-old" src="{{ asset('storage/' . $test->foto_siswa) }}" alt="Foto Testimmoni">

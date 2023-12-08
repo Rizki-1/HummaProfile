@@ -36,7 +36,7 @@
           </div>
         </div>
       @empty
-        <p class="fw-bold text-center">Tidak ada kategori berita. <a href="{{ route('category-berita.create') }}">Tambah!</a></p>
+        <p class="fw-bold text-center">Kategori berita masih belum ada</p>
       @endforelse
     </div>
     <div>

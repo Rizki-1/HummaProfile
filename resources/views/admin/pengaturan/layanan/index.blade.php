@@ -42,13 +42,13 @@
                     <thead>
                       <tr>
                         <th class="sorting sorting_asc" tabindex="0" style="width: 144.302px;">
-                          Icon Layanan</th>
+                          Logo Layanan</th>
                         <th class="sorting sorting_asc" tabindex="0" style="width: 144.302px;">
                           Nama Layanan</th>
                         <th class="sorting sorting_asc" tabindex="0" style="width: 144.302px;">
-                          Deckripsi layanan</th>
+                          Deskripsi layanan</th>
                         <th class="sorting sorting_asc" tabindex="0" style="width: 144.302px;">
-                          Options</th>
+                          Aksi</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -76,8 +76,8 @@
                       @empty
                         <div>
                           <tr>
-                            <td colspan="3">
-                              <p class="fw-bold mt-3 mb-3 text-center">Tidak ada layanan <a href="{{ route('layanan-perusahaan.create') }}">Tambah!</a></p>
+                            <td colspan="4">
+                              <p class="fw-bold mt-3 mb-3 text-center">Masih belum ada layanan</a></p>
                             </td>
                           </tr>
                         </div>

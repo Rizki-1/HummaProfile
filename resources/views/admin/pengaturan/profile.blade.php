@@ -24,28 +24,28 @@
             <div class="row mt-3">
               <div class="col-md-12">
                 <label class="form-label">Alamat</label>
-                <textarea class="form-control" placeholder="Enter alamat" name="alamat" rows="3">{{ $profile->alamat }}</textarea>
+                <textarea class="form-control" placeholder="Masukkan alamat" name="alamat" rows="3">{{ $profile->alamat }}</textarea>
               </div>
             </div>
 
             <div class="row mt-3">
               <div class="col-md-12">
                 <label class="form-label">Nomor Telepon</label>
-                <input type="text" class="form-control" placeholder="Enter nomor telepon" name="no_telp" value="{{ $profile->no_telp }}">
+                <input type="text" class="form-control" placeholder="Masukkan nomor telepon" name="no_telp" value="{{ $profile->no_telp }}">
               </div>
             </div>
 
             <div class="row mt-3">
               <div class="col-md-12">
                 <label class="form-label">Email</label>
-                <input type="text" class="form-control" placeholder="Enter email" name="email" value="{{ $profile->email }}">
+                <input type="text" class="form-control" placeholder="Masukkan email" name="email" value="{{ $profile->email }}">
               </div>
             </div>
           </div>
 
           <div class="mt-3">
             <label class="form-label">Tentang</label>
-            <textarea type="text" class="form-control" placeholder="Enter tentang" rows="15" name="tentang">{{ $profile->tentang }}</textarea>
+            <textarea type="text" class="form-control" placeholder="Masukkan tentang" rows="15" name="tentang">{{ $profile->tentang }}</textarea>
           </div>
         </div>
         <div class="col-md-6 mb-3">
@@ -65,7 +65,7 @@
                           <div class="col-3">
                             <label for="unknown" class="form-label">Sosial Media</label>
                             <input type="text" class="form-control @error('name') is-invalid
-                                                        @enderror" placeholder="name" name="name" value="{{ $detail->name }}" required>
+                                                        @enderror" placeholder="Nama sosmed" name="name" value="{{ $detail->name }}" required>
                             @error('name')
                               <div class="invalid-feedback">
                                 <p>{{ $message }}</p>
@@ -101,7 +101,7 @@
                         <div class="d-flex flex-row">
                           <div class="col-6 mb-4 pe-3">
                             <label for="unknown" class="form-label">Nama Sosmed</label>
-                            <input required type="text" class="form-control @error('sosmed-group.' . $i . '.name') is-invalid @enderror" placeholder="name" name="name" value="{{ $category['name'] }}" required>
+                            <input required type="text" class="form-control @error('sosmed-group.' . $i . '.name') is-invalid @enderror" placeholder="Nama sosmed" name="name" value="{{ $category['name'] }}" required>
                             @error('sosmed-group.' . $i . '.name')
                               <div class="invalid-feedback">
                                 <p>{{ $message }}</p>

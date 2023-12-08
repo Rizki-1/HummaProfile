@@ -49,7 +49,7 @@
         </div>
       @empty
         @if (!request('query'))
-          <p class="fw-bold text-center">Tidak ada data. <a href="{{ route('gallery.create') }}">Tambah!</a></p>
+          <p class="fw-bold text-center">Gallery masih kosong</p>
         @else
           <p class="fw-bold text-center">Gallery tidak ditemukan!</p>
         @endif

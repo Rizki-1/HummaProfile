@@ -22,7 +22,7 @@
             @method('PUT')
             <div class="mb-3 d-flex row">
               <div class="col-md-2 hover">
-                <label for="myDropify" class="form-label">Icon Layanan</label>
+                <label for="myDropify" class="form-label">Logo Layanan</label>
                 <div class="upload-icon-container">
                   <i class="link-icon upload-icon" data-feather="upload-cloud"></i>
                 </div>

@@ -19,7 +19,7 @@
       @method('put')
       <div class="col-12 mb-4 pe-3">
         <label for="unknown" class="form-label">Kategori Berita</label>
-        <input required type="text" class="form-control @error('category_name') is-invalid @enderror" placeholder="Kategori Berita" name="category_name" value="{{ old('category_name',$category->name) }}" required>
+        <input required type="text" class="form-control @error('category_name') is-invalid @enderror" placeholder="{{ $category->name }}" name="category_name" value="{{ old('category_name',$category->name) }}" required>
         @error('category_name')
           <div class="invalid-feedback">
             <p>{{ $message }}</p>
@@ -28,7 +28,7 @@
       </div>
       <div class="d-flex gap-2">
         <button type="submit" class="btn btn-primary">Submit</button>
-        <a href="{{ route('category-berita.index') }}" class="btn btn-danger">Cancel</a>
+        <a href="{{ route('category-berita.index') }}" class="btn btn-secondary">Cancel</a>
       </div>
     </form>
   </div>

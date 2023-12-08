@@ -23,7 +23,7 @@
         @csrf
         <div class="row mb-3">
           <div class="col-md-12 mb-3">
-            <label for="myDropify" class="form-label">Upload Gambar Berita</label>
+            <label for="myDropify" class="form-label">Upload Gambar</label>
             <div class="drag-and-drop">
               <div class="berita-picture-container">
                 <img class="berita-picture-old" src="{{ asset('storage/galery/' . $gallery->picture) }}" alt="Foto Berita">
@@ -42,7 +42,7 @@
             @enderror
           </div>
           <div class="col-md-12 mb-3">
-            <label for="filter" class="form-label">Target Gallery</label>
+            <label for="filter" class="form-label">Tampilkan Di</label>
             <select required name="target_layanan_id" class="form-select @error('filter') is-invalid @enderror">
               @foreach ($target as $item)
               <option value="{{ $item->id }}" {{ old('filter', $gallery->target_layanan_id) == $item->id ? 'selected' : '' }}>{{ $item->target }}</option>

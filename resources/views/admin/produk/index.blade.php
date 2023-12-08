@@ -57,7 +57,7 @@
         </div>
       @empty
         @if (!request('query'))
-          <p class="fw-bold text-center">Tidak ada produk. <a href="{{ route('produk.create') }}">Tambah!</a></p>
+          <p class="fw-bold text-center">Masih belum punya produk</a></p>
         @else
           <p class="fw-bold text-center">Produk tidak ditemukan!</p>
         @endif

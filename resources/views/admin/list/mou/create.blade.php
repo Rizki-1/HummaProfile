@@ -15,9 +15,9 @@
         @csrf
         <div class="row mb-3">
           <div class="col-12 col-md-12 mb-3">
-            <label for="nama_mou" class="form-label">Nama MoU</label>
+            <label for="nama_mou" class="form-label">Nama Mou</label>
             <input type="text" class="form-control @error('nama_mou') is-invalid @enderror" name="nama_mou"
-              placeholder="nama mou" value="{{ old('nama_mou') }}">
+              placeholder="Smkn 1 Probolinggo" value="{{ old('nama_mou') }}">
             @error('nama_mou')
               <div>
                 <p class="text-danger mt-2">{{ $message }}</p>
@@ -26,7 +26,7 @@
           </div>
           <div class="col-md-12">
             <div class="mb-2">
-              <label for="foto_mou" class="form-label">foto mou</label>
+              <label for="foto_mou" class="form-label">Logo Sekolah</label>
               <input type="file" class="form-control @error('foto_mou') is-invalid @enderror" name="foto_mou"
                 id="myDropify">
               @error('foto_mou')

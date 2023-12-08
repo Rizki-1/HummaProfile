@@ -18,9 +18,9 @@
         @method('put')
         <div class="row mb-3">
             <div class="col-12 col-md-12 mb-3">
-              <label for="nama_mou" class="form-label">Nama MoU</label>
+              <label for="nama_mou" class="form-label">Nama Sekolah</label>
               <input type="text" class="form-control @error('nama_mou') is-invalid @enderror" name="nama_mou"
-                placeholder="nama mou" value="{{ $mou->nama_mou }}">
+                placeholder="{{ $mou->nama_mou }}" value="{{ $mou->nama_mou }}">
               @error('nama_mou')
                 <div>
                   <p class="text-danger mt-2">{{ $message }}</p>
@@ -30,7 +30,7 @@
             <div class="col-md-12">
               <div class="mb-2">
                 <div class="drag-and-drop">
-                    <label for="foto_mou" class="form-label">foto mou</label>
+                    <label for="foto_mou" class="form-label">Logo Sekolah</label>
                     <div class="berita-picture-container">
                         <img class="berita-picture-old" src="{{ asset('storage/'. $mou->foto_mou) }}" alt="" srcset="">
                     </div>

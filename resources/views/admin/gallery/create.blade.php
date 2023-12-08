@@ -21,7 +21,7 @@
         @csrf
         <div class="row mb-3">
           <div class="col-md-12 mb-3">
-            <label for="myDropify" class="form-label">Upload Gambar Berita</label>
+            <label for="myDropify" class="form-label">Upload Gambar</label>
             <input name="picture" class="@error('picture') is-invalid @enderror" type="file" id="myDropify" />
             @error('picture')
               <div>
@@ -30,8 +30,9 @@
             @enderror
           </div>
           <div class="col-md-12 mb-3">
-            <label for="filter" class="form-label">Target Gallery</label>
+            <label for="filter" class="form-label">Tampilkan Di</label>
             <select required name="target_layanan_id" class="form-select @error('target_layanan_id') is-invalid @enderror">
+                <option value="">--Pilih salah satu--</option>
                 @foreach ($target as $item)
                 <option value="{{ $item->id }}">{{ $item->target }}</option>
                 @endforeach

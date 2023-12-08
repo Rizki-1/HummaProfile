@@ -62,7 +62,7 @@
         </div>
       @empty
         @if (!request('query'))
-          <p class="fw-bold text-center">Tidak ada berita. <a href="{{ route('berita.create') }}">Tambah!</a></p>
+          <p class="fw-bold text-center">Masih belum ada berita</p>
         @else
           <p class="fw-bold text-center">Berita tidak ditemukan!</p>
         @endif
