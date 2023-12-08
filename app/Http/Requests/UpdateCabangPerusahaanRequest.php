@@ -23,7 +23,7 @@ class UpdateCabangPerusahaanRequest extends FormRequest
     {
         $id = $this->route('cabang_perusahaan');
         return [
-            'name' => 'required|max:100|unique:cabang_perusahaans,name,'. $id .',id',
+            'cabang_name' => 'required|max:100|unique:cabang_perusahaans,name,'. $id .',id',
             'latitude' => 'required|numeric|between:-90,90',
             'longitude' => 'required|numeric|between:-180,180',
         ];
