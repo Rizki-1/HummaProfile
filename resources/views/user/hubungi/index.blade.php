@@ -109,6 +109,15 @@
                       <!-- Single Form End -->
                     </div>
                     <div class="col-sm-12">
+                        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+                    <div class="g-recaptcha" id="feedback-recaptcha"
+                         data-sitekey="{{ config('app.g-recaptcha-key') }}">
+                    </div>
+                    @error('g-recaptcha-response')
+                        <p class="text-danger">{{ $message }}</p>
+                    @enderror
+                    </div>
+                    <div class="col-sm-12">
                       <!--  Single Form Start -->
                       <div class="form-btn">
                         <button class="btn" type="submit">Kirim Pesan</button>

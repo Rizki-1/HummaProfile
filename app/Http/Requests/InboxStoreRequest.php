@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Recaptcha;
 use Illuminate\Foundation\Http\FormRequest;
 
 class InboxStoreRequest extends FormRequest
@@ -22,9 +23,10 @@ class InboxStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|min:10|max:50',
+            'name' => 'required|string|max:50',
             'email'=> 'required|email:rfc,dns',
-            'message' => 'required|max:5000|min:10'
+            'message' => 'required|max:5000|min:10',
+            'g-recaptcha-response' => ['required', new Recaptcha()]
         ];
     }
 
@@ -40,6 +42,8 @@ class InboxStoreRequest extends FormRequest
             'message.required' => 'pesan harus di isi',
             'message.max' => 'pesan maksimal :max',
             'message.min' => 'pesan minimal :min',
+            'g-recaptcha-response.required' => "Google Recaptcha wajib di isi",
+            'g-recaptcha-response.recaptcha' => "Google Recaptcha tidak valid!",
         ];
     }
 }
