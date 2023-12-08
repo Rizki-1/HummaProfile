@@ -3,16 +3,21 @@
 @section('content')
   <link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/style.css') }}">
 
-  <div id="carouselExampleSlidesOnly" class="carousel slide custome-carousel" data-bs-ride="carousel">
-    <div class="carousel-inner parallax-scroll">
-      <div class="carousel-item active">
-        <img src="{{ asset('ImageGlobal/lp-2.jpg') }}" class="d-block w-100" alt="...">
+  <div class="container-custome-header">
+    <div class="custome-header">
+      <div class="image">
+        <img class="foto-slide active" src="{{ asset('ImageGlobal/lp-1.jpg') }}" class="d-block w-100" alt="...">
+        <img class="foto-slide" src="{{ asset('ImageGlobal/lp-2.jpg') }}" class="d-block w-100" alt="...">
+        <img class="foto-slide" src="{{ asset('ImageGlobal/lp-3.jpg') }}" class="d-block w-100" alt="...">
       </div>
-      <div class="carousel-item">
-        <img src="{{ asset('ImageGlobal/lp-1.jpg') }}" class="d-block w-100" alt="...">
+      <div class="text">
+        <h1 class="text-big">Humma<span>Tech</span></h1>
+        <p class="text-small">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, sit.</p>
       </div>
-      <div class="carousel-item">
-        <img src="{{ asset('ImageGlobal/lp-3.jpg') }}" class="d-block w-100" alt="...">
+      <div class="slider-foto">
+        <div class="nav-btn active"></div>
+        <div class="nav-btn"></div>
+        <div class="nav-btn"></div>
       </div>
     </div>
   </div>
@@ -443,6 +448,40 @@
     </div>
   </div>
   <!-- Blog End -->
+
+  <script>
+    const btns = document.querySelectorAll(".nav-btn");
+    const slides = document.querySelectorAll(".foto-slide");
+    let currentSlide = 0;
+
+    var sliderNav = function(manual) {
+      btns.forEach(btn => btn.classList.remove("active"));
+      slides.forEach(slide => slide.classList.remove("active"));
+
+      btns[manual].classList.add("active");
+      slides[manual].classList.add("active");
+      currentSlide = manual;
+    }
+
+    btns.forEach((btn, i) => {
+      btn.addEventListener("click", () => {
+        sliderNav(i);
+      });
+    });
+
+    function autoSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      sliderNav(currentSlide);
+    }
+
+    const intervalId = setInterval(autoSlide, 5000);
+
+    btns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        clearInterval(intervalId);
+      });
+    });
+  </script>
 
   <script src="{{ asset('cssUser/js/leaflet.js') }}"></script>
   <script>

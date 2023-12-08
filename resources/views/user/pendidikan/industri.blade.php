@@ -8,7 +8,13 @@
   <div class="section" style="padding-top: 0px;">
     <div class="video">
       <div class="dark-overlay"></div>
-      <video src="{{ asset('ImageGlobal/industri.mp4') }}" autoplay loop muted playsinline></video>
+      <video class="video-slide active" src="{{ asset('ImageGlobal/industri.mp4') }}" autoplay loop muted
+        playsinline></video>
+      <video class="video-slide" src="{{ asset('ImageGlobal/industri_2.mp4') }}" autoplay loop muted playsinline></video>
+      <div class="slider-video">
+        <div class="nav-btn active"></div>
+        <div class="nav-btn"></div>
+      </div>
     </div>
 
     <div class="depan" style="position: absolute; z-index: 3; top: 50%; left: 50%; transform: translate(-50%, -50%)">
@@ -43,13 +49,15 @@
             <div class="choose-us-left pendaftaran">
               <div class="section-title">
                 <h3 class="sub-title" data-aos="fade-up-right" data-aos-duration="500">Pendaftaran kelas industri</h3>
-                <h2 class="title text-capitalize" data-aos="fade-up-right" data-aos-duration="700">Dapatkan infomasi terkait pendaftaran
+                <h2 class="title text-capitalize" data-aos="fade-up-right" data-aos-duration="700">Dapatkan infomasi
+                  terkait pendaftaran
                   kelas industri di sini</h2>
               </div>
               <p class="text mb-3" data-aos="fade-up-right" data-aos-duration="900">Kami menyediakan kesempatan untuk
                 meningkatkan keterampilan dan pengetahuan dalam dunia teknologi. Kelas industri kami menawarkan kurikulum
                 yang terkini dan diajarkan oleh para ahli industri yang berpengalaman.</p>
-              <div data-aos="fade-up-right" class="btn-pendaftaran" data-aos-duration="1000"><a href="https://class.hummatech.com/" target="_blank" class="btn btn-primary">Daftar</a></div>
+              <div data-aos="fade-up-right" class="btn-pendaftaran" data-aos-duration="1000"><a
+                  href="https://class.hummatech.com/" target="_blank" class="btn btn-primary">Daftar</a></div>
             </div>
             <!-- Choose Us Left End -->
           </div>
@@ -120,7 +128,8 @@
       <div class="service-wrap">
         <div class="section-title text-center">
           <h3 class="sub-title" data-aos="fade-up" data-aos-duration="500">Layanan Industri</h3>
-          <h2 class="title text-capitalize" data-aos="fade-up" data-aos-duration="700">Tingkatkan Pengalaman Anda dengan Layanan
+          <h2 class="title text-capitalize" data-aos="fade-up" data-aos-duration="700">Tingkatkan Pengalaman Anda
+            dengan Layanan
             Perusahaan Kami</h2>
         </div>
         <div class="service-content-wrap" data-aos="fade-up" data-aos-duration="900">
@@ -303,4 +312,39 @@
     </div>
   </div>
   <!-- Service End -->
+
+  <script>
+    const btns = document.querySelectorAll(".nav-btn");
+    const slides = document.querySelectorAll(".video-slide");
+    let currentSlide = 0;
+
+    var sliderNav = function(manual) {
+      btns.forEach(btn => btn.classList.remove("active"));
+      slides.forEach(slide => slide.classList.remove("active"));
+
+      btns[manual].classList.add("active");
+      slides[manual].classList.add("active");
+      currentSlide = manual;
+    }
+
+    btns.forEach((btn, i) => {
+      btn.addEventListener("click", () => {
+        sliderNav(i);
+      });
+    });
+
+    function autoSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      sliderNav(currentSlide);
+    }
+
+    const intervalId = setInterval(autoSlide, 5000);
+
+    btns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        clearInterval(intervalId);
+      });
+    });
+  </script>
+
 @endsection
