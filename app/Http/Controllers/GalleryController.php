@@ -40,7 +40,7 @@ class GalleryController extends Controller
         'picture' => $fotoName,
         'target_layanan_id' => $request->target_layanan_id,
        ]);
-       return redirect()->back()->with('message', [
+       return redirect()->route('gallery.index')->with('message', [
         'icon' => 'success',
         'title' => 'Berhasil!',
         'text' => 'Berhasil menambahkan cabang baru!'
@@ -60,11 +60,13 @@ class GalleryController extends Controller
      */
     public function edit(Gallery $gallery)
     {
-        $gallery = Gallery::findOrFail($gallery);
+        // $gallery = Gallery::findOrFail($gallery);
+        $target = TargetLayanan::all();
+        return view('admin.gallery.edit', compact('gallery','target'));
         
     }
 
-    /**
+    /**ho
      * Update the specified resource in storage.
      */
     public function update(UpdateGalleryRequest $request, Gallery $gallery)
@@ -80,11 +82,11 @@ class GalleryController extends Controller
             $gallery->picture = $fotoName;
             $gallery->target_layanan_id = $request->target_layanan_id;
             $gallery->save();
-            return redirect()->back()->with('message', [
+            return redirect()->route('gallery.index')->with('message', [
                 'icon' => 'success',
                 'title' => 'Berhasil!',
-                'text' => 'Berhasil mengupdate data'
-            ]);
+                'text' => 'Berhasil mengedit data!'
+               ]);
         } catch (\Throwable $th) {
             return redirect()->back()->with('message', [
                 'icon' => 'error',
@@ -102,11 +104,11 @@ class GalleryController extends Controller
         try {
             Storage::delete('galery/'.$gallery->picture);
             $gallery->delete();
-            return redirect()->back()->with('message', [
+            return redirect()->route('gallery.index')->with('message', [
                 'icon' => 'success',
                 'title' => 'Berhasil!',
-                'text' => 'Berhasil menghapus data '
-            ]);
+                'text' => 'Berhasil menghapus data!'
+               ]);
         } catch (\Throwable $th) {
             return redirect()->back()->with('message', [
                 'icon' => 'error',
