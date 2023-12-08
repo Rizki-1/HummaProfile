@@ -143,6 +143,15 @@
             </div>
           </li>
 
+
+          <li class="nav-item nav-category">Gallery</li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('gallery.index') }}">
+              <i class="link-icon" data-feather="image"></i>
+              <span class="link-title">Gallery</span>
+            </a>
+          </li>
+
           <li class="nav-item nav-category">Contact</li>
           <li class="nav-item">
             <a class="nav-link" href="{{ route('inbox.index') }}">

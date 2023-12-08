@@ -9,6 +9,7 @@ use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CabangPerusahaanController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\PengaturanController;
 use App\Http\Controllers\PersetujuanController;
 use App\Http\Controllers\KategoriBeritaController;
@@ -67,6 +68,10 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
     Route::get('/list-kelas-industri', [ListController::class, 'kelasIndustri'])->name('list.kelas_industri');
     Route::delete('/list-kelas-industri/{id}', [ListController::class, 'kelasIndustriDel'])->name('list.kelas_industri.del');
     //Mou
+
+    //Gallery
+    Route::resource('/gallery', GalleryController::class)->except('show');
+
     Route::resource('/mou', MouController::class)->except(['show']);
     //testimoni
     Route::resource('testimoni', TestimoniController::class)->except(['show']);
