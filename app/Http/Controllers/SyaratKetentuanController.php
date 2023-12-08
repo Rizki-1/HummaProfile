@@ -28,7 +28,7 @@ class SyaratKetentuanController extends Controller
      */
     public function store(Request $request)
     {
-        foreach($request->input('categori-group') as $group)
+        foreach($request->input('syarat-group') as $group)
         {
             $groupData = [
                 'target_layanan_id' => $request->target_layanan_id,
