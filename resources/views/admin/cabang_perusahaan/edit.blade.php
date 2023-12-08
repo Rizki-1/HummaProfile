@@ -55,7 +55,7 @@
                 <div class="d-flex flex-row mt-5">
                     <div class="d-flex gap-2">
                         <button type="submit" class="btn btn-primary">Submit</button>
-                        <a href="{{ route('category-berita.index') }}" class="btn btn-danger">Cancel</a>
+                        <a href="{{ route('cabang-perusahaan.index') }}" class="btn btn-secondary">Cancel</a>
                     </div>
         </form>
     </div>

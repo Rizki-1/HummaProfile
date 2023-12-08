@@ -303,34 +303,6 @@
               @endforelse
             </ul>
           </div>
-              <script src="{{ asset('js/galleryFunction.js') }}"></script>
-              <script>
-                  $(document).ready(function() {
-                      function replaceSkeletonWithImage(skeleton, imageSource) {
-                          skeleton.next('img').attr('src', imageSource);
-                          skeleton.remove();
-
-                          $('#lightgallery .gallery-item a').each(function() {
-                              $(this).removeClass('opacity-0');
-                          });
-                      }
-
-                      // Loop through gallery items and lazy-load images
-                      $('#lightgallery .gallery-item').each(function() {
-                          var skeleton = $(this).children('.skeleton');
-                          var imageSource = $(this).attr('data-src');
-
-                          // Lazy-load the image and replace the skeleton when loaded
-                          $('<img>').attr('src', imageSource).on('load', function() {
-                              setInterval(() => {
-
-                                  replaceSkeletonWithImage(skeleton, imageSource);
-                              }, 2000);
-                          });
-                      });
-                    });
-                    $('#lightgallery').lightGallery();
-              </script>
         </div>
         <div class="d-flex justify-content-center mt-5">
         </div>
@@ -373,4 +345,32 @@
     });
   </script>
 
+<script src="{{ asset('js/galleryFunction.js') }}"></script>
+<script>
+    $(document).ready(function() {
+        function replaceSkeletonWithImage(skeleton, imageSource) {
+            skeleton.next('img').attr('src', imageSource);
+            skeleton.remove();
+
+            $('#lightgallery .gallery-item a').each(function() {
+                $(this).removeClass('opacity-0');
+            });
+        }
+
+        // Loop through gallery items and lazy-load images
+        $('#lightgallery .gallery-item').each(function() {
+            var skeleton = $(this).children('.skeleton');
+            var imageSource = $(this).attr('data-src');
+
+            // Lazy-load the image and replace the skeleton when loaded
+            $('<img>').attr('src', imageSource).on('load', function() {
+                setInterval(() => {
+
+                    replaceSkeletonWithImage(skeleton, imageSource);
+                }, 2000);
+            });
+        });
+      });
+      $('#lightgallery').lightGallery();
+</script>
 @endsection
