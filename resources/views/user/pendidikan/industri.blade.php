@@ -4,6 +4,8 @@
   {{-- <link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/forceNav.css') }}"> --}}
   <link rel="stylesheet" href="{{ asset('cssUser/css/pendidikan/style.css') }}">
   <link rel="stylesheet" href="{{ asset('cssUser/css/gallery/style.css') }}">
+    <link href="https://cdn.jsdelivr.net/lightgallery/1.3.9/css/lightgallery.min.css" rel="stylesheet">
+  <script src="{{ asset('cssAdmin/js/jquery-ini.js') }}"></script>
 
   <!-- Page Banner Start -->
   <div class="section" style="padding-top: 0px;">
@@ -323,7 +325,7 @@
   </div>
   <!-- Service End -->
 
-  <!-- Service Start -->
+  <!-- Gallery Start -->
   <div class="section techwix-service-section section-padding-02" style="padding-bottom: 70px; padding-top: 20px">
     <div class="container">
       <!-- Service Wrap Start -->
@@ -334,61 +336,96 @@
             <span style="color: #22B3E2">Humma</span>Tech
           </h2>
         </div>
-        <div class="service-content-wrap" data-aos="fade-up" data-aos-duration="900">
-          {{-- Gallery --}}
+        <div class="service-content-wrap" data-aos="fade-up" data-aos-duration="1000">
           <div id="gallery" class="container-fluid">
-            <ul id="lightgallery">
+            <ul id="lightgallery" class="list-unstyled">
               @forelse ($gallery as $data)
-                <li data-responsive="" data-src="">
-                  <a href="">
-                    <img src="{{ asset('storage/galery/' . $data->picture) }}" alt="">
+                <li class="gallery-item" data-responsive="{{ asset('storage/galery/' . $data->picture) }}" data-src="{{ asset('storage/galery/' . $data->picture) }}">
+                  <div class="skeleton"></div>
+                  <a href="" class="opacity-0">
+                    <img src="{{ asset('storage/galery/' . $data->picture) }}">
                   </a>
                 </li>
               @empty
-                <li data-responsive="" data-src="">
-                  <a href="">
+                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_1.jpg') }}" data-src="{{ asset('ImageGlobal/gallery/gallery_1.jpg') }}">
+                  <div class="skeleton"></div>
+                  <a href="" class="opacity-0">
                     <img src="{{ asset('ImageGlobal/gallery/gallery_1.jpg') }}" class="img-responsive">
                   </a>
                 </li>
-                <li data-responsive="" data-src="">
-                  <a href="">
+                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_2.jpg') }}" data-src="{{ asset('ImageGlobal/gallery/gallery_2.jpg') }}">
+                  <div class="skeleton"></div>
+                  <a href="" class="opacity-0">
                     <img src="{{ asset('ImageGlobal/gallery/gallery_2.jpg') }}" class="img-responsive">
                   </a>
                 </li>
-                <li data-responsive="" data-src="">
-                  <a href="">
+                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_3.jpg') }}" data-src="{{ asset('ImageGlobal/gallery/gallery_3.jpg') }}">
+                  <div class="skeleton"></div>
+                  <a href="" class="opacity-0">
                     <img src="{{ asset('ImageGlobal/gallery/gallery_3.jpg') }}" class="img-responsive">
                   </a>
                 </li>
-                <li data-responsive="" data-src="">
-                  <a href="">
+                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}" data-src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}">
+                  <div class="skeleton"></div>
+                  <a href="" class="opacity-0">
                     <img src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}" class="img-responsive">
                   </a>
                 </li>
-                <li data-responsive="" data-src="">
-                  <a href="">
+                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_5.jpg') }}" data-src="{{ asset('ImageGlobal/gallery/gallery_5.jpg') }}">
+                  <div class="skeleton"></div>
+                  <a href="" class="opacity-0">
                     <img src="{{ asset('ImageGlobal/gallery/gallery_5.jpg') }}" class="img-responsive">
                   </a>
                 </li>
-                <li data-responsive="" data-src="">
-                  <a href="">
+                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_6.jpg') }}" data-src="{{ asset('ImageGlobal/gallery/gallery_6.jpg') }}">
+                  <div class="skeleton"></div>
+                  <a href="" class="opacity-0">
                     <img src="{{ asset('ImageGlobal/gallery/gallery_6.jpg') }}" class="img-responsive">
                   </a>
                 </li>
-                <li data-responsive="" data-src="">
-                  <a href="">
+                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_7.jpg') }}" data-src="{{ asset('ImageGlobal/gallery/gallery_7.jpg') }}">
+                  <div class="skeleton"></div>
+                  <a href="" class="opacity-0">
                     <img src="{{ asset('ImageGlobal/gallery/gallery_7.jpg') }}" class="img-responsive">
                   </a>
                 </li>
-                <li data-responsive="" data-src="">
-                  <a href="">
+                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_8.jpg') }}" data-src="{{ asset('ImageGlobal/gallery/gallery_8.jpg') }}">
+                  <div class="skeleton"></div>
+                  <a href="" class="opacity-0">
                     <img src="{{ asset('ImageGlobal/gallery/gallery_8.jpg') }}" class="img-responsive">
                   </a>
                 </li>
               @endforelse
             </ul>
           </div>
-          {{-- End Gallery --}}
+              <script src="{{ asset('js/galleryFunction.js') }}"></script>
+              <script>
+                  $(document).ready(function() {
+                      function replaceSkeletonWithImage(skeleton, imageSource) {
+                          skeleton.next('img').attr('src', imageSource);
+                          skeleton.remove();
+
+                          $('#lightgallery .gallery-item a').each(function() {
+                              $(this).removeClass('opacity-0');
+                          });
+                      }
+
+                      // Loop through gallery items and lazy-load images
+                      $('#lightgallery .gallery-item').each(function() {
+                          var skeleton = $(this).children('.skeleton');
+                          var imageSource = $(this).attr('data-src');
+
+                          // Lazy-load the image and replace the skeleton when loaded
+                          $('<img>').attr('src', imageSource).on('load', function() {
+                              setInterval(() => {
+
+                                  replaceSkeletonWithImage(skeleton, imageSource);
+                              }, 2000);
+                          });
+                      });
+                    });
+                    $('#lightgallery').lightGallery();
+              </script>
         </div>
         <div class="d-flex justify-content-center mt-5">
         </div>
@@ -396,7 +433,7 @@
       <!-- Service Wrap End -->
     </div>
   </div>
-  <!-- Service End -->
+  <!-- Gallery End -->
 
   <script>
     const btns = document.querySelectorAll(".nav-btn");
