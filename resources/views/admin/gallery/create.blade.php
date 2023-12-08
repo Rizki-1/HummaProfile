@@ -20,16 +20,25 @@
       <form action="{{ route('gallery.store') }}" method="POST" class="forms-sample row" enctype="multipart/form-data">
         @csrf
         <div class="row mb-3">
-          <div class="col-md-12">
-            <label for="filter" class="form-label">Target Gallery</label>
-            <select name="picture"></select>
-          </div>
-          <div class="col-md-12">
+          <div class="col-md-12 mb-3">
             <label for="myDropify" class="form-label">Upload Gambar Berita</label>
             <input name="thumbnail" class="@error('thumbnail') is-invalid @enderror" type="file" id="myDropify" />
             @error('thumbnail')
               <div>
                 <p class="text-danger mt-2">{{ $message }}</p>
+              </div>
+            @enderror
+          </div>
+          <div class="col-md-12 mb-3">
+            <label for="filter" class="form-label">Target Gallery</label>
+            <select required name="filter" class="form-select @error('filter') is-invalid @enderror">
+              <option value="">--Pilih target gallery--</option>
+              <option value="1">Magang / Pkl</option>
+              <option value="2">Kelas Industry</option>
+            </select>
+            @error('filter')
+              <div class="invalid-feedback">
+                <p>{{ $message }}</p>
               </div>
             @enderror
           </div>
