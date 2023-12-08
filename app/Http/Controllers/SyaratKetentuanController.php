@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\LayananPerusahaan;
 use App\Models\SyaratKetentuan;
+use App\Models\TargetLayanan;
 use Illuminate\Http\Request;
 
 class SyaratKetentuanController extends Controller
@@ -12,7 +14,8 @@ class SyaratKetentuanController extends Controller
      */
     public function index()
     {
-
+        $syarat = SyaratKetentuan::paginate(10);
+        return view('admin.syaratKetentuan.index', compact('syarat'));
     }
 
     /**
@@ -20,7 +23,8 @@ class SyaratKetentuanController extends Controller
      */
     public function create()
     {
-        return view('admin.syaratKetentuan.create');
+        $layanan = TargetLayanan::all();
+        return view('admin.syaratKetentuan.create', compact('layanan'));
     }
 
     /**
@@ -56,7 +60,9 @@ class SyaratKetentuanController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $syarat = SyaratKetentuan::findOrFail($id);
+        $layanan = TargetLayanan::all();
+        return view('admin.syaratKetentuan.edit', compact('syarat', 'layanan'));
     }
 
     /**

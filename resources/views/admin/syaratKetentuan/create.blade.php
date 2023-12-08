@@ -33,22 +33,20 @@
         <div class="col-md-12 mb-3 mt-3">
           <div>
             <div class="repeater">
-              <div data-repeater-list="syarat-group" class="row g-3">
+              <div data-repeater-list="syarat-group">
                 @if (!old('syarat-group', []))
-                  <div data-repeater-item>
+                  <div data-repeater-item class="row">
                     <input type="hidden" name="syarat" value="">
                     <label for="unknown" class="form-label">Syarat Dan Ketentuan</label>
-                    <div class="row flex-row">
-                      <div class="col-md-11">
-                        <textarea type="text" class="form-control @error('syarat') is-invalid @enderror" placeholder="Syarat Dan Ketentuan" name="syarat" value="" rows="3" required></textarea>
-                        @error('syarat')
-                          <div class="invalid-feedback">
-                            <p>{{ $message }}</p>
-                          </div>
-                        @enderror
-                      </div>
-                      <div class="col-md-1">
-                        <input required id="button-hapus-detail" class="btn btn-outline-danger waves-effect waves-light ms-2 d-flex justify-content-center align-items-center" data-repeater-delete type="button" value="Hapus" />
+                    <div class="col-md-12 mb-3 d-flex gap-3">
+                      <textarea type="text" class="form-control @error('syarat') is-invalid @enderror" placeholder="Syarat Dan Ketentuan" name="syarat" value="" rows="3" required></textarea>
+                      @error('syarat')
+                        <div class="invalid-feedback">
+                          <p>{{ $message }}</p>
+                        </div>
+                      @enderror
+                      <div>
+                        <input required id="button-hapus-detail" class="btn btn-outline-danger waves-effect waves-light" data-repeater-delete type="button" value="Hapus" />
                       </div>
                     </div>
                   </div>
@@ -58,7 +56,7 @@
                       <label for="unknown" class="form-label">Syarat Dan Ketentuan</label>
                       <div class="row d-none">
                         <div class="col-md-11 mb-3">
-                          <textarea required type="text" class="form-control @error('syarat-group.' . $i . '.syarat') is-invalid @enderror" placeholder="Syarat Dan Ketentuan" name="syarat"  required cols="3">{{ $category['syarat'] }}</textarea>
+                          <textarea required type="text" class="form-control @error('syarat-group.' . $i . '.syarat') is-invalid @enderror" placeholder="Syarat Dan Ketentuan" name="syarat" required cols="3">{{ $category['syarat'] }}</textarea>
                           @error('syarat-group.' . $i . '.name')
                             <div class="invalid-feedback">
                               <p>{{ $message }}</p>
@@ -66,7 +64,7 @@
                           @enderror
                         </div>
                         <div class="col-md-1">
-                            <input required id="button-hapus-detail" class="btn btn-outline-danger waves-effect waves-light ms-2 d-flex justify-content-center align-items-center" data-repeater-delete type="button" value="Hapus" />
+                          <input required id="button-hapus-detail" class="btn btn-outline-danger waves-effect waves-light ms-2 d-flex justify-content-center align-items-center" data-repeater-delete type="button" value="Hapus" />
                         </div>
                       </div>
                     </div>

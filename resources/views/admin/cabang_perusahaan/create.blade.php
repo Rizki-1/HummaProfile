@@ -87,6 +87,7 @@
         </div>
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
+      <a href="{{ route('cabang-perusahaan.index') }}" class="btn btn-secondary">Cancel</a>
     </form>
   </div>
   <!-- Include Bootstrap CSS -->
