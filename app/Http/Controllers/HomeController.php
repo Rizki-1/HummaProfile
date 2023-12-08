@@ -42,7 +42,7 @@ class HomeController extends Controller
 
     public function indexSiswa()
     {
-        $gallery = Gallery::latest()->where('target_layanan_id', '1');
+        $gallery = Gallery::where('target_layanan_id', 1)->orderBy('created_at', 'desc')->get();
         $testimoni = Testimoni::inRandomOrder()->get();
         $layananSiswa = LayananPerusahaan::where('target_layanan_id', 1)->paginate(4);
         return view('user.pendidikan.siswa', compact('layananSiswa', 'testimoni', 'gallery'));
@@ -50,7 +50,7 @@ class HomeController extends Controller
 
     public function indexIndustri()
     {
-        $gallery = Gallery::latest()->where('target_layanan_id', '2');
+        $gallery = Gallery::where('target_layanan_id', 2)->orderBy('created_at', 'desc')->get();
         $Mous = Mou::all();
         $testimoni = Testimoni::inRandomOrder()->get();
         $layananIndustri = LayananPerusahaan::where('target_layanan_id', 2)->paginate(4);

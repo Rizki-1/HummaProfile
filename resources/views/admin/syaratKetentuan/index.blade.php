@@ -7,12 +7,12 @@
     <div>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb breadcrumb-dot mb-0">
-          <li class="breadcrumb-item active" aria-current="page">Layanan</li>
+          <li class="breadcrumb-item active" aria-current="page">Syarat Dan Ketentuan</li>
         </ol>
       </nav>
     </div>
     <div class="text-end">
-      <a href="#" class="btn btn-outline-primary" onclick="window.location.href = '{{ route('layanan-perusahaan.create') }}'">Tambah Layanan</a>
+      <a href="#" class="btn btn-outline-primary" onclick="window.location.href = '{{ route('syarat-dan-ketentuan.create') }}'">Tambah Syarat Dan Ketentuan</a>
     </div>
   </div>
   <div class="row">

@@ -332,7 +332,7 @@
       <div class="service-wrap">
         <div class="section-title text-center">
           <h2 class="title" data-aos="fade-up" data-aos-duration="700"
-            style="padding: 20px; text-transform: capitalize">Gallery
+            style="padding: 20px; text-transform: capitalize">Gallery Kelas Industri
             <span style="color: #22B3E2">Humma</span>Tech
           </h2>
         </div>
@@ -343,7 +343,7 @@
                 <li class="gallery-item" data-responsive="{{ asset('storage/galery/' . $data->picture) }}" data-src="{{ asset('storage/galery/' . $data->picture) }}">
                   <div class="skeleton"></div>
                   <a href="" class="opacity-0">
-                    <img src="{{ asset('storage/galery/' . $data->picture) }}">
+                    <img src="{{ asset('storage/galery/' . $data->picture) }}" class="img-responsive">
                   </a>
                 </li>
               @empty
