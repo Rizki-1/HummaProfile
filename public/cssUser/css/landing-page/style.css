@@ -143,37 +143,6 @@
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
-/* Responsive Landing Page Index */
-@media only screen and (max-width: 500px) {
-    .tentang-kami .sub-title {
-        text-align: center;
-    }
-
-    .tentang-kami .title {
-        text-align: center;
-        font-size: 25px;
-        padding: 0 28px;
-    }
-
-    .tentang-kami .about-content-wrap p {
-        text-align: center;
-        padding: 0 10px;
-    }
-
-    .tentang-kami .about-img-wrap .about-img-big img {
-        display: none;
-    }
-
-    .layanan-index .service-content .title {
-        text-align: center;
-        font-size: 25px;
-    }
-
-    .layanan-index .service-content p {
-        text-align: center;
-    }
-}
-
 .nodata {
     display: flex;
     flex-flow: column;
@@ -292,4 +261,41 @@
 
 .slider-foto .nav-btn:hover {
     transform: scale(1.2);
+}
+
+
+/* Responsive Landing Page Index */
+@media only screen and (max-width: 500px) {
+    .container-custome-header .custome-header .text .text-small {
+        font-size: 4vw;
+        width: 85%;
+    }
+
+    .tentang-kami .sub-title {
+        text-align: center;
+    }
+
+    .tentang-kami .title {
+        text-align: center;
+        font-size: 25px;
+        padding: 0 28px;
+    }
+
+    .tentang-kami .about-content-wrap p {
+        text-align: center;
+        padding: 0 10px;
+    }
+
+    .tentang-kami .about-img-wrap .about-img-big img {
+        display: none;
+    }
+
+    .layanan-index .service-content .title {
+        text-align: center;
+        font-size: 25px;
+    }
+
+    .layanan-index .service-content p {
+        text-align: center;
+    }
 }
