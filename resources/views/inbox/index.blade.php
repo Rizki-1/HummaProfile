@@ -68,7 +68,9 @@
                   <!-- email list item -->
                   <div class="email-list-item email-list-item--unread">
                     <div class="email-list-actions">
-                      <span class="from">{{ $inbox->name }}</span>
+                        <a href="{{ route('inbox.show', $inbox->id) }}">
+                            <span class="from">{{ $inbox->name }}</span>
+                        </a>
                     </div>
                     <a href="{{ route('inbox.show', $inbox->id) }}" class="email-list-detail ">
                       <div class="content">
@@ -91,22 +93,24 @@
                 @endforelse
 
               </div>
-              <div class="p-3 border-bottom d-flex align-items-center justify-content-between flex-wrap">
-                <div class="d-flex align-items-center justify-content-end flex-grow-1">
-                  <span class="me-2">{{ $inboxes->firstItem() }}-{{ $inboxes->lastItem() }} of
-                    {{ $inboxes->total() }}</span>
+              @if ($inboxes->hasPages())
+                <div class="p-3 border-bottom d-flex align-items-center justify-content-between flex-wrap">
+                    <div class="d-flex align-items-center justify-content-end flex-grow-1">
+                        <span class="me-2">{{ $inboxes->firstItem() }}-{{ $inboxes->lastItem() }} of
+                            {{ $inboxes->total() }}</span>
 
-                  <div class="btn-group">
-                    <button class="btn btn-outline-secondary btn-icon" type="button" onclick="window.location='{{ $inboxes->previousPageUrl() }}'">
-                      <i data-feather="chevron-left"></i>
-                    </button>
-                    <button class="btn btn-outline-secondary btn-icon" type="button" onclick="window.location='{{ $inboxes->nextPageUrl() }}'">
-                      <i data-feather="chevron-right"></i>
-                    </button>
-                  </div>
+                        <div class="btn-group">
+                            <button class="btn btn-outline-secondary btn-icon" type="button" onclick="window.location='{{ $inboxes->previousPageUrl() }}'">
+                                <i data-feather="chevron-left"></i>
+                            </button>
+                            <button class="btn btn-outline-secondary btn-icon" type="button" onclick="window.location='{{ $inboxes->nextPageUrl() }}'">
+                                <i data-feather="chevron-right"></i>
+                            </button>
+                        </div>
 
+                    </div>
                 </div>
-              </div>
+              @endif
             </div>
           </div>
 

@@ -20880,26 +20880,26 @@ div.tox .buy-now-wrapper .tox-button svg {
 }
 
 .sidebar .sidebar-body .nav .nav-item:hover .nav-link .link-icon {
-    color:#00a1ff;
+    color: #00a1ff;
     fill: rgba(239, 243, 255, .5)
 }
 
 .sidebar .sidebar-body .nav .nav-item.active .nav-link {
-    color:#00a1ff
+    color: #00a1ff
 }
 
 .sidebar .sidebar-body .nav .nav-item.active .nav-link::before {
     content: "";
     width: 3px;
     height: 26px;
-    background:#00a1ff;
+    background: #00a1ff;
     position: absolute;
     left: -25px
 }
 
 .sidebar .sidebar-body .nav .nav-item.active .nav-link .link-icon {
     fill: rgba(239, 243, 255, .5);
-    color:#00a1ff
+    color: #00a1ff
 }
 
 .sidebar .sidebar-body .nav.sub-menu {
@@ -22994,7 +22994,6 @@ div.tox .btn-icon-text.btn-lg.tox-button .btn-icon-prepend {
 }
 
 .email-list-item .email-list-detail .content .msg {
-    width: 97%;
     color: #7987a1;
     font-size: .8rem;
     overflow: hidden;

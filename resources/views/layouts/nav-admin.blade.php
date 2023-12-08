@@ -78,11 +78,11 @@
             </a>
           </li>
 
-          <li class="nav-item nav-category">List</li>
+          <li class="nav-item nav-category">Referensi Klien</li>
           <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#list" role="button" aria-expanded="false" aria-controls="berita">
-              <i class="link-icon" data-feather="grid"></i>
-              <span class="link-title">List</span>
+              <i class="link-icon" data-feather="award"></i>
+              <span class="link-title">Kolaborasi dan Ulasan</span>
               <i class="link-arrow" data-feather="chevron-down"></i>
             </a>
             <div class="collapse" id="list">
