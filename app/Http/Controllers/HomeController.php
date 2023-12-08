@@ -25,7 +25,6 @@ class HomeController extends Controller
     // User Controller
     public function index()
     {
-        $gallery = Gallery::latest()->get();
         $profile = ProfileCompany::all();
         $berita = Berita::latest()->get();
         $layanan = LayananPerusahaan::latest()->get();
@@ -33,7 +32,7 @@ class HomeController extends Controller
         $Mous = Mou::all();
         $testimoni = Testimoni::latest()->get();
         $cabang = CabangPerusahaan::all();
-        return view('user.index', compact('profile', 'berita', 'layanan', 'produk', 'Mous', 'testimoni', 'cabang', 'gallery'));
+        return view('user.index', compact('profile', 'berita', 'layanan', 'produk', 'Mous', 'testimoni', 'cabang'));
     }
 
     public function home()
