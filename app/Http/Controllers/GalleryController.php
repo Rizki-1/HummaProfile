@@ -43,7 +43,7 @@ class GalleryController extends Controller
        return redirect()->route('gallery.index')->with('message', [
         'icon' => 'success',
         'title' => 'Berhasil!',
-        'text' => 'Berhasil menambahkan cabang baru!'
+        'text' => 'Berhasil menambahkan gallery baru!'
        ]);
     }
 
@@ -63,7 +63,7 @@ class GalleryController extends Controller
         // $gallery = Gallery::findOrFail($gallery);
         $target = TargetLayanan::all();
         return view('admin.gallery.edit', compact('gallery','target'));
-        
+
     }
 
     /**ho
@@ -91,7 +91,7 @@ class GalleryController extends Controller
             return redirect()->back()->with('message', [
                 'icon' => 'error',
                 'title' => 'gagal!',
-                'text' => 'Gagal ada kesalahan data'
+                'text' => 'Gagal ada kesalahan saat meupdate gallery'
             ]);
         }
     }
@@ -113,7 +113,7 @@ class GalleryController extends Controller
             return redirect()->back()->with('message', [
                 'icon' => 'error',
                 'title' => 'gagal!',
-                'text' => 'Gagal ada kesalahan data'
+                'text' => 'Gagal ada kesalahan saat menghapus gallery'
             ]);
         }
     }

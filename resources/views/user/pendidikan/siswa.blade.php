@@ -248,7 +248,7 @@
                 <li class="gallery-item" data-responsive="{{ asset('storage/galery/' . $data->picture) }}" data-src="{{ asset('storage/galery/' . $data->picture) }}">
                   <div class="skeleton"></div>
                   <a href="" class="opacity-0">
-                    <img src="{{ asset('storage/galery/' . $data->picture) }}">
+                    <img src="{{ asset('storage/galery/' . $data->picture) }}" class="img-responsive">
                   </a>
                 </li>
               @empty
