@@ -24,7 +24,7 @@ class LayananRequest extends FormRequest
         return [
             'target_layanan_id' => 'required|exists:target_layanans,id',
             'layanan' => 'required|min:5|max:255|string|unique:layanan_perusahaans,nama_layanan||distinct',
-            'foto_layanan' => 'required',
+            'foto_layanan' => 'required|image|mimes:png,jpg',
             'descripsi_layanan' => 'required|min:5|max:1000|string',
         ];
     }
