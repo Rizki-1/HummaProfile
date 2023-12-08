@@ -70,7 +70,7 @@
       <div class="service-wrap">
         <div class="section-title text-center">
           <h3 class="sub-title" data-aos="fade-up" data-aos-duration="500">Layanan Perusahaan</h3>
-          <h2 class="title" data-aos="fade-up" data-aos-duration="700">Kami menyediakan solusi Perangkat Lunak yang
+          <h2 class="title" data-aos="fade-up" data-aos-duration="700">Kami menyediakan solusi Software yang
             benar-benar terkemuka.</h2>
         </div>
         @if ($layanan->count() > 0)

@@ -237,7 +237,7 @@
       <div class="service-wrap">
         <div class="section-title text-center">
           <h2 class="title" data-aos="fade-up" data-aos-duration="700"
-            style="padding: 20px; text-transform: capitalize">Gallery
+            style="padding: 20px; text-transform: capitalize">Gallery Magang
             <span style="color: #22B3E2">Humma</span>Tech
           </h2>
         </div>
