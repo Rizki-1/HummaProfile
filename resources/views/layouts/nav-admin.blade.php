@@ -134,10 +134,10 @@
             <div class="collapse" id="berita">
               <ul class="nav sub-menu">
                 <li class="nav-item">
-                  <a href="{{ route('berita.index') }}" class="nav-link">Berita</a>
+                  <a href="{{ route('category-berita.index') }}" class="nav-link">Kategori</a>
                 </li>
                 <li class="nav-item">
-                  <a href="{{ route('category-berita.index') }}" class="nav-link">Kategori Berita</a>
+                  <a href="{{ route('berita.index') }}" class="nav-link">Berita</a>
                 </li>
               </ul>
             </div>
