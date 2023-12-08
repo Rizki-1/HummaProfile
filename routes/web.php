@@ -17,6 +17,7 @@ use App\Http\Controllers\LayananPerusahaanController;
 use App\Http\Controllers\ListController;
 use App\Http\Controllers\MouController;
 use App\Http\Controllers\ProfilePerusahaanController;
+use App\Http\Controllers\SyaratKetentuanController;
 use App\Http\Controllers\TestimoniController;
 use App\Http\Controllers\ViewController;
 
@@ -67,11 +68,11 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
     Route::delete('/list-siswa-magang/{id}', [ListController::class, 'siswaMagangDel'])->name('list.siswa_magang.del');
     Route::get('/list-kelas-industri', [ListController::class, 'kelasIndustri'])->name('list.kelas_industri');
     Route::delete('/list-kelas-industri/{id}', [ListController::class, 'kelasIndustriDel'])->name('list.kelas_industri.del');
-    //Mou
-
     //Gallery
-    Route::resource('/gallery', GalleryController::class)->except('show');
-
+    Route::resource('/gallery', GalleryController::class)->except(['show']);
+    // Syarat dan ketentuan
+    Route::resource('/syarat-dan-ketentuan', SyaratKetentuanController::class)->except(['show']);
+    //Mou
     Route::resource('/mou', MouController::class)->except(['show']);
     //testimoni
     Route::resource('testimoni', TestimoniController::class)->except(['show']);

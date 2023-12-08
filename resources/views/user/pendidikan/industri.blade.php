@@ -150,7 +150,7 @@
                     <div class="service-content">
                       <div class="image-layanan">
                         <img style="width: 100%; height: 100%; object-fit: cover"
-                          src="{{ asset('ImageGlobal/FotoPemandangan.png') }}" alt="">
+                          src="{{ asset('storage/layanan/'. $data->foto_layanan) }}" alt="">
                       </div>
                       <h3 class="title"><a class="layanan-truncation-title">{{ $data->nama_layanan }}</a></h3>
                       <p class="layanan-truncation-text">{{ $data->descripsi_layanan }}</p>

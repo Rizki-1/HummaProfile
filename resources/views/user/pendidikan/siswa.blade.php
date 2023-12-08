@@ -149,7 +149,7 @@
                   <div class="service-item layanan-industri-siswa service-0{{ ++$key }}">
                     <div class="image-layanan">
                       <img style="width: 100%; height: 100%; object-fit: cover"
-                        src="{{ asset('ImageGlobal/FotoPemandangan.png') }}" alt="">
+                        src="{{ asset('storage/layanan/'. $data->foto_layanan) }}" alt="">
                     </div>
                     <div class="service-content">
                       <h3 class="title"><a class="layanan-truncation-title">{{ $data->nama_layanan }}</a></h3>
