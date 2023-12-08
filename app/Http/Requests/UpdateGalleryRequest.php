@@ -11,7 +11,7 @@ class UpdateGalleryRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,15 @@ class UpdateGalleryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'picture' => 'required|image|mimes:png,jpg',
+            'target_layanan_id' => 'required|exists:target_layanans,id',
+        ];
+    }
+
+    public function messages():array
+    {
+        return [
+
         ];
     }
 }
