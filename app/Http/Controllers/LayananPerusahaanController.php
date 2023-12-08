@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Requests\LayananStore;
 use App\Http\Requests\LayananUpdate;
 use App\Http\Requests\LayananRequest;
+use Illuminate\Support\Facades\Storage;
 
 class LayananPerusahaanController extends Controller
 {
@@ -48,9 +49,12 @@ class LayananPerusahaanController extends Controller
     {
         try {
             DB::beginTransaction();
+            $fotoName = $request->file('foto_layanan')->hashName();
+            $path = $request->file('foto_layanan')->storeAs('layanan', $fotoName);
 
             LayananPerusahaan::create([
                 'target_layanan_id' => $request->target_layanan_id,
+                'foto_layanan' => $fotoName,
                 'nama_layanan' => $request->layanan,
                 'descripsi_layanan' => $request->descripsi_layanan,
             ]);
@@ -84,10 +88,17 @@ class LayananPerusahaanController extends Controller
      */
     public function update(LayananUpdate $request, string $id)
     {
+        // dd($request->all());
         try {
             DB::beginTransaction();
-
             $layanan = LayananPerusahaan::where('id', $id)->first();
+            if ($request->hasFile('foto_layanan')) {
+                Storage::delete('layanan/'.$layanan->foto_layanan);
+                $fotoName = $request->file('foto_layanan')->hashName();
+                $path = $request->file('foto_layanan')->storeAs('layanan',$fotoName);
+            }else {
+                $fotoName = $layanan->foto_layanan;
+            }
             if (!$layanan) {
                 return back()->with('message', [
                     'icon' => 'error',
@@ -96,6 +107,7 @@ class LayananPerusahaanController extends Controller
                 ]);
             }
             $layanan->nama_layanan = $request->nama_layanan;
+            $layanan->foto_layanan = $fotoName;
             $layanan->descripsi_layanan = $request->descripsi_layanan;
             $layanan->target_layanan_id = $request->target_layanan_id;
             $layanan->save();
@@ -108,7 +120,6 @@ class LayananPerusahaanController extends Controller
             ]);
         } catch (\Throwable $th) {
             DB::rollBack();
-
             return back()->with('message', [
                 'icon' => 'error',
                 'title' => 'Gagal!',
@@ -133,6 +144,7 @@ class LayananPerusahaanController extends Controller
                     'text' => 'Layanan tidak ada!'
                 ]);
             }
+            Storage::delete('layanan/'.$layanan->foto_layanan);
             $layanan->delete();
 
             DB::commit();

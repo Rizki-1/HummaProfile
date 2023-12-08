@@ -17,7 +17,7 @@
     <div class="col-md-12 grid-margin stretch-card">
       <div class="card">
         <div class="card-body">
-          <form action="{{ route('layanan-perusahaan.update', $layanan->id) }}" method="POST">
+          <form action="{{ route('layanan-perusahaan.update', $layanan->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="mb-3 d-flex row">
@@ -27,10 +27,10 @@
                   <i class="link-icon upload-icon" data-feather="upload-cloud"></i>
                 </div>
                 <div class="image-old">
-                  <img style="width: 100%; height: 100%; object-fit: cover" src="{{ asset('ImageGlobal/FotoPemandangan.png') }}" alt="">
+                  <img style="width: 100%; height: 100%; object-fit: cover" src="{{ asset('storage/layanan/'.$layanan->foto_layanan) }}" alt="">
                 </div>
-                <input name="thumbnail" class="@error('thumbnail') is-invalid @enderror" type="file" id="myDropify" />
-                @error('thumbnail')
+                <input name="foto_layanan" class="@error('foto_layanan') is-invalid @enderror" type="file" id="myDropify" />
+                @error('foto_layanan')
                   <div>
                     <p class="text-danger mt-2">{{ $message }}</p>
                   </div>

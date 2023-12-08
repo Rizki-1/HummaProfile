@@ -56,7 +56,7 @@
                         <tr class="odd">
                           <td>
                             <div class="image-container">
-                                <img style="width: 100%; height: 100%; object-fit: cover" src="{{ asset('ImageGlobal/FotoPemandangan.png') }}" alt="">
+                                <img style="width: 100%; height: 100%; object-fit: cover" src="{{ asset('storage/layanan/'.$row->foto_layanan) }}" alt="">
                             </div>
                           </td>
                           <td class="sorting_1 height-thing" style="transform: translateY(10px)">{{ Str::limit($row->nama_layanan, 50) }}</td>

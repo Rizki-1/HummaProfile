@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('target_layanan_id')->constrained();
             $table->string('nama_layanan');
+            $table->string('foto_layanan');
             $table->text('descripsi_layanan');
             $table->timestamps();
         });

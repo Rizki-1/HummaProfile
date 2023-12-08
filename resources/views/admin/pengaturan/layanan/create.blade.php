@@ -17,7 +17,7 @@
     <div class="col-md-12 grid-margin stretch-card">
       <div class="card">
         <div class="card-body overflow-tohide">
-          <form action="{{ route('layanan-perusahaan.store') }}" method="POST">
+          <form action="{{ route('layanan-perusahaan.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row">
               <div class="col-md-12 mb-3 pe-3">
@@ -25,8 +25,8 @@
                 <div class="upload-icon-container">
                   <i class="link-icon upload-icon" data-feather="upload-cloud"></i>
                 </div>
-                <input required name="thumbnail" class="@error('thumbnail') is-invalid @enderror" type="file" id="myDropify" />
-                @error('thumbnail')
+                <input required name="foto_layanan" class="@error('foto_layanan') is-invalid @enderror" type="file" id="myDropify" />
+                @error('foto_layanan')
                   <div>
                     <p class="text-danger mt-2">{{ $message }}</p>
                   </div>
