@@ -13,9 +13,9 @@
     position: relative;
     display: flex;
     justify-content: center;
-    align-items: center;
-    transform: translateY(600px);
-    margin-bottom: 12px;
+    align-items: end;
+    height: 100vh;
+    padding-bottom: 40px;
 }
 
 .slider-video .nav-btn {

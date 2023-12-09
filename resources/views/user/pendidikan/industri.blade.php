@@ -148,7 +148,7 @@
               @foreach ($layananIndustri as $key => $data)
                 <div class="col-xl-3 col-sm-12">
                   <!-- Service Item Start -->
-                  <div class="service-item layanan-industri-siswa service-0{{ ++$key }}">
+                  <div class="service-item layanan-industri-siswa">
                     <div class="service-content">
                       <div class="image-layanan">
                         <img style="width: 100%; height: 100%; object-fit: cover"
@@ -185,7 +185,7 @@
       <div class="service-wrap">
         <div class="section-title text-center">
           <h2 class="title" data-aos="fade-up" data-aos-duration="700"
-            style="padding: 20px; text-transform: capitalize">List sekolah yang sudah melakukan tanda tangan MoU dengan
+          style="padding: 20px; text-transform: capitalize">Sekolah yang sudah bekerja sama dengan kami
             <span style="color: #22B3E2">Humma</span>Tech
           </h2>
         </div>

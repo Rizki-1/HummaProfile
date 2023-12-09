@@ -15,23 +15,28 @@
               <!-- Single Blog Start -->
               <div class="single-blog-post single-blog">
                 <div class="blog-image" data-aos="fade-up" data-aos-duration="500">
-                  <a style="width: 100%; height: 100%" href="{{ asset('storage/'. $berita->thumbnail) }}"><img style="width: 100%;"
-                      src="{{ asset('storage/' . $berita->thumbnail) }}" alt=""></a>
-                  <div class="top-meta">
-                    <span class="date">
-                      <span>{{ \Carbon\Carbon::parse($berita->created_at)->format('d') }}</span>
-                      {{ \Carbon\Carbon::parse($berita->created_at)->format('M') }}
+                  <a style="width: 100%; height: 100%" href="{{ asset('storage/' . $berita->thumbnail) }}"><img
+                      style="width: 100%;" src="{{ asset('storage/' . $berita->thumbnail) }}" alt=""></a>
+
+                </div>
+                <div class="blog-content" data-aos="fade-up-right" data-aos-duration="500"
+                  style="overflow-wrap: anywhere; overflow: hidden">
+                  <div class="date-background-styling mb-3" data-aos="fade-up-right" data-aos-duration="500">
+                    <span><i class="far fa-calendar-alt" style="margin-right: 10px"></i>Tanggal Rilis
+                      {{ \Carbon\Carbon::parse($berita->dibuat)->format('d') }}</span>
+                    {{ \Carbon\Carbon::parse($berita->dibuat)->format('M') }}
+                    {{ \Carbon\Carbon::parse($berita->dibuat)->format('Y') }}
                     </span>
                   </div>
-                </div>
-                <div class="blog-content" data-aos="fade-up-right" data-aos-duration="500" style="overflow-wrap: anywhere; overflow: hidden">
-                  <div class="blog-meta d-flex" style="flex-wrap: wrap;">
+                  <div class="blog-meta d-flex" data-aos="fade-up-right" data-aos-duration="700" style="flex-wrap: wrap;">
                     @foreach ($berita->kategori as $item)
-                      <a href="{{ route('filter-category', $item->id) }}" class="badge rounded-pill mb-1" style="padding: 7px 13px; background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; font-size: 13px; margin-right: 5px; font-weight: 700">{{ $item->name }}</a>
+                      <a href="{{ route('filter-category', $item->id) }}" class="badge rounded-pill mb-1"
+                        style="padding: 7px 13px; background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; font-size: 13px; margin-right: 5px; font-weight: 700">{{ $item->name }}</a>
                     @endforeach
                   </div>
-                  <h3 class="title" style="overflow-wrap: anywhere; line-height: 42px;">{{ $berita->title }}</h3>
-                  <p class="text" data-aos="fade-up" data-aos-duration="900" style="overflow-wrap: anywhere; line-height: 25px">{!! Str::markdown($berita->description) !!}</p>
+                  <h3 class="title" style="overflow-wrap: anywhere; line-height: 42px;" data-aos="fade-up-right" data-aos-duration="600">{{ $berita->title }}</h3>
+                  <p class="text" data-aos="fade-up" data-aos-duration="900"
+                    style="overflow-wrap: anywhere; line-height: 25px">{!! Str::markdown($berita->description) !!}</p>
                 </div>
               </div>
               <!-- Single Blog End -->

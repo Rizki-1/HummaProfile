@@ -14,17 +14,17 @@
             <div class="blog-details-post">
               <!-- Single Blog Start -->
               <div class="single-blog-post single-blog">
-                <div class="blog-image" data-aos="fade-up" data-aos-duration="500">
+                <div class="blog-image" data-aos="fade-up-right" data-aos-duration="500">
                   <a href="{{ $produk->link }}" target="_blank" style="width: 100%; height: 100%"><img style="width: 100%;" src="{{ asset('storage/' . $produk->foto_produk) }}" alt=""></a>
                 </div>
                 <div class="blog-content">
-                  <div class="date-background-styling" data-aos="fade-up" data-aos-duration="500">
-                    <span><i class="far fa-calendar-alt" style="margin-right: 10px"></i>Release date {{ \Carbon\Carbon::parse($produk->dibuat)->format('d') }}</span>
+                  <div class="date-background-styling" data-aos="fade-up-right" data-aos-duration="500">
+                    <span><i class="far fa-calendar-alt" style="margin-right: 10px"></i>Tanggal Rilis {{ \Carbon\Carbon::parse($produk->dibuat)->format('d') }}</span>
                     {{ \Carbon\Carbon::parse($produk->dibuat)->format('M') }}
                     {{ \Carbon\Carbon::parse($produk->dibuat)->format('Y') }}
                     </span>
                   </div>
-                  <h3 class="title" data-aos="fade-up" data-aos-duration="700" style="overflow-wrap: anywhere; line-height: 42px;">{{ $produk->nama_produk }}</h3>
+                  <h3 class="title" data-aos="fade-up-right" data-aos-duration="500" style="overflow-wrap: anywhere; line-height: 42px;">{{ $produk->nama_produk }}</h3>
                   <p class="text" data-aos="fade-up" data-aos-duration="900" style="overflow-wrap: anywhere; line-height: 25px">{!! Str::markdown($produk->keterangan_produk) !!}</p>
                 </div>
               </div>

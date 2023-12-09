@@ -77,11 +77,11 @@ class HomeController extends Controller
         return view('user.berita.index', compact('beritaAll', 'kategori'));
     }
 
-    public function indexLayanan()
-    {
-        $layanan = LayananPerusahaan::latest()->get();
-        return view('user.layanan.index', compact('layanan'));
-    }
+    // public function indexLayanan()
+    // {
+    //     $layanan = LayananPerusahaan::latest()->get();
+    //     return view('user.layanan.index', compact('layanan'));
+    // }
 
     public function detailBerita(Request $request, $name)
     {

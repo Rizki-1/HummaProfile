@@ -148,7 +148,7 @@
               @foreach ($layananSiswa as $key => $data)
                 <div class="col-xl-3 col-sm-6">
                   <!-- Service Item Start -->
-                  <div class="service-item layanan-industri-siswa service-0{{ ++$key }}">
+                  <div class="service-item layanan-industri-siswa">
                     <div class="image-layanan">
                       <img style="width: 100%; height: 100%; object-fit: cover"
                         src="{{ asset('storage/layanan/'. $data->foto_layanan) }}" alt="">

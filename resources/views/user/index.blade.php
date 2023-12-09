@@ -12,7 +12,7 @@
       </div>
       <div class="text">
         <h1 class="text-big">Humma<span>Tech</span></h1>
-        <p class="text-small">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, sit.</p>
+        <p class="text-small">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, sit Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, sit Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, sit.</p>
       </div>
       <div class="slider-foto">
         <div class="nav-btn active"></div>
@@ -79,7 +79,7 @@
               @foreach ($layanan->take(4) as $key => $data)
                 <div class="col-xl-3 col-sm-6">
                   <!-- Service Item Start -->
-                  <div class="service-item service-0{{ ++$key }}">
+                  <div class="service-item">
                     <div class="service-content">
                       <div class="image-layanan">
                         <img style="width: 100%; height: 100%; object-fit: cover"
@@ -93,7 +93,7 @@
                 </div>
               @endforeach
             </div>
-            <div class="row" data-aos="fade-up" data-aos-duration="1000">
+            {{-- <div class="row" data-aos="fade-up" data-aos-duration="1000">
               <div class="col-lg-12">
                 <div class="more-choose-content text-center">
                   <p>Lihat Selengkapnya <a href="{{ route('layananIndex') }}">Disini <i
@@ -101,7 +101,7 @@
                   </p>
                 </div>
               </div>
-            </div>
+            </div> --}}
           </div>
         @else
           <div class="nodata gap-3" data-aos="fade-up" data-aos-duration="1000">
