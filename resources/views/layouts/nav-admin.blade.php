@@ -189,6 +189,9 @@
                 <li class="nav-item">
                   <a href="{{ route('syarat-dan-ketentuan.index') }}" class="nav-link">Syarat Dan Ketentuan</a>
                 </li>
+                <li class="nav-item">
+                  <a href="{{ route('operational.index') }}" class="nav-link">Jam Operational</a>
+                </li>
               </ul>
             </div>
           </li>

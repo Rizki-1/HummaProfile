@@ -16,10 +16,12 @@ use App\Http\Controllers\KategoriBeritaController;
 use App\Http\Controllers\LayananPerusahaanController;
 use App\Http\Controllers\ListController;
 use App\Http\Controllers\MouController;
+use App\Http\Controllers\OperationalTimeController;
 use App\Http\Controllers\ProfilePerusahaanController;
 use App\Http\Controllers\SyaratKetentuanController;
 use App\Http\Controllers\TestimoniController;
 use App\Http\Controllers\ViewController;
+use App\Models\OperationalTime;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,7 +74,15 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
     //Mou
     Route::resource('/mou', MouController::class)->except(['show']);
     //testimoni
-    Route::resource('testimoni', TestimoniController::class)->except(['show']);
+    Route::resource('/testimoni', TestimoniController::class)->except(['show']);
+
+    Route::resource('/operational', OperationalTimeController::class)->except(['show','destroy','store']);
+    Route::post('/operationalCloseProccess', [OperationalTimeController::class, 'closeProccess'])->name('operational.closeProccess');
+    Route::post('/operationalOpen/{id}', [OperationalTimeController::class, 'operationalOpen'])->name('operational.open');
+    Route::get('/operationalCloseAll', [OperationalTimeController::class, 'operationalCloseAll'])->name('operational.closeall');
+    Route::get('/operationalOpenAll', [OperationalTimeController::class, 'operationalOpenAll'])->name('operational.openall');
+    Route::get('/operationalClose/{id}', [OperationalTimeController::class, 'operationalClose'])->name('operational.close');
+    Route::get('/operationalDetail/{id}', [OperationalTimeController::class, 'operationalDetail'])->name('operational.detail');
 });
 
 // User Page

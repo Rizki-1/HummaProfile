@@ -1,0 +1,123 @@
+.edit {
+    width: 17px;
+    color: grey;
+    transition: all 0.3s;
+}
+
+.close {
+    width: 18px;
+    color: grey;
+    transition: all 0.3s;
+}
+
+.open-kantor {
+    width: 17px;
+    color: grey;
+    transition: all 0.3s;
+}
+
+.eye {
+    width: 19px;
+    color: grey;
+    transition: all 0.3s;
+}
+
+.edit:hover {
+    color: rgb(231, 231, 0) !important;
+}
+
+.close:hover {
+    color: red !important;
+}
+
+.open-kantor:hover {
+    color: green !important;
+}
+
+.eye:hover {
+    color: rgb(0, 119, 255) !important;
+}
+
+.content-holder {
+    width: 100%;
+    padding: 0 0 0 9px;
+}
+
+@media screen and (max-width: 767px) {
+    .col-md-4 {
+        padding: 0 !important;
+    }
+
+    .reverse {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .important-content {
+        padding: 0 12px 1px 5px !important;
+    }
+}
+
+.remove-button {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+}
+
+.content-card-holder {
+    width: 49%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.content-card-holder.kantor-close {
+    border-left: solid 4px red;
+}
+
+.content-card-holder.kantor-open {
+    border-left: solid 4px rgb(0, 228, 0);
+}
+
+@media screen and (max-width: 650px) {
+    .content-card-holder {
+        width: 97%;
+    }
+
+    .gaping {
+        gap: 0;
+    }
+
+    .minggu-scretch {
+        width: 97% !important;
+    }
+}
+
+.gaping {
+    gap: 1%;
+    justify-content: center;
+    padding: 0 6px 0 0;
+}
+
+.minggu-scretch {
+    width: 99%;
+}
+
+.icon-holder {
+    gap: 5px;
+    margin-top: 11px;
+    display: flex;
+    align-items: center;
+}
+
+.left-line {
+    width: 100%;
+}
+
+.page-content {
+    overflow: hidden;
+}
+
+.reverse {
+    display: flex;
+}
