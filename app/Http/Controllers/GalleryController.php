@@ -109,11 +109,19 @@ class GalleryController extends Controller
     /**ho
      * Update the specified resource in storage.
      */
-    public function update(UpdateGalleryRequest $request, Gallery $gallery)
+    public function update(UpdateGalleryRequest $request, $id)
     {
         try {
+            $gallery = Gallery::where('id', $id)->first();
+            if(!$gallery){
+                return redirect()->back()->with('message', [
+                    'icon' => 'error',
+                    'title' => 'gagal!',
+                    'text' => 'ID Gallery tidak ditemukan'
+                ]);
+            }
             if ($request->hasFile('picture')) {
-                Storage::delete('gelery/'.$gallery->picture);
+                Storage::delete('galery/'.$gallery->picture);
                 $fotoName = $request->file('picture')->hashName();
                 $path = $request->file('picture')->storeAs('galery', $fotoName);
             }else {
