@@ -48,17 +48,13 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
     Route::resource("/inbox", InboxController::class)->only(['show', 'index', 'destroy']);
     Route::get('/inbox/reply/{id}', [InboxController::class, 'replyShow'])->name('inbox.reply.show');
     Route::post('/inbox/reply/{id}', [InboxController::class, 'reply'])->name('inbox.reply.post');
-    // persetujuan
-    // Route::get('/persetujuan/siswa', [ViewController::class, 'persetujuanSiswa'])->name('persetujuan.siswa');
-    // Route::get('/persetujuan/industri', [ViewController::class, 'persetujuanIndustri'])->name('persetujuan.industri');
+
     //produk
     Route::resource('/produk', ProdukController::class);
-    // profile
-    //terima dan tolak kelas industri dan siswa magang
-    // Route::patch('/terimasiswa/{id}', [PersetujuanController::class, 'setujuSiswaMagang'])->name('setujusiswa');
-    // Route::patch('/tolaksiswa/{id}', [PersetujuanController::class, 'tolakSiswaMagang'])->name('tolakSiswa');
-    // Route::patch('/terimaindustri/{id}', [PersetujuanController::class, 'terimaIndustri'])->name('terimaIndustri');
-    // Route::patch('/tolakindustri/{id}', [PersetujuanController::class, 'tolakIndustri'])->name('tolakindustri');
+    Route::post('/galery-produk/{id}', [GalleryController::class, 'galeryProduk'])->name('galeryproduk.store');
+    Route::delete('/galery-produk-delete/{id}', [GalleryController::class, 'galeryProdukDelete'])->name('galeryproduk.delete');
+    Route::get('/galery-produk-store/{id}', [ProdukController::class, 'galeryProduk'])->name('galeryproduk.create');
+
     //layanan perusahaan
     Route::resource('/layanan-perusahaan', LayananPerusahaanController::class)->except(['show']);
     Route::resource('/cabang-perusahaan', CabangPerusahaanController::class)->except(['show']);
@@ -70,6 +66,7 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
     Route::delete('/list-kelas-industri/{id}', [ListController::class, 'kelasIndustriDel'])->name('list.kelas_industri.del');
     //Gallery
     Route::resource('/gallery', GalleryController::class)->except(['show']);
+    Route::post('/storeGalery/{id}', [GalleryController::class, 'Galeristore'])->name('idgalery');
     // Syarat dan ketentuan
     Route::resource('/syarat-dan-ketentuan', SyaratKetentuanController::class)->except(['show']);
     //Mou

@@ -177,4 +177,20 @@ class ProdukController extends Controller
             ]);
         }
     }
+
+    public function galeryProduk($id)
+    {
+        try {
+            $produk = Produk::findOrFail($id);
+            return view('admin.produk.tambah_galery', compact('id', 'produk'));
+        } catch (\Exception $e) {
+            dd($e);
+            return back()->with("message", [
+                'icon' => 'error',
+                'title' => "Gagal!",
+                'text' => "Ada kesalahan saat membuat produk"
+            ]);
+        }
+
+    }
 }

@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Log;
 use App\Models\Gallery;
+use Illuminate\Http\Request;
+use App\Models\TargetLayanan;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreGalleryRequest;
 use App\Http\Requests\UpdateGalleryRequest;
-use App\Models\TargetLayanan;
+use App\Models\GaleryProduk;
 
 class GalleryController extends Controller
 {
@@ -31,21 +34,56 @@ class GalleryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreGalleryRequest $request)
+    public function store(Request $request)
     {
-        // dd($request->all());
-       $fotoName = $request->file('picture')->hashName();
-       $path = $request->file('picture')->storeAs('galery', $fotoName);
-       Gallery::create([
-        'picture' => $fotoName,
-        'target_layanan_id' => $request->target_layanan_id,
-       ]);
-       return redirect()->route('gallery.index')->with('message', [
-        'icon' => 'success',
-        'title' => 'Berhasil!',
-        'text' => 'Berhasil menambahkan gallery baru!'
-       ]);
+        try {
+            // \Log::info('Full Request Data:', $request->all());
+            dd($request->all());
+            $successMessages = [];
+
+            foreach ($request->file('file') as $file) {
+                $fotoName = $file->hashName();
+                $path = $file->storeAs('galery', $fotoName);
+
+                Gallery::create([
+                    'picture' => $fotoName,
+                    'target_layanan_id' => $request->target_layanan_id
+                ]);
+
+                $successMessages[] = 'File ' . $file->getClientOriginalName() . ' berhasil diunggah.';
+            }
+
+            return response()->json(['success' => $successMessages]);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
     }
+    public function Galeristore(Request $request, $id)
+    {
+        try {
+
+
+            $successMessages = [];
+
+            foreach ($request->file('file') as $file) {
+                $fotoName = $file->hashName();
+                $path = $file->storeAs('galery', $fotoName);
+
+                Gallery::create([
+                    'picture' => $fotoName,
+                    'target_layanan_id' => $id
+                ]);
+
+                $successMessages[] = 'File ' . $file->getClientOriginalName() . ' berhasil diunggah.';
+            }
+
+            return response()->json(['success' => $successMessages]);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
+    }
+
+
 
     /**
      * Display the specified resource.
@@ -117,4 +155,42 @@ class GalleryController extends Controller
             ]);
         }
     }
+
+    public function galeryProduk(Request $request, $id)
+    {
+        $paths = [];
+        $idgalery = [];
+
+        foreach ($request->file('file') as $file) {
+            $fotoName = $file->hashName();
+            $path = $file->storeAs('produk_galery', $fotoName);
+
+           $gallery = GaleryProduk::create([
+                'produk_id' => $id,
+                'galery' => $fotoName,
+            ]);
+
+
+            $paths[] = $path;
+            $idgalery[] = $gallery->id;
+        }
+
+
+        return response()->json(['success' => 'File berhasil diunggah.', 'paths' => $paths, 'id' => $idgalery]);
+    }
+
+
+    public function galeryProdukDelete($id)
+    {
+        try {
+            $gallery = GaleryProduk::findOrFail($id);
+            Storage::delete('produk_galery/'.$gallery->galery);
+            $gallery->delete();
+            return response()->json('success');
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
+    }
 }
+
+

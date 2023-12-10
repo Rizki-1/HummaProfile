@@ -20,4 +20,6 @@ class Gallery extends Model
     {
         return $this->hasMany(LayananPerusahaan::class);
     }
+
+
 }
