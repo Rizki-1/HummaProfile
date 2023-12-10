@@ -136,22 +136,22 @@
       <div class="offcanvas-body">
         <div class="offcanvas-menu">
           <ul class="main-menu">
-            <li class="{{ request()->routeIs('homeindex') ? 'active-menu' : '' }}">
+            <li class="{{ request()->routeIs('homeindex') ? 'active' : '' }}">
               <a href="/">Beranda</a>
             </li>
-            <li class="{{ request()->routeIs('home.siswaIndex') ? 'active-menu' : '' }}">
+            <li class="{{ request()->routeIs('home.siswaIndex') ? 'active' : '' }}">
               <a href="{{ route('home.siswaIndex') }}">Magang/PKL</a>
             </li>
-            <li class="{{ request()->routeIs('home.industriIndex') ? 'active-menu' : '' }}">
+            <li class="{{ request()->routeIs('home.industriIndex') ? 'active' : '' }}">
               <a href="{{ route('home.industriIndex') }}">Kelas Industri</a>
             </li>
-            <li class="{{ request()->routeIs('produkIndex') ? 'active-menu' : '' }}">
+            <li class="{{ request()->routeIs('produkIndex') || request()->routeIs('produk.detail') ? 'active' : '' }}">
               <a href="{{ route('produkIndex') }}">Produk Kami</a>
             </li>
-            <li class="{{ request()->routeIs('beritaIndex') ? 'active-menu' : '' }}">
+            <li class="{{ request()->routeIs('beritaIndex') || request()->routeIs('detailBerita') || request()->routeIs('filter-category') ? 'active' : '' }}">
               <a href="{{ route('beritaIndex') }}">Blog</a>
             </li>
-            <li class="{{ request()->routeIs('contactIndex') ? 'active-menu' : '' }}">
+            <li class="{{ request()->routeIs('contactIndex') ? 'active' : '' }}">
               <a href="{{ route('contactIndex') }}">Hubungi</a>
             </li>
           </ul>

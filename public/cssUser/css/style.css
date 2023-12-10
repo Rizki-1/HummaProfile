@@ -1807,6 +1807,8 @@ textarea:-ms-input-placeholder {
     width: 320px;
 }
 
+
+
 @media only screen and (max-width: 575px) {
     .offcanvas {
         width: 280px;
@@ -1884,12 +1886,17 @@ textarea:-ms-input-placeholder {
     transition: all 0.3s linear;
 }
 
+.offcanvas-menu .main-menu li.active a{
+    color: #00b1ef;
+}
+
 .offcanvas-menu .main-menu li:hover>a {
-    color: #086ad8;
+    color: #00b1ef;
 }
 
 .offcanvas-menu .main-menu li.active>.menu-expand::after {
     height: 0;
+    color: #00b1ef;
 }
 
 .offcanvas-menu .main-menu li ul {

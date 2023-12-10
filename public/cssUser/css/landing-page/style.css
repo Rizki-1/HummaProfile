@@ -165,7 +165,7 @@
 .container-custome-header {
     width: 100%;
     height: 100vh;
-    background-color: #2696E9;
+    background-color: #2696e9;
 }
 
 .container-custome-header .custome-header {
@@ -264,7 +264,6 @@
     transform: scale(1.2);
 }
 
-
 /* Responsive Landing Page Index */
 @media only screen and (max-width: 500px) {
     .container-custome-header .custome-header .text {
@@ -305,6 +304,11 @@
         padding: 0 10px;
     }
 
+    .tentang-kami .about-content-wrap .title {
+        font-size: x-large;
+        padding: 0px 10px;
+    }
+
     .tentang-kami .about-img-wrap .about-img-big img {
         display: none;
     }
@@ -318,7 +322,7 @@
         text-align: center;
     }
 
-    .layanan-index .service-content  {
+    .layanan-index .service-content {
         display: flex;
         flex-direction: column;
         align-items: center;

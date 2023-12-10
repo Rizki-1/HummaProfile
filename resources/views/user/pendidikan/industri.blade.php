@@ -43,7 +43,7 @@
   <!-- Page Banner End -->
 
   <!-- Kenapa Industri Start -->
-  <div class="section techwix-about-section-07 section-padding" style="padding-top: 80px; padding-bottom: 0px;">
+  <div class="section techwix-about-section-07 section-padding branding" style="padding-top: 80px; padding-bottom: 0px;">
     <div class="shape-1"></div>
     <div class="container">
       <!-- About Wrapper Start -->
@@ -69,7 +69,7 @@
                 <h3 class="sub-title" data-aos="fade-up-left" data-aos-duration="500">Kelas Industri</h3>
                 <h2 class="title text-capitalize" data-aos="fade-up-left" data-aos-duration="700">Kami menyediakan layanan kelas industri untuk SMK Negeri/Swasta</h2>
               </div>
-              <p class="text" data-aos="fade-up-left" data-aos-duration="900">Materi yang diberikan kurikulum terbaru dan juga sudah sesuai kebutuhan Industri, dan juga banyak bidang yang kami berikan yaitu Web Developer & Mobile Developer.</p>
+              <p class="text" data-aos="fade-up-left" data-aos-duration="900">Materi yang diberikan kurikulum terbaru, pastinya sudah sesuai kebutuhan Industri, dan materi yang diberikan dibuat oleh Senior Developer dari HummaTech yang sudah berpengalaman didunia IT.</p>
               <!-- About List Start -->
               <div class="about-list-03">
                 <div class="row">
@@ -236,7 +236,7 @@
       <div class="service-wrap">
         <div class="section-title text-center">
           <h2 class="title" data-aos="fade-up" data-aos-duration="700"
-            style="padding: 20px; text-transform: capitalize">Sekolah bekerja sama dengan kami
+            style="padding: 20px; text-transform: capitalize">Sekolah Yang Bekerjasama Dengan
             <span style="color: #22B3E2">Humma</span>Tech
           </h2>
         </div>

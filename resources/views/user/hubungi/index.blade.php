@@ -108,7 +108,7 @@
                       </div>
                       <!-- Single Form End -->
                     </div>
-                    <div class="col-sm-12">
+                    <div class="col-sm-12 mt-2">
                         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
                     <div class="g-recaptcha" id="feedback-recaptcha"
                          data-sitekey="{{ config('app.g-recaptcha-key') }}">

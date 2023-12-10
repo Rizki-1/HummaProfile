@@ -162,4 +162,17 @@
     .layanan-industri-siswa .title {
         font-size: 25px;
     }
+
+    .branding .about-img-wrap {
+        display: none;
+    }
+
+    .branding .about-content-wrap {
+        padding-top: 0px;
+        text-align: center;
+    }
+
+    .branding {
+        padding-top: 40px !important;
+    }
 }
