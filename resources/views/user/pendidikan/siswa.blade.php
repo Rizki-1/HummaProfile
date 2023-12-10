@@ -163,13 +163,13 @@
               @endforeach
             </div>
           @else
-            <div class="nodata gap-3">
+            <div class="nodata gap-3" data-aos="fade-up" data-aos-duration="500">
               <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="">
               <p>Data layanan tidak tersedia</p>
             </div>
           @endif
         </div>
-        <div class="d-flex justify-content-center mt-5">
+        <div class="d-flex justify-content-center mt-5" data-aos="fade-up" data-aos-duration="500">
           {{ $layananSiswa->links('pagination::simple-bootstrap-5') }}
         </div>
       </div>

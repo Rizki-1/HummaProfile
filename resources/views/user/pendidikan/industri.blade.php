@@ -42,6 +42,57 @@
   </div>
   <!-- Page Banner End -->
 
+  <!-- Kenapa Industri Start -->
+  <div class="section techwix-about-section-07 section-padding" style="padding-top: 80px; padding-bottom: 0px;">
+    <div class="shape-1"></div>
+    <div class="container">
+      <!-- About Wrapper Start -->
+      <div class="about-wrap">
+        <div class="row">
+          <div class="col-lg-6 d-flex align-items-center justify-content-center">
+            <!-- About Image Wrap Start -->
+            <div class="about-img-wrap">
+              <img class="shape-1" src="{{ asset('cssUser/images/shape/about-shape2.png') }}" alt="">
+              <div class="about-img" data-aos="fade-up-right" data-aos-duration="800">
+                <img src="{{ asset('ImageGlobal/gallery/gallery_1.jpg') }}" alt="">
+              </div>
+              <div class="about-img about-img-2" data-aos="fade-up-right" data-aos-duration="500">
+                <img src="{{ asset('ImageGlobal/gallery/gallery_2.jpg') }}" alt="">
+              </div>
+            </div>
+            <!-- About Image Wrap End -->
+          </div>
+          <div class="col-lg-6">
+            <!-- About Content Wrap Start -->
+            <div class="about-content-wrap">
+              <div class="section-title">
+                <h3 class="sub-title" data-aos="fade-up-left" data-aos-duration="500">Kelas Industri</h3>
+                <h2 class="title text-capitalize" data-aos="fade-up-left" data-aos-duration="700">Kami menyediakan layanan kelas industri untuk SMK Negeri/Swasta</h2>
+              </div>
+              <p class="text" data-aos="fade-up-left" data-aos-duration="900">Materi yang diberikan kurikulum terbaru dan juga sudah sesuai kebutuhan Industri, dan juga banyak bidang yang kami berikan yaitu Web Developer & Mobile Developer.</p>
+              <!-- About List Start -->
+              <div class="about-list-03">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="about-list-item-03" data-aos="fade-up-left" data-aos-duration="800">
+                      <h3 class="title">Misi Kami</h3>
+                      <p>Menyediakan Pendidikan Teknologi yang Mencerahkan Masa Depan</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- About List End -->
+            </div>
+            <!-- About Content Wrap End -->
+          </div>
+        </div>
+      </div>
+      <!-- About Wrapper End -->
+    </div>
+  </div>
+  <!-- Kenapa Industri End -->
+
+
   <div class="section techwix-choose-us-section-02 section-padding-02"
     style="padding-bottom: 110px; padding-top: 100px; background-color: #ffffff">
     <div class="container">
@@ -163,13 +214,13 @@
               @endforeach
             </div>
           @else
-            <div class="nodata gap-3">
+            <div class="nodata gap-3" data-aos="fade-up" data-aos-duration="500">
               <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="">
               <p>Data layanan tidak tersedia</p>
             </div>
           @endif
         </div>
-        <div class="d-flex justify-content-center mt-5">
+        <div class="d-flex justify-content-center mt-5" data-aos="fade-up" data-aos-duration="500">
           {{ $layananIndustri->links('pagination::simple-bootstrap-5') }}
         </div>
       </div>
