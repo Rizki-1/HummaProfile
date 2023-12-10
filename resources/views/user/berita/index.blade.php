@@ -1,5 +1,12 @@
 @extends('layouts.nav-user')
 
+@section('header')
+    <meta name="keywords" content="Berita HummaTech">
+    <meta name="description" content="Kumpulan berita-berita dari HummaTech">
+
+    <title>Berita-berita HummaTech</title>
+@endsection
+
 @section('content')
 <style>
   .nodata {

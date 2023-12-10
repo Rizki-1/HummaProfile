@@ -1,7 +1,24 @@
 @extends('layouts.nav-user')
 
+@section('header')
+    <meta property="og:title" content="Kategori-kategori berita HummaTech">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="{{ request()->url() }}">
+    <meta property="og:site_name" content="Kategori berita {{ $nameKategori }}">
+    <meta property="article:section" content="{{ $nameKategori }}">
+    <meta property="article:author" content="HummaTech">
+    <meta property="article:publisher" content="HummaTech">
+
+    <!-- Tag OGP tambahan untuk SEO -->
+    <meta name="keywords" content="Kategori berita {{ $nameKategori }}">
+    <meta name="description" content="Temukan berita terkini dalam kategori {{ $nameKategori }}. Dapatkan informasi terbaru, artikel, dan liputan khusus. Jelajahi sekarang untuk mendapatkan wawasan yang lebih baik.">
+
+    <title>Kategori berita {{ $nameKategori }}</title>
+@endsection
+
 @section('content')
   <link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/forceNav.css') }}">
+  <link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/forceLogo.css') }}">
   <div class="section techwix-blog-grid-section section-padding" style="background-color: #f8f8f8;">
     <div class="container">
       <div class="techwix-blog-grid-wrap">
@@ -29,7 +46,7 @@
                 <div class="blog-content">
                   <div class="blog-meta" style="display: flex; align-items: center;">
                     @foreach ($berita->berita->kategori->take(2) as $item)
-                    <a href="{{ route('filter-category', $item->id) }}" class="badge rounded-pill mb-1 text-truncate"
+                    <a href="{{ route('filter-category', $item->name) }}" class="badge rounded-pill mb-1 text-truncate"
                         style="padding: 7px 13px; background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; font-size: 13px ;margin-right: 5px; font-weight: 700; max-width: 37%">{{ $item->name }}</a>
                     @endforeach
                     @if ($berita->berita->kategori->count() > 2)

@@ -1,5 +1,26 @@
 @extends('layouts.nav-user')
 
+@section('header')
+    <meta property="og:title" content="{{ $berita->title }}">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="{{ request()->url() }}">
+    <meta property="og:image" content="{{ url('storage/' . $berita->thumbnail) }}">
+    <meta property="og:site_name" content="Berita {{ $berita->title }} dari HummaTech">
+    <meta property="article:published_time" content="{{ $berita->created_at->toIso8601String() }}">
+    <meta property="article:modified_time" content="{{ $berita->updated_at->toIso8601String() }}">
+    @foreach ($berita->kategori as $item)
+        <meta property="article:section" content="{{ $item->name }}">
+    @endforeach
+    <meta property="article:author" content="HummaTech">
+    <meta property="article:publisher" content="HummaTech">
+
+    <!-- Tag OGP tambahan untuk SEO -->
+    <meta name="keywords" content="Berita {{ $berita->title }}">
+    <meta name="description" content="{{ Str::limit($berita->description, 160) }}">
+
+    <title>Berita {{ $berita->title }}</title>
+@endsection
+
 @section('content')
   <link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/forceLogo.css') }}">
   <!-- Blog Details Start -->
@@ -30,7 +51,7 @@
                   </div>
                   <div class="blog-meta d-flex" data-aos="fade-up-right" data-aos-duration="700" style="flex-wrap: wrap;">
                     @foreach ($berita->kategori as $item)
-                      <a href="{{ route('filter-category', $item->id) }}" class="badge rounded-pill mb-1"
+                      <a href="{{ route('filter-category', $item->name) }}" class="badge rounded-pill mb-1"
                         style="padding: 7px 13px; background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; font-size: 13px; margin-right: 5px; font-weight: 700">{{ $item->name }}</a>
                     @endforeach
                   </div>
