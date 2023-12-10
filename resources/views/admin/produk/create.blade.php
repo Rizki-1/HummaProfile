@@ -1,7 +1,7 @@
 @extends('layouts.nav-admin')
 
 @section('content')
-  <title>{{ config('app.name', 'Laravel') }} - Produk</title>
+  <title>{{ config('app.name', 'Laravel') }} - Produk Create</title>
 	<link rel="stylesheet" href="{{ asset('cssAdmin/vendors/easymde/easymde.min.css') }}">
   <div class="card mb-4 p-4">
     <nav aria-label="breadcrumb">

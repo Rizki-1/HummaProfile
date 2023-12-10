@@ -89,11 +89,6 @@ Route::post('/inbox', [InboxController::class,'store'])->name('inbox.store');
 Route::get('/produk/{name}', [HomeController::class, 'detailProduk'])->name('produk.detail');
 Route::get('/category-berita/{name}', [BeritaController::class, 'filter'])->name('filter-category');
 
-//formLandingPage
-Route::post('/siswa.store', [FormController::class, 'SiswaMagangStore'])->name('siswa.store');
-Route::post('/industri.store', [FormController::class, 'IndustriStore'])->name('industri.store');
-
-
 //route testing
 Route::get('/test', [HomeController::class, 'test'])->name('test');
 

@@ -107,7 +107,6 @@
                                 <i data-feather="chevron-right"></i>
                             </button>
                         </div>
-
                     </div>
                 </div>
               @endif

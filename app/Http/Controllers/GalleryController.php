@@ -183,12 +183,29 @@ class GalleryController extends Controller
     public function galeryProdukDelete($id)
     {
         try {
-            $gallery = GaleryProduk::findOrFail($id);
+            $gallery = GaleryProduk::where('id',$id)->first();
+            if(!$gallery){
+                return back()->with('message', [
+                    'icon' => "error",
+                    'title' => "Gagal!",
+                    'text' => "ID gallery produk tidak ditemukan!"
+                ]);
+            }
+
             Storage::delete('produk_galery/'.$gallery->galery);
             $gallery->delete();
-            return response()->json('success');
+
+            return back()->with('message', [
+                'icon' => "success",
+                'title' => "Berhasil!",
+                'text' => "Berhasil menghapus gallery produk"
+            ]);
         } catch (\Exception $e) {
-            return response()->json(['error' => $e->getMessage()], 500);
+            return back()->with('message', [
+                'icon' => "error",
+                'title' => "Error!",
+                'text' => "Gagal karena : {$e->getMessage()}"
+            ]);
         }
     }
 }

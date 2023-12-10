@@ -1,8 +1,9 @@
 @extends('layouts.nav-admin')
 
 @section('content')
-  <title>{{ config('app.name', 'Laravel') }} - Produk</title>
+  <title>{{ config('app.name', 'Laravel') }} - Produk Edit</title>
   <link rel="stylesheet" href="{{ asset('cssAdmin/css/produk/produk.css') }}">
+  <link rel="stylesheet" href="{{ asset('cssAdmin/vendors/easymde/easymde.min.css') }}">
   <div class="card mb-4 p-4">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb breadcrumb-dot mb-0">
@@ -23,15 +24,6 @@
               <label for="namaproduk" class="form-label">Nama Produk</label>
               <input required type="text" name="nama_produk" value="{{ old('nama_produk',$produks->nama_produk) }}" class="form-control @error('nama_produk') is-invalid @enderror" id="namaproduk" autocomplete="off" placeholder="{{ $produks->nama_produk }}">
               @error('nama_produk')
-                <div class="invalid-feedback">
-                  <p>{{ $message }}</p>
-                </div>
-              @enderror
-            </div>
-            <div class="mb-3">
-              <label for="keterangan" class="form-label">Keterangan Produk</label>
-              <textarea required name="keterangan_produk" class="form-control @error('keterangan_produk') is-invalid @enderror" id="keterangan" rows="2" placeholder="{{ $produks->keterangan_produk }}">{{ old('keterangan_produk',$produks->keterangan_produk) }}</textarea>
-              @error('keterangan_produk')
                 <div class="invalid-feedback">
                   <p>{{ $message }}</p>
                 </div>
@@ -73,6 +65,15 @@
               @enderror
             </div>
           </div>
+            <div class="mb-3">
+              <label for="easyMdeEditor" class="form-label">Keterangan Produk</label>
+              <textarea required name="keterangan_produk" class="form-control @error('keterangan_produk') is-invalid @enderror" id="easyMdeEditor" rows="2" placeholder="{{ $produks->keterangan_produk }}">{{ old('keterangan_produk',$produks->keterangan_produk) }}</textarea>
+              @error('keterangan_produk')
+                <div class="invalid-feedback">
+                  <p>{{ $message }}</p>
+                </div>
+              @enderror
+            </div>
         </div>
         <div class="col-md-6 col-12">
           <button type="submit" class="btn btn-primary me-2">Edit</button>
@@ -81,4 +82,6 @@
       </form>
     </div>
   </div>
+  <script src="{{ asset('cssAdmin/vendors/easymde/easymde.min.js') }}"></script>
+  <script src="{{ asset('cssAdmin/js/email.js') }}"></script>
 @endsection

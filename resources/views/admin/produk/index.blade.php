@@ -39,9 +39,6 @@
                   <div class="first-detail">
                     <h2 class="card-title text-truncate" style="max-width: 90%">{{ $row->nama_produk }}</h2>
                   </div>
-                  <div class="second-title">
-                    <p class="card-text text-truncate" style="max-width: 70%">{{ $row->keterangan_produk }}</p>
-                  </div>
                   <div>
                   </div>
                   <div class="action-container">
@@ -51,7 +48,7 @@
                       @method('DELETE')
                       <button type="submit" class="button-delete"><i class="link-icon trash-icon" data-feather="trash"></i></button>
                     </form>
-                    <a href="{{ route('galeryproduk.create', $row->id) }}" class="btn btn-primary">tambah galery</a>
+                    <a href="{{ route('galeryproduk.create', $row->id) }}" class="btn btn-primary">Lampiran</a>
                   </div>
                 </div>
               </div>
