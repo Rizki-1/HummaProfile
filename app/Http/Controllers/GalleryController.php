@@ -18,17 +18,19 @@ class GalleryController extends Controller
      */
     public function index()
     {
+        $target = TargetLayanan::all();
         $gallery = Gallery::latest()->paginate(15);
-        return view('admin.gallery.index', compact('gallery'));
+        return view('admin.gallery.index', compact('gallery','target'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
         $target = TargetLayanan::all();
-        return view('admin.gallery.create', compact('target'));
+        $id = TargetLayanan::findOrFail($request->target_layanan_id)->id;
+        return view('admin.gallery.create', compact('target','id'));
     }
 
     /**

@@ -12,9 +12,41 @@
       </nav>
     </div>
     <div class="text-end">
-      <a href="{{ route('gallery.create') }}" class="btn btn-outline-primary">Tambah Gallery</a>
+      <a class="btn btn-outline-primary"  data-bs-toggle="modal" data-bs-target="#exampleModal">Tambah Gallery</a>
     </div>
   </div>
+  <form action="{{ route('gallery.create') }}" method="get">
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+              <div class="col-md-12 mb-3">
+            <label for="filter" class="form-label">Tampilkan Di</label>
+            <select required name="target_layanan_id" class="form-select @error('target_layanan_id') is-invalid @enderror" id="iddata">
+                <option value="">--Pilih salah satu--</option>
+                @foreach ($target as $item)
+                <option value="{{ $item->id }}">{{ $item->target }}</option>
+                @endforeach
+            </select>
+            @error('target_layanan_id')
+              <div class="invalid-feedback">
+                <p>{{ $message }}</p>
+              </div>
+            @enderror
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
   <div class="card p-4">
     @if ($gallery->count() > 0)
       <div class="d-flex justify-content-end mb-3">
