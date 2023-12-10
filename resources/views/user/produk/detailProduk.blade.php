@@ -5,6 +5,10 @@
   <link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/forceLogo.css') }}">
   <link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/forceNav.css') }}">
   <link rel="stylesheet" href="{{ asset('cssUser/css/detail/style.css') }}">
+  <link href="https://cdn.jsdelivr.net/lightgallery/1.3.9/css/lightgallery.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ asset('cssUser/css/gallery/style.css') }}">
+  <script src="{{ asset('cssAdmin/js/jquery-ini.js') }}"></script>
+
   <div class="section blog-details-section section-padding-02 mb-5">
     <div class="container">
       <!-- Blog Details Wrap Start -->
@@ -17,19 +21,20 @@
               <div class="single-blog-post single-blog">
                 <div class="blog-image" data-aos="fade-up-right" data-aos-duration="500">
                   <div id="carouselExample" class="carousel slide">
-                    <div class="carousel-inner">
-                      {{-- Foreach Gambar Disini --}}
-                      <div class="carousel-item active">
-                        <img src="{{ asset('ImageGlobal/FotoPemandangan.png') }}" class="d-block w-100" alt="...">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="{{ asset('ImageGlobal/gallery/gallery_3.jpg') }}" class="d-block w-100" alt="...">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="{{ asset('ImageGlobal/FotoPemandangan.png') }}" class="d-block w-100" alt="...">
-                      </div>
-                      {{-- End Foreach --}}
-                    </div>
+                    <ul class="carousel-inner list-unstyled" id="lightgallery">
+                      <li class="carousel-item active gallery-item" data-responsive="{{ asset('/storage/'.$produk->foto_produk) }}" data-src="{{ asset('/storage/'.$produk->foto_produk) }}">
+                        <a href="">
+                        <img src="{{ asset('/storage/'.$produk->foto_produk) }}" class="d-block w-100" alt="Foto Produk {{ $produk->nama_produk }}">
+                        </a>
+                      </li>
+                      @foreach ($produk->galery as $i => $item)
+                      <li class="carousel-item gallery-item" data-responsive="{{ asset('/storage/produk_galery/'.$item->galery) }}" data-src="{{ asset('/storage/produk_galery/'.$item->galery) }}">
+                        <a href="">
+                        <img src="{{ asset('/storage/produk_galery/'.$item->galery) }}" class="d-block w-100" alt="Lampiran produk {{ $i++ }}">
+                        </a>
+                      </li>
+                      @endforeach
+                    </ul>
                     {{-- Kasih kondisi jika data dari produk cuman satu button ini di adain pake if --}}
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
                       data-bs-slide="prev">
@@ -104,6 +109,11 @@
     </div>
   </div>
   <!-- Blog Details End -->
+  <script src="{{ asset('js/galleryFunction.js') }}"></script>
+
+  <script>
+    $('#lightgallery').lightGallery();
+  </script>
 @endsection
 
 

@@ -99,7 +99,7 @@ class HomeController extends Controller
     }
 
     public function detailProduk(string $name) {
-        $produk = Produk::where('nama_produk',$name)->first();
+        $produk = Produk::with('galery')->where('nama_produk',$name)->first();
         if(!$produk){
             return back();
         }
