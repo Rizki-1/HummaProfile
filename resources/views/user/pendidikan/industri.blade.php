@@ -183,7 +183,7 @@
   </div>
 
   <!-- Service Start -->
-  <div class="section techwix-service-section section-padding-02" style="padding-bottom: 70px; padding-top: 20px">
+  <div class="section techwix-service-section industry-index section-padding-02" style="padding-bottom: 70px; padding-top: 20px">
     <div class="container">
       <!-- Service Wrap Start -->
       <div class="service-wrap">

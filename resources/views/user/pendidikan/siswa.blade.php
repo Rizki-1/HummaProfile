@@ -11,8 +11,7 @@
   <div class="section" style="padding-top: 0px">
     <div class="video">
       <div class="dark-overlay"></div>
-      <video class="video-slide active" src="{{ asset('ImageGlobal/industri.mp4') }}" autoplay loop muted
-        playsinline></video>
+      <video class="video-slide active" src="{{ asset('ImageGlobal/industri.mp4') }}" autoplay loop muted playsinline></video>
       <video class="video-slide" src="{{ asset('ImageGlobal/industri_2.mp4') }}" autoplay loop muted playsinline></video>
       <div class="slider-video">
         <div class="nav-btn active"></div>
@@ -42,8 +41,7 @@
   </div>
   <!-- Page Banner End -->
 
-  <div class="section techwix-choose-us-section-02 section-padding-02"
-    style="padding-bottom: 110px; background-color: #ffffff">
+  <div class="section techwix-choose-us-section-02 section-padding-02" style="padding-bottom: 110px; background-color: #ffffff">
     <div class="container">
       <!-- Choose Us Wrap Start -->
       <div class="choose-us-wrap">
@@ -60,8 +58,7 @@
               <p class="text mb-3" data-aos="fade-up-right" data-aos-duration="900">Lorem ipsum dolor sit amet consectetur
                 adipisicing elit. Facilis non, voluptate cupiditate, expedita similique sed cumque ad mollitia sequi
                 deleniti labore, odio autem. Incidunt, repudiandae a obcaecati aliquam nisi quisquam.</p>
-              <div class="btn-pendaftaran" data-aos="fade-up-right" data-aos-duration="1000"><a
-                  href="https://pkl.hummatech.com/" target="_blank" class="btn btn-primary">Daftar</a></div>
+              <div class="btn-pendaftaran" data-aos="fade-up-right" data-aos-duration="1000"><a href="https://pkl.hummatech.com/" target="_blank" class="btn btn-primary">Daftar</a></div>
             </div>
             <!-- Choose Us Left End -->
           </div>
@@ -73,13 +70,11 @@
                 <div class="accordion" id="accordionExample">
                   <div class="accordion-item" data-aos="fade-up-left" data-aos-duration="500">
                     <div class="accordion-header" id="headingOne">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                         <span class="title">Syarat & Ketentuan</span>
                       </button>
                     </div>
-                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
-                      data-bs-parent="#accordionExample" data-aos="fade-up-left" data-aos-duration="800">
+                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample" data-aos="fade-up-left" data-aos-duration="800">
                       <div class="accordion-body">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem animi labore voluptatibus? Modi
                         possimus quos doloremque nihil. Omnis, adipisci ex, ad sapiente vitae esse id vel mollitia, est
@@ -89,13 +84,11 @@
                   </div>
                   <div class="accordion-item" data-aos="fade-up-left" data-aos-duration="700">
                     <div class="accordion-header" id="headingTwo">
-                      <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                         <span class="title">Syarat & Ketentuan</span>
                       </button>
                     </div>
-                    <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo"
-                      data-bs-parent="#accordionExample" style="">
+                    <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample" style="">
                       <div class="accordion-body">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam quia facere molestiae doloremque
                         cum tempore cumque, similique dolore soluta consequuntur maxime tempora! Autem perspiciatis facere
@@ -105,13 +98,11 @@
                   </div>
                   <div class="accordion-item" data-aos="fade-up-left" data-aos-duration="900">
                     <div class="accordion-header" id="headingThree">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                         <span class="title">Syarat & Ketentuan</span>
                       </button>
                     </div>
-                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                      data-bs-parent="#accordionExample" style="">
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample" style="">
                       <div class="accordion-body">
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo aperiam cupiditate, veritatis,
                         ipsam accusantium esse voluptate ducimus distinctio a quidem animi nihil aut consectetur? Possimus
@@ -132,7 +123,7 @@
   </div>
 
   <!-- Service Start -->
-  <div class="section techwix-service-section section-padding-02" style="padding-bottom: 70px; padding-top: 20px">
+  <div class="section techwix-service-section siswa-index section-padding-02" style="padding-bottom: 70px; padding-top: 20px">
     <div class="container">
       <!-- Service Wrap Start -->
       <div class="service-wrap">
@@ -149,11 +140,10 @@
                 <div class="col-xl-3 col-sm-6">
                   <!-- Service Item Start -->
                   <div class="service-item layanan-industri-siswa">
-                    <div class="image-layanan">
-                      <img style="width: 100%; height: 100%; object-fit: cover"
-                        src="{{ asset('storage/layanan/'. $data->foto_layanan) }}" alt="">
-                    </div>
                     <div class="service-content">
+                      <div class="image-layanan">
+                        <img style="width: 100%; height: 100%; object-fit: cover" src="{{ asset('storage/layanan/' . $data->foto_layanan) }}" alt="">
+                      </div>
                       <h3 class="title"><a class="layanan-truncation-title">{{ $data->nama_layanan }}</a></h3>
                       <p class="layanan-truncation-text">{{ $data->descripsi_layanan }}</p>
                     </div>
@@ -179,9 +169,7 @@
   <!-- Service End -->
 
   <!-- Testimonial Start  -->
-  <div
-    class="section bg-cover techwix-testimonial-section-02 techwix-testimonial-section-03 techwix-testimonial-section-05 section-padding"
-    style="padding: 40px;">
+  <div class="section bg-cover techwix-testimonial-section-02 techwix-testimonial-section-03 techwix-testimonial-section-05 section-padding" style="padding: 40px;">
     <div class="container">
       <!-- Testimonial Wrap Start  -->
       <div class="testimonial-wrap-02">
@@ -213,104 +201,104 @@
                   <!--  Single Testimonial End  -->
                 </div>
               @empty
-              <div class="swiper-slide" data-aos="fade-up" data-aos-duration="900">
-                <!--  Single Testimonial Start  -->
-                <div class="single-testimonial-02">
-                  <div class="testimonial-thumb">
-                    <img src="{{ asset('ImageGlobal/FotoPemandangan.png') }}" alt="">
-                  </div>
-                  <div class="testimonial-content">
-                    <img src="{{ asset('cssUser/images/testi-icon.png') }}" alt="">
-                    <div class="truncation">
-                      <p>Tetaplah semangat meskipun kamu tidak akan bisa mendapatkan dia</p>
+                <div class="swiper-slide" data-aos="fade-up" data-aos-duration="900">
+                  <!--  Single Testimonial Start  -->
+                  <div class="single-testimonial-02">
+                    <div class="testimonial-thumb">
+                      <img src="{{ asset('ImageGlobal/FotoPemandangan.png') }}" alt="">
                     </div>
-                    <span class="name d-inline-block text-truncate" style="max-width: 40%">Hummatech Team
-                    </span>
-                    <span class="designation d-inline-block text-truncate" style="max-width: 40%">/
-                      Love from us</span>
-                  </div>
-                </div>
-                <!--  Single Testimonial End  -->
-              </div>
-              <div class="swiper-slide">
-                <!--  Single Testimonial Start  -->
-                <div class="single-testimonial-02">
-                  <div class="testimonial-thumb">
-                    <img src="{{ asset('ImageGlobal/FotoPemandangan.png') }}" alt="">
-                  </div>
-                  <div class="testimonial-content">
-                    <img src="{{ asset('cssUser/images/testi-icon.png') }}" alt="">
-                    <div class="truncation">
-                      <p>Bintang tidak akan bertahan selamanya, sama seperti mimpi kita ketika kita tidak berusaha
-                        menggapainya</p>
+                    <div class="testimonial-content">
+                      <img src="{{ asset('cssUser/images/testi-icon.png') }}" alt="">
+                      <div class="truncation">
+                        <p>Tetaplah semangat meskipun kamu tidak akan bisa mendapatkan dia</p>
+                      </div>
+                      <span class="name d-inline-block text-truncate" style="max-width: 40%">Hummatech Team
+                      </span>
+                      <span class="designation d-inline-block text-truncate" style="max-width: 40%">/
+                        Love from us</span>
                     </div>
-                    <span class="name d-inline-block text-truncate" style="max-width: 40%">Hummatech Team
-                    </span>
-                    <span class="designation d-inline-block text-truncate" style="max-width: 40%">/
-                      Love from us</span>
                   </div>
+                  <!--  Single Testimonial End  -->
                 </div>
-                <!--  Single Testimonial End  -->
-              </div>
-              <div class="swiper-slide" data-aos="fade-up" data-aos-duration="900">
-                <!--  Single Testimonial Start  -->
-                <div class="single-testimonial-02">
-                  <div class="testimonial-thumb">
-                    <img src="{{ asset('ImageGlobal/FotoPemandangan.png') }}" alt="">
-                  </div>
-                  <div class="testimonial-content">
-                    <img src="{{ asset('cssUser/images/testi-icon.png') }}" alt="">
-                    <div class="truncation">
-                      <p>Tomat itu buah atau sayur? beritahu kami +62 849 3948 3984, semoga beruntung karena no hp ini
-                        palsu</p>
+                <div class="swiper-slide">
+                  <!--  Single Testimonial Start  -->
+                  <div class="single-testimonial-02">
+                    <div class="testimonial-thumb">
+                      <img src="{{ asset('ImageGlobal/FotoPemandangan.png') }}" alt="">
                     </div>
-                    <span class="name d-inline-block text-truncate" style="max-width: 40%">Hummatech Team
-                    </span>
-                    <span class="designation d-inline-block text-truncate" style="max-width: 40%">/
-                      Love from us</span>
-                  </div>
-                </div>
-                <!--  Single Testimonial End  -->
-              </div>
-              <div class="swiper-slide" data-aos="fade-up" data-aos-duration="900">
-                <!--  Single Testimonial Start  -->
-                <div class="single-testimonial-02">
-                  <div class="testimonial-thumb">
-                    <img src="{{ asset('ImageGlobal/FotoPemandangan.png') }}" alt="">
-                  </div>
-                  <div class="testimonial-content">
-                    <img src="{{ asset('cssUser/images/testi-icon.png') }}" alt="">
-                    <div class="truncation">
-                      <p>Apakah kita tidur lebih awal jika kita tidur jam 1 malam? atau tidur lebih lambat?</p>
+                    <div class="testimonial-content">
+                      <img src="{{ asset('cssUser/images/testi-icon.png') }}" alt="">
+                      <div class="truncation">
+                        <p>Bintang tidak akan bertahan selamanya, sama seperti mimpi kita ketika kita tidak berusaha
+                          menggapainya</p>
+                      </div>
+                      <span class="name d-inline-block text-truncate" style="max-width: 40%">Hummatech Team
+                      </span>
+                      <span class="designation d-inline-block text-truncate" style="max-width: 40%">/
+                        Love from us</span>
                     </div>
-                    <span class="name d-inline-block text-truncate" style="max-width: 40%">Hummatech Team
-                    </span>
-                    <span class="designation d-inline-block text-truncate" style="max-width: 40%">/
-                      Love from us</span>
                   </div>
+                  <!--  Single Testimonial End  -->
                 </div>
-                <!--  Single Testimonial End  -->
-              </div>
-              <div class="swiper-slide" data-aos="fade-up" data-aos-duration="900">
-                <!--  Single Testimonial Start  -->
-                <div class="single-testimonial-02">
-                  <div class="testimonial-thumb">
-                    <img src="{{ asset('ImageGlobal/FotoPemandangan.png') }}" alt="">
-                  </div>
-                  <div class="testimonial-content">
-                    <img src="{{ asset('cssUser/images/testi-icon.png') }}" alt="">
-                    <div class="truncation">
-                      <p>Manusia akan tinggal di mars pada masa yang akan datang, Anda mungkin akan menjadi salah
-                        satunya</p>
+                <div class="swiper-slide" data-aos="fade-up" data-aos-duration="900">
+                  <!--  Single Testimonial Start  -->
+                  <div class="single-testimonial-02">
+                    <div class="testimonial-thumb">
+                      <img src="{{ asset('ImageGlobal/FotoPemandangan.png') }}" alt="">
                     </div>
-                    <span class="name d-inline-block text-truncate" style="max-width: 40%">Hummatech Team
-                    </span>
-                    <span class="designation d-inline-block text-truncate" style="max-width: 40%">/
-                      Love from us</span>
+                    <div class="testimonial-content">
+                      <img src="{{ asset('cssUser/images/testi-icon.png') }}" alt="">
+                      <div class="truncation">
+                        <p>Tomat itu buah atau sayur? beritahu kami +62 849 3948 3984, semoga beruntung karena no hp ini
+                          palsu</p>
+                      </div>
+                      <span class="name d-inline-block text-truncate" style="max-width: 40%">Hummatech Team
+                      </span>
+                      <span class="designation d-inline-block text-truncate" style="max-width: 40%">/
+                        Love from us</span>
+                    </div>
                   </div>
+                  <!--  Single Testimonial End  -->
                 </div>
-                <!--  Single Testimonial End  -->
-              </div>
+                <div class="swiper-slide" data-aos="fade-up" data-aos-duration="900">
+                  <!--  Single Testimonial Start  -->
+                  <div class="single-testimonial-02">
+                    <div class="testimonial-thumb">
+                      <img src="{{ asset('ImageGlobal/FotoPemandangan.png') }}" alt="">
+                    </div>
+                    <div class="testimonial-content">
+                      <img src="{{ asset('cssUser/images/testi-icon.png') }}" alt="">
+                      <div class="truncation">
+                        <p>Apakah kita tidur lebih awal jika kita tidur jam 1 malam? atau tidur lebih lambat?</p>
+                      </div>
+                      <span class="name d-inline-block text-truncate" style="max-width: 40%">Hummatech Team
+                      </span>
+                      <span class="designation d-inline-block text-truncate" style="max-width: 40%">/
+                        Love from us</span>
+                    </div>
+                  </div>
+                  <!--  Single Testimonial End  -->
+                </div>
+                <div class="swiper-slide" data-aos="fade-up" data-aos-duration="900">
+                  <!--  Single Testimonial Start  -->
+                  <div class="single-testimonial-02">
+                    <div class="testimonial-thumb">
+                      <img src="{{ asset('ImageGlobal/FotoPemandangan.png') }}" alt="">
+                    </div>
+                    <div class="testimonial-content">
+                      <img src="{{ asset('cssUser/images/testi-icon.png') }}" alt="">
+                      <div class="truncation">
+                        <p>Manusia akan tinggal di mars pada masa yang akan datang, Anda mungkin akan menjadi salah
+                          satunya</p>
+                      </div>
+                      <span class="name d-inline-block text-truncate" style="max-width: 40%">Hummatech Team
+                      </span>
+                      <span class="designation d-inline-block text-truncate" style="max-width: 40%">/
+                        Love from us</span>
+                    </div>
+                  </div>
+                  <!--  Single Testimonial End  -->
+                </div>
               @endforelse
             </div>
 
@@ -330,8 +318,7 @@
       <!-- Service Wrap Start -->
       <div class="service-wrap">
         <div class="section-title text-center">
-          <h2 class="title" data-aos="fade-up" data-aos-duration="700"
-            style="padding: 20px; text-transform: capitalize">Gallery Magang
+          <h2 class="title" data-aos="fade-up" data-aos-duration="700" style="padding: 20px; text-transform: capitalize">Gallery Magang
             <span style="color: #22B3E2">Humma</span>Tech
           </h2>
         </div>
@@ -439,32 +426,32 @@
     });
   </script>
 
-<script src="{{ asset('js/galleryFunction.js') }}"></script>
-<script>
+  <script src="{{ asset('js/galleryFunction.js') }}"></script>
+  <script>
     $(document).ready(function() {
-        function replaceSkeletonWithImage(skeleton, imageSource) {
-            skeleton.next('img').attr('src', imageSource);
-            skeleton.remove();
+      function replaceSkeletonWithImage(skeleton, imageSource) {
+        skeleton.next('img').attr('src', imageSource);
+        skeleton.remove();
 
-            $('#lightgallery .gallery-item a').each(function() {
-                $(this).removeClass('opacity-0');
-            });
-        }
+        $('#lightgallery .gallery-item a').each(function() {
+          $(this).removeClass('opacity-0');
+        });
+      }
 
-        // Loop through gallery items and lazy-load images
-        $('#lightgallery .gallery-item').each(function() {
-            var skeleton = $(this).children('.skeleton');
-            var imageSource = $(this).attr('data-src');
+      // Loop through gallery items and lazy-load images
+      $('#lightgallery .gallery-item').each(function() {
+        var skeleton = $(this).children('.skeleton');
+        var imageSource = $(this).attr('data-src');
 
-            // Lazy-load the image and replace the skeleton when loaded
-            $('<img>').attr('src', imageSource).on('load', function() {
-                setInterval(() => {
+        // Lazy-load the image and replace the skeleton when loaded
+        $('<img>').attr('src', imageSource).on('load', function() {
+          setInterval(() => {
 
-                    replaceSkeletonWithImage(skeleton, imageSource);
-                }, 2000);
-            });
+            replaceSkeletonWithImage(skeleton, imageSource);
+          }, 2000);
         });
       });
-      $('#lightgallery').lightGallery();
-</script>
+    });
+    $('#lightgallery').lightGallery();
+  </script>
 @endsection

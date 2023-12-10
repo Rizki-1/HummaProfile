@@ -2,7 +2,7 @@
 
 @section('content')
   <title>{{ config('app.name', 'Laravel') }} - Produk Create</title>
-	<link rel="stylesheet" href="{{ asset('cssAdmin/vendors/easymde/easymde.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('cssAdmin/vendors/easymde/easymde.min.css') }}">
   <div class="card mb-4 p-4">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb breadcrumb-dot mb-0">
@@ -58,15 +58,15 @@
             @enderror
           </div>
         </div>
-          <div class="mb-3">
-              <label for="easyMdeEditor" class="form-label">Deskripsi Produk</label>
-              <textarea name="keterangan_produk" class="form-control @error('keterangan_produk') is-invalid @enderror" id="easyMdeEditor" rows="2" placeholder="Hummaprofile adalah website company profile untuk Hummatech">{{ old('keterangan_produk') }}</textarea>
-              @error('keterangan_produk')
-                  <div class="invalid-feedback">
-                      <p>{{ $message }}</p>
-                  </div>
-              @enderror
-          </div>
+        <div class="mb-3">
+          <label for="easyMdeEditor" class="form-label">Deskripsi Produk</label>
+          <textarea name="keterangan_produk" class="form-control @error('keterangan_produk') is-invalid @enderror" id="easyMdeEditor" rows="2" placeholder="Hummaprofile adalah website company profile untuk Hummatech">{{ old('keterangan_produk') }}</textarea>
+          @error('keterangan_produk')
+            <div class="invalid-feedback">
+              <p>{{ $message }}</p>
+            </div>
+          @enderror
+        </div>
         <div class="col-md-6 col-12">
           <button type="submit" class="btn btn-primary me-2">Tambah</button>
           <a class="btn btn-secondary" href="{{ route('produk.index') }}">Cancel</a>
@@ -74,6 +74,6 @@
       </form>
     </div>
   </div>
-	<script src="{{ asset('cssAdmin/vendors/easymde/easymde.min.js') }}"></script>
+  <script src="{{ asset('cssAdmin/vendors/easymde/easymde.min.js') }}"></script>
   <script src="{{ asset('cssAdmin/js/email.js') }}"></script>
 @endsection

@@ -73,7 +73,7 @@
                 <a href="{{ route('produkIndex') }}">Produk Kami</a>
               </li>
               <li class="{{ request()->routeIs('beritaIndex') || request()->routeIs('detailBerita') || request()->routeIs('filter-category') ? 'active-menu' : '' }}">
-                <a href="{{ route('beritaIndex') }}">Blog</a>
+                <a href="{{ route('beritaIndex') }}">Berita</a>
               </li>
               <li class="{{ request()->routeIs('contactIndex') ? 'active-menu' : '' }}">
                 <a href="{{ route('contactIndex') }}">Hubungi</a>
@@ -153,7 +153,7 @@
               <a href="{{ route('produkIndex') }}">Produk Kami</a>
             </li>
             <li class="{{ request()->routeIs('beritaIndex') || request()->routeIs('detailBerita') || request()->routeIs('filter-category') ? 'active' : '' }}">
-              <a href="{{ route('beritaIndex') }}">Blog</a>
+              <a href="{{ route('beritaIndex') }}">Berita</a>
             </li>
             <li class="{{ request()->routeIs('contactIndex') ? 'active' : '' }}">
               <a href="{{ route('contactIndex') }}">Hubungi</a>

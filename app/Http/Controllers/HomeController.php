@@ -17,6 +17,7 @@ use App\Models\TargetLayanan;
 use App\Models\KategoriBerita;
 use App\Models\ProfileCompany;
 use App\Models\LayananPerusahaan;
+use App\Models\OperationalTime;
 use App\Models\Testimoni;
 
 class HomeController extends Controller
@@ -32,7 +33,8 @@ class HomeController extends Controller
         $Mous = Mou::all();
         $testimoni = Testimoni::latest()->get();
         $cabang = CabangPerusahaan::all();
-        return view('user.index', compact('profile', 'berita', 'layanan', 'produk', 'Mous', 'testimoni', 'cabang'));
+        $operational = OperationalTime::all();
+        return view('user.index', compact('profile', 'berita', 'layanan', 'produk', 'Mous', 'testimoni', 'operational', 'cabang'));
     }
 
     public function home()

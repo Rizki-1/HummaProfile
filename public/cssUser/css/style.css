@@ -9526,6 +9526,42 @@ only screen and (max-width: 767px) {
     display: none;
 }
 
+.ot-container {
+    background-color: white;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.do-nothing {
+    display: block;
+}
+
+.ot-day {
+    margin-right: 50px;
+    margin-top: 5px;
+    width: 100%;
+}
+
+.ot-hours {
+    margin-top: 5px;
+    width: 100%;
+    gap: 4px;
+}
+
+.bolding {
+    font-weight: 600;
+    font-family: "Barlow", sans-serif;
+    color: #828282;
+    font-size: 18px;
+}
+
+.bolding.active {
+    color: black;
+    font-weight: 700;
+}
+
 @media screen and (min-width: 576px) {
     .desktop-footer {
         display: block;
@@ -9542,6 +9578,10 @@ only screen and (max-width: 767px) {
     }
 
     .footer-widget-title {
+        text-align: center;
+    }
+
+    .operational-holder {
         text-align: center;
     }
 }

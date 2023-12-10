@@ -35,9 +35,12 @@
             </div>
             <div class="image-hover">
               <div class="image-detail">
+                  <div class="lampiran-hover">
+                    <a href="{{ route('galeryproduk.create', $row->id) }}">Lampiran</a>
+                  </div>
                 <div class="detail-container">
                   <div class="first-detail">
-                    <h2 class="card-title text-truncate" style="max-width: 90%">{{ $row->nama_produk }}</h2>
+                    <h2 class="card-title text-truncate" style="max-width: 70%; margin-bottom: 3px !important;">{{ $row->nama_produk }}</h2>
                   </div>
                   <div>
                   </div>
@@ -46,9 +49,8 @@
                     <form nameProduk="{{ $row->nama_produk }}" action="{{ route('produk.destroy', $row->id) }}" method="POST" class="hapus">
                       @csrf
                       @method('DELETE')
-                      <button type="submit" class="button-delete"><i class="link-icon trash-icon" data-feather="trash"></i></button>
+                      <button type="submit" class="remove-button"><i class="link-icon pg-trash" data-feather="trash"></i></button>
                     </form>
-                    <a href="{{ route('galeryproduk.create', $row->id) }}" class="btn btn-primary">Lampiran</a>
                   </div>
                 </div>
               </div>
@@ -68,24 +70,24 @@
     </div>
   </div>
   @foreach ($produks as $row)
-  <div class="modal fade" id="exampleModal--{{ $row->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal--{{ $row->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                  <div class="dropzone" id="dropzone" data-id="{{ $row->id }}"></div>
-              </div>
-              <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  {{-- <button type="button" class="btn btn-primary" onclick="uploadGallery({{ $row->id }})">Save changes</button> --}}
-              </div>
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
+          <div class="modal-body">
+            <div class="dropzone" id="dropzone" data-id="{{ $row->id }}"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            {{-- <button type="button" class="btn btn-primary" onclick="uploadGallery({{ $row->id }})">Save changes</button> --}}
+          </div>
+        </div>
       </div>
-  </div>
-@endforeach
+    </div>
+  @endforeach
   <script>
     if (document.querySelectorAll('.hapus').length > 0) {
       document.querySelectorAll('.hapus').forEach(function(form) {
@@ -109,45 +111,45 @@
       });
     }
 
-    document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('.dropzone').forEach(function (dropzone) {
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.dropzone').forEach(function(dropzone) {
         const id = dropzone.getAttribute('data-id');
 
         var myDropzone = new Dropzone("#" + dropzone.id, {
-            url: "{{ route('galeryproduk.store', ['id' => ':id']) }}".replace(':id', id),
-            headers: {
-                'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content,
-            },
-            paramName: "file",
-            addRemoveLinks: true,
-            maxFiles: 10,
-            dictDefaultMessage: "Seret dan lepaskan file atau klik untuk memilih file",
-            dictRemoveFile: "Hapus file",
-            acceptedFiles: "image/*",
-            uploadMultiple: true,
-            init: function () {
-                this.on("removedfile", function (file) {
-                    if (file.xhr) {
-                        var fileName = file.name;
-                        $.ajax({
-                            type: 'delete',
-                            url: '{{ route("galeryproduk.delete", ":id") }}'.replace(':id', fileName),
-                            data: {
-                                _token: '{{ csrf_token() }}',
-                                id: id
-                            },
-                            success: function (data) {
-                                console.log(data);
-                            },
-                            error: function (error) {
-                                console.error(error);
-                            }
-                        });
-                    }
+          url: "{{ route('galeryproduk.store', ['id' => ':id']) }}".replace(':id', id),
+          headers: {
+            'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content,
+          },
+          paramName: "file",
+          addRemoveLinks: true,
+          maxFiles: 10,
+          dictDefaultMessage: "Seret dan lepaskan file atau klik untuk memilih file",
+          dictRemoveFile: "Hapus file",
+          acceptedFiles: "image/*",
+          uploadMultiple: true,
+          init: function() {
+            this.on("removedfile", function(file) {
+              if (file.xhr) {
+                var fileName = file.name;
+                $.ajax({
+                  type: 'delete',
+                  url: '{{ route('galeryproduk.delete', ':id') }}'.replace(':id', fileName),
+                  data: {
+                    _token: '{{ csrf_token() }}',
+                    id: id
+                  },
+                  success: function(data) {
+                    console.log(data);
+                  },
+                  error: function(error) {
+                    console.error(error);
+                  }
                 });
-            }
+              }
+            });
+          }
         });
+      });
     });
-});
   </script>
 @endsection
