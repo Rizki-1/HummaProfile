@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateProfileRequest;
 use App\Models\ProfileCompany;
 use App\Models\Sosmed;
 use Illuminate\Http\Request;
@@ -20,7 +21,7 @@ class ProfilePerusahaanController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateProfileRequest $request, string $id)
     {
         try {
             $dataRequest = $request->all();
@@ -31,6 +32,11 @@ class ProfilePerusahaanController extends Controller
                     'title' => "Gagal",
                     'text' => "ID profile tidak di temukan!"
                 ]);
+            }
+
+            if($request->hasFile('poto_profile')){
+                unlink('ImageGlobal/HummaTech-Logo.png');
+                $request->file('poto_profile')->move('ImageGlobal', 'HummaTech-Logo.png');
             }
 
             $profile->email = $request->email;

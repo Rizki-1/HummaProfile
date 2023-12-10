@@ -2,6 +2,7 @@
 
 @section('content')
   <title>{{ config('app.name', 'Laravel') }} - Profile Perusahaan</title>
+  <link rel="stylesheet" href="{{ asset('cssAdmin/css/demo1/profile-edit.css') }}">
   <div class="card p-4 mb-4 flex-row justify-content-between align-items-center">
     <div>
       <nav aria-label="breadcrumb">
@@ -11,10 +12,21 @@
       </nav>
     </div>
   </div>
-  <div class="card p-4">
-    <form action="{{ route('profile-perusahaan.update', 1) }}" method="POST" enctype="multipart/form-data">
-      @csrf
-      @method('PUT')
+  <form action="{{ route('profile-perusahaan.update', 1) }}" method="POST" enctype="multipart/form-data">
+    @csrf
+    @method('PUT')
+    <div class="card p-4">
+      <div class="d-flex flex-column align-items-center pb-5">
+          <label for="potoProfile" class="image-hover">
+              <span class="edit-icon"></span>
+              <img id="profileImage" src="{{ asset('ImageGlobal/HummaTech-Logo.png') }}" alt="Photo profile" width="100">
+          </label>
+          <input type="file" name="poto_profile" id="potoProfile" class="d-none">
+          @error('poto_profile')
+              <p class="text-danger">{{ $message }}</p>
+          @enderror
+          <h4 class="mt-2">Logo Perusahaan</h4>
+      </div>
       <div class="row">
         <div class="col-md-6 mb-3">
           <div>
@@ -24,28 +36,48 @@
             <div class="row mt-3">
               <div class="col-md-12">
                 <label class="form-label">Alamat</label>
-                <textarea class="form-control" placeholder="Masukkan alamat" name="alamat" rows="3">{{ $profile->alamat }}</textarea>
+                <textarea class="form-control @error('alamat') is-invalid @enderror" placeholder="Masukkan alamat" name="alamat" rows="3">{{ $profile->alamat }}</textarea>
+                  @error('alamat')
+                      <div>
+                              <p class="text-danger mt-2">{{ $message }}</p>
+                      </div>
+                  @enderror
               </div>
             </div>
 
             <div class="row mt-3">
               <div class="col-md-12">
                 <label class="form-label">Nomor Telepon</label>
-                <input type="text" class="form-control" placeholder="Masukkan nomor telepon" name="no_telp" value="{{ $profile->no_telp }}">
+                <input type="text" class="form-control @error('no_telp') is-invalid @enderror" placeholder="Masukkan nomor telepon" name="no_telp" value="{{ $profile->no_telp }}">
+                  @error('no_telp')
+                    <div>
+                      <p class="text-danger mt-2">{{ $message }}</p>
+                    </div>
+                  @enderror
               </div>
             </div>
 
             <div class="row mt-3">
               <div class="col-md-12">
                 <label class="form-label">Email</label>
-                <input type="text" class="form-control" placeholder="Masukkan email" name="email" value="{{ $profile->email }}">
+                <input type="text" class="form-control @error('email') is-invalid @enderror" placeholder="Masukkan email" name="email" value="{{ $profile->email }}">
+                  @error('email')
+                    <div>
+                      <p class="text-danger mt-2">{{ $message }}</p>
+                    </div>
+                  @enderror
               </div>
             </div>
           </div>
 
           <div class="mt-3">
             <label class="form-label">Tentang</label>
-            <textarea type="text" class="form-control" placeholder="Masukkan tentang" rows="15" name="tentang">{{ $profile->tentang }}</textarea>
+            <textarea type="text" class="form-control @error('tentang') is-invalid @enderror" placeholder="Masukkan tentang" rows="15" name="tentang">{{ $profile->tentang }}</textarea>
+              @error('tentang')
+                <div>
+                  <p class="text-danger mt-2">{{ $message }}</p>
+                </div>
+              @enderror
           </div>
         </div>
         <div class="col-md-6 mb-3">
@@ -65,7 +97,7 @@
                           <div class="col-3">
                             <label for="unknown" class="form-label">Sosial Media</label>
                             <input type="text" class="form-control @error('name') is-invalid
-                                                        @enderror" placeholder="Nama sosmed" name="name" value="{{ $detail->name }}" required>
+                                                        @enderror" placeholder="Nama sosmed" name="name" value="{{ $detail->name }}">
                             @error('name')
                               <div class="invalid-feedback">
                                 <p>{{ $message }}</p>
@@ -77,8 +109,7 @@
                             <div class="d-flex justify-content-between">
                               <div style="width: 100%">
                                 <input type="text" class="form-control @error('link') is-invalid
-                                                            @enderror"name="link" id="linkSosmed" placeholder="Link Sosmed" value="{{ $detail->link }}"
-                                  required>
+                                                            @enderror"name="link" id="linkSosmed" placeholder="Link Sosmed" value="{{ $detail->link }}">
                                 @error('link')
                                   <div class="invalid-feedback">
                                     <p>{{ $message }}</p>
@@ -101,7 +132,7 @@
                         <div class="d-flex flex-row">
                           <div class="col-6 mb-4 pe-3">
                             <label for="unknown" class="form-label">Nama Sosmed</label>
-                            <input required type="text" class="form-control @error('sosmed-group.' . $i . '.name') is-invalid @enderror" placeholder="Nama sosmed" name="name" value="{{ $category['name'] }}" required>
+                            <input type="text" class="form-control @error('sosmed-group.' . $i . '.name') is-invalid @enderror" placeholder="Nama sosmed" name="name" value="{{ $category['name'] }}" required>
                             @error('sosmed-group.' . $i . '.name')
                               <div class="invalid-feedback">
                                 <p>{{ $message }}</p>
@@ -112,7 +143,7 @@
                             <label for="unknown" class="form-label">Link Sosmed</label>
                             <div class="d-flex justify-content-between">
                               <div style="width: 100%">
-                                <input required type="number" name="link"
+                                <input type="number" name="link"
                                   class="form-control @error('sosmed-group.' . $i . '.link') is-invalid
                                                                                                       @enderror" id="linkSosmed" placeholder="Link Sosmed"
                                   value="{{ $category['link'] }}" required>
@@ -146,4 +177,20 @@
       </div>
     </form>
   </div>
+<script>
+    document.getElementById('potoProfile').addEventListener('change', function(event) {
+        const inputFile = event.target;
+        const profileImage = document.getElementById('profileImage');
+
+        if (inputFile.files && inputFile.files[0]) {
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                profileImage.src = e.target.result;
+            };
+
+            reader.readAsDataURL(inputFile.files[0]);
+        }
+    });
+</script>
 @endsection
