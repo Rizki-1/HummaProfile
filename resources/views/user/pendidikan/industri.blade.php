@@ -4,7 +4,7 @@
   {{-- <link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/forceNav.css') }}"> --}}
   <link rel="stylesheet" href="{{ asset('cssUser/css/pendidikan/style.css') }}">
   <link rel="stylesheet" href="{{ asset('cssUser/css/gallery/style.css') }}">
-    <link href="https://cdn.jsdelivr.net/lightgallery/1.3.9/css/lightgallery.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/lightgallery/1.3.9/css/lightgallery.min.css" rel="stylesheet">
   <script src="{{ asset('cssAdmin/js/jquery-ini.js') }}"></script>
 
   <!-- Page Banner Start -->
@@ -152,7 +152,7 @@
                     <div class="service-content">
                       <div class="image-layanan">
                         <img style="width: 100%; height: 100%; object-fit: cover"
-                          src="{{ asset('storage/layanan/'. $data->foto_layanan) }}" alt="">
+                          src="{{ asset('storage/layanan/' . $data->foto_layanan) }}" alt="">
                       </div>
                       <h3 class="title"><a class="layanan-truncation-title">{{ $data->nama_layanan }}</a></h3>
                       <p class="layanan-truncation-text">{{ $data->descripsi_layanan }}</p>
@@ -185,7 +185,7 @@
       <div class="service-wrap">
         <div class="section-title text-center">
           <h2 class="title" data-aos="fade-up" data-aos-duration="700"
-          style="padding: 20px; text-transform: capitalize">Sekolah yang sudah bekerja sama dengan kami
+            style="padding: 20px; text-transform: capitalize">Sekolah bekerja sama dengan kami
             <span style="color: #22B3E2">Humma</span>Tech
           </h2>
         </div>
@@ -340,56 +340,65 @@
           <div id="gallery" class="container-fluid">
             <ul id="lightgallery" class="list-unstyled">
               @forelse ($gallery as $data)
-                <li class="gallery-item" data-responsive="{{ asset('storage/galery/' . $data->picture) }}" data-src="{{ asset('storage/galery/' . $data->picture) }}">
+                <li class="gallery-item" data-responsive="{{ asset('storage/galery/' . $data->picture) }}"
+                  data-src="{{ asset('storage/galery/' . $data->picture) }}">
                   <div class="skeleton"></div>
                   <a href="" class="opacity-0">
                     <img src="{{ asset('storage/galery/' . $data->picture) }}" class="img-responsive">
                   </a>
                 </li>
               @empty
-                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_1.jpg') }}" data-src="{{ asset('ImageGlobal/gallery/gallery_1.jpg') }}">
+                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_1.jpg') }}"
+                  data-src="{{ asset('ImageGlobal/gallery/gallery_1.jpg') }}">
                   <div class="skeleton"></div>
                   <a href="" class="opacity-0">
                     <img src="{{ asset('ImageGlobal/gallery/gallery_1.jpg') }}" class="img-responsive">
                   </a>
                 </li>
-                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_2.jpg') }}" data-src="{{ asset('ImageGlobal/gallery/gallery_2.jpg') }}">
+                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_2.jpg') }}"
+                  data-src="{{ asset('ImageGlobal/gallery/gallery_2.jpg') }}">
                   <div class="skeleton"></div>
                   <a href="" class="opacity-0">
                     <img src="{{ asset('ImageGlobal/gallery/gallery_2.jpg') }}" class="img-responsive">
                   </a>
                 </li>
-                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_3.jpg') }}" data-src="{{ asset('ImageGlobal/gallery/gallery_3.jpg') }}">
+                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_3.jpg') }}"
+                  data-src="{{ asset('ImageGlobal/gallery/gallery_3.jpg') }}">
                   <div class="skeleton"></div>
                   <a href="" class="opacity-0">
                     <img src="{{ asset('ImageGlobal/gallery/gallery_3.jpg') }}" class="img-responsive">
                   </a>
                 </li>
-                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}" data-src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}">
+                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}"
+                  data-src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}">
                   <div class="skeleton"></div>
                   <a href="" class="opacity-0">
                     <img src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}" class="img-responsive">
                   </a>
                 </li>
-                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_5.jpg') }}" data-src="{{ asset('ImageGlobal/gallery/gallery_5.jpg') }}">
+                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_5.jpg') }}"
+                  data-src="{{ asset('ImageGlobal/gallery/gallery_5.jpg') }}">
                   <div class="skeleton"></div>
                   <a href="" class="opacity-0">
                     <img src="{{ asset('ImageGlobal/gallery/gallery_5.jpg') }}" class="img-responsive">
                   </a>
                 </li>
-                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_6.jpg') }}" data-src="{{ asset('ImageGlobal/gallery/gallery_6.jpg') }}">
+                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_6.jpg') }}"
+                  data-src="{{ asset('ImageGlobal/gallery/gallery_6.jpg') }}">
                   <div class="skeleton"></div>
                   <a href="" class="opacity-0">
                     <img src="{{ asset('ImageGlobal/gallery/gallery_6.jpg') }}" class="img-responsive">
                   </a>
                 </li>
-                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_7.jpg') }}" data-src="{{ asset('ImageGlobal/gallery/gallery_7.jpg') }}">
+                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_7.jpg') }}"
+                  data-src="{{ asset('ImageGlobal/gallery/gallery_7.jpg') }}">
                   <div class="skeleton"></div>
                   <a href="" class="opacity-0">
                     <img src="{{ asset('ImageGlobal/gallery/gallery_7.jpg') }}" class="img-responsive">
                   </a>
                 </li>
-                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_8.jpg') }}" data-src="{{ asset('ImageGlobal/gallery/gallery_8.jpg') }}">
+                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_8.jpg') }}"
+                  data-src="{{ asset('ImageGlobal/gallery/gallery_8.jpg') }}">
                   <div class="skeleton"></div>
                   <a href="" class="opacity-0">
                     <img src="{{ asset('ImageGlobal/gallery/gallery_8.jpg') }}" class="img-responsive">
@@ -441,32 +450,32 @@
     });
   </script>
 
-<script src="{{ asset('js/galleryFunction.js') }}"></script>
-<script>
+  <script src="{{ asset('js/galleryFunction.js') }}"></script>
+  <script>
     $(document).ready(function() {
-        function replaceSkeletonWithImage(skeleton, imageSource) {
-            skeleton.next('img').attr('src', imageSource);
-            skeleton.remove();
+      function replaceSkeletonWithImage(skeleton, imageSource) {
+        skeleton.next('img').attr('src', imageSource);
+        skeleton.remove();
 
-            $('#lightgallery .gallery-item a').each(function() {
-                $(this).removeClass('opacity-0');
-            });
-        }
-
-        // Loop through gallery items and lazy-load images
-        $('#lightgallery .gallery-item').each(function() {
-            var skeleton = $(this).children('.skeleton');
-            var imageSource = $(this).attr('data-src');
-
-            // Lazy-load the image and replace the skeleton when loaded
-            $('<img>').attr('src', imageSource).on('load', function() {
-                setInterval(() => {
-
-                    replaceSkeletonWithImage(skeleton, imageSource);
-                }, 2000);
-            });
+        $('#lightgallery .gallery-item a').each(function() {
+          $(this).removeClass('opacity-0');
         });
+      }
+
+      // Loop through gallery items and lazy-load images
+      $('#lightgallery .gallery-item').each(function() {
+        var skeleton = $(this).children('.skeleton');
+        var imageSource = $(this).attr('data-src');
+
+        // Lazy-load the image and replace the skeleton when loaded
+        $('<img>').attr('src', imageSource).on('load', function() {
+          setInterval(() => {
+
+            replaceSkeletonWithImage(skeleton, imageSource);
+          }, 2000);
+        });
+      });
     });
     $('#lightgallery').lightGallery();
-</script>
+  </script>
 @endsection

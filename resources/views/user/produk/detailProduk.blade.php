@@ -4,6 +4,7 @@
   <!-- Blog Details Start -->
   <link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/forceLogo.css') }}">
   <link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/forceNav.css') }}">
+  <link rel="stylesheet" href="{{ asset('cssUser/css/detail/style.css') }}">
   <div class="section blog-details-section section-padding-02 mb-5">
     <div class="container">
       <!-- Blog Details Wrap Start -->
@@ -15,17 +16,45 @@
               <!-- Single Blog Start -->
               <div class="single-blog-post single-blog">
                 <div class="blog-image" data-aos="fade-up-right" data-aos-duration="500">
-                  <a href="{{ $produk->link }}" target="_blank" style="width: 100%; height: 100%"><img style="width: 100%;" src="{{ asset('storage/' . $produk->foto_produk) }}" alt=""></a>
+                  <div id="carouselExample" class="carousel slide">
+                    <div class="carousel-inner">
+                      {{-- Foreach Gambar Disini --}}
+                      <div class="carousel-item active">
+                        <img src="{{ asset('ImageGlobal/FotoPemandangan.png') }}" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="{{ asset('ImageGlobal/gallery/gallery_3.jpg') }}" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="{{ asset('ImageGlobal/FotoPemandangan.png') }}" class="d-block w-100" alt="...">
+                      </div>
+                      {{-- End Foreach --}}
+                    </div>
+                    {{-- Kasih kondisi jika data dari produk cuman satu button ini di adain pake if --}}
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                      data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                      data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
                 </div>
                 <div class="blog-content">
                   <div class="date-background-styling" data-aos="fade-up-right" data-aos-duration="500">
-                    <span><i class="far fa-calendar-alt" style="margin-right: 10px"></i>Tanggal Rilis {{ \Carbon\Carbon::parse($produk->dibuat)->format('d') }}</span>
+                    <span><i class="far fa-calendar-alt" style="margin-right: 10px"></i>Tanggal Rilis
+                      {{ \Carbon\Carbon::parse($produk->dibuat)->format('d') }}</span>
                     {{ \Carbon\Carbon::parse($produk->dibuat)->format('M') }}
                     {{ \Carbon\Carbon::parse($produk->dibuat)->format('Y') }}
                     </span>
                   </div>
-                  <h3 class="title" data-aos="fade-up-right" data-aos-duration="500" style="overflow-wrap: anywhere; line-height: 42px;">{{ $produk->nama_produk }}</h3>
-                  <p class="text" data-aos="fade-up" data-aos-duration="900" style="overflow-wrap: anywhere; line-height: 25px">{!! Str::markdown($produk->keterangan_produk) !!}</p>
+                  <h3 class="title" data-aos="fade-up-right" data-aos-duration="500"
+                    style="overflow-wrap: anywhere; line-height: 42px;">{{ $produk->nama_produk }}</h3>
+                  <p class="text" data-aos="fade-up" data-aos-duration="900"
+                    style="overflow-wrap: anywhere; line-height: 25px">{!! Str::markdown($produk->keterangan_produk) !!}</p>
                 </div>
               </div>
               <!-- Single Blog End -->
@@ -50,11 +79,13 @@
                       <li>
                         <a class="post-link" href="{{ route('produk.detail', $data->nama_produk) }}">
                           <div class="post-thumb">
-                            <img style="object-fit: cover" src="{{ asset('storage/' . $data->foto_produk) }}" alt="">
+                            <img style="object-fit: cover" src="{{ asset('storage/' . $data->foto_produk) }}"
+                              alt="">
                           </div>
                           <div class="post-text">
                             <h4 class="title text-truncate detail-truncation">{{ $data->nama_produk }}</h4>
-                            <span class="post-meta"><i class="far fa-calendar-alt"></i>{{ \Carbon\Carbon::parse($data->created_at)->format('M d, Y') }}</span>
+                            <span class="post-meta"><i
+                                class="far fa-calendar-alt"></i>{{ \Carbon\Carbon::parse($data->created_at)->format('M d, Y') }}</span>
                           </div>
                         </a>
                       </li>
@@ -74,3 +105,38 @@
   </div>
   <!-- Blog Details End -->
 @endsection
+
+
+<script>
+  const btns = document.querySelectorAll(".nav-btn");
+  const slides = document.querySelectorAll(".foto-slide");
+  let currentSlide = 0;
+
+  var sliderNav = function(manual) {
+    btns.forEach(btn => btn.classList.remove("active"));
+    slides.forEach(slide => slide.classList.remove("active"));
+
+    btns[manual].classList.add("active");
+    slides[manual].classList.add("active");
+    currentSlide = manual;
+  }
+
+  btns.forEach((btn, i) => {
+    btn.addEventListener("click", () => {
+      sliderNav(i);
+    });
+  });
+
+  function autoSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    sliderNav(currentSlide);
+  }
+
+  const intervalId = setInterval(autoSlide, 5000);
+
+  btns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      clearInterval(intervalId);
+    });
+  });
+</script>

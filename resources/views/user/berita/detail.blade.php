@@ -15,9 +15,9 @@
               <!-- Single Blog Start -->
               <div class="single-blog-post single-blog">
                 <div class="blog-image" data-aos="fade-up" data-aos-duration="500">
-                  <a style="width: 100%; height: 100%" href="{{ asset('storage/' . $berita->thumbnail) }}"><img
-                      style="width: 100%;" src="{{ asset('storage/' . $berita->thumbnail) }}" alt=""></a>
-
+                  <a style="width: 100%; height: 100%" href="{{ asset('storage/' . $berita->thumbnail) }}">
+                    <img style="width: 100%;" src="{{ asset('storage/' . $berita->thumbnail) }}" alt="">
+                  </a>
                 </div>
                 <div class="blog-content" data-aos="fade-up-right" data-aos-duration="500"
                   style="overflow-wrap: anywhere; overflow: hidden">
