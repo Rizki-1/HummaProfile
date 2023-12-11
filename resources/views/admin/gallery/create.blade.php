@@ -57,7 +57,7 @@ myDropzone = new Dropzone("#dropzone", {
     paramName: "file",
     addRemoveLinks: true,
     maxFiles: 10,
-    dictDefaultMessage: "Drag and drop files or click to select files",
+    dictDefaultMessage: "Seret dan lepaskan gambar atau klik untuk memilih gambar",
     dictRemoveFile: "Remove file",
     acceptedFiles: "image/*",
     parallelUploads: 1,

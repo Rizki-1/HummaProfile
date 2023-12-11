@@ -66,7 +66,7 @@
         paramName: "file",
         addRemoveLinks: true,
         maxFiles: 10,
-        dictDefaultMessage: "Seret dan lepaskan file atau klik untuk memilih file",
+        dictDefaultMessage: "Seret dan lepaskan gambar atau klik untuk memilih gambar",
         dictRemoveFile: "Hapus file",
         acceptedFiles: "image/*",
         parallelUploads: 1,
