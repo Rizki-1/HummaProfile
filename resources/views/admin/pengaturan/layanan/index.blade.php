@@ -12,30 +12,36 @@
       </nav>
     </div>
     <div class="text-end">
-      <a href="#" class="btn btn-outline-primary" onclick="window.location.href = '{{ route('layanan-perusahaan.create') }}'">Tambah Layanan</a>
+      <a href="#" class="btn btn-outline-primary"
+        onclick="window.location.href = '{{ route('layanan-perusahaan.create') }}'">Tambah Layanan</a>
     </div>
   </div>
   <div class="row">
     <div class="col-md-12">
       <div class="card">
-        <div class="card-body">
-          <div class="table-responsive overflow-hidden">
-            <div id="dataTableExample_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
-              <div class="row mb-3">
-                <div class="col-md-2 mb-3">
-                  <div class="dataTables_length" id="dataTableExample_length">
-                    <select name="dataTableExample_length" aria-controls="dataTableExample" class="form-select m-0" id="selectTarget">
-                      <option value="1" {{ !request('ct') ? 'selected' : '' }}>Siswa</option>
-                      <option value="2" {{ request('ct') == 2 ? 'selected' : '' }}>Industri</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-md-10 mb-3">
-                  <div id="dataTableExample_filter" class="dataTables_filter text-end">
-                    <form method="GET"><label><input type="search" class="form-control" placeholder="Search" name="query" value="{{ request('query') }}" aria-controls="dataTableExample"></label></form>
-                  </div>
-                </div>
+        <div class="card-header">
+          <div class="row mb-3 justify-content-between">
+            <div class="col-md-3 col-12 mt-3">
+              <div class="dataTables_length" id="dataTableExample_length">
+                <select name="dataTableExample_length" aria-controls="dataTableExample" class="form-select m-0"
+                  id="selectTarget">
+                  <option value="1" {{ !request('ct') ? 'selected' : '' }}>Siswa</option>
+                  <option value="2" {{ request('ct') == 2 ? 'selected' : '' }}>Industri</option>
+                </select>
               </div>
+            </div>
+            <div class="col-md-4 col-12 mt-3">
+              <div id="dataTableExample_filter" class="dataTables_filter text-end">
+                <form method="GET">
+                  <input type="search" class="form-control" placeholder="Search" name="query" value="{{ request('query') }}" aria-controls="dataTableExample">
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <div id="dataTableExample_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
               <div class="row">
                 <div class="col-sm-12">
                   <table id="dataTableExample" class="table dataTable no-footer" aria-describedby="dataTableExample_info">
@@ -56,20 +62,26 @@
                         <tr class="odd">
                           <td>
                             <div class="image-container">
-                                <img style="width: 100%; height: 100%; object-fit: cover" src="{{ asset('storage/layanan/'.$row->foto_layanan) }}" alt="">
+                              <img style="width: 100%; height: 100%; object-fit: cover"
+                                src="{{ asset('storage/layanan/' . $row->foto_layanan) }}" alt="">
                             </div>
                           </td>
-                          <td class="sorting_1 height-thing" style="transform: translateY(10px)">{{ Str::limit($row->nama_layanan, 50) }}</td>
+                          <td class="sorting_1 height-thing" style="transform: translateY(10px)">
+                            {{ Str::limit($row->nama_layanan, 50) }}</td>
                           <td class="sorting_1 height-thing" style="transform: translateY(10px)">
                             {{ Str::limit($row->descripsi_layanan, 50) }}
                             <!-- Ganti angka 50 dengan jumlah kata maksimum yang ingin Anda tampilkan -->
                           </td>
                           <td class="d-flex gap-2">
-                            <a href="{{ route('layanan-perusahaan.edit', $row->id) }}" class="btn btn-outline-warning btn-icon"><i class="link-icon edit-icon" data-feather="edit"></i></a>
-                            <form nameLayanan="{{ $row->nama_layanan }}" id="deleteForm" action="{{ route('layanan-perusahaan.destroy', $row->id) }}" method="POST" class="hapus">
+                            <a href="{{ route('layanan-perusahaan.edit', $row->id) }}"
+                              class="btn btn-outline-warning btn-icon"><i class="link-icon edit-icon"
+                                data-feather="edit"></i></a>
+                            <form nameLayanan="{{ $row->nama_layanan }}" id="deleteForm"
+                              action="{{ route('layanan-perusahaan.destroy', $row->id) }}" method="POST" class="hapus">
                               @csrf
                               @method('DELETE')
-                              <button type="submit" class="btn btn-outline-danger btn-icon"><i class="link-icon trash-icon" data-feather="trash"></i></button>
+                              <button type="submit" class="btn btn-outline-danger btn-icon"><i
+                                  class="link-icon trash-icon" data-feather="trash"></i></button>
                             </form>
                           </td>
                         </tr>

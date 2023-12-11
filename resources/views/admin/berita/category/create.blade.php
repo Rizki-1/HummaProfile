@@ -47,7 +47,7 @@
                       <label for="unknown" class="form-label">Kategori Berita</label>
                       <input required type="text" class="form-control" placeholder="Viral Sekantor!!" name="category_name" value="" required>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-1">
                       <input required id="button-hapus-detail" class="btn btn-outline-danger waves-effect waves-light d-flex justify-content-center align-items-center mt-4" data-repeater-delete type="button" value="Hapus" />
                     </div>
                   </div>
