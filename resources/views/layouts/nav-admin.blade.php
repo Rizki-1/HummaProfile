@@ -95,7 +95,7 @@
                   <a href="{{ route('list.kelas_industri') }}" class="nav-link">Kelas Industri</a>
                 </li> --}}
                 <li class="nav-item">
-                  <a href={{ route('mou.index') }} class="nav-link @if (request()->routeIs('mou.create') or request()->routeIs('mou.edit')) @endif">Mou</a>
+                  <a href={{ route('mou.index') }} class="nav-link @if (request()->routeIs('mou.create') or request()->routeIs('mou.edit')) active @endif">Mou</a>
                 </li>
                 <li class="nav-item">
                   <a href={{ route('testimoni.index') }} class="nav-link @if (request()->routeIs('testimoni.create') or request()->routeIs('testimoni.edit')) active @endif">Testimoni</a>
