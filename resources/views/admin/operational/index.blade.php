@@ -111,17 +111,17 @@
         <div class="mb-3 col-md-4 important-content">
           <div class="p-4 card">
             <input type="hidden" value="{{ $detail->id }}" name="something">
-            <h6 class="mb-3 card-title">Edit hari {{ $detail->day }}</h6>
+            <h6 class="mb-3 card-title">Detail hari {{ $detail->day }}</h6>
             <div class="mb-3">
               <label for="open" class="form-label">Buka</label>
-              <div class="input-group flatpickr" id="flatpickr-time">
+              <div class="input-group flatpickr">
                 <input type="time" readonly value="{{ $detail->open }}" class="form-control" placeholder="Select time" data-input>
                 <span class="input-group-text input-group-addon" data-toggle><i data-feather="clock"></i></span>
               </div>
             </div>
             <div class="mb-3">
               <label for="close" class="form-label">Tutup</label>
-              <div class="input-group flatpickr" id="flatpickr-time">
+              <div class="input-group flatpickr">
                 <input type="time" readonly value="{{ $detail->close }}" class="form-control" placeholder="Select time" data-input>
                 <span class="input-group-text input-group-addon" data-toggle><i data-feather="clock"></i></span>
               </div>
