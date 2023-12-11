@@ -16,17 +16,26 @@ class SyaratKetentuanController extends Controller
      */
     public function index(Request $request)
     {
-        // dd($request->all());
-        $syarat = SyaratKetentuan::paginate(10);
+        $syarat = SyaratKetentuan::query();
+
         if ($request->has('ct')) {
             if ($request->ct === 'all') {
-                $syarat = SyaratKetentuan::paginate(10);
-            }else {
-                $syarat = SyaratKetentuan::where('target_layanan_id', $request->ct)->paginate(10);
+
+            } else {
+                $syarat->where('target_layanan_id', $request->ct);
             }
         }
+
+        if ($request->has('query')) {
+            $syarat->where('syarat_ketentuan', 'LIKE', '%' . $request->input('query') . '%');
+        }
+
+
+        $syarat = $syarat->paginate(10);
+
         return view('admin.syaratKetentuan.index', compact('syarat'));
     }
+
 
     /**
      * Show the form for creating a new resource.
