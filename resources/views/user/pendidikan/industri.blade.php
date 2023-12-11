@@ -194,8 +194,7 @@
       <div class="service-wrap">
         <div class="section-title text-center">
           <h2 class="title" data-aos="fade-up" data-aos-duration="700"
-            style="padding: 20px; text-transform: capitalize">Sekolah Yang Bekerjasama Dengan
-            <span style="color: #22B3E2">Humma</span>Tech
+            style="padding: 20px; text-transform: capitalize">Institusi pendidikan yang mengikuti program kelas industri.
           </h2>
         </div>
         <div class="service-content-wrap" data-aos="fade-up" data-aos-duration="1000">

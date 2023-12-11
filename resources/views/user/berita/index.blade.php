@@ -1,31 +1,31 @@
 @extends('layouts.nav-user')
 
 @section('header')
-    <meta name="keywords" content="Berita HummaTech">
-    <meta name="description" content="Kumpulan berita-berita dari HummaTech">
+  <meta name="keywords" content="Berita HummaTech">
+  <meta name="description" content="Kumpulan berita-berita dari HummaTech">
 
-    <title>HummaTech - Berita</title>
+  <title>HummaTech - Berita</title>
 @endsection
 
 @section('content')
-<style>
-  .nodata {
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    margin: 3rem 0 0;
-  }
+  <style>
+    .nodata {
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      margin: 3rem 0 0;
+    }
 
-  .nodata img {
-    height: 12rem;
-  }
+    .nodata img {
+      height: 12rem;
+    }
 
-  .nodata p {
-    font-weight: 600;
-    font-size: 25px;
-    color: #b3b6c5;
-  }
-</style>
+    .nodata p {
+      font-weight: 600;
+      font-size: 25px;
+      color: #b3b6c5;
+    }
+  </style>
   <link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/forceLogo.css') }}">
   <link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/forceNav.css') }}">
   <div class="section techwix-blog-grid-section section-padding" style="background: #f8f8f8;">
@@ -47,7 +47,7 @@
                   <div class="top-meta">
                     <span class="date">
                       <span>{{ \Carbon\Carbon::parse($data->created_at)->format('d') }}</span>
-                      {{ \Carbon\Carbon::parse($data->created_at)->format('M') }}
+                      {{ Str::limit(\Carbon\Carbon::parse($produk->dibuat)->locale('id')->isoFormat('MMMM'),3,'') }}
                     </span>
                   </div>
                 </div>
@@ -58,15 +58,18 @@
                         style="padding: 7px 13px; background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; font-size: 13px;margin-right: 5px; max-width: 37%">{{ $item->name }}</a>
                     @endforeach
                     @if ($data->kategori->count() > 2)
-                      <a class="badge rounded-pill mb-1" style="color: black"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                          stroke-linejoin="round" class="feather feather-more-horizontal">
+                      <a class="badge rounded-pill mb-1" style="color: black"><svg xmlns="http://www.w3.org/2000/svg"
+                          width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                          stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                          class="feather feather-more-horizontal">
                           <circle cx="12" cy="12" r="1"></circle>
                           <circle cx="19" cy="12" r="1"></circle>
                           <circle cx="5" cy="12" r="1"></circle>
                         </svg></a>
                     @endif
                   </div>
-                  <h3 class="title"><a href="{{ route('detailBerita', $data->title) }}" class="text-truncate" style="max-width: 100%">{{ $data->title }}</a></h3>
+                  <h3 class="title"><a href="{{ route('detailBerita', $data->title) }}" class="text-truncate"
+                      style="max-width: 100%">{{ $data->title }}</a></h3>
                   <div class="blog-btn">
                     <a class="blog-btn-link" href="{{ route('detailBerita', $data->title) }}">Selengkapnya <i
                         class="fas fa-long-arrow-alt-right"></i></a>

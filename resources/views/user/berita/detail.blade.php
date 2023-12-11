@@ -1,24 +1,24 @@
 @extends('layouts.nav-user')
 
 @section('header')
-    <meta property="og:title" content="{{ $berita->title }}">
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="{{ request()->url() }}">
-    <meta property="og:image" content="{{ url('storage/' . $berita->thumbnail) }}">
-    <meta property="og:site_name" content="Berita {{ $berita->title }} dari HummaTech">
-    <meta property="article:published_time" content="{{ $berita->created_at->toIso8601String() }}">
-    <meta property="article:modified_time" content="{{ $berita->updated_at->toIso8601String() }}">
-    @foreach ($berita->kategori as $item)
-        <meta property="article:section" content="{{ $item->name }}">
-    @endforeach
-    <meta property="article:author" content="HummaTech">
-    <meta property="article:publisher" content="HummaTech">
+  <meta property="og:title" content="{{ $berita->title }}">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="{{ request()->url() }}">
+  <meta property="og:image" content="{{ url('storage/' . $berita->thumbnail) }}">
+  <meta property="og:site_name" content="Berita {{ $berita->title }} dari HummaTech">
+  <meta property="article:published_time" content="{{ $berita->created_at->toIso8601String() }}">
+  <meta property="article:modified_time" content="{{ $berita->updated_at->toIso8601String() }}">
+  @foreach ($berita->kategori as $item)
+    <meta property="article:section" content="{{ $item->name }}">
+  @endforeach
+  <meta property="article:author" content="HummaTech">
+  <meta property="article:publisher" content="HummaTech">
 
-    <!-- Tag OGP tambahan untuk SEO -->
-    <meta name="keywords" content="Berita {{ $berita->title }}">
-    <meta name="description" content="{{ Str::limit($berita->description, 160) }}">
+  <!-- Tag OGP tambahan untuk SEO -->
+  <meta name="keywords" content="Berita {{ $berita->title }}">
+  <meta name="description" content="{{ Str::limit($berita->description, 160) }}">
 
-    <title>Berita {{ $berita->title }}</title>
+  <title>Berita {{ $berita->title }}</title>
 @endsection
 
 @section('content')
@@ -45,7 +45,7 @@
                   <div class="date-background-styling mb-3" data-aos="fade-up-right" data-aos-duration="500">
                     <span><i class="far fa-calendar-alt" style="margin-right: 10px"></i>Diposting pada
                       {{ \Carbon\Carbon::parse($berita->dibuat)->format('d') }}</span>
-                    {{ \Carbon\Carbon::parse($berita->dibuat)->format('M') }}
+                    {{ Str::limit(\Carbon\Carbon::parse($produk->dibuat)->locale('id')->isoFormat('MMMM'),3,'') }}
                     {{ \Carbon\Carbon::parse($berita->dibuat)->format('Y') }}
                     </span>
                   </div>
@@ -55,7 +55,8 @@
                         style="padding: 7px 13px; background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; font-size: 13px; margin-right: 5px; font-weight: 700">{{ $item->name }}</a>
                     @endforeach
                   </div>
-                  <h3 class="title" style="overflow-wrap: anywhere; line-height: 42px;" data-aos="fade-up-right" data-aos-duration="600">{{ $berita->title }}</h3>
+                  <h3 class="title" style="overflow-wrap: anywhere; line-height: 42px;" data-aos="fade-up-right"
+                    data-aos-duration="600">{{ $berita->title }}</h3>
                   <p class="text" data-aos="fade-up" data-aos-duration="900"
                     style="overflow-wrap: anywhere; line-height: 25px">{!! Str::markdown($berita->description) !!}</p>
                 </div>
