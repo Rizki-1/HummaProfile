@@ -40,7 +40,7 @@
             <div class="image-hover">
               <div class="image-detail">
                 <div class="lampiran-hover">
-                  <form class="delete-form hapus" action="{{ route('galeryproduk.delete', $item->id) }}" method="POST">
+                  <form class="delete-form hapus gallery" action="{{ route('galeryproduk.delete', $item->id) }}" method="POST">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="remove-button"><i class="link-icon pg-trash"
@@ -82,26 +82,55 @@
         }
       });
 
-      if (document.querySelectorAll('.hapus').length > 0) {
-        document.querySelectorAll('.hapus').forEach(function(form) {
-          form.addEventListener('submit', function(event) {
-            event.preventDefault();
-            Swal.fire({
-              title: 'Apakah anda yakin?',
-              text: "Ingin menghapus gallery produk?",
-              icon: "question",
-              showCancelButton: true,
-              confirmButtonText: "Ya, Hapus!",
-              cancelButtonText: "Batal",
-              background: 'var(--bs-body-bg)',
-            }).then((result) => {
-              if (result.isConfirmed) {
-                form.submit();
-              }
-            });
-          });
-        });
+      if (document.querySelector('#gallery')) {
+  document.querySelector('#gallery').addEventListener('click', function(event) {
+    var target = event.target;
+
+    // Periksa apakah yang diklik adalah tombol hapus
+    if (target.classList.contains('remove-button')) {
+      event.preventDefault();
+
+      var form = target.closest('.delete-form');
+
+      Swal.fire({
+        title: 'Apakah anda yakin?',
+        text: "Ingin menghapus gallery produk?",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonText: "Ya, Hapus!",
+        cancelButtonText: "Batal",
+        background: 'var(--bs-body-bg)',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          form.submit();
+        }
+      });
+    }
+  });
+}
+
+// Event listener untuk SweetAlert jika tidak ada elemen dengan kelas .delete-form
+document.addEventListener('submit', function(event) {
+  var target = event.target;
+
+  if (target.classList.contains('delete-form')) {
+    event.preventDefault();
+
+    Swal.fire({
+      title: 'Apakah anda yakin?',
+      text: "Ingin menghapus gallery produk?",
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonText: "Ya, Hapus!",
+      cancelButtonText: "Batal",
+      background: 'var(--bs-body-bg)',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        target.submit();
       }
+    });
+  }
+});
 
       // Menggunakan event delegation untuk menangani klik pada elemen .delete-btn
       // $(document).on('click', '.delete-btn', function() {
@@ -126,11 +155,8 @@
 
       myDropzone.on("success", function(file, response) {
         var galleryContainer = document.querySelector('#gallery');
-        console.log(response.paths.length);
-        // console.log(file);
 
         response.paths.forEach(function(path) {
-          console.log(path);
           var newDiv = document.createElement('div');
           newDiv.classList.add('col-md-4', 'mb-4');
 
@@ -155,7 +181,7 @@
           newDetailContainer.classList.add('lampiran-hover');
 
           var newForm = document.createElement('form');
-          newForm.classList.add('delete-form', 'hapus');
+          newForm.classList.add('delete-form', 'hapus','gallery');
           newForm.action = '{{ route('galeryproduk.delete', ':id') }}'.replace(':id', response.id);
           newForm.method = 'POST';
 
