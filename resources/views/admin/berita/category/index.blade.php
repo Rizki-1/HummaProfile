@@ -12,7 +12,7 @@
       </nav>
     </div>
     <div class="text-end">
-      <a href="{{ route('category-berita.create') }}" class="btn btn-outline-primary">Tambah Kategori</a>
+      <a href="{{ route('category.create') }}" class="btn btn-outline-primary">Tambah Kategori</a>
     </div>
   </div>
   <div class="card p-4">
@@ -25,8 +25,8 @@
                 <p class="category-text text-center">{{ $item->name }}</p>
               </div>
               <div class="category-hover">
-                <a href="{{ route('category-berita.edit', $item->id) }}"><i class="link-icon edit-icon" data-feather="edit"></i></a>
-                <form nameKategori="{{ $item->name }}" action="{{ route('category-berita.destroy', $item->id) }}" method="POST" class="hapus">
+                <a href="{{ route('category.edit', $item->id) }}"><i class="link-icon edit-icon" data-feather="edit"></i></a>
+                <form nameKategori="{{ $item->name }}" action="{{ route('category.destroy', $item->id) }}" method="POST" class="hapus">
                   @csrf
                   @method('DELETE')
                   <button type="submit" class="button-delete"><i class="link-icon trash-icon" data-feather="trash"></i></button>
