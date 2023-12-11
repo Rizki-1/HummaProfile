@@ -39,7 +39,7 @@ class OperationalTimeController extends Controller
     {
         OperationalTime::findOrFail($id)->update([
             'status' => 1,
-            'message' => '',
+            'message' => null,
         ]);
 
         return to_route('operational.index');

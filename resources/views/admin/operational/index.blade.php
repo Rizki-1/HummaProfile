@@ -18,7 +18,7 @@
       <div class=" mb-3 @if (isset($edit) or isset($pesan) or isset($detail)) col-md-8 @else col-md-12 @endif">
         <div class="row gaping">
           @foreach ($operational as $orl)
-            <div class="@if ($orl->day == 'Minggu') minggu-scretch @endif @if($orl->status == 0) kantor-close @else kantor-open @endif content-card-holder card p-4 mb-2">
+            <div class="@if ($orl->day == 'Minggu') minggu-scretch @endif @if ($orl->status == 0) kantor-close @else kantor-open @endif content-card-holder card p-4 mb-2">
               <div class="left-line">
                 <div class="line-header">
                   <h4>{{ $orl->day }}</h4>
@@ -30,17 +30,20 @@
                 </div>
               </div>
               <div class="icon-holder">
-                <a href="{{ route('operational.edit', $orl->id) }}"><i class="link-icon edit" data-feather="edit"></i></a>
+                <a href="{{ route('operational.edit', $orl->id) }}">Edit</a>
+                <div>|</div>
                 @if ($orl->status == 0)
                   <form action="{{ route('operational.open', $orl->id) }}" method="POST">
                     @csrf
                     <input type="hidden" value="{{ $orl->id }}" name="open">
-                    <button class="remove-button" type="submit"><i class="link-icon open-kantor" data-feather="check-square"></i></button>
+                    <button class="remove-button" type="submit">Buka</button>
                   </form>
+                  <div>|</div>
                 @else
-                  <a href="{{ route('operational.close', $orl->id) }}"><i class="link-icon close" data-feather="x-square"></i></a>
+                  <a href="{{ route('operational.close', $orl->id) }}">Tutup</i></a>
+                  <div>|</div>
                 @endif
-                <a href="{{ route('detail.operational', $orl->id) }}"><i class="link-icon eye" data-feather="eye"></i></a>
+                <a href="{{ route('detail.operational', $orl->id) }}"> Detail</a>
               </div>
             </div>
           @endforeach
@@ -91,9 +94,7 @@
               <h6 class="mb-3 card-title">Tutup Hari {{ $pesan->day }}</h6>
               <div class="mb-3">
                 <label for="pesan" class="form-label">Alasan Kantor Tutup</label>
-                <textarea name="pesan" rows="4" class="form-control @error('pesan') is-invalid @enderror" placeholder="Ada kegiatan camping bersama">
-                    @if ($pesan->message) {{ $pesan->message }} @else {{ old('pesan') }} @endif
-                </textarea>
+                <textarea name="pesan" rows="4" class="form-control @error('pesan') is-invalid @enderror" placeholder="Ada kegiatan camping bersama">{{ isset($pesan) ? $pesan->message : old('pesan') }}</textarea>
                 @error('pesan')
                   <p class="text-danger">{{ $message }}</p>
                 @enderror

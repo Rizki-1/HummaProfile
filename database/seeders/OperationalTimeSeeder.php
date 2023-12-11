@@ -26,7 +26,7 @@ class OperationalTimeSeeder extends Seeder
 
         $repeat = 0;
         foreach ($days as $day) {
-            $message = ''; $status = 1;
+            $message = null; $status = 1;
             if ($repeat >= 5) {
                 $status = 0;
                 $message = 'libur mingguan';

@@ -67,8 +67,6 @@
 .content-card-holder {
     width: 49%;
     border-radius: 10px;
-    display: flex;
-    flex-direction: row;
 }
 
 .content-card-holder.kantor-close {
@@ -105,9 +103,20 @@
 
 .icon-holder {
     gap: 5px;
-    margin-top: 11px;
+    margin-top: 5px;
     display: flex;
     align-items: center;
+    text-decoration: none;
+}
+
+.icon-holder a {
+    color: inherit;
+    transition: all 0.08s;
+}
+
+.icon-holder a:hover {
+    margin-top: -4px;
+    color: rgb(120, 120, 255);
 }
 
 .left-line {

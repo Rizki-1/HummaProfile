@@ -27,7 +27,7 @@
               <div class="col-md-12 mb-3">
             <label for="filter" class="form-label">Tampilkan Di</label>
             <select required name="target_layanan_id" class="form-select @error('target_layanan_id') is-invalid @enderror" id="iddata">
-                <option value="">--Pilih salah satu--</option>
+                <option value="" disabled selected>--Pilih salah satu--</option>
                 @foreach ($target as $item)
                 <option value="{{ $item->id }}">{{ $item->target }}</option>
                 @endforeach

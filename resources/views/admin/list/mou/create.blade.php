@@ -4,7 +4,7 @@
   <div class="card mb-4 p-4">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb breadcrumb-dot mb-0">
-        <li class="breadcrumb-item"><a href="{{ route('produk.index') }}">Mou</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('mou.index') }}">Mou</a></li>
         <li class="breadcrumb-item active" aria-current="page">Create</li>
       </ol>
     </nav>

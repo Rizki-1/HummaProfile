@@ -80,13 +80,13 @@
           </li>
 
           <li class="nav-item nav-category">Referensi Klien</li>
-          <li class="nav-item">
+          <li class="nav-item @if (request()->routeIs('mou.create') or request()->routeIs('mou.edit') or request()->routeIs('testimoni.create') or request()->routeIs('testimoni.edit')) active @endif">
             <a class="nav-link" data-bs-toggle="collapse" href="#list" role="button" aria-expanded="false" aria-controls="berita">
               <i class="link-icon" data-feather="award"></i>
               <span class="link-title">Kolaborasi dan Ulasan</span>
               <i class="link-arrow" data-feather="chevron-down"></i>
             </a>
-            <div class="collapse" id="list">
+            <div class="collapse @if (request()->routeIs('mou.create') or request()->routeIs('mou.edit') or request()->routeIs('testimoni.create') or request()->routeIs('testimoni.edit')) show @endif" id="list">
               <ul class="nav sub-menu">
                 {{-- <li class="nav-item">
                   <a href="{{ route('list.siswa_magang') }}" class="nav-link">Siswa Magang</a>
@@ -95,10 +95,10 @@
                   <a href="{{ route('list.kelas_industri') }}" class="nav-link">Kelas Industri</a>
                 </li> --}}
                 <li class="nav-item">
-                  <a href={{ route('mou.index') }} class="nav-link">Mou</a>
+                  <a href={{ route('mou.index') }} class="nav-link @if (request()->routeIs('mou.create') or request()->routeIs('mou.edit')) @endif">Mou</a>
                 </li>
                 <li class="nav-item">
-                  <a href={{ route('testimoni.index') }} class="nav-link">Testimoni</a>
+                  <a href={{ route('testimoni.index') }} class="nav-link @if (request()->routeIs('testimoni.create') or request()->routeIs('testimoni.edit')) active @endif">Testimoni</a>
                 </li>
               </ul>
             </div>
@@ -126,26 +126,26 @@
           </li> --}}
 
           <li class="nav-item nav-category">Berita</li>
-          <li class="nav-item">
+          <li class="nav-item @if (request()->routeIs('category.create') or request()->routeIs('category.edit') or request()->routeIs('berita.create') or request()->routeIs('berita.edit')) active @endif">
             <a class="nav-link" data-bs-toggle="collapse" href="#berita" role="button" aria-expanded="false" aria-controls="berita">
               <i class="link-icon" data-feather="copy"></i>
               <span class="link-title">Berita</span>
               <i class="link-arrow" data-feather="chevron-down"></i>
             </a>
-            <div class="collapse" id="berita">
+            <div class="collapse @if (request()->routeIs('category.create') or request()->routeIs('category.edit') or request()->routeIs('berita.create') or request()->routeIs('berita.edit')) show @endif" id="berita">
               <ul class="nav sub-menu">
                 <li class="nav-item">
-                  <a href="{{ route('category-berita.index') }}" class="nav-link">Kategori</a>
+                  <a href="{{ route('category.index') }}" class="nav-link @if (request()->routeIs('category.create') or request()->routeIs('category.edit')) active @endif">Kategori</a>
                 </li>
                 <li class="nav-item">
-                  <a href="{{ route('berita.index') }}" class="nav-link">Berita</a>
+                  <a href="{{ route('berita.index') }}" class="nav-link @if (request()->routeIs('berita.create') or request()->routeIs('berita.edit')) active @endif">Berita</a>
                 </li>
               </ul>
             </div>
           </li>
 
           <li class="nav-item nav-category">Gallery</li>
-          <li class="nav-item">
+          <li class="nav-item @if (request()->routeIs('gallery.create') or request()->routeIs('gallery.edit')) active @endif">
             <a class="nav-link" href="{{ route('gallery.index') }}">
               <i class="link-icon" data-feather="image"></i>
               <span class="link-title">Gallery</span>
@@ -153,7 +153,7 @@
           </li>
 
           <li class="nav-item nav-category">Contact</li>
-          <li class="nav-item">
+          <li class="nav-item @if (request()->routeIs('inbox.show') or request()->routeIs('inbox.reply.show')) active @endif">
             <a class="nav-link" href="{{ route('inbox.index') }}">
               <i class="link-icon" data-feather="mail"></i>
               <span class="link-title">Inbox</span>
@@ -161,7 +161,7 @@
           </li>
 
           <li class="nav-item nav-category">Produk</li>
-          <li class="nav-item">
+          <li class="nav-item @if (request()->routeIs('produk.create') or request()->routeIs('produk.edit') or request()->routeIs('galeryproduk.create')) active @endif">
             <a href="{{ route('produk.index') }}" class="nav-link">
               <i class="link-icon" data-feather="box"></i>
               <span class="link-title">Produk</span>
@@ -169,28 +169,28 @@
           </li>
 
           <li class="nav-item nav-category">Pengaturan</li>
-          <li class="nav-item">
+          <li class="nav-item @if (request()->routeIs('layanan-perusahaan.create') or request()->routeIs('layanan-perusahaan.edit') or request()->routeIs('cabang-perusahaan.create') or request()->routeIs('cabang-perusahaan.edit') or request()->routeIs('syarat-dan-ketentuan.create') or request()->routeIs('syarat-dan-ketentuan.edit') or request()->routeIs('operational.edit') or request()->routeIs('operational.close') or request()->routeIs('detail.operational')) active @endif">
             <a class="nav-link" data-bs-toggle="collapse" href="#pengaturan" role="button" aria-expanded="false" aria-controls="pengaturan">
               <i class="link-icon" data-feather="settings"></i>
               <span class="link-title">Pengaturan</span>
               <i class="link-arrow" data-feather="chevron-down"></i>
             </a>
-            <div class="collapse" id="pengaturan">
+             <div class="collapse @if (request()->routeIs('layanan-perusahaan.create') or request()->routeIs('layanan-perusahaan.edit') or request()->routeIs('cabang-perusahaan.create') or request()->routeIs('cabang-perusahaan.edit') or request()->routeIs('syarat-dan-ketentuan.create') or request()->routeIs('syarat-dan-ketentuan.edit') or request()->routeIs('operational.edit') or request()->routeIs('operational.close') or request()->routeIs('detail.operational')) show @endif" id="pengaturan">
               <ul class="nav sub-menu">
                 <li class="nav-item">
                   <a href="{{ route('profile-perusahaan.index') }}" class="nav-link">Pengaturan Profile</a>
                 </li>
                 <li class="nav-item">
-                  <a href="{{ route('layanan-perusahaan.index') }}" class="nav-link">Layanan Perusahaan</a>
+                  <a href="{{ route('layanan-perusahaan.index') }}" class="nav-link @if (request()->routeIs('layanan-perusahaan.create') or request()->routeIs('layanan-perusahaan.edit')) active @endif">Layanan Perusahaan</a>
                 </li>
                 <li class="nav-item">
-                  <a href="{{ route('cabang-perusahaan.index') }}" class="nav-link">Cabang Perusahaan</a>
+                  <a href="{{ route('cabang-perusahaan.index') }}" class="nav-link @if (request()->routeIs('cabang-perusahaan.create') or request()->routeIs('cabang-perusahaan.edit')) active @endif">Cabang Perusahaan</a>
                 </li>
                 <li class="nav-item">
-                  <a href="{{ route('syarat-dan-ketentuan.index') }}" class="nav-link">Syarat Dan Ketentuan</a>
+                  <a href="{{ route('syarat-dan-ketentuan.index') }}" class="nav-link @if (request()->routeIs('syarat-dan-ketentuan.create') or request()->routeIs('syarat-dan-ketentuan.edit')) active @endif">Syarat Dan Ketentuan</a>
                 </li>
                 <li class="nav-item">
-                  <a href="{{ route('operational.index') }}" class="nav-link">Jam Operational</a>
+                  <a href="{{ route('operational.index') }}" class="nav-link @if (request()->routeIs('operational.edit') or request()->routeIs('operational.close') or request()->routeIs('detail.operational')) active @endif">Jam Operational</a>
                 </li>
               </ul>
             </div>

@@ -36,7 +36,7 @@
             <div class="image-hover">
               <div class="image-detail">
                   <div class="lampiran-hover">
-                    <a href="{{ route('galeryproduk.create', $row->id) }}">Lampiran</a>
+                    <a href="{{ route('galeryproduk.create', $row->id) }}">Lampiran<i class="link-icon lampiran-detail-icon" data-feather="arrow-right"></i></a>
                   </div>
                 <div class="detail-container">
                   <div class="first-detail">

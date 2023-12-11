@@ -72,4 +72,8 @@
     opacity: 0;
 }
 
+.table-responsive::-webkit-scrollbar {
+    display: none;
+}
+
 

@@ -46,7 +46,7 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
     });
     Route::resource("/berita", BeritaController::class);
     //kategory berita
-    Route::resource('/category-berita', KategoriBeritaController::class);
+    Route::resource('/category', KategoriBeritaController::class);
     Route::resource("/inbox", InboxController::class)->only(['show', 'index', 'destroy']);
     Route::get('/inbox/reply/{id}', [InboxController::class, 'replyShow'])->name('inbox.reply.show');
     Route::post('/inbox/reply/{id}', [InboxController::class, 'reply'])->name('inbox.reply.post');
@@ -82,7 +82,7 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
     Route::get('/operationalCloseAll', [OperationalTimeController::class, 'operationalCloseAll'])->name('operational.closeall');
     Route::get('/operationalOpenAll', [OperationalTimeController::class, 'operationalOpenAll'])->name('operational.openall');
     Route::get('/operational/{id}/close', [OperationalTimeController::class, 'operationalClose'])->name('operational.close');
-    Route::get('Detail/{id}/operational', [OperationalTimeController::class, 'operationalDetail'])->name('detail.operational');
+    Route::get('operational/{id}/detail', [OperationalTimeController::class, 'operationalDetail'])->name('detail.operational');
 });
 
 // User Page
@@ -97,7 +97,7 @@ Route::get('/berita/{name}', [HomeController::class, 'detailBerita'])->name('det
 Route::post('/inbox', [InboxController::class,'store'])->name('inbox.store');
 // Route::get('/layanan', [HomeController::class, 'indexLayanan'])->name('layananIndex');
 Route::get('/produk/{name}', [HomeController::class, 'detailProduk'])->name('produk.detail');
-Route::get('/category-berita/{name}', [BeritaController::class, 'filter'])->name('filter-category');
+Route::get('/category/{name}', [BeritaController::class, 'filter'])->name('filter-category');
 
 //route testing
 Route::get('/test', [HomeController::class, 'test'])->name('test');

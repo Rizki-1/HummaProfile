@@ -1,6 +1,7 @@
 @extends('layouts.nav-admin')
 
 @section('content')
+  <link rel="stylesheet" href="{{ asset('cssAdmin/css/syarat/syarat.css') }}">
   <link rel="stylesheet" href="{{ asset('cssAdmin/css/layanan/layanan.css') }}">
   <title>{{ config('app.name', 'Laravel') }} - Layanan</title>
   <div class="card px-4 py-3 mb-4 flex-row justify-content-between align-items-center">
@@ -42,7 +43,7 @@
           </div>
         </div>
         <div class="card-body">
-          <div class="table-responsive overflow-hidden">
+          <div class="table-responsive">
             <div id="dataTableExample_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
               <div class="row">
                 <div class="col-sm-12">
