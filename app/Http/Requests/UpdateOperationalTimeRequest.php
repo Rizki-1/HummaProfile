@@ -22,7 +22,16 @@ class UpdateOperationalTimeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'open' => 'required',
+            'close' => 'required'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'open.required' => 'jam open harus di isi',
+            'close.required' => 'jam close harus di isi'
         ];
     }
 }

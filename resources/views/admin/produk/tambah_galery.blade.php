@@ -30,28 +30,28 @@
     </div>
 
     <div class="row align-items-center p-4" id="gallery">
-      @foreach ($produk->galery as $item)
-        <div class="col-md-4 mb-4">
-          <div class="card">
-            <div class="image-container">
-              <img src="{{ asset('storage/produk_galery/' . $item->galery) }}" class="image-content"
-                alt="Thumbnail {{ $item->id }}">
-            </div>
-            <div class="image-hover">
-              <div class="image-detail">
-                <div class="lampiran-hover">
-                  <form class="delete-form hapus gallery" action="{{ route('galeryproduk.delete', $item->id) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="remove-button"><i class="link-icon pg-trash"
-                        data-feather="trash"></i></button>
-                  </form>
+        @foreach ($produk->galery as $item)
+            <div class="col-md-4 mb-4" data-filename="{{ $item->galery }}">
+                <div class="card">
+                    <div class="image-container">
+                        <img src="{{ asset('storage/produk_galery/' . $item->galery) }}" class="image-content"
+                            alt="Thumbnail {{ $item->id }}">
+                    </div>
+                    <div class="image-hover">
+                        <div class="image-detail">
+                            <div class="lampiran-hover">
+                                <form class="delete-form hapus gallery" action="{{ route('galeryproduk.delete', $item->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="remove-button"><i class="link-icon pg-trash"
+                                            data-feather="trash"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
-        </div>
-      @endforeach
+        @endforeach
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -71,15 +71,32 @@
         acceptedFiles: "image/*",
         parallelUploads: 1,
         uploadMultiple: true,
-        errorHandler: function(file, message, xhr) {
-          if (xhr.status !== 200) {
-            file.previewElement.classList.add("dz-error");
-            var node = document.createElement("div");
-            node.className = "dz-error-message";
-            node.innerHTML = message;
-            file.previewElement.appendChild(node);
-          }
-        }
+        init: function() {
+        this.on("success", function(file, response) {
+            file.fotoname = response.filename;
+        });
+
+        // this.on("removedfile", function(file) {
+        //     var filename = file.fotoname;
+        //     $.ajax({
+        //         type: 'POST',
+        //         url: '{{ route('galery-produk.deleteProduk') }}',
+        //         headers: {
+        //             'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content,
+        //         },
+        //         data: {
+        //             filename: filename
+        //         },
+        //         success: function(response) {
+        //             console.log(response.success);
+        //         },
+        //         error: function(error) {
+        //             console.error(error);
+        //         }
+        //     });
+        // });
+    }
+
       });
 
       if (document.querySelector('#gallery')) {

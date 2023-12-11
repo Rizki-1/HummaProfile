@@ -53,8 +53,8 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
 
     //produk
     Route::resource('/produk', ProdukController::class);
+    Route::post('/galery-produk-delete-drop', [GalleryController::class, 'deleteProdukGalery'])->name('galery-produk.deleteProduk');
     Route::post('/galery-produk/{id}', [GalleryController::class, 'galeryProduk'])->name('galeryproduk.store');
-    Route::delete('/galery-produk-delete/{id}', [GalleryController::class, 'galeryProdukDelete'])->name('galeryproduk.delete');
     Route::get('/galery-produk/{id}/store', [ProdukController::class, 'galeryProduk'])->name('galeryproduk.create');
 
     //layanan perusahaan
@@ -67,6 +67,7 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
     Route::get('/list-kelas-industri', [ListController::class, 'kelasIndustri'])->name('list.kelas_industri');
     Route::delete('/list-kelas-industri/{id}', [ListController::class, 'kelasIndustriDel'])->name('list.kelas_industri.del');
     //Gallery
+    Route::post('/galery-produk-delete', [GalleryController::class, 'galeryProdukDelete'])->name('galeryproduk.delete');
     Route::resource('/gallery', GalleryController::class)->except(['show']);
     Route::post('/storeGalery/{id}', [GalleryController::class, 'Galeristore'])->name('idgalery');
     // Syarat dan ketentuan

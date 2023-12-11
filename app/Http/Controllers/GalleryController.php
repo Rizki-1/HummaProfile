@@ -75,6 +75,7 @@ class GalleryController extends Controller
 
 
             $successMessages = [];
+            $namefoto = [];
 
             foreach ($request->file('file') as $file) {
                 $fotoName = $file->hashName();
@@ -86,9 +87,10 @@ class GalleryController extends Controller
                 ]);
 
                 $successMessages[] = 'File ' . $file->getClientOriginalName() . ' berhasil diunggah.';
+                $namefoto[] = $fotoName;
             }
 
-            return response()->json(['success' => $successMessages]);
+            return response()->json(['success' => $successMessages, 'fotoname' => $namefoto]);
         } catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()], 500);
         }
@@ -178,6 +180,7 @@ class GalleryController extends Controller
     {
         $paths = [];
         $idgalery = [];
+        $namefoto = [];
 
         foreach ($request->file('file') as $file) {
             $fotoName = $file->hashName();
@@ -191,39 +194,43 @@ class GalleryController extends Controller
 
             $paths[] = $path;
             $idgalery[] = $gallery->id;
+            $namefoto[] = $fotoName;
         }
 
-        return response()->json(['success' => 'File berhasil diunggah.', 'paths' => $paths, 'id' => $idgalery], 200);
+        return response()->json(['success' => 'File berhasil diunggah.', 'paths' => $paths, 'id' => $idgalery, 'filename' =>  $namefoto ], 200);
 
     }
 
-
-    public function galeryProdukDelete($id)
+    public function deleteProdukGalery(Request $request)
     {
         try {
-            $gallery = GaleryProduk::where('id', $id)->first();
-            if (!$gallery) {
-                return back()->with('message', [
-                    'icon' => "error",
-                    'title' => "Gagal!",
-                    'text' => "ID gallery produk tidak ditemukan!"
-                ]);
-            }
-
-            Storage::delete('produk_galery/' . $gallery->galery);
-            $gallery->delete();
-
-            return back()->with('message', [
-                'icon' => "success",
-                'title' => "Berhasil!",
-                'text' => "Berhasil menghapus gallery produk"
-            ]);
+            $filename = $request->input('filename');
+            $ProdukGallery = GaleryProduk::where('galery', $filename)->first();
+            Storage::delete('produk_galery/'.$ProdukGallery->galery);
+            $ProdukGallery->delete();
+            return response()->json(['success' => 'File berhasil di hapus.']);
         } catch (\Exception $e) {
-            return back()->with('message', [
-                'icon' => "error",
-                'title' => "Error!",
-                'text' => "Gagal karena : {$e->getMessage()}"
-            ]);
+            dd($e);
         }
+
     }
+
+
+    public function galeryProdukDelete(Request $request)
+{
+    try {
+        $filename = $request->input('filename');
+        $gallery = Gallery::where('picture', $filename)->first();
+        if ($gallery) {
+            Storage::delete('produk_galery/' . $gallery->picture);
+            $gallery->delete();
+            return response()->json(['success' => 'Berhasil menghapus data']);
+        } else {
+            return response()->json(['error' => 'File tidak ditemukan'], 404);
+        }
+    } catch (\Exception $e) {
+        return response()->json(['error' => $e->getMessage()], 500);
+    }
+}
+
 }

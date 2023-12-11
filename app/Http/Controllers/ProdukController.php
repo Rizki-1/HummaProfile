@@ -146,7 +146,7 @@ class ProdukController extends Controller
      */
     public function destroy(string $id)
     {
-        try {
+        // try {
             DB::beginTransaction();
 
             $produk = Produk::where('id',$id)->first();
@@ -167,15 +167,15 @@ class ProdukController extends Controller
                 'title' => "Berhasil!",
                 'text' => "Berhasil mehapus produk"
             ]);
-        } catch (\Throwable $th) {
-            DB::rollBack();
+        // } catch (\Throwable $th) {
+        //     DB::rollBack();
 
-            return back()->with('message', [
-                'icon' => 'error',
-                'title' => "Gagal!",
-                'text' => "Ada kesalahan saat menghapus produk"
-            ]);
-        }
+        //     return back()->with('message', [
+        //         'icon' => 'error',
+        //         'title' => "Gagal!",
+        //         'text' => "Ada kesalahan saat menghapus produk"
+        //     ]);
+        // }
     }
 
     public function galeryProduk($id)

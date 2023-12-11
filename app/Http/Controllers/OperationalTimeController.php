@@ -27,12 +27,18 @@ class OperationalTimeController extends Controller
 
     public function update(UpdateOperationalTimeRequest $request, OperationalTime $operationalTime)
     {
-        OperationalTime::findOrFail($request->something)->update([
-            'open' => $request->open,
-            'close' => $request->close,
-        ]);
+        // dd($request->all());
+        try {
+            OperationalTime::findOrFail($request->something)->update([
+                'open' => $request->open,
+                'close' => $request->close,
+            ]);
 
-        return to_route('operational.index');
+            return to_route('operational.index');
+        } catch (\Throwable $th) {
+            return redirect()->back();
+        }
+
     }
 
     public function operationalOpen(String $id)
