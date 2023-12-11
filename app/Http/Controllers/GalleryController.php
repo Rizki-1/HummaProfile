@@ -39,7 +39,6 @@ class GalleryController extends Controller
                 'text' => 'Gagal ada kesalahan server'
             ]);
         }
-
     }
 
     /**
@@ -197,8 +196,7 @@ class GalleryController extends Controller
             $namefoto[] = $fotoName;
         }
 
-        return response()->json(['success' => 'File berhasil diunggah.', 'paths' => $paths, 'id' => $idgalery, 'filename' =>  $namefoto ], 200);
-
+        return response()->json(['success' => 'File berhasil diunggah.', 'paths' => $paths, 'id' => $idgalery, 'filename' =>  $namefoto], 200);
     }
 
     public function deleteProdukGalery(Request $request)
@@ -206,31 +204,49 @@ class GalleryController extends Controller
         try {
             $filename = $request->input('filename');
             $ProdukGallery = GaleryProduk::where('galery', $filename)->first();
-            Storage::delete('produk_galery/'.$ProdukGallery->galery);
+            Storage::delete('produk_galery/' . $ProdukGallery->galery);
             $ProdukGallery->delete();
             return response()->json(['success' => 'File berhasil di hapus.']);
         } catch (\Exception $e) {
             dd($e);
         }
-
     }
 
 
     public function galeryProdukDelete(Request $request)
-{
-    try {
-        $filename = $request->input('filename');
-        $gallery = Gallery::where('picture', $filename)->first();
-        if ($gallery) {
-            Storage::delete('produk_galery/' . $gallery->picture);
-            $gallery->delete();
-            return response()->json(['success' => 'Berhasil menghapus data']);
-        } else {
-            return response()->json(['error' => 'File tidak ditemukan'], 404);
+    {
+        try {
+            $filename = $request->input('filename');
+            $gallery = Gallery::where('picture', $filename)->first();
+            if ($gallery) {
+                Storage::delete('produk_galery/' . $gallery->picture);
+                $gallery->delete();
+                return response()->json(['success' => 'Berhasil menghapus data']);
+            } else {
+                return response()->json(['error' => 'File tidak ditemukan'], 404);
+            }
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
         }
-    } catch (\Exception $e) {
-        return response()->json(['error' => $e->getMessage()], 500);
     }
-}
 
+    public function produkgalerydelete($id)
+    {
+        try {
+            $gallery = GaleryProduk::findOrFail($id);
+            Storage::delete('produk_galery/'.$gallery->galery);
+            $gallery->delete();
+            return redirect()->back()->with('message', [
+                'icon' => 'success',
+                'title' => 'Berhasil menghapus!',
+                'text' => 'data telah terhapus'
+            ]);
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('message', [
+                'icon' => 'error',
+                'title' => 'gagal!',
+                'text' => 'Gagal ada kesalahan saat menghapus data'
+            ]);
+        }
+    }
 }

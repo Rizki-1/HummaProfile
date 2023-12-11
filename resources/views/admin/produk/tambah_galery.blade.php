@@ -40,7 +40,7 @@
                     <div class="image-hover">
                         <div class="image-detail">
                             <div class="lampiran-hover">
-                                <form class="delete-form hapus gallery" action="{{ route('galeryproduk.delete', $item->id) }}" method="POST">
+                                <form class="delete-form hapus gallery" action="{{ route('delete.galeryproduk', $item->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="remove-button"><i class="link-icon pg-trash"
@@ -199,7 +199,7 @@ document.addEventListener('submit', function(event) {
 
           var newForm = document.createElement('form');
           newForm.classList.add('delete-form', 'hapus','gallery');
-          newForm.action = '{{ route('galeryproduk.delete', ':id') }}'.replace(':id', response.id);
+          newForm.action = '{{ route('delete.galeryproduk', ':id') }}'.replace(':id', response.id);
           newForm.method = 'POST';
 
           var csrfInput = document.createElement('input');

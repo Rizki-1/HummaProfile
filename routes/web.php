@@ -56,6 +56,7 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
     Route::post('/galery-produk-delete-drop', [GalleryController::class, 'deleteProdukGalery'])->name('galery-produk.deleteProduk');
     Route::post('/galery-produk/{id}', [GalleryController::class, 'galeryProduk'])->name('galeryproduk.store');
     Route::get('/galery-produk/{id}/store', [ProdukController::class, 'galeryProduk'])->name('galeryproduk.create');
+    Route::delete('/produk-galery/{id}', [GalleryController::class, 'produkgalerydelete'])->name('delete.galeryproduk');
 
     //layanan perusahaan
     Route::resource('/layanan-perusahaan', LayananPerusahaanController::class)->except(['show']);
