@@ -52,9 +52,9 @@
                   </div>
                 @else
                   @foreach (old('syarat-group') as $i => $category)
-                    <div data-repeater-item>
+                    <div data-repeater-item class="row">
                       <label for="unknown" class="form-label">Syarat Dan Ketentuan</label>
-                      <div class="row d-none">
+
                         <div class="col-md-11 mb-3">
                           <textarea required type="text" class="form-control @error('syarat-group.' . $i . '.syarat') is-invalid @enderror" placeholder="Syarat Dan Ketentuan" name="syarat" required cols="3">{{ $category['syarat'] }}</textarea>
                           @error('syarat-group.' . $i . '.name')
@@ -66,7 +66,6 @@
                         <div class="col-md-1">
                           <input required id="button-hapus-detail" class="btn btn-outline-danger waves-effect waves-light ms-2 d-flex justify-content-center align-items-center" data-repeater-delete type="button" value="Hapus" />
                         </div>
-                      </div>
                     </div>
                   @endforeach
                 @endif

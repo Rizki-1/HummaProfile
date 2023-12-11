@@ -14,9 +14,17 @@ class SyaratKetentuanController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
+        // dd($request->all());
         $syarat = SyaratKetentuan::paginate(10);
+        if ($request->has('ct')) {
+            if ($request->ct === 'all') {
+                $syarat = SyaratKetentuan::paginate(10);
+            }else {
+                $syarat = SyaratKetentuan::where('target_layanan_id', $request->ct)->paginate(10);
+            }
+        }
         return view('admin.syaratKetentuan.index', compact('syarat'));
     }
 
@@ -41,12 +49,12 @@ class SyaratKetentuanController extends Controller
                 'syarat_ketentuan' => $group['syarat'],
             ];
             SyaratKetentuan::create($groupData);
-            return redirect()->route('syarat-dan-ketentuan.index')->with('message', [
-                'icon' => 'success',
-                'title' => 'Berhasil!',
-                'text' => 'Berhasil menambahkan cabang baru!'
-            ]);
         }
+        return redirect()->route('syarat-dan-ketentuan.index')->with('message', [
+            'icon' => 'success',
+            'title' => 'Berhasil!',
+            'text' => 'Berhasil menambahkan cabang baru!'
+        ]);
     }
 
     /**
