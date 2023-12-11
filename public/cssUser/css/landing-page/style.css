@@ -229,7 +229,8 @@
 }
 
 .container-custome-header .custome-header .text .text-small {
-    font-size: 2vw;
+    font-size: 1.5vw;
+    width: 60%;
 }
 
 .slider-foto {
