@@ -1,6 +1,12 @@
 @extends('layouts.nav-admin')
 
 @section('content')
+  <style>
+    .EasyMDEContainer {
+      position: relative;
+      z-index: 999;
+    }
+  </style>
   <title>{{ config('app.name', 'Laravel') }} - Produk Create</title>
   <link rel="stylesheet" href="{{ asset('cssAdmin/vendors/easymde/easymde.min.css') }}">
   <div class="card mb-4 p-4">
@@ -19,7 +25,9 @@
           <div class="col-md-6">
             <div class="mb-3">
               <label for="namaproduk" class="form-label">Nama Produk</label>
-              <input required type="text" name="nama_produk" class="form-control @error('nama_produk') is-invalid @enderror" value="{{ old('nama_produk') }}" id="namaproduk" autocomplete="off" placeholder="Hummaprofile">
+              <input required type="text" name="nama_produk"
+                class="form-control @error('nama_produk') is-invalid @enderror" value="{{ old('nama_produk') }}"
+                id="namaproduk" autocomplete="off" placeholder="Hummaprofile">
               @error('nama_produk')
                 <div class="invalid-feedback">
                   <p>{{ $message }}</p>
@@ -29,7 +37,8 @@
             <div class="mb-3">
               <label for="tanggal" class="form-label">Tanggal Dibuat</label>
               <div class="input-group flatpickr mb-3" id="flatpickr-date">
-                <input required name="dibuat" type="text" class="form-control @error('dibuat') is-invalid @enderror" value="{{ old('dibuat') }}" id="tanggal" placeholder="2023 - 12 - 15" data-input>
+                <input required name="dibuat" type="text" class="form-control @error('dibuat') is-invalid @enderror"
+                  value="{{ old('dibuat') }}" id="tanggal" placeholder="2023 - 12 - 15" data-input>
                 @error('dibuat')
                   <div class="invalid-feedback">
                     <p>{{ $message }}</p>
@@ -52,7 +61,8 @@
           </div>
           <div class="col-md-6">
             <label for="myDropify" class="form-label">Upload Gambar Produk</label>
-            <input required name="foto_produk" class="@error('foto_produk') is-invalid @enderror" type="file" id="myDropify" />
+            <input required name="foto_produk" class="@error('foto_produk') is-invalid @enderror" type="file"
+              id="myDropify" />
             @error('foto_produk')
               <p class="text-danger mt-2">{{ $message }}</p>
             @enderror
@@ -60,7 +70,8 @@
         </div>
         <div class="mb-3">
           <label for="easyMdeEditor" class="form-label">Deskripsi Produk</label>
-          <textarea name="keterangan_produk" class="form-control @error('keterangan_produk') is-invalid @enderror" id="easyMdeEditor" rows="2" placeholder="Hummaprofile adalah website company profile untuk Hummatech">{{ old('keterangan_produk') }}</textarea>
+          <textarea name="keterangan_produk" class="form-control @error('keterangan_produk') is-invalid @enderror"
+            id="easyMdeEditor" rows="2" placeholder="Hummaprofile adalah website company profile untuk Hummatech">{{ old('keterangan_produk') }}</textarea>
           @error('keterangan_produk')
             <div class="invalid-feedback">
               <p>{{ $message }}</p>

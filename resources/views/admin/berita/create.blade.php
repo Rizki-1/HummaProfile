@@ -1,6 +1,12 @@
 @extends('layouts.nav-admin')
 
 @section('content')
+  <style>
+    .EasyMDEContainer {
+      position: relative;
+      z-index: 999;
+    }
+  </style>
   <title>{{ config('app.name', 'Laravel') }} - Berita</title>
   <link rel="stylesheet" href="{{ asset('cssAdmin/vendors/select2/select2.min.css') }}">
   <link rel="stylesheet" href="{{ asset('cssAdmin/vendors/easymde/easymde.min.css') }}">
@@ -23,25 +29,28 @@
         <div class="col-md-12 row mb-3">
           <div class="col-md-6">
             <div class="mb-3">
-                <label class="form-label">Kategori Berita</label>
-                <select class="select2 form-select select2-multiple @error('category') is-invalid @enderror" multiple="multiple" id="category" name="category[]" data-placeholder="Kategori Berita">
-                    <optgroup label="Kategori Berita">
-                        @foreach ($kategoriBerita as $category)
-                            <option value="{{ $category->id }}" {{ in_array($category->id, old('category', [])) ? 'selected' : '' }}>
-                                {{ $category->name }}
-                            </option>
-                        @endforeach
-                    </optgroup>
-                </select>
-                @error('category')
-                    <div class="invalid-feedback">
-                        <p>{{ $message }}</p>
-                    </div>
-                @enderror
+              <label class="form-label">Kategori Berita</label>
+              <select class="select2 form-select select2-multiple @error('category') is-invalid @enderror"
+                multiple="multiple" id="category" name="category[]" data-placeholder="Kategori Berita">
+                <optgroup label="Kategori Berita">
+                  @foreach ($kategoriBerita as $category)
+                    <option value="{{ $category->id }}"
+                      {{ in_array($category->id, old('category', [])) ? 'selected' : '' }}>
+                      {{ $category->name }}
+                    </option>
+                  @endforeach
+                </optgroup>
+              </select>
+              @error('category')
+                <div class="invalid-feedback">
+                  <p>{{ $message }}</p>
+                </div>
+              @enderror
             </div>
             <div class="mb-3">
               <label class="form-label" for="title">Judul Berita</label>
-              <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" placeholder="Mischool Is The Best" value="{{ old('title') }}">
+              <input type="text" class="form-control @error('title') is-invalid @enderror" id="title"
+                name="title" placeholder="Mischool Is The Best" value="{{ old('title') }}">
               @error('title')
                 <div class="invalid-feedback">
                   <p>{{ $message }}</p>
@@ -60,12 +69,13 @@
           </div>
           <div>
             <label class="form-label" for="easyMdeEditor">Deskripsi Berita</label>
-              <textarea class="form-control @error('description') is-invalid @enderror" id="easyMdeEditor" placeholder="Team Mischool menyelesaikan project baru hanya dalam 3 hari" name="description" rows="7">{{ old('description') }}</textarea>
-              @error('description')
-                <div class="invalid-feedback">
-                  <p>{{ $message }}</p>
-                </div>
-              @enderror
+            <textarea class="form-control @error('description') is-invalid @enderror" id="easyMdeEditor"
+              placeholder="Team Mischool menyelesaikan project baru hanya dalam 3 hari" name="description" rows="7">{{ old('description') }}</textarea>
+            @error('description')
+              <div class="invalid-feedback">
+                <p>{{ $message }}</p>
+              </div>
+            @enderror
           </div>
           <div class="col-md-6 col-12 mt-4">
             <button type="submit" class="btn btn-primary me-2">Tambah</button>
