@@ -34,7 +34,8 @@
         <div class="col-md-4 mb-4">
           <div class="card">
             <div class="image-container">
-              <img src="{{ asset('storage/produk_galery/' . $item->galery) }}" class="image-content" alt="Thumbnail {{ $item->id }}">
+              <img src="{{ asset('storage/produk_galery/' . $item->galery) }}" class="image-content"
+                alt="Thumbnail {{ $item->id }}">
             </div>
             <div class="image-hover">
               <div class="image-detail">
@@ -42,7 +43,8 @@
                   <form class="delete-form hapus" action="{{ route('galeryproduk.delete', $item->id) }}" method="POST">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="remove-button"><i class="link-icon pg-trash" data-feather="trash"></i></button>
+                    <button type="submit" class="remove-button"><i class="link-icon pg-trash"
+                        data-feather="trash"></i></button>
                   </form>
                 </div>
               </div>
@@ -67,7 +69,17 @@
         dictDefaultMessage: "Seret dan lepaskan file atau klik untuk memilih file",
         dictRemoveFile: "Hapus file",
         acceptedFiles: "image/*",
+        parallelUploads: 1,
         uploadMultiple: true,
+        errorHandler: function(file, message, xhr) {
+          if (xhr.status !== 200) {
+            file.previewElement.classList.add("dz-error");
+            var node = document.createElement("div");
+            node.className = "dz-error-message";
+            node.innerHTML = message;
+            file.previewElement.appendChild(node);
+          }
+        }
       });
 
       if (document.querySelectorAll('.hapus').length > 0) {
@@ -114,9 +126,11 @@
 
       myDropzone.on("success", function(file, response) {
         var galleryContainer = document.querySelector('#gallery');
-        console.log(response);
+        console.log(response.paths.length);
+        // console.log(file);
 
         response.paths.forEach(function(path) {
+          console.log(path);
           var newDiv = document.createElement('div');
           newDiv.classList.add('col-md-4', 'mb-4');
 
@@ -182,5 +196,25 @@
 
         feather.replace();
       });
+      // Menggunakan event delegation untuk menangani klik pada elemen .delete-btn
+      // $(document).on('click', '.delete-btn', function() {
+      //     var form = $(this).closest('.delete-form');
+      //     var id = form.data('id');
+
+      //     $.ajax({
+      //         type: 'DELETE',
+      //         url: "{{ route('galeryproduk.delete', ['id' => ':id']) }}".replace(':id', id),
+      //         headers: {
+      //             'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content,
+      //         },
+      //         success: function(response) {
+      //             form.prev('img').remove();
+      //             form.remove();
+      //         },
+      //         error: function(error) {
+      //             console.error(error);
+      //         }
+      //     });
+      // });
     </script>
   @endsection

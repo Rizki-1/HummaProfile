@@ -20,7 +20,7 @@ class GalleryController extends Controller
     {
         $target = TargetLayanan::all();
         $gallery = Gallery::latest()->paginate(15);
-        return view('admin.gallery.index', compact('gallery','target'));
+        return view('admin.gallery.index', compact('gallery', 'target'));
     }
 
     /**
@@ -28,9 +28,18 @@ class GalleryController extends Controller
      */
     public function create(Request $request)
     {
-        $target = TargetLayanan::all();
-        $id = TargetLayanan::findOrFail($request->target_layanan_id)->id;
-        return view('admin.gallery.create', compact('target','id'));
+        try {
+            $target = TargetLayanan::all();
+            $id = TargetLayanan::findOrFail($request->target_layanan_id)->id;
+            return view('admin.gallery.create', compact('target', 'id'));
+        } catch (\Exception $e) {
+            return redirect()->back()->with('message', [
+                'icon' => 'error',
+                'title' => 'gagal!',
+                'text' => 'Gagal ada kesalahan server'
+            ]);
+        }
+
     }
 
     /**
@@ -102,8 +111,7 @@ class GalleryController extends Controller
     {
         // $gallery = Gallery::findOrFail($gallery);
         $target = TargetLayanan::all();
-        return view('admin.gallery.edit', compact('gallery','target'));
-
+        return view('admin.gallery.edit', compact('gallery', 'target'));
     }
 
     /**ho
@@ -113,7 +121,7 @@ class GalleryController extends Controller
     {
         try {
             $gallery = Gallery::where('id', $id)->first();
-            if(!$gallery){
+            if (!$gallery) {
                 return redirect()->back()->with('message', [
                     'icon' => 'error',
                     'title' => 'gagal!',
@@ -121,10 +129,10 @@ class GalleryController extends Controller
                 ]);
             }
             if ($request->hasFile('picture')) {
-                Storage::delete('galery/'.$gallery->picture);
+                Storage::delete('galery/' . $gallery->picture);
                 $fotoName = $request->file('picture')->hashName();
                 $path = $request->file('picture')->storeAs('galery', $fotoName);
-            }else {
+            } else {
                 $fotoName = $gallery->picture;
             }
             $gallery->picture = $fotoName;
@@ -134,7 +142,7 @@ class GalleryController extends Controller
                 'icon' => 'success',
                 'title' => 'Berhasil!',
                 'text' => 'Berhasil mengedit data!'
-               ]);
+            ]);
         } catch (\Throwable $th) {
             return redirect()->back()->with('message', [
                 'icon' => 'error',
@@ -150,13 +158,13 @@ class GalleryController extends Controller
     public function destroy(Gallery $gallery)
     {
         try {
-            Storage::delete('galery/'.$gallery->picture);
+            Storage::delete('galery/' . $gallery->picture);
             $gallery->delete();
             return redirect()->route('gallery.index')->with('message', [
                 'icon' => 'success',
                 'title' => 'Berhasil!',
                 'text' => 'Berhasil menghapus data!'
-               ]);
+            ]);
         } catch (\Throwable $th) {
             return redirect()->back()->with('message', [
                 'icon' => 'error',
@@ -175,7 +183,7 @@ class GalleryController extends Controller
             $fotoName = $file->hashName();
             $path = $file->storeAs('produk_galery', $fotoName);
 
-           $gallery = GaleryProduk::create([
+            $gallery = GaleryProduk::create([
                 'produk_id' => $id,
                 'galery' => $fotoName,
             ]);
@@ -185,16 +193,16 @@ class GalleryController extends Controller
             $idgalery[] = $gallery->id;
         }
 
+        return response()->json(['success' => 'File berhasil diunggah.', 'paths' => $paths, 'id' => $idgalery], 200);
 
-        return response()->json(['success' => 'File berhasil diunggah.', 'paths' => $paths, 'id' => $idgalery]);
     }
 
 
     public function galeryProdukDelete($id)
     {
         try {
-            $gallery = GaleryProduk::where('id',$id)->first();
-            if(!$gallery){
+            $gallery = GaleryProduk::where('id', $id)->first();
+            if (!$gallery) {
                 return back()->with('message', [
                     'icon' => "error",
                     'title' => "Gagal!",
@@ -202,7 +210,7 @@ class GalleryController extends Controller
                 ]);
             }
 
-            Storage::delete('produk_galery/'.$gallery->galery);
+            Storage::delete('produk_galery/' . $gallery->galery);
             $gallery->delete();
 
             return back()->with('message', [
@@ -219,5 +227,3 @@ class GalleryController extends Controller
         }
     }
 }
-
-
