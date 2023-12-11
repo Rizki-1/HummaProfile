@@ -40,7 +40,7 @@
                 @else
                   <a href="{{ route('operational.close', $orl->id) }}"><i class="link-icon close" data-feather="x-square"></i></a>
                 @endif
-                <a href="{{ route('operational.detail', $orl->id) }}"><i class="link-icon eye" data-feather="eye"></i></a>
+                <a href="{{ route('detail.operational', $orl->id) }}"><i class="link-icon eye" data-feather="eye"></i></a>
               </div>
             </div>
           @endforeach

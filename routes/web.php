@@ -55,7 +55,7 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
     Route::resource('/produk', ProdukController::class);
     Route::post('/galery-produk/{id}', [GalleryController::class, 'galeryProduk'])->name('galeryproduk.store');
     Route::delete('/galery-produk-delete/{id}', [GalleryController::class, 'galeryProdukDelete'])->name('galeryproduk.delete');
-    Route::get('/galery-produk-store/{id}', [ProdukController::class, 'galeryProduk'])->name('galeryproduk.create');
+    Route::get('/galery-produk/{id}/store', [ProdukController::class, 'galeryProduk'])->name('galeryproduk.create');
 
     //layanan perusahaan
     Route::resource('/layanan-perusahaan', LayananPerusahaanController::class)->except(['show']);
@@ -75,14 +75,14 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
     Route::resource('/mou', MouController::class)->except(['show']);
     //testimoni
     Route::resource('/testimoni', TestimoniController::class)->except(['show']);
-
+    //operational
     Route::resource('/operational', OperationalTimeController::class)->except(['show','destroy','store']);
     Route::post('/operationalCloseProccess', [OperationalTimeController::class, 'closeProccess'])->name('operational.closeProccess');
-    Route::post('/operationalOpen/{id}', [OperationalTimeController::class, 'operationalOpen'])->name('operational.open');
+    Route::post('/operational/{id}/open', [OperationalTimeController::class, 'operationalOpen'])->name('operational.open');
     Route::get('/operationalCloseAll', [OperationalTimeController::class, 'operationalCloseAll'])->name('operational.closeall');
     Route::get('/operationalOpenAll', [OperationalTimeController::class, 'operationalOpenAll'])->name('operational.openall');
-    Route::get('/operationalClose/{id}', [OperationalTimeController::class, 'operationalClose'])->name('operational.close');
-    Route::get('/operationalDetail/{id}', [OperationalTimeController::class, 'operationalDetail'])->name('operational.detail');
+    Route::get('/operational/{id}/close', [OperationalTimeController::class, 'operationalClose'])->name('operational.close');
+    Route::get('Detail/{id}/operational', [OperationalTimeController::class, 'operationalDetail'])->name('detail.operational');
 });
 
 // User Page
