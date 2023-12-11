@@ -9554,11 +9554,16 @@ only screen and (max-width: 767px) {
     font-weight: 600;
     font-family: "Barlow", sans-serif;
     color: #828282;
-    font-size: 18px;
+    font-size: 22px;
 }
 
 .bolding.active {
-    color: black;
+    color: #4c7cff;
+    font-weight: 700;
+}
+
+.deactivate {
+    color: #ff2323 !important;
     font-weight: 700;
 }
 

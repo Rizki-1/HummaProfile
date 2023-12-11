@@ -468,10 +468,10 @@
                 <div class="do-nothing">
                   @foreach ($operational as $ot)
                     <div class="d-flex">
-                      <div class="ot-day bolding {{ \Carbon\Carbon::now()->locale('id')->isoFormat('dddd') == $ot->day? 'active': '' }}">{{ Str::limit($ot->day, 6, '') }}</div>
+                      <div class="ot-day bolding @if ($ot->status == 0) deactivate @endif {{ \Carbon\Carbon::now()->locale('id')->isoFormat('dddd') == $ot->day? 'active': '' }}">{{ Str::limit($ot->day, 6, '') }}</div>
                       <div class="ot-hours d-flex">
                         @if ($ot->status == 0)
-                          <div class="bolding {{ \Carbon\Carbon::now()->locale('id')->isoFormat('dddd') == $ot->day? 'active': '' }} text-center">Tutup</div>
+                          <div class="bolding deactivate {{ \Carbon\Carbon::now()->locale('id')->isoFormat('dddd') == $ot->day? '': '' }} text-center">Tutup</div>
                         @else
                           <div class="bolding {{ \Carbon\Carbon::now()->locale('id')->isoFormat('dddd') == $ot->day? 'active': '' }}">{{ \Carbon\Carbon::createFromFormat('H:i:s', $ot->open)->format('H:i') }}</div>
                           <div class="bolding {{ \Carbon\Carbon::now()->locale('id')->isoFormat('dddd') == $ot->day? 'active': '' }}">-</div>
