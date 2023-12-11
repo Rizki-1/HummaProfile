@@ -1,0 +1,23 @@
+.dropzone {
+    min-height: 250px !important;
+    border: 2px solid rgb(194 194 194 / 80%) !important;
+    border-radius: 5px !important;
+    position: relative;
+}
+
+.label-dropzone {
+    width: 100%;
+    text-align: start;
+}
+
+.dropzone.dz-clickable .dz-message {
+    height: 100%;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: 0 !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+}

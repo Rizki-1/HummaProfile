@@ -4,6 +4,7 @@
   <title>{{ config('app.name', 'Laravel') }} - Gallery</title>
   <link rel="stylesheet" href="{{ asset('cssAdmin/vendors/select2/select2.min.css') }}">
   <link rel="stylesheet" href="{{ asset('cssAdmin/vendors/easymde/easymde.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('cssAdmin/css/gallery/gallery.css') }}">
   <script src="{{ asset('cssAdmin/js/select2.js') }}"></script>
   <script src="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone-min.js"></script>
 <link href="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone.css" rel="stylesheet" type="text/css" />
@@ -32,7 +33,7 @@
                 @enderror
             </div>
 
-          <div class="col-md-6 col-12 mt-4">
+          <div class="col-md-6 col-12 mt-2">
             <a class="btn btn-secondary" href="{{ route('gallery.index') }}">kembali</a>
           </div>
         </div>
