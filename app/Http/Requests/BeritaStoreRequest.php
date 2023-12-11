@@ -25,7 +25,7 @@ class BeritaStoreRequest extends FormRequest
             'title' => 'required|min:5|max:200|unique:beritas,title',
             'description' => 'required|string',
             'thumbnail' => 'required|file|image|max:50000',
-            'category' => 'required|array|min:1',
+            'category' => 'required|array|min:1|exists:kategori_beritas,id',
         ];
     }
 
@@ -42,6 +42,8 @@ class BeritaStoreRequest extends FormRequest
             'description.required' => 'Deskripsi Berita harus di isi',
             'description.min' => 'Deskripsi Berita minimal :min',
             'description.max' => 'Deskripsi Berita maksimal :max',
+            'category.required' => 'kategori berita harus di isi',
+            'category.exists' => 'kategori berita harus valid'
         ];
     }
 }

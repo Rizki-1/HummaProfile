@@ -41,7 +41,7 @@ class KategoriBeritaController extends Controller
             }
 
             DB::commit();
-            return to_route('category-berita.index')->with('message', [
+            return to_route('category.index')->with('message', [
                 'icon' => 'success',
                 'title' => 'Berhasil!',
                 'text' => 'Berhasil membuat kategori berita!'

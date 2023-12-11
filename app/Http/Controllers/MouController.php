@@ -92,7 +92,7 @@ class MouController extends Controller
                 $foto_name = $request->file('foto_mou')->hashName();
                 $path = $request->file('foto_mou')->storeAs('Mou', $foto_name);
             } else {
-                $foto_name = $Mou->foto_mou;
+                $path = $Mou->foto_mou;
             }
             $Mou->foto_mou = $path;
             $Mou->nama_mou = $request->nama_mou;
