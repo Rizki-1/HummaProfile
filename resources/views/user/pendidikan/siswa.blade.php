@@ -20,7 +20,8 @@
       </div>
     </div>
 
-    <div class="depan text-depan-video" style="position: absolute; z-index: 3; top: 50%; left: 50%; transform: translate(-50%, -50%)">
+    <div class="depan text-depan-video"
+      style="position: absolute; z-index: 3; top: 50%; left: 50%; transform: translate(-50%, -50%)">
       <div class="container">
         <div class="page-banner-wrap">
           <div class="row">
@@ -28,9 +29,10 @@
               <!-- Page Banner Content Start -->
               <div class="page-banner text-center">
                 <h2 class="title mb-2">Tentang Magang</h2>
-                <p class="text-bawah">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores animi
-                  tempore porro voluptatem, fugit nisi temporibus eum sunt doloribus voluptatum molestiae quibusdam! Quasi
-                  quibusdam quas expedita, sapiente nobis molestias atque!</p>
+                <p class="text-bawah">Program Magang/PKL kami dirancang khusus untuk para siswa/i SMK Negeri/Swasta dan
+                  Mahasiswa/i kuliah yang tertarik dalam pengembangan keahlian di dunia programmer. Kami berkomitmen
+                  memberikan pengalaman magang yang bermakna dan mendalam, membantu peserta magang untuk mengembangkan
+                  keterampilan teknis dan soft skills yang diperlukan di dunia industri.</p>
               </div>
               <!-- Page Banner Content End -->
             </div>
@@ -42,7 +44,7 @@
   <!-- Page Banner End -->
 
   <div class="section techwix-choose-us-section-02 section-padding-02"
-    style="padding-bottom: 110px; background-color: #ffffff">
+    style="padding-bottom: 110px; background-color: #ffffff;">
     <div class="container">
       <!-- Choose Us Wrap Start -->
       <div class="choose-us-wrap">
@@ -64,65 +66,20 @@
             </div>
             <!-- Choose Us Left End -->
           </div>
-          <div class="col-lg-6">
-            <!-- Choose Us Right Start -->
-            <div class="choose-us-right">
-              <!-- Faq Accordion Start -->
-              <div class="faq-accordion">
-                <div class="accordion" id="accordionExample">
-                  <div class="accordion-item" data-aos="fade-up-left" data-aos-duration="500">
-                    <div class="accordion-header" id="headingOne">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                        <span class="title">Syarat & Ketentuan</span>
-                      </button>
-                    </div>
-                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
-                      data-bs-parent="#accordionExample" data-aos="fade-up-left" data-aos-duration="800">
-                      <div class="accordion-body">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem animi labore voluptatibus? Modi
-                        possimus quos doloremque nihil. Omnis, adipisci ex, ad sapiente vitae esse id vel mollitia, est
-                        numquam aliquam.
-                      </div>
-                    </div>
+          <div class="col-lg-6 syarat-ketentuan-margin mt-3">
+            <h2 class="sub-title text-center" data-aos="fade-up-left" data-aos-duration="700">Syarat & Ketentuan</h2>
+            <div class="content-container p-2" style=" max-height: 400px; overflow-y: auto" data-aos="fade-up-left" data-aos-duration="700">
+              @foreach ($syarat as $key => $data)
+                <div class="syarat-custome mt-3 d-flex gap-4 justify-content-center align-items-center">
+                  <div class="icon">
+                    <h4>{{ ++$key }}.</h4>
                   </div>
-                  <div class="accordion-item" data-aos="fade-up-left" data-aos-duration="700">
-                    <div class="accordion-header" id="headingTwo">
-                      <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                        <span class="title">Syarat & Ketentuan</span>
-                      </button>
-                    </div>
-                    <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo"
-                      data-bs-parent="#accordionExample" style="">
-                      <div class="accordion-body">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam quia facere molestiae doloremque
-                        cum tempore cumque, similique dolore soluta consequuntur maxime tempora! Autem perspiciatis facere
-                        porro iusto, hic eveniet sed!
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item" data-aos="fade-up-left" data-aos-duration="900">
-                    <div class="accordion-header" id="headingThree">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        <span class="title">Syarat & Ketentuan</span>
-                      </button>
-                    </div>
-                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                      data-bs-parent="#accordionExample" style="">
-                      <div class="accordion-body">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo aperiam cupiditate, veritatis,
-                        ipsam accusantium esse voluptate ducimus distinctio a quidem animi nihil aut consectetur? Possimus
-                        veritatis tempora maiores doloremque soluta?
-                      </div>
-                    </div>
+                  <div class="text">
+                    <p>{{ $data->syarat_ketentuan }}</p>
                   </div>
                 </div>
-              </div>
-              <!-- Faq Accordion End -->
+              @endforeach
             </div>
-            <!-- Choose Us Right End -->
           </div>
         </div>
       </div>

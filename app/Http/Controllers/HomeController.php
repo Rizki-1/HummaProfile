@@ -18,6 +18,7 @@ use App\Models\KategoriBerita;
 use App\Models\ProfileCompany;
 use App\Models\LayananPerusahaan;
 use App\Models\OperationalTime;
+use App\Models\SyaratKetentuan;
 use App\Models\Testimoni;
 
 class HomeController extends Controller
@@ -44,19 +45,21 @@ class HomeController extends Controller
 
     public function indexSiswa()
     {
+        $syarat = SyaratKetentuan::where('target_layanan_id', 1)->get();
         $gallery = Gallery::where('target_layanan_id', 1)->orderBy('created_at', 'desc')->get();
         $testimoni = Testimoni::inRandomOrder()->get();
         $layananSiswa = LayananPerusahaan::where('target_layanan_id', 1)->paginate(4);
-        return view('user.pendidikan.siswa', compact('layananSiswa', 'testimoni', 'gallery'));
+        return view('user.pendidikan.siswa', compact('layananSiswa', 'testimoni', 'gallery', 'syarat'));
     }
 
     public function indexIndustri()
     {
+        $syarat = SyaratKetentuan::where('target_layanan_id', 2)->get();
         $gallery = Gallery::where('target_layanan_id', 2)->orderBy('created_at', 'desc')->get();
         $Mous = Mou::all();
         $testimoni = Testimoni::inRandomOrder()->get();
         $layananIndustri = LayananPerusahaan::where('target_layanan_id', 2)->paginate(4);
-        return view('user.pendidikan.industri', compact('layananIndustri', 'testimoni', 'Mous', 'gallery'));
+        return view('user.pendidikan.industri', compact('layananIndustri', 'testimoni', 'Mous', 'gallery', 'syarat'));
     }
 
     public function indexProduk()
