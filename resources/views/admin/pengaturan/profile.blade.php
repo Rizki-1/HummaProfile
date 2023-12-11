@@ -36,7 +36,7 @@
             <div class="row mt-3">
               <div class="col-md-12">
                 <label class="form-label">Alamat</label>
-                <textarea class="form-control @error('alamat') is-invalid @enderror" placeholder="Masukkan alamat" name="alamat" rows="3">{{ $profile->alamat }}</textarea>
+                <textarea class="form-control @error('alamat') is-invalid @enderror" placeholder="Perum Permata Regency 1 Blok 10/28, Perun Gpa, Ngijo, Kec. Karang Ploso, Kabupaten Malang, Jawa Timur 65152" name="alamat" rows="3">{{ $profile->alamat }}</textarea>
                   @error('alamat')
                       <div>
                               <p class="text-danger mt-2">{{ $message }}</p>
@@ -48,7 +48,7 @@
             <div class="row mt-3">
               <div class="col-md-12">
                 <label class="form-label">Nomor Telepon</label>
-                <input type="text" class="form-control @error('no_telp') is-invalid @enderror" placeholder="Masukkan nomor telepon" name="no_telp" value="{{ $profile->no_telp }}">
+                <input type="text" class="form-control @error('no_telp') is-invalid @enderror" placeholder="0885176777785" name="no_telp" value="{{ $profile->no_telp }}">
                   @error('no_telp')
                     <div>
                       <p class="text-danger mt-2">{{ $message }}</p>
@@ -96,9 +96,9 @@
                         <div class="d-flex flex-row gap-1">
                           <div class="col-3">
                             <label for="unknown" class="form-label">Sosial Media</label>
-                            <input type="text" class="form-control @error('name') is-invalid
+                            <input type="text" class="form-control @error('sosmed-group.'.$i.'.name') is-invalid
                                                         @enderror" placeholder="Nama sosmed" name="name" value="{{ $detail->name }}">
-                            @error('name')
+                            @error('sosmed-group.'.$i.'.name')
                               <div class="invalid-feedback">
                                 <p>{{ $message }}</p>
                               </div>
@@ -108,9 +108,9 @@
                             <label for="unknown" class="form-label">Link Sosmed</label>
                             <div class="d-flex justify-content-between">
                               <div style="width: 100%">
-                                <input type="text" class="form-control @error('link') is-invalid
+                                <input type="text" class="form-control @error('sosmed-group.'.$i.'.link') is-invalid
                                                             @enderror"name="link" id="linkSosmed" placeholder="Link Sosmed" value="{{ $detail->link }}">
-                                @error('link')
+                                @error('sosmed-group.'.$i.'link')
                                   <div class="invalid-feedback">
                                     <p>{{ $message }}</p>
                                   </div>
@@ -126,9 +126,9 @@
                     </div>
                   @endforeach
                 @else
-                  @foreach (old('sosmed-group') as $i => $category)
+                  @foreach (old('sosmed-group', []) as $i => $category)
                     <div data-repeater-item>
-                      <div class="row d-none">
+                      <div class="row">
                         <div class="d-flex flex-row">
                           <div class="col-6 mb-4 pe-3">
                             <label for="unknown" class="form-label">Nama Sosmed</label>
@@ -143,11 +143,11 @@
                             <label for="unknown" class="form-label">Link Sosmed</label>
                             <div class="d-flex justify-content-between">
                               <div style="width: 100%">
-                                <input type="number" name="link"
+                                <input type="text" name="link"
                                   class="form-control @error('sosmed-group.' . $i . '.link') is-invalid
                                                                                                       @enderror" id="linkSosmed" placeholder="Link Sosmed"
                                   value="{{ $category['link'] }}" required>
-                                @error('sosmed-group.' . $i++ . '.link')
+                                @error('sosmed-group.' . $i . '.link')
                                   <div class="invalid-feedback">
                                     <p>{{ $message }}</p>
                                   </div>
@@ -178,6 +178,13 @@
     </form>
   </div>
 <script>
+    @error('sosmed-group')
+        Swal.fire({
+            icon: 'error',
+            title: "Gagal",
+            text: "Sosial media tidak boleh kosong!"
+        });
+    @enderror
     document.getElementById('potoProfile').addEventListener('change', function(event) {
         const inputFile = event.target;
         const profileImage = document.getElementById('profileImage');

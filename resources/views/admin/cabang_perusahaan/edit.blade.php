@@ -81,7 +81,7 @@
     <script>
         const apiKey =
             "AAPKd1f57bfd86514fd59f24f6aca0d9448884U7xkqJAeGXaT01_f2vvcrnXPo4iuG3QNoFDU9Mx32AHdMkwMl5VAn4l_V2hwiL";
-        const map = L.map("map").setView([-7.900074, 112.606886], 7);
+        const map = L.map("map").setView([{{ $cabang->latitude }}, {{ $cabang->longitude }}], 7);
         const markerLayer = L.layerGroup().addTo(map);
 
         L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map);

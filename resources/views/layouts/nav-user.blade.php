@@ -260,7 +260,7 @@
                         </div>
                         <div class="info-text">
                           <span><a target="_blank"
-                              href="https://wa.me/{{ ltrim(preg_replace('/[^0-9]/', '', $data->no_telp), '0') }}">{{ $data->no_telp }}</a></span>
+                              href="https://wa.me/{{ $data->no_telp }}">{{ $data->no_telp }}</a></span>
                         </div>
                       </li>
                       <li>

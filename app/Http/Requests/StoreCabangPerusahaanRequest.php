@@ -22,9 +22,9 @@ class StoreCabangPerusahaanRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'cabang-group.*.cabang_name' => 'required|unique:cabang_perusahaans,name',
-            'cabang-group.*.latitude' => 'required|numeric|between:-90,90',
-            'cabang-group.*.longitude' => 'required|numeric|between:-180,180',
+            'cabang_name' => 'required|unique:cabang_perusahaans,name',
+            'latitude' => 'required|numeric|between:-90,90',
+            'longitude' => 'required|numeric|between:-180,180',
         ];
     }
 }

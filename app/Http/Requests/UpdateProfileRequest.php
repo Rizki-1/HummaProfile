@@ -23,10 +23,11 @@ class UpdateProfileRequest extends FormRequest
     {
         return [
             'email' => 'required|email',
-            'no_telp' => 'required',
+            'no_telp' => 'required|regex:/^08[0-9]{9,12}$/',
             'alamat' => 'required',
             'tentang' => 'required',
             'poto_profile' => 'image|mimes:png',
+            'sosmed-group' => 'required|array',
             'sosmed-group.*.name' => 'required',
             'sosmed-group.*.link' => 'required|url',
         ];
