@@ -30,9 +30,7 @@
               <div class="page-banner text-center">
                 <h2 class="title mb-2">Tentang Magang</h2>
                 <p class="text-bawah">Program Magang/PKL kami dirancang khusus untuk para siswa/i SMK Negeri/Swasta dan
-                  Mahasiswa/i kuliah yang tertarik dalam pengembangan keahlian di dunia programmer. Kami berkomitmen
-                  memberikan pengalaman magang yang bermakna dan mendalam, membantu peserta magang untuk mengembangkan
-                  keterampilan teknis dan soft skills yang diperlukan di dunia industri.</p>
+                  Mahasiswa/i kuliah yang tertarik dalam pengembangan keahlian di dunia programmer.</p>
               </div>
               <!-- Page Banner Content End -->
             </div>

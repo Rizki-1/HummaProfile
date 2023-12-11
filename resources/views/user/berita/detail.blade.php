@@ -43,7 +43,7 @@
                 <div class="blog-content" data-aos="fade-up-right" data-aos-duration="500"
                   style="overflow-wrap: anywhere; overflow: hidden">
                   <div class="date-background-styling mb-3" data-aos="fade-up-right" data-aos-duration="500">
-                    <span><i class="far fa-calendar-alt" style="margin-right: 10px"></i>Tanggal Rilis
+                    <span><i class="far fa-calendar-alt" style="margin-right: 10px"></i>Diposting pada
                       {{ \Carbon\Carbon::parse($berita->dibuat)->format('d') }}</span>
                     {{ \Carbon\Carbon::parse($berita->dibuat)->format('M') }}
                     {{ \Carbon\Carbon::parse($berita->dibuat)->format('Y') }}

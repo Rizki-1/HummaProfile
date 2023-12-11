@@ -23,33 +23,25 @@
     <div class="card p-4">
         <form action="{{ route('cabang-perusahaan.store') }}" method="POST">
             @csrf
-            <div class="d-flex justify-content-center align-items-center flex-column">
-                <div id="map" style="width: 95%; height: 500px;z-index: 1;"></div>
-                <div class="col-md-4">
-                    <label for="unknown" class="form-label">Nama Cabang</label>
-                    <input required type="text" class="form-control" placeholder="Nama Cabang" name="cabang_name"
-                        value="" required>
-                </div>
-                <div class="row">
-                    <div class="d-flex flex-row">
-                        <div class="col-12 mb-4 pt-3 d-flex gap-3 align-items-center">
-                            <div class="col-md-6">
-                                <label for="latitude" class="form-label">Latitude</label>
-                                <input required type="text" class="form-control" placeholder="Latitude perusahaan"
-                                    name="latitude" id="latitude" value="" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="longitude" class="form-label">Longitude</label>
-                                <input required type="text" class="form-control" placeholder="Longitude perusahaan"
-                                    name="longitude" id="longitude" value="" required>
-                            </div>
-                        </div>
+            <div >
+                <div id="map" style="width: 100%; height: 500px; z-index: 1;"></div>
+                <div class="row mt-4 mb-4">
+                    <div class="col-md-4">
+                        <label for="unknown" class="form-label">Nama Cabang</label>
+                        <input required type="text" class="form-control" placeholder="Nama Cabang" name="cabang_name"
+                            value="" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="latitude" class="form-label">Latitude</label>
+                        <input required type="text" class="form-control" placeholder="Latitude perusahaan"
+                            name="latitude" id="latitude" value="" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="longitude" class="form-label">Longitude</label>
+                        <input required type="text" class="form-control" placeholder="Longitude perusahaan"
+                            name="longitude" id="longitude" value="" required>
                     </div>
                 </div>
-            </div>
-            <div class="hstack gap-2 justify-content-end">
-                <input required class="btn btn-outline-success waves-effect waves-light" data-repeater-create type="button"
-                    value="+ Tambah" />
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
             <a href="{{ route('cabang-perusahaan.index') }}" class="btn btn-secondary">Cancel</a>
