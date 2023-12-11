@@ -10,7 +10,7 @@
 
   @section('header')
     <meta name="description" content="Perusahaan HummaTech">
-    <title>Hummatech</title>
+    <title>{{ config('app.name', 'Laravel') }}</title>
   @show
 
 

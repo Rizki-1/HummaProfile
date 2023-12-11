@@ -28,10 +28,7 @@
               <!-- Page Banner Content Start -->
               <div class="page-banner text-center">
                 <h2 class="title">Tentang Kelas Industri</h2>
-                {{-- <ul class="breadcrumb justify-content-center">
-                  <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Services</li>
-                </ul> --}}
+                <p style="color: #ffffff; ">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores animi tempore porro voluptatem, fugit nisi temporibus eum sunt doloribus voluptatum molestiae quibusdam! Quasi quibusdam quas expedita, sapiente nobis molestias atque!</p>
               </div>
               <!-- Page Banner Content End -->
             </div>
