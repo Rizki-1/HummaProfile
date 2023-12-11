@@ -1,5 +1,5 @@
 @extends('layouts.nav-user')
-
+<title>HummaTech - Detail Produk</title>
 @section('content')
   <!-- Blog Details Start -->
   <link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/forceLogo.css') }}">
@@ -22,17 +22,23 @@
                 <div class="blog-image" data-aos="fade-up-right" data-aos-duration="500">
                   <div id="carouselExample" class="carousel slide">
                     <ul class="carousel-inner list-unstyled" id="lightgallery">
-                      <li class="carousel-item active gallery-item" data-responsive="{{ asset('/storage/'.$produk->foto_produk) }}" data-src="{{ asset('/storage/'.$produk->foto_produk) }}">
+                      <li class="carousel-item active gallery-item"
+                        data-responsive="{{ asset('/storage/' . $produk->foto_produk) }}"
+                        data-src="{{ asset('/storage/' . $produk->foto_produk) }}">
                         <a href="">
-                        <img src="{{ asset('/storage/'.$produk->foto_produk) }}" class="d-block w-100" alt="Foto Produk {{ $produk->nama_produk }}">
+                          <img src="{{ asset('/storage/' . $produk->foto_produk) }}" class="d-block w-100"
+                            alt="Foto Produk {{ $produk->nama_produk }}">
                         </a>
                       </li>
                       @foreach ($produk->galery as $i => $item)
-                      <li class="carousel-item gallery-item" data-responsive="{{ asset('/storage/produk_galery/'.$item->galery) }}" data-src="{{ asset('/storage/produk_galery/'.$item->galery) }}">
-                        <a href="">
-                        <img src="{{ asset('/storage/produk_galery/'.$item->galery) }}" class="d-block w-100" alt="Lampiran produk {{ $i++ }}">
-                        </a>
-                      </li>
+                        <li class="carousel-item gallery-item"
+                          data-responsive="{{ asset('/storage/produk_galery/' . $item->galery) }}"
+                          data-src="{{ asset('/storage/produk_galery/' . $item->galery) }}">
+                          <a href="">
+                            <img src="{{ asset('/storage/produk_galery/' . $item->galery) }}" class="d-block w-100"
+                              alt="Lampiran produk {{ $i++ }}">
+                          </a>
+                        </li>
                       @endforeach
                     </ul>
                     {{-- Kasih kondisi jika data dari produk cuman satu button ini di adain pake if --}}

@@ -67,6 +67,17 @@
     transition-property: clip-path;
 }
 
+/* Text Video */
+
+.text-depan-video {
+    width: 60%;
+}
+
+.text-depan-video .text-bawah {
+    color: #ffffff;
+    font-size: 15px;
+}
+
 @media (max-width: 500px) {
     .video {
         height: 100vh;
@@ -206,5 +217,14 @@
         flex-direction: column;
         align-items: center;
         width: 100%;
+    }
+
+    .text-depan-video {
+        width: 80%;
+    }
+    
+    .text-depan-video .text-bawah {
+        color: #ffffff;
+        font-size: 12px;
     }
 }

@@ -1,5 +1,5 @@
 @extends('layouts.nav-user')
-
+<title>HummaTech - Industri</title>
 @section('content')
   {{-- <link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/forceNav.css') }}"> --}}
   <link rel="stylesheet" href="{{ asset('cssUser/css/pendidikan/style.css') }}">
@@ -20,15 +20,17 @@
       </div>
     </div>
 
-    <div class="depan" style="position: absolute; z-index: 3; top: 50%; left: 50%; transform: translate(-50%, -50%)">
+    <div class="depan text-depan-video" style="position: absolute; z-index: 3; top: 50%; left: 50%; transform: translate(-50%, -50%)">
       <div class="container">
         <div class="page-banner-wrap">
           <div class="row">
             <div class="col-lg-12">
               <!-- Page Banner Content Start -->
               <div class="page-banner text-center">
-                <h2 class="title">Tentang Kelas Industri</h2>
-                <p style="color: #ffffff; ">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores animi tempore porro voluptatem, fugit nisi temporibus eum sunt doloribus voluptatum molestiae quibusdam! Quasi quibusdam quas expedita, sapiente nobis molestias atque!</p>
+                <h2 class="title mb-2">Tentang Kelas Industri</h2>
+                <p class="text-bawah">Program ini merupakan kolaborasi antara sekolah dan PT Hummatech, memberikan
+                  kelas tambahan pemrograman. Fokusnya adalah mendalami konsep-konsep terkini untuk mempersiapkan siswa/i
+                  menghadapi tantangan industri.</p>
               </div>
               <!-- Page Banner Content End -->
             </div>
@@ -64,9 +66,12 @@
             <div class="about-content-wrap">
               <div class="section-title">
                 <h3 class="sub-title" data-aos="fade-up-left" data-aos-duration="500">Kelas Industri</h3>
-                <h2 class="title text-capitalize" data-aos="fade-up-left" data-aos-duration="700">Kami menyediakan layanan kelas industri untuk SMK Negeri/Swasta</h2>
+                <h2 class="title text-capitalize" data-aos="fade-up-left" data-aos-duration="700">Kami menyediakan layanan
+                  kelas industri untuk SMK Negeri/Swasta</h2>
               </div>
-              <p class="text" data-aos="fade-up-left" data-aos-duration="900">Materi yang diberikan kurikulum terbaru, pastinya sudah sesuai kebutuhan Industri, dan materi yang diberikan dibuat oleh Senior Developer dari HummaTech yang sudah berpengalaman didunia IT.</p>
+              <p class="text" data-aos="fade-up-left" data-aos-duration="900">Materi yang diberikan kurikulum terbaru,
+                pastinya sudah sesuai kebutuhan Industri, dan materi yang diberikan dibuat oleh Senior Developer dari
+                HummaTech yang sudah berpengalaman didunia IT.</p>
               <!-- About List Start -->
               <div class="about-list-03">
                 <div class="row">
@@ -180,7 +185,8 @@
   </div>
 
   <!-- Service Start -->
-  <div class="section techwix-service-section industry-index section-padding-02" style="padding-bottom: 70px; padding-top: 20px">
+  <div class="section techwix-service-section industry-index section-padding-02"
+    style="padding-bottom: 70px; padding-top: 20px">
     <div class="container">
       <!-- Service Wrap Start -->
       <div class="service-wrap">

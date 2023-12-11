@@ -1,5 +1,5 @@
 @extends('layouts.nav-user')
-
+<title>HummaTech - Hubungi Kami</title>
 @section('content')
   <!-- Contact Start -->
   <link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/forceLogo.css') }}">
@@ -66,20 +66,21 @@
             <div class="contact-form" data-aos="fade-up-left" data-aos-duration="700">
               <div class="contact-form-wrap">
                 <div class="heading-wrap text-center">
-                  <span class="sub-title" >Customer Support hummatech</span>
+                  <span class="sub-title">Customer Support hummatech</span>
                   <h3 class="title">Hubungi Kami disini!</h3>
                 </div>
                 <form action="{{ route('inbox.store') }}" method="POST">
-                    @csrf
+                  @csrf
                   <div class="row">
                     <div class="col-sm-6">
                       <!-- Single Form Start -->
                       <div class="single-form">
-                        <input name="name" type="text" placeholder="Nama *" @error('name') class="is-invalid" @enderror value="{{ old('name') }}">
+                        <input name="name" type="text" placeholder="Nama *"
+                          @error('name') class="is-invalid" @enderror value="{{ old('name') }}">
                         @error('name')
-                            <div class="invalid-feedback">
+                          <div class="invalid-feedback">
                             <p>{{ $message }}</p>
-                            </div>
+                          </div>
                         @enderror
                       </div>
                       <!-- Single Form End -->
@@ -87,11 +88,12 @@
                     <div class="col-sm-6">
                       <!-- Single Form Start -->
                       <div class="single-form">
-                        <input name="email" type="email" placeholder="Email *" @error('email') class="is-invalid" @enderror value="{{ old('email') }}">
+                        <input name="email" type="email" placeholder="Email *"
+                          @error('email') class="is-invalid" @enderror value="{{ old('email') }}">
                         @error('email')
-                            <div class="invalid-feedback">
+                          <div class="invalid-feedback">
                             <p>{{ $message }}</p>
-                            </div>
+                          </div>
                         @enderror
                       </div>
                       <!-- Single Form End -->
@@ -101,21 +103,21 @@
                       <div class="single-form">
                         <textarea name="message" placeholder="Masukkan Pesan.." @error('message') class="is-invalid" @enderror>{{ old('message') }}</textarea>
                         @error('message')
-                            <div class="invalid-feedback">
+                          <div class="invalid-feedback">
                             <p>{{ $message }}</p>
-                            </div>
+                          </div>
                         @enderror
                       </div>
                       <!-- Single Form End -->
                     </div>
                     <div class="col-sm-12 mt-2">
-                        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-                    <div class="g-recaptcha" id="feedback-recaptcha"
-                         data-sitekey="{{ config('app.g-recaptcha-key') }}">
-                    </div>
-                    @error('g-recaptcha-response')
+                      <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+                      <div class="g-recaptcha" id="feedback-recaptcha"
+                        data-sitekey="{{ config('app.g-recaptcha-key') }}">
+                      </div>
+                      @error('g-recaptcha-response')
                         <p class="text-danger">{{ $message }}</p>
-                    @enderror
+                      @enderror
                     </div>
                     <div class="col-sm-12">
                       <!--  Single Form Start -->
@@ -138,23 +140,23 @@
   <!-- Contact End -->
   <script src="{{ asset('cssAdmin/js/jquery-ini.js') }}"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    @if (session('message'))
-        <script>
-            const Toast = Swal.mixin({
-                toast: true,
-                position: "top-end",
-                showConfirmButton: false,
-                timer: 3500,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                        toast.onmouseenter = Swal.stopTimer;
-                        toast.onmouseleave = Swal.resumeTimer;
-                    }
-                });
-                Toast.fire({
-                icon: "{{ session('message')['icon'] ?? 'question' }}",
-                title: "{{ session('message')['title'] ?? 'No title...' }}"
-            });
-        </script>
-    @endif
+  @if (session('message'))
+    <script>
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3500,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        }
+      });
+      Toast.fire({
+        icon: "{{ session('message')['icon'] ?? 'question' }}",
+        title: "{{ session('message')['title'] ?? 'No title...' }}"
+      });
+    </script>
+  @endif
 @endsection

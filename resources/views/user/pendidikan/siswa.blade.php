@@ -1,5 +1,5 @@
 @extends('layouts.nav-user')
-
+<title>HummaTech - Siswa</title>
 @section('content')
   {{-- <link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/forceNav.css') }}"> --}}
   <link rel="stylesheet" href="{{ asset('cssUser/css/pendidikan/style.css') }}">
@@ -20,15 +20,15 @@
       </div>
     </div>
 
-    <div class="depan" style="position: absolute; z-index: 3; top: 50%; left: 50%; transform: translate(-50%, -50%)">
+    <div class="depan text-depan-video" style="position: absolute; z-index: 3; top: 50%; left: 50%; transform: translate(-50%, -50%)">
       <div class="container">
         <div class="page-banner-wrap">
           <div class="row">
             <div class="col-lg-12">
               <!-- Page Banner Content Start -->
               <div class="page-banner text-center">
-                <h2 class="title">Tentang Magang</h2>
-                <p style="color: #ffffff; ">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores animi
+                <h2 class="title mb-2">Tentang Magang</h2>
+                <p class="text-bawah">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores animi
                   tempore porro voluptatem, fugit nisi temporibus eum sunt doloribus voluptatum molestiae quibusdam! Quasi
                   quibusdam quas expedita, sapiente nobis molestias atque!</p>
               </div>
@@ -181,7 +181,7 @@
   <!-- Testimonial Start  -->
   <div
     class="section bg-cover techwix-testimonial-section-02 techwix-testimonial-section-03 techwix-testimonial-section-05 section-padding"
-    style="padding: 40px;">
+    style="padding: 40px; height: fit-content">
     <div class="container">
       <!-- Testimonial Wrap Start  -->
       <div class="testimonial-wrap-02">

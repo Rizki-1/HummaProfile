@@ -4,7 +4,7 @@
     <meta name="keywords" content="Berita HummaTech">
     <meta name="description" content="Kumpulan berita-berita dari HummaTech">
 
-    <title>Berita-berita HummaTech</title>
+    <title>HummaTech - Berita</title>
 @endsection
 
 @section('content')
