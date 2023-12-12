@@ -9348,7 +9348,7 @@ only screen and (max-width: 767px) {
     color: #0e0e0e;
 }
 
-.progress-wrap {
+/* .progress-wrap {
     position: fixed;
     right: 50px;
     bottom: 50px;
@@ -9409,7 +9409,7 @@ only screen and (max-width: 767px) {
 
 .progress-wrap-3 svg.progress-circle path {
     stroke: #ff5538;
-}
+} */
 
 .picture-responsive {
     width: 100%;

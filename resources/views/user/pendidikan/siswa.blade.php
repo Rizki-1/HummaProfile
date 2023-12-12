@@ -134,8 +134,7 @@
   <!-- Service End -->
 
   <!-- Testimonial Start  -->
-  <div
-    class="section bg-cover techwix-testimonial-section-02 techwix-testimonial-section-03 techwix-testimonial-section-05 section-padding"
+  <div class="section bg-cover techwix-testimonial-section-02 techwix-testimonial-section-03 techwix-testimonial-section-05 section-padding"
     style="padding: 40px; height: fit-content">
     <div class="container">
       <!-- Testimonial Wrap Start  -->

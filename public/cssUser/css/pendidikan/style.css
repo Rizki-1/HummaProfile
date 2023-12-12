@@ -196,6 +196,12 @@
     border-radius: 100px;
 }
 
+@media only screen and (max-width: 768px) {
+    .syarat-ketentuan-margin {
+        margin-top: 50px;
+    }
+}
+
 @media only screen and (max-width: 500px) {
     .pendaftaran .sub-title {
         text-align: center;
@@ -333,3 +339,4 @@
     }
     
 }
+
