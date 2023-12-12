@@ -64,12 +64,12 @@
         @if (!request('query'))
           <div class="nodata mb-5">
             <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="Tidak ada data">
-            <p>Masih belum ada berita</p>
+            <p class="mt-3">Berita belum ada</p>
           </div>
         @else
           <div class="nodata mb-5">
             <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="Tidak ada data">
-            <p>Berita tidak di temukan</p>
+            <p class="mt-3">Berita tidak di temukan</p>
           </div>
         @endif
       @endforelse

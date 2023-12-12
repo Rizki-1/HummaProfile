@@ -12,7 +12,9 @@
       </div>
       <div class="text">
         <h1 class="text-big">Humma<span>Tech</span></h1>
-        <p class="text-small">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, sit Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, sit Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, sit.</p>
+        <p class="text-small">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, sit Lorem ipsum dolor sit
+          amet, consectetur adipisicing elit. Saepe, sit Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe,
+          sit.</p>
       </div>
       <div class="slider-foto">
         <div class="nav-btn active"></div>
@@ -63,7 +65,8 @@
   <!-- About End -->
 
   <!-- Service Start -->
-  <div class="section techwix-service-section-02 service-card-content section-padding layanan-index" style="background-color: #f8f8f8">
+  <div class="section techwix-service-section-02 service-card-content section-padding layanan-index"
+    style="background-color: #f8f8f8">
     <div class="container">
       <!-- Service Wrap Start -->
       <div class="service-wrap">
@@ -81,7 +84,8 @@
                   <div class="service-item">
                     <div class="service-content">
                       <div class="image-layanan">
-                        <img style="width: 100%; height: 100%; object-fit: cover" src="{{ asset('storage/layanan/' . $data->foto_layanan) }}" alt="">
+                        <img style="width: 100%; height: 100%; object-fit: cover"
+                          src="{{ asset('storage/layanan/' . $data->foto_layanan) }}" alt="">
                       </div>
                       <h3 class="title"><a class="layanan-truncation-title">{{ $data->nama_layanan }}</a></h3>
                       <p class="layanan-truncation-text">{{ $data->descripsi_layanan }}</p>
@@ -129,7 +133,8 @@
                   <!-- Choose Us Item Start -->
                   <div class="choose-us-item">
                     <div class="choose-us-img">
-                      <a href="{{ route('produk.detail', $produkRow->nama_produk) }}"><img class="picture-responsive" src="{{ asset('storage/' . $produkRow->foto_produk) }}" alt="Foto Produk"></a>
+                      <a href="{{ route('produk.detail', $produkRow->nama_produk) }}"><img class="picture-responsive"
+                          src="{{ asset('storage/' . $produkRow->foto_produk) }}" alt="Foto Produk"></a>
                       <div class="choose-us-content">
                         <h3 class="title text-truncate">{{ $produkRow->nama_produk }}</h3>
                         <p class="description-truncate">{{ $produkRow->keterangan_produk }}</p>
@@ -143,7 +148,8 @@
             <div class="row">
               <div class="col-lg-12">
                 <div class="more-choose-content text-center" data-aos="fade-up" data-aos-duration="1000">
-                  <p>Produk lainnya <a href="{{ route('produkIndex') }}">Disini <i class="fas fa-long-arrow-alt-right"></i></a> </p>
+                  <p>Produk lainnya <a href="{{ route('produkIndex') }}">Disini <i
+                        class="fas fa-long-arrow-alt-right"></i></a> </p>
                 </div>
               </div>
             </div>
@@ -160,7 +166,8 @@
   </div>
 
   <!-- Testimonial Start  -->
-  <div class="section techwix-testimonial-section-02 techwix-testimonial-section-03 section-padding-02" style="padding: 60px 0;">
+  <div class="section techwix-testimonial-section-02 techwix-testimonial-section-03 section-padding-02"
+    style="padding: 60px 0;">
     <div class="container">
       <!-- Testimonial Wrap Start  -->
       <div class="testimonial-wrap-02">
@@ -367,7 +374,8 @@
   <!-- Brand Logo End -->
 
   {{-- Berita Start --}}
-  <div class="section techwix-blog-section section-padding-02" style="padding-top: 70px;" data-aos-anchor-placement="center-bottom">
+  <div class="section techwix-blog-section section-padding-02" style="padding-top: 70px;"
+    data-aos-anchor-placement="center-bottom">
     <div class="container">
       <!-- Section Title Start -->
       <div class="section-title text-center">
@@ -383,7 +391,9 @@
                 <!-- Single Blog Start -->
                 <div class="single-blog">
                   <div class="blog-image">
-                    <a style="height: 250px; width: 100%" href="{{ route('detailBerita', $data->title) }}"><img style="height: 100%; width: 100%; object-fit: cover;" src="{{ asset('storage/' . $data->thumbnail) }}" alt="{{ $data->title }}"></a>
+                    <a style="height: 250px; width: 100%" href="{{ route('detailBerita', $data->title) }}"><img
+                        style="height: 100%; width: 100%; object-fit: cover;"
+                        src="{{ asset('storage/' . $data->thumbnail) }}" alt="{{ $data->title }}"></a>
                     <div class="top-meta">
                       <span class="date">
                         <span>{{ \Carbon\Carbon::parse($data->created_at)->format('d') }}</span>
@@ -394,21 +404,26 @@
                   <div class="blog-content">
                     <div class="blog-meta" style="display: flex; align-items: center;">
                       @foreach ($data->kategori->take(2) as $item)
-                        <a href="{{ route('filter-category', $item->name) }}" class="badge rounded-pill mb-1 text-truncate"
+                        <a href="{{ route('filter-category', $item->name) }}"
+                          class="badge rounded-pill mb-1 text-truncate"
                           style="padding: 7px 13px; background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; font-size: 13px ;margin-right: 5px; font-weight: 700; max-width: 37%">{{ $item->name }}</a>
                       @endforeach
                       @if ($data->kategori->count() > 2)
-                        <a class="badge rounded-pill mb-1" style="color: black"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" class="feather feather-more-horizontal">
+                        <a class="badge rounded-pill mb-1" style="color: black"><svg xmlns="http://www.w3.org/2000/svg"
+                            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-more-horizontal">
                             <circle cx="12" cy="12" r="1"></circle>
                             <circle cx="19" cy="12" r="1"></circle>
                             <circle cx="5" cy="12" r="1"></circle>
                           </svg></a>
                       @endif
                     </div>
-                    <h3 class="title"><a href="{{ route('detailBerita', $data->title) }}" class="text-truncate" style="max-width: 100%">{{ $data->title }}</a></h3>
+                    <h3 class="title"><a href="{{ route('detailBerita', $data->title) }}" class="text-truncate"
+                        style="max-width: 100%">{{ $data->title }}</a></h3>
                     <div class="blog-btn">
-                      <a class="blog-btn-link" href="{{ route('detailBerita', $data->title) }}">Selengkapnya <i class="fas fa-long-arrow-alt-right"></i></a>
+                      <a class="blog-btn-link" href="{{ route('detailBerita', $data->title) }}">Selengkapnya <i
+                          class="fas fa-long-arrow-alt-right"></i></a>
                     </div>
                   </div>
                 </div>
@@ -419,7 +434,8 @@
           <div class="row">
             <div class="col-lg-12">
               <div class="custome-more-text text-center" style="margin-top: 30px">
-                <p>Berita lainnya <a href="{{ route('beritaIndex') }}">Disini <i class="fas fa-long-arrow-alt-right"></i></a> </p>
+                <p>Berita lainnya <a href="{{ route('beritaIndex') }}">Disini <i
+                      class="fas fa-long-arrow-alt-right"></i></a> </p>
               </div>
             </div>
           </div>
@@ -445,15 +461,20 @@
             <!-- About Content Wrap Start -->
             <div class="about-content-wrap">
               <div class="section-title">
-                <h3 class="sub-title operational-holder" data-aos="fade-up-right" data-aos-duration="500">Waktu Operasional</h3>
-                <h2 class="title operational-holder" data-aos="fade-up-right" data-aos-duration="800">Waktu operasional hummatech</h2>
+                <h3 class="sub-title operational-holder" data-aos="fade-up-right" data-aos-duration="500">Waktu
+                  Operasional</h3>
+                <h2 class="title operational-holder" data-aos="fade-up-right" data-aos-duration="800">Waktu operasional
+                  hummatech</h2>
               </div>
               @foreach ($operational as $sm)
                 @if (\Carbon\Carbon::now()->locale('id')->isoFormat('dddd') == $sm->day)
                   @if ($sm->status == 0)
-                    <p class="text text-tentang operational-holder" data-aos="fade-up-right" data-aos-duration="900">{{ $sm->message }}</p>
+                    <p class="text text-tentang operational-holder" data-aos="fade-up-right" data-aos-duration="900">
+                      {{ $sm->message }}</p>
                   @else
-                    <p class="text text-tentang operational-holder" data-aos="fade-up-right" data-aos-duration="900">Selamat datang di Hummatech! Kami senantiasa berkomitmen untuk memberikan pelayanan terbaik kepada Anda. Untuk memastikan Anda mendapatkan
+                    <p class="text text-tentang operational-holder" data-aos="fade-up-right" data-aos-duration="900">
+                      Selamat datang di Hummatech! Kami senantiasa berkomitmen untuk memberikan pelayanan terbaik kepada
+                      Anda. Untuk memastikan Anda mendapatkan
                       layanan yang optimal, berikut adalah informasi mengenai waktu operasional kami</p>
                   @endif
                 @endif
@@ -468,14 +489,24 @@
                 <div class="do-nothing">
                   @foreach ($operational as $ot)
                     <div class="d-flex">
-                      <div class="ot-day bolding @if ($ot->status == 0) deactivate @endif {{ \Carbon\Carbon::now()->locale('id')->isoFormat('dddd') == $ot->day? 'active': '' }}">{{ Str::limit($ot->day, 6, '') }}</div>
+                      <div
+                        class="ot-day bolding @if ($ot->status == 0) deactivate @endif {{ \Carbon\Carbon::now()->locale('id')->isoFormat('dddd') == $ot->day? 'active': '' }}">
+                        {{ Str::limit($ot->day, 6, '') }}</div>
                       <div class="ot-hours d-flex">
                         @if ($ot->status == 0)
-                          <div class="bolding deactivate {{ \Carbon\Carbon::now()->locale('id')->isoFormat('dddd') == $ot->day? '': '' }} text-center">Tutup</div>
+                          <div
+                            class="bolding deactivate {{ \Carbon\Carbon::now()->locale('id')->isoFormat('dddd') == $ot->day? '': '' }} text-center">
+                            Tutup</div>
                         @else
-                          <div class="bolding {{ \Carbon\Carbon::now()->locale('id')->isoFormat('dddd') == $ot->day? 'active': '' }}">{{ \Carbon\Carbon::createFromFormat('H:i:s', $ot->open)->format('H:i') }}</div>
-                          <div class="bolding {{ \Carbon\Carbon::now()->locale('id')->isoFormat('dddd') == $ot->day? 'active': '' }}">-</div>
-                          <div class="bolding {{ \Carbon\Carbon::now()->locale('id')->isoFormat('dddd') == $ot->day? 'active': '' }}">{{ \Carbon\Carbon::createFromFormat('H:i:s', $ot->close)->format('H:i') }}</div>
+                          <div
+                            class="bolding {{ \Carbon\Carbon::now()->locale('id')->isoFormat('dddd') == $ot->day? 'active': '' }}">
+                            {{ \Carbon\Carbon::createFromFormat('H:i:s', $ot->open)->format('H:i') }}</div>
+                          <div
+                            class="bolding {{ \Carbon\Carbon::now()->locale('id')->isoFormat('dddd') == $ot->day? 'active': '' }}">
+                            -</div>
+                          <div
+                            class="bolding {{ \Carbon\Carbon::now()->locale('id')->isoFormat('dddd') == $ot->day? 'active': '' }}">
+                            {{ \Carbon\Carbon::createFromFormat('H:i:s', $ot->close)->format('H:i') }}</div>
                         @endif
                       </div>
                     </div>
@@ -503,7 +534,8 @@
       <div class="container" data-aos="fade-up" data-aos-duration="900">
         <link rel="stylesheet" href="{{ asset('cssUser/css/leaflet.css') }}" />
         <div class="container-map">
-          <div id="map" style="height: 400px;z-index: 1;" class="shadow-sm p-3 mb-5 bg-white rounded w-100 position-relative"></div>
+          <div id="map" style="height: 400px;z-index: 1;"
+            class="shadow-sm p-3 mb-5 bg-white rounded w-100 position-relative"></div>
         </div>
       </div>
     </div>
@@ -562,11 +594,8 @@
       var cabangPerusahaan = L.marker([{{ $item->latitude }}, {{ $item->longitude }}], {
         icon: customIcon
       }).addTo(map);
-      @if ($item->id == 1)
-        cabangPerusahaan.bindPopup('<b>{{ $item->name }}</b>').openPopup();
-      @else
-        cabangPerusahaan.bindPopup('<b>{{ $item->name }}</b>');
-      @endif
+
+      cabangPerusahaan.bindPopup('<b>{{ $item->name }}</b>');
     @endforeach
 
     var markerElements = document.querySelectorAll('.leaflet-marker-icon.leaflet-zoom-animated.leaflet-interactive');

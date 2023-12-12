@@ -38,7 +38,7 @@
       @empty
         <div class="nodata mb-5">
           <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="Tidak ada data">
-          <p>Masih belum mempunyai cabang</p>
+          <p class="mt-3">Cabang belum ada</p>
         </div>
       @endforelse
     </div>

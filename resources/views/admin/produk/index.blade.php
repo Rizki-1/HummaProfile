@@ -61,7 +61,7 @@
         @if (!request('query'))
           <div class="nodata mb-5">
             <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="Tidak ada data">
-            <p>Masih belum mempunyai produk</p>
+            <p class="mt-3">Produk belum ada</p>
           </div>
         @else
           <div class="nodata mb-5">

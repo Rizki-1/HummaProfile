@@ -86,7 +86,7 @@
                   @if ($layanan->count() < 1)
                     <div class="nodata mb-3">
                       <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="Tidak ada data">
-                      <p>Masih belum mempunyai layanan</p>
+                      <p class="mt-3">Layanan belum ada</p>
                     </div>
                   @endif
                 </div>

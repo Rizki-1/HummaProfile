@@ -68,7 +68,7 @@
                   @if ($syarat->count() < 1)
                     <div class="nodata mb-5">
                       <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="Tidak ada data">
-                      <p>Masih belum ada syarat dan ketentuan</p>
+                      <p class="mt-3">Syarat dan ketentuan belum ada</p>
                     </div>
                   @endif
                 </div>
