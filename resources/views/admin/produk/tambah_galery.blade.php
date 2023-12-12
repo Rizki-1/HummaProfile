@@ -30,28 +30,29 @@
     </div>
 
     <div class="row align-items-center p-4" id="gallery">
-        @foreach ($produk->galery as $item)
-            <div class="col-md-4 mb-4" data-filename="{{ $item->galery }}">
-                <div class="card">
-                    <div class="image-container">
-                        <img src="{{ asset('storage/produk_galery/' . $item->galery) }}" class="image-content"
-                            alt="Thumbnail {{ $item->id }}">
-                    </div>
-                    <div class="image-hover">
-                        <div class="image-detail">
-                            <div class="lampiran-hover">
-                                <form class="delete-form hapus gallery" action="{{ route('delete.galeryproduk', $item->id) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="remove-button"><i class="link-icon pg-trash"
-                                            data-feather="trash"></i></button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      @foreach ($produk->galery as $item)
+        <div class="col-md-4 mb-4" data-filename="{{ $item->galery }}">
+          <div class="card">
+            <div class="image-container">
+              <img src="{{ asset('storage/produk_galery/' . $item->galery) }}" class="image-content"
+                alt="Thumbnail {{ $item->id }}">
             </div>
-        @endforeach
+            <div class="image-hover">
+              <div class="image-detail">
+                <div class="lampiran-hover">
+                  <form class="delete-form hapus gallery" action="{{ route('delete.galeryproduk', $item->id) }}"
+                    method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="remove-button"><i class="link-icon pg-trash"
+                        data-feather="trash"></i></button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      @endforeach
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -72,82 +73,91 @@
         parallelUploads: 1,
         uploadMultiple: true,
         init: function() {
-        this.on("success", function(file, response) {
+          this.on("success", function(file, response) {
             file.fotoname = response.filename;
-        });
+          });
 
-        // this.on("removedfile", function(file) {
-        //     var filename = file.fotoname;
-        //     $.ajax({
-        //         type: 'POST',
-        //         url: '{{ route('galery-produk.deleteProduk') }}',
-        //         headers: {
-        //             'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content,
-        //         },
-        //         data: {
-        //             filename: filename
-        //         },
-        //         success: function(response) {
-        //             console.log(response.success);
-        //         },
-        //         error: function(error) {
-        //             console.error(error);
-        //         }
-        //     });
-        // });
-    }
+          this.on("removedfile", function(file) {
+            var filename = file.fotoname;
+
+            // Remove corresponding HTML element on successful deletion
+            $.ajax({
+              type: 'POST',
+              url: '{{ route('galery-produk.deleteProduk') }}',
+              headers: {
+                'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content,
+              },
+              data: {
+                filename: filename
+              },
+              success: function(response) {
+                if (response.success) {
+                  var elementToRemove = document.querySelector('[data-filename="' + filename + '"]');
+                //   console.log(elementToRemove);
+                  if (elementToRemove) {
+                    elementToRemove.parentNode.removeChild(elementToRemove);
+                  }
+                  console.log(response.success);
+                }
+              },
+              error: function(error) {
+                console.error(error);
+              }
+            });
+          });
+        }
 
       });
 
       if (document.querySelector('#gallery')) {
-  document.querySelector('#gallery').addEventListener('click', function(event) {
-    var target = event.target;
+        document.querySelector('#gallery').addEventListener('click', function(event) {
+          var target = event.target;
 
-    // Periksa apakah yang diklik adalah tombol hapus
-    if (target.classList.contains('remove-button')) {
-      event.preventDefault();
+          // Periksa apakah yang diklik adalah tombol hapus
+          if (target.classList.contains('remove-button')) {
+            event.preventDefault();
 
-      var form = target.closest('.delete-form');
+            var form = target.closest('.delete-form');
 
-      Swal.fire({
-        title: 'Apakah anda yakin?',
-        text: "Ingin menghapus gallery produk?",
-        icon: "question",
-        showCancelButton: true,
-        confirmButtonText: "Ya, Hapus!",
-        cancelButtonText: "Batal",
-        background: 'var(--bs-body-bg)',
-      }).then((result) => {
-        if (result.isConfirmed) {
-          form.submit();
+            Swal.fire({
+              title: 'Apakah anda yakin?',
+              text: "Ingin menghapus gallery produk?",
+              icon: "question",
+              showCancelButton: true,
+              confirmButtonText: "Ya, Hapus!",
+              cancelButtonText: "Batal",
+              background: 'var(--bs-body-bg)',
+            }).then((result) => {
+              if (result.isConfirmed) {
+                form.submit();
+              }
+            });
+          }
+        });
+      }
+
+      // Event listener untuk SweetAlert jika tidak ada elemen dengan kelas .delete-form
+      document.addEventListener('submit', function(event) {
+        var target = event.target;
+
+        if (target.classList.contains('delete-form')) {
+          event.preventDefault();
+
+          Swal.fire({
+            title: 'Apakah anda yakin?',
+            text: "Ingin menghapus gallery produk?",
+            icon: "question",
+            showCancelButton: true,
+            confirmButtonText: "Ya, Hapus!",
+            cancelButtonText: "Batal",
+            background: 'var(--bs-body-bg)',
+          }).then((result) => {
+            if (result.isConfirmed) {
+              target.submit();
+            }
+          });
         }
       });
-    }
-  });
-}
-
-// Event listener untuk SweetAlert jika tidak ada elemen dengan kelas .delete-form
-document.addEventListener('submit', function(event) {
-  var target = event.target;
-
-  if (target.classList.contains('delete-form')) {
-    event.preventDefault();
-
-    Swal.fire({
-      title: 'Apakah anda yakin?',
-      text: "Ingin menghapus gallery produk?",
-      icon: "question",
-      showCancelButton: true,
-      confirmButtonText: "Ya, Hapus!",
-      cancelButtonText: "Batal",
-      background: 'var(--bs-body-bg)',
-    }).then((result) => {
-      if (result.isConfirmed) {
-        target.submit();
-      }
-    });
-  }
-});
 
       // Menggunakan event delegation untuk menangani klik pada elemen .delete-btn
       // $(document).on('click', '.delete-btn', function() {
@@ -172,10 +182,13 @@ document.addEventListener('submit', function(event) {
 
       myDropzone.on("success", function(file, response) {
         var galleryContainer = document.querySelector('#gallery');
+        var filename = file.fotoname;
 
         response.paths.forEach(function(path) {
           var newDiv = document.createElement('div');
           newDiv.classList.add('col-md-4', 'mb-4');
+          newDiv.setAttribute('data-filename', filename);
+
 
           var newCard = document.createElement('div');
           newCard.classList.add('card');
@@ -198,7 +211,7 @@ document.addEventListener('submit', function(event) {
           newDetailContainer.classList.add('lampiran-hover');
 
           var newForm = document.createElement('form');
-          newForm.classList.add('delete-form', 'hapus','gallery');
+          newForm.classList.add('delete-form', 'hapus', 'gallery');
           newForm.action = '{{ route('delete.galeryproduk', ':id') }}'.replace(':id', response.id);
           newForm.method = 'POST';
 
