@@ -32,4 +32,15 @@ class UpdateProfileRequest extends FormRequest
             'sosmed-group.*.link' => 'required|url',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'no_telp.required' => 'Nomor telepon harus diisi.',
+            'no_telp.regex' => 'Format nomor telepon tidak valid.',
+            'sosmed-group.*.name.required' => 'Nama sosmed harus diisi.',
+            'sosmed-group.*.link.required' => 'Link sosmed harus diisi.',
+            'sosmed-group.*.link.url' => 'Format link sosmed tidak valid.',
+        ];
+    }
 }
