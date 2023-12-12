@@ -100,6 +100,7 @@
 .captcha-centering {
     display: flex;
     justify-content: center;
+}
 
 @media (max-width: 992px) {
     .form-body.without-side .form-holder .form-content {
