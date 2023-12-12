@@ -93,7 +93,7 @@
               success: function(response) {
                 if (response.success) {
                   var elementToRemove = document.querySelector('[data-filename="' + filename + '"]');
-                //   console.log(elementToRemove);
+                  console.log(elementToRemove);
                   if (elementToRemove) {
                     elementToRemove.parentNode.removeChild(elementToRemove);
                   }

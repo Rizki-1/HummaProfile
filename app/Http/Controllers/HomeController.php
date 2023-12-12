@@ -99,7 +99,7 @@ class HomeController extends Controller
         if ($request->input('query')) {
             $beritaAll->where('title',  'LIKE', '%' . $request->input('query') . '%');
         }
-        $beritaRandom = Berita::inRandomOrder()->get();
+        $beritaRandom = Berita::inRandomOrder()->whereNot('title', $name)->get();
         return view('user.berita.detail', compact('berita', 'beritaAll', 'beritaRandom', 'kategoriBerita'));
     }
 
@@ -108,7 +108,7 @@ class HomeController extends Controller
         if(!$produk){
             return back();
         }
-        $produkLainnya = Produk::inRandomOrder()->get();
+        $produkLainnya = Produk::inRandomOrder()->whereNot('nama_produk', $name)->get();
         return view('user.produk.detailProduk', compact('produk', 'produkLainnya'));
     }
     // End User Controller
