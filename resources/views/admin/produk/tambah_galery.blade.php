@@ -17,7 +17,7 @@
     <div class="card-body">
       <div class="row">
         <div class="col-md-12 text-center ">
-          <label for="" class="form-label label-dropzone">Uplode Galery Produk Maksimal 10</label>
+          <label for="" class="form-label label-dropzone">Uplode Galery Produk</label>
           <div class="dropzone" id="dropzone" data-id="{{ $id }}">
             @error('file')
               <div>
