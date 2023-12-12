@@ -97,7 +97,7 @@
                         </a>
                       </li>
                     @empty
-                      <div class="nodata gap-3" data-aos="fade-up" data-aos-duration="1000">
+                      <div class="nodata gap-3" data-aos="fade-up" data-aos-duration="600">
                         <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="">
                         <p>Berita lainnya tidak tersedia</p>
                       </div>
@@ -112,11 +112,11 @@
               <div class="sidebar-widget">
                 <!-- Widget Title Start -->
                 <div class="widget-title">
-                  <h3 class="title" data-aos="fade-up-left" data-aos-duration="600">Kategori Berita</h3>
+                  <h3 class="title" data-aos="fade-up-left" data-aos-duration="700">Kategori Berita</h3>
                 </div>
                 <!-- Widget Title End -->
                 <!-- Widget Category Start -->
-                <ul class="sidebar-tag" data-aos="fade-up-left" data-aos-duration="600">
+                <ul class="sidebar-tag" data-aos="fade-up-left" data-aos-duration="800">
                   @foreach ($kategoriBerita as $data)
                     <li><a href="{{ route('filter-category', $data->name) }}">{{ $data->name }}</a></li>
                   @endforeach

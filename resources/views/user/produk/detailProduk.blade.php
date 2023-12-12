@@ -106,7 +106,7 @@
                         </a>
                       </li>
                     @empty
-                      <div class="nodata gap-3" data-aos="fade-up" data-aos-duration="1000">
+                      <div class="nodata gap-3" data-aos="fade-up" data-aos-duration="600">
                         <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="">
                         <p>Produk lainnya tidak tersedia</p>
                       </div>
