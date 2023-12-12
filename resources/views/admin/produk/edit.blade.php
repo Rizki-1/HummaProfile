@@ -54,7 +54,7 @@
             </div> --}}
           </div>
           <div class="col-md-6">
-            <label for="myDropify" class="form-label">Upload Gambar Produk</label>
+            <label for="myDropify" class="form-label">Upload Gambar Produk <span class="text-danger">Maksimal : 5mb</span>. Ekstensi file : <span class="text-success">Png, Jpg, Jpeg</span></label>
             <div class="drag-and-drop">
               <div class="product-picture-container">
                 <img class="product-picture-old" src="{{ asset('storage/' . $produks->foto_produk) }}" alt="Foto produk">

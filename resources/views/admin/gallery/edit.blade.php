@@ -23,7 +23,7 @@
         @csrf
         <div class="row mb-3">
           <div class="col-md-12 mb-3">
-            <label for="myDropify" class="form-label">Upload Gambar</label>
+            <label for="myDropify" class="form-label">Upload Gambar <span class="text-danger">Maksimal : 5mb</span>. Ekstensi file : <span class="text-success">Png, Jpg, Jpeg</span></label>
             <div class="drag-and-drop">
               <div class="berita-picture-container">
                 <img class="berita-picture-old" src="{{ asset('storage/galery/' . $gallery->picture) }}" alt="Foto Berita">

@@ -53,7 +53,7 @@
             </div>
           </div>
           <div class="col-md-6">
-            <label for="myDropify" class="form-label">Upload Gambar Berita</label>
+            <label for="myDropify" class="form-label">Upload Gambar Berita <span class="text-danger">Maksimal : 5mb</span>. Ekstensi file : <span class="text-success">Png, Jpg, Jpeg</span></label>
             <div class="drag-and-drop">
               <div class="berita-picture-container">
                 <img class="berita-picture-old" src="{{ asset('storage/' . $berita->thumbnail) }}" alt="Foto Berita">
