@@ -4,7 +4,7 @@
   <!-- Blog Details Start -->
   <link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/forceLogo.css') }}">
   <link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/forceNav.css') }}">
-  <link rel="stylesheet" href="{{ asset('cssUser/css/detail/style.css') }}">
+  <link rel="stylesheet" href="{{ asset('cssUser/css/berita-produk/style.css') }}">
   <link href="https://cdn.jsdelivr.net/lightgallery/1.3.9/css/lightgallery.min.css" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('cssUser/css/gallery/style.css') }}">
   <script src="{{ asset('cssAdmin/js/jquery-ini.js') }}"></script>
@@ -22,47 +22,59 @@
                 <div class="blog-image" data-aos="fade-up-right" data-aos-duration="500">
                   <div id="carouselExample" class="carousel slide">
                     <ul class="carousel-inner list-unstyled" id="lightgallery">
-                      <li class="carousel-item active gallery-item" data-responsive="{{ asset('/storage/' . $produk->foto_produk) }}" data-src="{{ asset('/storage/' . $produk->foto_produk) }}">
+                      <li class="carousel-item active gallery-item"
+                        data-responsive="{{ asset('/storage/' . $produk->foto_produk) }}"
+                        data-src="{{ asset('/storage/' . $produk->foto_produk) }}">
                         <a href="">
-                          <img src="{{ asset('/storage/' . $produk->foto_produk) }}" class="d-block w-100" alt="Foto Produk {{ $produk->nama_produk }}">
+                          <img src="{{ asset('/storage/' . $produk->foto_produk) }}" class="d-block w-100"
+                            alt="Foto Produk {{ $produk->nama_produk }}">
                         </a>
                       </li>
                       @foreach ($produk->galery as $i => $item)
-                        <li class="carousel-item gallery-item" data-responsive="{{ asset('/storage/produk_galery/' . $item->galery) }}" data-src="{{ asset('/storage/produk_galery/' . $item->galery) }}">
+                        <li class="carousel-item gallery-item"
+                          data-responsive="{{ asset('/storage/produk_galery/' . $item->galery) }}"
+                          data-src="{{ asset('/storage/produk_galery/' . $item->galery) }}">
                           <a href="">
-                            <img src="{{ asset('/storage/produk_galery/' . $item->galery) }}" class="d-block w-100" alt="Lampiran produk {{ $i++ }}">
+                            <img src="{{ asset('/storage/produk_galery/' . $item->galery) }}" class="d-block w-100"
+                              alt="Lampiran produk {{ $i++ }}">
                           </a>
                         </li>
                       @endforeach
                     </ul>
-                    {{-- Kasih kondisi jika data dari produk cuman satu button ini di adain pake if --}}
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Next</span>
-                    </button>
+                    @if (count($produk->galery) > 1)
+                      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                      </button>
+                      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                      </button>
+                    @endif
                   </div>
                 </div>
                 <div class="blog-content">
                   <div class="date-background-styling" data-aos="fade-up-right" data-aos-duration="500">
-                    <span><i class="far fa-calendar-alt" style="margin-right: 10px"></i>Tanggal Rilis
-                      {{ \Carbon\Carbon::parse($produk->dibuat)->format('d') }}</span>
+                    <span><i class="far fa-calendar-alt" style="margin-right: 10px"></i>Tanggal Rilis</span>
+                    {{ \Carbon\Carbon::parse($produk->dibuat)->format('d') }}
                     {{ \Carbon\Carbon::parse($produk->dibuat)->locale('id')->isoFormat('MMMM') }}
                     {{ \Carbon\Carbon::parse($produk->dibuat)->format('Y') }}
                     </span>
                   </div>
                   <h3 class="title" data-aos="fade-up-right" data-aos-duration="500" style="overflow-wrap: anywhere; line-height: 42px;">{{ $produk->nama_produk }}</h3>
-                  <p class="text" data-aos="fade-up" data-aos-duration="900" style="overflow-wrap: anywhere; line-height: 25px">{!! Str::markdown($produk->keterangan_produk) !!}</p>
+                  <div data-aos="fade-up-right" data-aos-duration="500">
+                    <p class="text" data-aos="fade-up" data-aos-duration="900"
+                      style="overflow-wrap: anywhere; line-height: 25px">{!! Str::markdown($produk->keterangan_produk) !!}</p>
+                  </div>
                 </div>
               </div>
               <!-- Single Blog End -->
             </div>
             <!-- Blog Details Post End -->
           </div>
-          <div class="col-xl-3 col-lg-4">
+          <div class="col-xl-4 col-lg-4">
             <!-- Blog Sidebar Start -->
             <div class="blog-sidebar">
 
@@ -76,23 +88,29 @@
                 <!-- Widget Recent Post Start -->
                 <div class="recent-posts" data-aos="fade-up-left" data-aos-duration="600">
                   <ul>
-                    @foreach ($produkLainnya->take(5) as $data)
+                    @forelse ($produkLainnya->take(5) as $data)
                       <li>
                         <a class="post-link" href="{{ route('produk.detail', $data->nama_produk) }}">
                           <div class="post-thumb">
-                            <img style="object-fit: cover" src="{{ asset('storage/' . $data->foto_produk) }}" alt="">
+                            <img style="object-fit: cover" src="{{ asset('storage/' . $data->foto_produk) }}"
+                              alt="">
                           </div>
                           <div class="post-text">
                             <h4 class="title text-truncate detail-truncation">{{ $data->nama_produk }}</h4>
                             <span class="post-meta"><i class="far fa-calendar-alt"></i>
                               {{ \Carbon\Carbon::parse($produk->dibuat)->format('d') }}
-                              {{ Str::limit(\Carbon\Carbon::parse($produk->dibuat)->locale('id')->isoFormat('MMMM'), 3, '') }}
+                              {{ Str::limit(\Carbon\Carbon::parse($produk->dibuat)->locale('id')->isoFormat('MMMM'),3,'') }}
                               {{ \Carbon\Carbon::parse($produk->dibuat)->format('Y') }}
                             </span>
                           </div>
                         </a>
                       </li>
-                    @endforeach
+                    @empty
+                      <div class="nodata gap-3" data-aos="fade-up" data-aos-duration="1000">
+                        <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="">
+                        <p>Produk lainnya tidak tersedia</p>
+                      </div>
+                    @endforelse
                   </ul>
                 </div>
                 <!-- Widget Recent Post End -->

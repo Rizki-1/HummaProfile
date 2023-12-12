@@ -23,8 +23,9 @@
 
 @section('content')
   <link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/forceLogo.css') }}">
-  <!-- Blog Details Start -->
   <link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/forceNav.css') }}">
+  <link rel="stylesheet" href="{{ asset('cssUser/css/berita-produk/style.css') }}">
+  <!-- Blog Details Start -->
   <div class="section blog-details-section section-padding-02 mb-5">
     <div class="container">
       <!-- Blog Details Wrap Start -->
@@ -40,32 +41,31 @@
                     <img style="width: 100%;" src="{{ asset('storage/' . $berita->thumbnail) }}" alt="">
                   </a>
                 </div>
-                <div class="blog-content" data-aos="fade-up-right" data-aos-duration="500"
-                  style="overflow-wrap: anywhere; overflow: hidden">
+                <div class="blog-content" style="overflow-wrap: anywhere; overflow: hidden">
                   <div class="date-background-styling mb-3" data-aos="fade-up-right" data-aos-duration="500">
-                    <span><i class="far fa-calendar-alt" style="margin-right: 10px"></i>Diposting pada
-                      {{ \Carbon\Carbon::parse($berita->dibuat)->format('d') }}</span>
+                    <span><i class="far fa-calendar-alt" style="margin-right: 10px"></i>Diposting pada</span>
+                    {{ \Carbon\Carbon::parse($berita->dibuat)->format('d') }}
                     {{ Str::limit(\Carbon\Carbon::parse($berita->dibuat)->locale('id')->isoFormat('MMMM'),3,'') }}
                     {{ \Carbon\Carbon::parse($berita->dibuat)->format('Y') }}
                     </span>
                   </div>
-                  <div class="blog-meta d-flex" data-aos="fade-up-right" data-aos-duration="700" style="flex-wrap: wrap;">
+                  <div class="blog-meta d-flex" data-aos="fade-up-right" data-aos-duration="800" style="flex-wrap: wrap;">
                     @foreach ($berita->kategori as $item)
-                      <a href="{{ route('filter-category', $item->name) }}" class="badge rounded-pill mb-1"
-                        style="padding: 7px 13px; background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; font-size: 13px; margin-right: 5px; font-weight: 700">{{ $item->name }}</a>
+                      <a href="{{ route('filter-category', $item->name) }}" class="badge rounded-pill mb-1">{{ $item->name }}</a>
                     @endforeach
                   </div>
                   <h3 class="title" style="overflow-wrap: anywhere; line-height: 42px;" data-aos="fade-up-right"
-                    data-aos-duration="600">{{ $berita->title }}</h3>
-                  <p class="text" data-aos="fade-up" data-aos-duration="900"
-                    style="overflow-wrap: anywhere; line-height: 25px">{!! Str::markdown($berita->description) !!}</p>
+                    data-aos-duration="800">{{ $berita->title }}</h3>
+                  <div data-aos="fade-up-right" data-aos-duration="900">
+                    <p class="text" style="overflow-wrap: anywhere; line-height: 25px">{!! Str::markdown($berita->description) !!}</p>
+                  </div>
                 </div>
               </div>
               <!-- Single Blog End -->
             </div>
             <!-- Blog Details Post End -->
           </div>
-          <div class="col-xl-3 col-lg-4">
+          <div class="col-xl-4 col-lg-4">
             <!-- Blog Sidebar Start -->
             <div class="blog-sidebar">
 
@@ -79,7 +79,7 @@
                 <!-- Widget Recent Post Start -->
                 <div class="recent-posts" data-aos="fade-up-left" data-aos-duration="600">
                   <ul>
-                    @foreach ($beritaRandom->take(5) as $data)
+                    @forelse ($beritaRandom->take(5) as $data)
                       <li>
                         <a class="post-link" href="{{ route('detailBerita', $data->title) }}">
                           <div class="post-thumb">
@@ -88,12 +88,20 @@
                           </div>
                           <div class="post-text">
                             <h4 class="title text-truncate detail-truncation">{{ $data->title }}</h4>
-                            <span class="post-meta"><i
-                                class="far fa-calendar-alt"></i>{{ \Carbon\Carbon::parse($data->created_at)->format('M d, Y') }}</span>
+                            <span class="post-meta"><i class="far fa-calendar-alt"></i>
+                              {{ \Carbon\Carbon::parse($data->created_at)->format('d') }}
+                              {{ Str::limit(\Carbon\Carbon::parse($data->created_at)->locale('id')->isoFormat('MMMM'),3,'') }}
+                              {{ \Carbon\Carbon::parse($data->created_at)->format('Y') }}
+                            </span>
                           </div>
                         </a>
                       </li>
-                    @endforeach
+                    @empty
+                      <div class="nodata gap-3" data-aos="fade-up" data-aos-duration="1000">
+                        <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="">
+                        <p>Berita lainnya tidak tersedia</p>
+                      </div>
+                    @endforelse
                   </ul>
                 </div>
                 <!-- Widget Recent Post End -->
