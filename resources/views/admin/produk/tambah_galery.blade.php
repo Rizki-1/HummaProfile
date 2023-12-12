@@ -17,7 +17,7 @@
     <div class="card-body">
       <div class="row">
         <div class="col-md-12 text-center ">
-          <label for="" class="form-label label-dropzone">Uplode Galery Produk</label>
+          <label for="" class="form-label label-dropzone">Uplode Galery Produk Maksimal 10</label>
           <div class="dropzone" id="dropzone" data-id="{{ $id }}">
             @error('file')
               <div>
@@ -67,7 +67,7 @@
         paramName: "file",
         addRemoveLinks: true,
         maxFiles: 10,
-        dictDefaultMessage: "Seret dan lepaskan gamabr atau klik untuk memilih gambar",
+        dictDefaultMessage: "Seret dan lepaskan gamabr atau klik untuk memilih gambar (jpg,png,jpeg)",
         dictRemoveFile: "Hapus file",
         acceptedFiles: "image/*",
         parallelUploads: 1,
@@ -80,7 +80,6 @@
           this.on("removedfile", function(file) {
             var filename = file.fotoname;
 
-            // Remove corresponding HTML element on successful deletion
             $.ajax({
               type: 'POST',
               url: '{{ route('galery-produk.deleteProduk') }}',
