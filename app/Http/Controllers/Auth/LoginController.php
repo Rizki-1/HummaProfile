@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use App\Rules\Recaptcha;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -20,6 +22,19 @@ class LoginController extends Controller
     */
 
     use AuthenticatesUsers;
+
+    // Override validate
+        protected function validateLogin(Request $request)
+    {
+        $request->validate([
+            'g-recaptcha-response' => ['required', new Recaptcha()],
+            $this->username() => 'required|string',
+            'password' => 'required|string',
+        ],[
+            'g-recaptcha-response.required' => "Google Recaptcha wajib di isi",
+            'g-recaptcha-response.recaptcha' => "Google Recaptcha tidak valid!",
+        ]);
+    }
 
     /**
      * Where to redirect users after login.

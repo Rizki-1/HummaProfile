@@ -54,6 +54,13 @@
                   </span>
                 @enderror
               </div>
+              <div class="mb-2">
+                <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+                <div class="g-recaptcha" id="feedback-recaptcha" data-sitekey="{{ config('app.g-recaptcha-key') }}"></div>
+                @error('g-recaptcha-response')
+                    <p class="text-danger mb-1" style="font-size: small">{{ $message }}</p>
+                @enderror
+              </div>
               <div class="row mb-2">
                 <div class="col-md-12 text-end">
                   <div class="p-0">
