@@ -60,7 +60,7 @@
             </div> --}}
           </div>
           <div class="col-md-6">
-            <label for="myDropify" class="form-label">Upload Gambar Produk <span class="text-danger">Maksimal : 5mb</span>. Ekstensi file : <span class="text-success">Png, Jpg, Jpeg</span></label>
+            <label for="myDropify" class="form-label">Upload Gambar Produk</label>
             <input required name="foto_produk" class="@error('foto_produk') is-invalid @enderror" type="file"
               id="myDropify" />
             @error('foto_produk')
