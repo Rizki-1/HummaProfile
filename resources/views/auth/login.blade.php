@@ -54,7 +54,7 @@
                   </span>
                 @enderror
               </div>
-              <div class="mb-2">
+              <div class="mb-2 captcha-centering">
                 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
                 <div class="g-recaptcha" id="feedback-recaptcha" data-sitekey="{{ config('app.g-recaptcha-key') }}"></div>
                 @error('g-recaptcha-response')
