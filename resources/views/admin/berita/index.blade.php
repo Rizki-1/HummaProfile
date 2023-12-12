@@ -16,7 +16,7 @@
     </div>
   </div>
   <div class="card p-4">
-    @if ($berita->count() > 0)
+    @if ($berita->count() > 0 || request('query'))
       <div class="d-flex justify-content-end">
         <form method="get" class="form-inline d-flex flex-row">
           <input class="form-control mr-sm-2 py-0" type="search" name="query" placeholder="Search" aria-label="Search" value="{{ request('query') }}">
