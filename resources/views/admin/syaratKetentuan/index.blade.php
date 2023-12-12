@@ -32,14 +32,6 @@
                 </select>
               </div>
             </div>
-            <div class="col-md-4 col-12 mt-3">
-              <div id="dataTableExample_filter" class="dataTables_filter text-end">
-                <form method="GET">
-                  <input type="search" class="form-control" placeholder="Search" name="query"
-                    value="{{ request('query') }}" aria-controls="dataTableExample">
-                </form>
-              </div>
-            </div>
           </div>
         </div>
         <div class="card-body">
