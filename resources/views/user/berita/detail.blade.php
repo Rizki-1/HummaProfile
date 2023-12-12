@@ -45,7 +45,7 @@
                   <div class="date-background-styling mb-3" data-aos="fade-up-right" data-aos-duration="500">
                     <span><i class="far fa-calendar-alt" style="margin-right: 10px"></i>Diposting pada
                       {{ \Carbon\Carbon::parse($berita->dibuat)->format('d') }}</span>
-                    {{ Str::limit(\Carbon\Carbon::parse($produk->dibuat)->locale('id')->isoFormat('MMMM'),3,'') }}
+                    {{ Str::limit(\Carbon\Carbon::parse($berita->dibuat)->locale('id')->isoFormat('MMMM'),3,'') }}
                     {{ \Carbon\Carbon::parse($berita->dibuat)->format('Y') }}
                     </span>
                   </div>

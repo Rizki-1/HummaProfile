@@ -47,7 +47,7 @@
                   <div class="top-meta">
                     <span class="date">
                       <span>{{ \Carbon\Carbon::parse($data->created_at)->format('d') }}</span>
-                      {{ Str::limit(\Carbon\Carbon::parse($produk->dibuat)->locale('id')->isoFormat('MMMM'),3,'') }}
+                      {{ Str::limit(\Carbon\Carbon::parse($data->created_at)->locale('id')->isoFormat('MMMM'),3,'') }}
                     </span>
                   </div>
                 </div>
