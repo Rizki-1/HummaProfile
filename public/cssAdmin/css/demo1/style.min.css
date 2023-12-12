@@ -23963,3 +23963,20 @@ div.tox .tox-dialog__body {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
     background: linear-gradient(195deg, #086ad8 0%, #42b9ff 100%);
 }
+
+.nodata {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin: 3rem 0 0;
+}
+
+.nodata img {
+    height: 12rem;
+}
+
+.nodata p {
+    font-weight: 600;
+    font-size: 25px;
+    color: #b3b6c5;
+}

@@ -51,11 +51,15 @@
         </div>
       @empty
         @if (!request('query'))
-          <p class="fw-bold text-center">Belum ada sekolah yang bekerja sama</a>
-          </p>
+          <div class="nodata mb-5">
+            <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="Tidak ada data">
+            <p>Masih belum ada sekolah yang bekerja sama</p>
+          </div>
         @else
-          <p class="fw-bold text-center">Data tidak ditemukan.
-          </p>
+        <div class="nodata mb-5">
+            <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="Tidak ada data">
+            <p>Data tidak ada</p>
+          </div>
         @endif
       @endforelse
       {{ $mous->links('vendor.pagination.bootstrap-5') }}

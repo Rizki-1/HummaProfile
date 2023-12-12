@@ -13,8 +13,7 @@
       </nav>
     </div>
     <div class="text-end">
-      <a href="#" class="btn btn-outline-primary"
-        onclick="window.location.href = '{{ route('syarat-dan-ketentuan.create') }}'">Tambah Syarat Dan Ketentuan</a>
+      <a href="#" class="btn btn-outline-primary" onclick="window.location.href = '{{ route('syarat-dan-ketentuan.create') }}'">Tambah Syarat Dan Ketentuan</a>
     </div>
   </div>
   <div class="row">
@@ -24,8 +23,7 @@
           <div class="row mb-3 justify-content-between">
             <div class="col-md-3 col-12 mt-3">
               <div class="dataTables_length" id="dataTableExample_length">
-                <select name="dataTableExample_length" aria-controls="dataTableExample" class="form-select m-0"
-                  id="selectTarget">
+                <select name="dataTableExample_length" aria-controls="dataTableExample" class="form-select m-0" id="selectTarget">
                   <option value="all"{{ !request('ct') ? 'selected' : '' }}>semua</option>
                   <option value="1" {{ request('ct') == 1 ? 'selected' : '' }}>Siswa</option>
                   <option value="2" {{ request('ct') == 2 ? 'selected' : '' }}>Industri</option>
@@ -54,32 +52,25 @@
                           <td class="sorting_1 height-thing" style="transform: translateY(10px)">
                             {{ Str::limit($row->syarat_ketentuan, 50) }}</td>
                           <td class="d-flex gap-2">
-                            <a href="{{ route('syarat-dan-ketentuan.edit', $row->id) }}"
-                              class="btn btn-outline-warning btn-icon"><i class="link-icon edit-icon"
-                                data-feather="edit"></i></a>
-                            <form nameLayanan="{{ $row->nama_layanan }}" id="deleteForm"
-                              action="{{ route('syarat-dan-ketentuan.destroy', $row->id) }}" method="POST"
-                              class="hapus">
+                            <a href="{{ route('syarat-dan-ketentuan.edit', $row->id) }}" class="btn btn-outline-warning btn-icon"><i class="link-icon edit-icon" data-feather="edit"></i></a>
+                            <form nameLayanan="{{ $row->nama_layanan }}" id="deleteForm" action="{{ route('syarat-dan-ketentuan.destroy', $row->id) }}" method="POST" class="hapus">
                               @csrf
                               @method('DELETE')
-                              <button type="submit" class="btn btn-outline-danger btn-icon"><i
-                                  class="link-icon trash-icon" data-feather="trash"></i></button>
+                              <button type="submit" class="btn btn-outline-danger btn-icon"><i class="link-icon trash-icon" data-feather="trash"></i></button>
                             </form>
                           </td>
                         </tr>
                       @empty
-                        <div>
-                          <tr>
-                            <td colspan="3">
-                              <p class="fw-bold mt-3 mb-3 text-center">Masih belum ada syarat ketentuan</p>
-                            </td>
-                          </tr>
-                        </div>
+                        {{-- Kosong --}}
                       @endforelse
                     </tbody>
                   </table>
-                  <style>
-                  </style>
+                  @if ($syarat->count() < 1)
+                    <div class="nodata mb-5">
+                      <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="Tidak ada data">
+                      <p>Masih belum ada syarat dan ketentuan</p>
+                    </div>
+                  @endif
                 </div>
               </div>
               <div class="row">

@@ -1,6 +1,6 @@
 @extends('layouts.nav-admin')
 @section('content')
-<link rel="stylesheet" href="{{ asset('cssAdmin/css/testimoni/styleindex.css') }}">
+  <link rel="stylesheet" href="{{ asset('cssAdmin/css/testimoni/styleindex.css') }}">
   <title>{{ config('app.name', 'Laravel') }} - Testimoni</title>
   <link rel="stylesheet" href="{{ asset('cssAdmin/css/berita/categoryBerita.css') }}">
   <div class="card px-4 py-3 mb-4 flex-row justify-content-between align-items-center">
@@ -36,7 +36,7 @@
                 <div style="display: flex; width: 72%; flex-direction: column">
                   <h4 class="text-truncate mb-1" style="max-width: 90%">{{ $test->nama }}</h4>
                   <h6 class="text-truncate mb-3" style="max-width: 90%">{{ $test->asal_sekolah }}</h5>
-                  <p class="teststyle">{{ $test->testimoni }}</p>
+                    <p class="teststyle">{{ $test->testimoni }}</p>
                 </div>
               </div>
               <div class="d-flex gap-2 mt-4 float-right justify-content-end">
@@ -52,12 +52,18 @@
         </div>
       @empty
         @if (!request('query'))
-          <p class="fw-bold text-center">Masih belum ada testimoni</p>
+          <div class="nodata mb-5">
+            <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="Tidak ada data">
+            <p>Masih belum ada testimoni</p>
+          </div>
         @else
-          <p class="fw-bold text-center">Data tidak ditemukan.</p>
+          <div class="nodata mb-5">
+            <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="Tidak ada data">
+            <p>Data tidak di temukan</p>
+          </div>
         @endif
       @endforelse
-        {{ $testimoni->links('vendor.pagination.bootstrap-5') }}
+      {{ $testimoni->links('vendor.pagination.bootstrap-5') }}
     </div>
   </div>
   <script>

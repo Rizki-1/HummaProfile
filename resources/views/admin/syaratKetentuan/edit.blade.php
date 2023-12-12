@@ -40,7 +40,7 @@
               <div class="col-md-6">
                 <div class="mb-3">
                   <label class="form-label">Syarat Dan Ketentuan</label>
-                  <textarea required name="syarat" rows="1" class="form-select @error('syarat') is-invalid @enderror" placeholder="{{ $syarat->syarat_ketentuan }}">{{ $syarat->syarat_ketentuan }}</textarea>
+                  <textarea required name="syarat" rows="1" class="form-control @error('syarat') is-invalid @enderror" placeholder="{{ $syarat->syarat_ketentuan }}">{{ $syarat->syarat_ketentuan }}</textarea>
                   @error('target_layanan_id')
                     <div class="invalid-feedback">
                       <p>{{ $message }}</p>

@@ -35,9 +35,9 @@
             </div>
             <div class="image-hover">
               <div class="image-detail">
-                  <div class="lampiran-hover">
-                    <a href="{{ route('galeryproduk.create', $row->id) }}">Lampiran<i class="link-icon lampiran-detail-icon" data-feather="arrow-right"></i></a>
-                  </div>
+                <div class="lampiran-hover">
+                  <a href="{{ route('galeryproduk.create', $row->id) }}">Lampiran<i class="link-icon lampiran-detail-icon" data-feather="arrow-right"></i></a>
+                </div>
                 <div class="detail-container">
                   <div class="first-detail">
                     <h2 class="card-title text-truncate" style="max-width: 70%; margin-bottom: 3px !important;">{{ $row->nama_produk }}</h2>
@@ -59,9 +59,15 @@
         </div>
       @empty
         @if (!request('query'))
-          <p class="fw-bold text-center">Masih belum punya produk</a></p>
+          <div class="nodata mb-5">
+            <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="Tidak ada data">
+            <p>Masih belum mempunyai produk</p>
+          </div>
         @else
-          <p class="fw-bold text-center">Produk tidak ditemukan!</p>
+          <div class="nodata mb-5">
+            <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="Tidak ada data">
+            <p>Gallery</p>
+          </div>
         @endif
       @endforelse
       <div>

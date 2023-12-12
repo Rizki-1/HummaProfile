@@ -36,34 +36,37 @@
           </div>
         </div>
       @empty
-        <p class="fw-bold text-center">Tidak ada Cabang Perusahaan. <a href="{{ route('cabang-perusahaan.create') }}">Tambah!</a></p>
+        <div class="nodata mb-5">
+          <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="Tidak ada data">
+          <p>Masih belum mempunyai cabang</p>
+        </div>
       @endforelse
     </div>
     <div>
-        {{ $cabang->links('vendor.pagination.bootstrap-5') }}
+      {{ $cabang->links('vendor.pagination.bootstrap-5') }}
     </div>
   </div>
   <script>
-    if(document.querySelectorAll('.hapus').length > 0){
-    document.querySelectorAll('.hapus').forEach(function(form) {
-      form.addEventListener('submit', function(event) {
-        event.preventDefault();
-        var nameCabang = form.getAttribute('nameCabang');
-        Swal.fire({
-          title: 'Apakah anda yakin?',
-          text: "Ingin menghapus cabang perusahaan ini '" + nameCabang + "'?",
-          icon: "question",
-          showCancelButton: true,
-          confirmButtonText: "Ya, Hapus!",
-          cancelButtonText: "Batal",
-          background: 'var(--bs-body-bg)',
-        }).then((result) => {
-          if (result.isConfirmed) {
-            form.submit();
-          }
+    if (document.querySelectorAll('.hapus').length > 0) {
+      document.querySelectorAll('.hapus').forEach(function(form) {
+        form.addEventListener('submit', function(event) {
+          event.preventDefault();
+          var nameCabang = form.getAttribute('nameCabang');
+          Swal.fire({
+            title: 'Apakah anda yakin?',
+            text: "Ingin menghapus cabang perusahaan ini '" + nameCabang + "'?",
+            icon: "question",
+            showCancelButton: true,
+            confirmButtonText: "Ya, Hapus!",
+            cancelButtonText: "Batal",
+            background: 'var(--bs-body-bg)',
+          }).then((result) => {
+            if (result.isConfirmed) {
+              form.submit();
+            }
+          });
         });
       });
-    });
-  }
+    }
   </script>
 @endsection
