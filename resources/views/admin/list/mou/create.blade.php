@@ -26,7 +26,7 @@
           </div>
           <div class="col-md-12">
             <div class="mb-2">
-              <label for="foto_mou" class="form-label">Logo Sekolah</label>
+              <label for="foto_mou" class="form-label">Logo Sekolah <span class="text-danger">Maksimal : 5mb</span>. Ekstensi file : <span class="text-success">Png, Jpg, Jpeg</span></label>
               <input type="file" class="form-control @error('foto_mou') is-invalid @enderror" name="foto_mou"
                 id="myDropify">
               @error('foto_mou')

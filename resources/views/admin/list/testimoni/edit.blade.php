@@ -17,7 +17,7 @@
       @method('put')
       @csrf
       <div class="row mb-4">
-        <div class="col-6">
+        <div class="col-12">
           <div class="mb-3">
             <label for="nama">Nama</label>
             <input type="text" class="form-control mb-3 @error('nama') is-invalid  @enderror" name="nama" value="{{ $test->nama }}" placeholder="{{ $test->nama }}">
@@ -46,8 +46,8 @@
             @enderror
           </div>
         </div>
-        <div class="col-md-6">
-          <label for="myDropify" style="width: 100%">Upload foto</label>
+        <div class="col-md-12 de">
+          <label for="myDropify" style="width: 100%">Upload foto <span class="text-danger">Maksimal : 5mb</span>. Ekstensi file : <span class="text-success">Png, Jpg, Jpeg</span></label>
           <div class="drag-and-drop">
             <div class="berita-picture-container">
               <img class="berita-picture-old" src="{{ asset('storage/' . $test->foto_siswa) }}" alt="Foto Testimmoni">

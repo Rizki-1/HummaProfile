@@ -19,7 +19,7 @@
         @csrf
         @method('PUT')
         <div class="col-md-12 row mb-3">
-          <div class="col-md-6">
+          <div class="col-md-12">
             <div class="mb-3">
               <label for="namaproduk" class="form-label">Nama Produk</label>
               <input required type="text" name="nama_produk" value="{{ old('nama_produk',$produks->nama_produk) }}" class="form-control @error('nama_produk') is-invalid @enderror" id="namaproduk" autocomplete="off" placeholder="{{ $produks->nama_produk }}">
@@ -53,7 +53,7 @@
                 </div>
             </div> --}}
           </div>
-          <div class="col-md-6">
+          <div class="col-md-12 mb-3 de">
             <label for="myDropify" class="form-label">Upload Gambar Produk <span class="text-danger">Maksimal : 5mb</span>. Ekstensi file : <span class="text-success">Png, Jpg, Jpeg</span></label>
             <div class="drag-and-drop">
               <div class="product-picture-container">

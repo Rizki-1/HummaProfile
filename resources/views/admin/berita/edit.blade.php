@@ -24,7 +24,7 @@
         @method('put')
         @csrf
         <div class="col-md-12 row mb-3">
-          <div class="col-md-6">
+          <div class="col-md-12">
             <div class="mb-3">
               <label class="form-label">Kategori Berita</label>
               <select class="select2 form-select select2-multiple @error('category[]') is-invalid @enderror" multiple="multiple" id="category" name="category[]" multiple data-placeholder="Kategori Berita">
@@ -52,7 +52,7 @@
               @enderror
             </div>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-12 mb-3 de">
             <label for="myDropify" class="form-label">Upload Gambar Berita <span class="text-danger">Maksimal : 5mb</span>. Ekstensi file : <span class="text-success">Png, Jpg, Jpeg</span></label>
             <div class="drag-and-drop">
               <div class="berita-picture-container">

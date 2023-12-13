@@ -27,10 +27,10 @@
                 </div>
               @enderror
             </div>
-            <div class="col-md-12">
+            <div class="col-md-12 de">
               <div class="mb-2">
                 <div class="drag-and-drop">
-                    <label for="foto_mou" class="form-label">Logo Sekolah</label>
+                    <label for="foto_mou" class="form-label">Logo Sekolah <span class="text-danger">Maksimal : 5mb</span>. Ekstensi file : <span class="text-success">Png, Jpg, Jpeg</span></label>
                     <div class="berita-picture-container">
                         <img class="berita-picture-old" src="{{ asset('storage/'. $mou->foto_mou) }}" alt="" srcset="">
                     </div>

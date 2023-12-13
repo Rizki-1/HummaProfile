@@ -22,7 +22,7 @@
       <form action="{{ route('produk.store') }}" method="POST" class="forms-sample row" enctype="multipart/form-data">
         @csrf
         <div class="col-md-12 row mb-3">
-          <div class="col-md-6">
+          <div class="col-md-12">
             <div class="mb-3">
               <label for="namaproduk" class="form-label">Nama Produk</label>
               <input required type="text" name="nama_produk"
@@ -59,8 +59,8 @@
                 </div>
             </div> --}}
           </div>
-          <div class="col-md-6">
-            <label for="myDropify" class="form-label">Upload Gambar Produk</label>
+          <div class="col-md-12 mb-3">
+            <label for="myDropify" class="form-label">Upload Gambar Produk <span class="text-danger">Maksimal : 5mb</span>. Ekstensi file : <span class="text-success">Png, Jpg, Jpeg</span></label>
             <input required name="foto_produk" class="@error('foto_produk') is-invalid @enderror" type="file"
               id="myDropify" />
             @error('foto_produk')

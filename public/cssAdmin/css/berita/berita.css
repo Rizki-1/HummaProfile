@@ -128,3 +128,14 @@
     opacity: 0;
     margin-left: 100px;
 }
+
+@media screen and (max-width: 600px) {
+    .berita-picture-container {
+        width: 144px;
+    }
+
+    .drag-and-drop:hover .berita-picture-container {
+        opacity: 0 !important;
+        margin-left: 35px !important;
+    }
+}

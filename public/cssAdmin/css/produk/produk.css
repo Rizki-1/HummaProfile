@@ -124,6 +124,17 @@
     transition: 0.6s;
 }
 
+@media screen and (max-width: 600px) {
+    .product-picture-container {
+        width: 144px;
+    }
+
+    .drag-and-drop:hover .product-picture-container {
+        opacity: 0 !important;
+        margin-left: 35px !important;
+    }
+}
+
 .drag-and-drop:hover .product-picture-container {
     opacity: 0;
     margin-left: 100px;

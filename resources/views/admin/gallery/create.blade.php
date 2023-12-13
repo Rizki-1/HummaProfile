@@ -24,7 +24,7 @@
         @csrf
         <div class="row mb-3">
           <div class="col-md-12 mb-3">
-            <label for="myDropify" class="form-label">Upload Gambar Berita</label>
+            <label for="myDropify" class="form-label">Upload Gambar Gallery <span class="text-danger">Maksimal : 5mb</span>. Ekstensi file : <span class="text-success">Png, Jpg, Jpeg</span></label>
             <div class="dropzone" id="dropzone" data-id="{{ $id }}"></div>
             @error('file')
               <div>

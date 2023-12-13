@@ -21,7 +21,7 @@
       <form action="{{ route('berita.store') }}" method="POST" class="forms-sample row" enctype="multipart/form-data">
         @csrf
         <div class="col-md-12 row mb-3">
-          <div class="col-md-6">
+          <div class="col-md-12">
             <div class="mb-3">
               <label class="form-label">Kategori Berita</label>
               <select class="select2 form-select select2-multiple @error('category') is-invalid @enderror"
@@ -52,7 +52,7 @@
               @enderror
             </div>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-12 mb-3">
             <label for="myDropify" class="form-label">Upload Gambar Berita <span class="text-danger">Maksimal : 5mb</span>. Ekstensi file : <span class="text-success">Png, Jpg, Jpeg</span></label>
             <input name="thumbnail" class="@error('thumbnail') is-invalid @enderror" type="file" id="myDropify" />
             @error('thumbnail')

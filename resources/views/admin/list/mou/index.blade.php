@@ -16,7 +16,7 @@
   </div>
   <div class="card p-4">
     @if ($mous->count() > 0 || request('query'))
-      <div class="d-flex justify-content-end">
+      <div class="d-flex justify-content-end mb-3">
         <form method="get" class="form-inline d-flex flex-row">
           <input class="form-control mr-sm-2 py-0" type="search" name="query" placeholder="Search" aria-label="Search" value="{{ request('query') }}">
           <button class="btn btn-outline-success py-0 my-sm-0" type="submit"><i class="mdi mdi-magnify fs-4"></i></button>
@@ -34,7 +34,7 @@
               <div class="image-detail">
                 <div class="detail-container">
                   <div class="first-detail">
-                    <h2 class="card-title text-truncate" style="width: 100%">{{ $row->nama_mou }}</h2>
+                    <h2 class="card-title text-truncate" style="width: 100%; margin-bottom: 1px !important;">{{ $row->nama_mou }}</h2>
                   </div>
                 </div>
                 <div class="action-container">

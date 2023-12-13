@@ -17,7 +17,7 @@
     <div class="card-body">
       <div class="row">
         <div class="col-md-12 text-center ">
-          <label for="" class="form-label label-dropzone">Uplode Galery Produk</label>
+          <label for="" class="form-label label-dropzone">Uplode Galery Produk <span class="text-danger">Maksimal : 5mb</span>. Ekstensi file : <span class="text-success">Png, Jpg, Jpeg</span></label>
           <div class="dropzone" id="dropzone" data-id="{{ $id }}">
             @error('file')
               <div>

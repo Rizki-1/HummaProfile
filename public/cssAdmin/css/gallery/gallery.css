@@ -5,7 +5,7 @@
     position: relative;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 465px) {
     .dropzone {
         display: flex !important;
         flex-direction: column !important;

@@ -15,7 +15,7 @@
     <form action="{{ route('testimoni.store') }}" method="post" enctype="multipart/form-data">
       @csrf
       <div class="row">
-        <div class="col-6">
+        <div class="col-12">
           <div class="mb-3">
             <label class="form-label" for="nama">Nama</label>
             <input type="text" placeholder="Lily Winter" class="form-control mb-3 @error('nama') is-invalid  @enderror" value="{{ old('nama') }}" name="nama" required>
@@ -44,8 +44,8 @@
             @enderror
           </div>
         </div>
-        <div class="col-6">
-          <label for="myDropify" class="form-label">Upload foto</label>
+        <div class="col-12 mb-3">
+          <label for="myDropify" class="form-label">Upload foto <span class="text-danger">Maksimal : 5mb</span>. Ekstensi file : <span class="text-success">Png, Jpg, Jpeg</span></label>
           <input required name="foto_siswa" class="@error('foto_produk') is-invalid @enderror" type="file" id="myDropify" />
           @error('foto_produk')
             <div class="invalid-feedback">
