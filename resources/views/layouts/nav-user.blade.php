@@ -7,12 +7,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-
   @section('header')
     <meta name="description" content="Perusahaan HummaTech">
     <title>HummaTech</title>
   @show
-
 
   <!-- Icon Font CSS -->
   <link rel="stylesheet" href="{{ asset('cssUser/css/plugins/all.min.css') }}">
@@ -51,10 +49,8 @@
         <div class="header-wrap">
 
           <div class="header-logo">
-            <a class="light-logo" href="{{ route('homeindex') }}"><img src="{{ asset('ImageGlobal/logowithtext.png') }}"
-                alt="HummaTech"></a>
-            <a class="dark-logo" href="{{ route('homeindex') }}"><img src="{{ asset('cssUser/images/logohumma.png') }}"
-                alt="HummaTech"></a>
+            <a class="light-logo" href="{{ route('homeindex') }}"><img src="{{ asset('ImageGlobal/logowithtext.png') }}" alt="HummaTech"></a>
+            <a class="dark-logo" href="{{ route('homeindex') }}"><img src="{{ asset('cssUser/images/logohumma.png') }}" alt="HummaTech"></a>
           </div>
 
           <div class="header-menu d-none d-lg-block">
@@ -68,8 +64,7 @@
               <li class="{{ request()->routeIs('home.industriIndex') ? 'active-menu' : '' }}">
                 <a href="{{ route('home.industriIndex') }}">Kelas Industri</a>
               </li>
-              <li
-                class="{{ request()->routeIs('produkIndex') || request()->routeIs('produk.detail') ? 'active-menu' : '' }}">
+              <li class="{{ request()->routeIs('produkIndex') || request()->routeIs('produk.detail') ? 'active-menu' : '' }}">
                 <a href="{{ route('produkIndex') }}">Produk Kami</a>
               </li>
               <li class="{{ request()->routeIs('beritaIndex') || request()->routeIs('detailBerita') || request()->routeIs('filter-category') ? 'active-menu' : '' }}">
@@ -77,6 +72,9 @@
               </li>
               <li class="{{ request()->routeIs('contactIndex') ? 'active-menu' : '' }}">
                 <a href="{{ route('contactIndex') }}">Hubungi</a>
+              </li>
+              <li>
+                <a href="https://career.hummatech.com/" target="_blank">Lowongan</a>
               </li>
             </ul>
           </div>
@@ -87,9 +85,7 @@
             <div class="header-search d-none">
               <div class="container-fluid">
                 <div class="search-field-holder">
-                  <input type="text" class="form-control main-search-input"
-                    style="border-radius: 0px; width: 60%;height:35px;float: left;" id="textSearch"
-                    placeholder="Please enter the search keywords">
+                  <input type="text" class="form-control main-search-input" style="border-radius: 0px; width: 60%;height:35px;float: left;" id="textSearch" placeholder="Please enter the search keywords">
                 </div>
                 <button class="btn btn-primary p-0" style="margin-left: 10px;" onclick="clearSearch()">Clear
                   search</button>
@@ -97,14 +93,13 @@
                 @include('layouts.keywords')
                 <script src="{{ asset('cssUser/js/seeker/lib/highlight.js') }}"></script>
                 <script src="{{ asset('cssUser/js/seeker/index.js') }}"></script>
-                <div id="results" class="d-flex flex-column bg-white p-2 overflow-y-scroll position-absolute d-none"
-                  style="max-height: 275px"></div>
+                <div id="results" class="d-flex flex-column bg-white p-2 overflow-y-scroll position-absolute d-none" style="max-height: 275px"></div>
               </div>
             </div>
             <!-- Header Search End -->
-            <div class="header-btn d-none d-xl-block">
+            {{-- <div class="header-btn d-none d-xl-block">
               <a class="btn lowongan-kerja" target="_blank" href="https://career.hummatech.com/">Lowongan Kerja</a>
-            </div>
+            </div> --}}
             <!-- Header Toggle Start -->
             <div class="header-toggle d-lg-none">
               <button data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample">
@@ -129,8 +124,7 @@
       <div class="offcanvas-header">
         <!-- Offcanvas Logo Start -->
         <div class="offcanvas-logo">
-          <a href="{{ route('homeindex') }}"><img src="{{ asset('ImageGlobal/logowithtext.png') }}"
-              alt=""></a>
+          <a href="{{ route('homeindex') }}"><img src="{{ asset('ImageGlobal/logowithtext.png') }}" alt=""></a>
         </div>
         <!-- Offcanvas Logo End -->
         <button type="button" class="close-btn" data-bs-dismiss="offcanvas"><i class="flaticon-close"></i></button>
@@ -158,6 +152,9 @@
             <li class="{{ request()->routeIs('contactIndex') ? 'active' : '' }}">
               <a href="{{ route('contactIndex') }}">Hubungi</a>
             </li>
+            <li>
+              <a href="https://career.hummatech.com/" target="_blank">Lowongan</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -169,8 +166,7 @@
     <!-- back to top end -->
 
     <!-- Footer Section Start -->
-    <div class="section footer-section footer-section-04"
-      style="background-image: url({{ asset('cssUser/images/bg/footer-bg3.jpg') }});">
+    <div class="section footer-section footer-section-04" style="background-image: url({{ asset('cssUser/images/bg/footer-bg3.jpg') }});">
 
       <div class="container">
         <!-- Footer Widget Wrap Start -->
@@ -179,8 +175,7 @@
             <div class="col-lg-3 col-sm-6 footer-sign">
               <!-- Footer Widget Start -->
               <div class="footer-widget-about">
-                <a class="footer-logo" href="{{ route('homeindex') }}"><img
-                    src="{{ asset('cssUser/images/logohumma.png') }}" alt="Logo"></a>
+                <a class="footer-logo" href="{{ route('homeindex') }}"><img src="{{ asset('cssUser/images/logohumma.png') }}" alt="Logo"></a>
                 <p>Layanan IT yang Terukur dan Terpercaya, Menghadirkan Solusi yang Membawa Bisnis Anda ke Tingkat
                   Selanjutnya.</p>
               </div>
@@ -196,8 +191,7 @@
                   <ul class="link">
                     @foreach (\App\Models\Sosmed::all() as $data)
                       <li>
-                        <a class="text-capitalize" target="_blank"
-                          href="{{ $data->link }}">{{ $data->name }}</a>
+                        <a class="text-capitalize" target="_blank" href="{{ $data->link }}">{{ $data->name }}</a>
                       </li>
                     @endforeach
                   </ul>
@@ -232,8 +226,7 @@
                           <i class="flaticon-phone-call"></i>
                         </div>
                         <div class="info-text">
-                          <span><a target="_blank"
-                              href="https://wa.me/{{ $data->no_telp }}">{{ $data->no_telp }}</a></span>
+                          <span><a target="_blank" href="https://wa.me/{{ $data->no_telp }}">{{ $data->no_telp }}</a></span>
                         </div>
                       </li>
                       <li>
