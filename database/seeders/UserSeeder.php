@@ -20,11 +20,5 @@ class UserSeeder extends Seeder
             "email"=> "hummaprofile@gmail.com",
             "password"=> Hash::make('admin-ini'),
         ]);
-        TargetLayanan::create([
-            'target' => "siswa"
-        ]);
-        TargetLayanan::create([
-            'target' => "industri"
-        ]);
     }
 }
