@@ -2,7 +2,6 @@
 @section('content')
   <link rel="stylesheet" href="{{ asset('cssAdmin/css/testimoni/styleindex.css') }}">
   <title>{{ config('app.name', 'Laravel') }} - Testimoni</title>
-  <link rel="stylesheet" href="{{ asset('cssAdmin/css/berita/categoryBerita.css') }}">
   <div class="card px-4 py-3 mb-4 flex-row justify-content-between align-items-center">
     <div>
       <nav aria-label="breadcrumb">
@@ -26,26 +25,34 @@
     @endif
     <div class="row">
       @forelse ($testimoni as $test)
-        <div class="col-md-6 mb-4 mt-3">
+        <div class="col-md-4 mb-4">
           <div class="card">
-            <div class="card-body">
-              <div class="d-flex gap-4 mb-4">
-                <div class="">
-                  <img src="{{ asset('storage/' . $test->foto_siswa) }}" alt="foto" class="foto ">
+            <div class="image-container">
+              <img src="{{ asset('storage/' . $test->foto_siswa) }}" alt="foto" class="image-content">
+            </div>
+            <div class="image-hover">
+              <div class="image-detail">
+                <div class="detail-container">
+                  <div class="first-detail">
+                    <h2 class="card-title text-truncate mb-0" style="max-width: 90%">{{ $test->nama }}</h2>
+                  </div>
+                  <div>
+                    <p class="second-detail mb-2">
+                      {{ $test->asal_sekolah }}
+                    </p>
+                  </div>
+                  <div class="third-title">
+                    <p class="card-text text-truncate" style="max-width: 70%">{{ $test->testimoni }}</p>
+                  </div>
                 </div>
-                <div style="display: flex; width: 72%; flex-direction: column">
-                  <h4 class="text-truncate mb-1" style="max-width: 90%">{{ $test->nama }}</h4>
-                  <h6 class="text-truncate mb-3" style="max-width: 90%">{{ $test->asal_sekolah }}</h5>
-                    <p class="teststyle">{{ $test->testimoni }}</p>
+                <div class="action-container">
+                  <a href="{{ route('testimoni.edit', $test->id) }}"><i class="link-icon edit-icon" data-feather="edit"></i></a>
+                  <form nameTestimoni="{{ $test->nama }}" action="{{ route('testimoni.destroy', $test->id) }}" method="POST" class="berita">
+                    @csrf
+                    @method('delete')
+                    <button type="submit" class="button-delete"><i class="link-icon trash-icon" data-feather="trash"></i></button>
+                  </form>
                 </div>
-              </div>
-              <div class="d-flex gap-2 mt-4 float-right justify-content-end">
-                <form nameTestimoni="{{ $test->nama }}" action="{{ route('testimoni.destroy', $test->id) }}" method="post" class="hapus">
-                  @method('delete')
-                  @csrf
-                  <button type="submit" class="btn btn-outline-danger danger-button"><i class="link-icon trash-icon" data-feather="trash"></i></button>
-                </form>
-                <a href="{{ route('testimoni.edit', $test->id) }}" class="btn btn-outline-warning"><i class="link-icon edit-icon" data-feather="edit"></i></a>
               </div>
             </div>
           </div>
