@@ -23,9 +23,11 @@ class LayananPerusahaanController extends Controller
         if ($request->input('query')) {
             $layanan->where('nama_layanan', 'LIKE', '%' . $request->input('query') . '%');
         }
+        if ($request->input('ct')) {
 
-        $targetLayananId = is_null($request->ct) ? 1 : 2;
-        $layanan->where('target_layanan_id', $targetLayananId);
+            $layanan->where('target_layanan_id', $request->ct);
+        }
+
 
         $layanan = $layanan->paginate(10);
 

@@ -65,6 +65,7 @@ myDropzone = new Dropzone("#dropzone", {
     init: function() {
         this.on("success", function(file, response) {
             file.fotoname = response.fotoname;
+            console.log('berhasil uplode foto' + file.fotoname);
         });
 
         this.on("removedfile", function(file) {

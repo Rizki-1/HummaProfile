@@ -15,6 +15,21 @@
       <a class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Tambah Gallery</a>
     </div>
   </div>
+  <div class="card">
+    <div class="card-header">
+      <div class="row mb-3 justify-content-between">
+        <div class="col-md-3 col-12 mt-3">
+          <div class="dataTables_length" id="dataTableExample_length">
+            <select name="dataTableExample_length" aria-controls="dataTableExample" class="form-select m-0" id="selectTarget">
+              <option value="all" {{  !request('ct') ? 'selected' : '' }}>semua</option>
+              <option value="1" {{ request('ct') == 1 ? 'selected' : '' }}>Siswa</option>
+              <option value="2" {{ request('ct') == 2 ? 'selected' : '' }}>Industri</option>
+            </select>
+          </div>
+        </div>
+       
+      </div>
+    </div>
   <form action="{{ route('gallery.create') }}" method="get">
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -90,6 +105,22 @@
     </div>
   </div>
   <script>
+    document.getElementById('selectTarget').addEventListener('change', function() {
+      var selectedCategoryId = this.value;
+      var currentUrl = window.location.href;
+      var newUrl;
+      if (selectedCategoryId == 'all') {
+        newUrl = currentUrl.replace(/ct=[^&]*/, '');
+      } else {
+        var ctParam = 'ct=' + selectedCategoryId;
+        if (currentUrl.includes('ct=')) {
+          newUrl = currentUrl.replace(/ct=[^&]*/, ctParam);
+        } else {
+          newUrl = currentUrl + (currentUrl.includes('?') ? '&' : '?') + ctParam;
+        }
+      }
+      window.location.href = newUrl;
+    });
     if (document.querySelectorAll('.hapus').length > 0) {
       document.querySelectorAll('.hapus').forEach(function(form) {
         form.addEventListener('submit', function(event) {

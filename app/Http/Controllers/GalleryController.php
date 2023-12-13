@@ -16,10 +16,14 @@ class GalleryController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         $target = TargetLayanan::all();
-        $gallery = Gallery::latest()->paginate(15);
+        $gallery = Gallery::latest();
+        if ($request->ct) {
+            $gallery->where('target_layanan_id', $request->ct);
+        }
+        $gallery = $gallery->paginate(6);
         return view('admin.gallery.index', compact('gallery', 'target'));
     }
 

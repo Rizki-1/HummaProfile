@@ -121,16 +121,21 @@
           <div class="col-lg-6 syarat-ketentuan-margin">
             <h2 class="sub-title text-center" data-aos="fade-up-left" data-aos-duration="700">Syarat & Ketentuan</h2>
             <div class="content-container p-2" style=" max-height: 400px; overflow-y: auto" data-aos="fade-up-left" data-aos-duration="800">
-              @foreach ($syarat as $key => $data)
-                <div class="syarat-custome mt-3 d-flex gap-4 justify-content-center align-items-center">
-                  <div class="icon">
-                    <h4>{{ ++$key }}.</h4>
-                  </div>
-                  <div class="text">
-                    <p>{{ $data->syarat_ketentuan }}</p>
-                  </div>
+              @forelse ($syarat as $key => $data)
+              <div class="syarat-custome mt-3 d-flex gap-4 justify-content-center align-items-center">
+                <div class="icon">
+                  <h4>{{ ++$key }}.</h4>
                 </div>
-              @endforeach
+                <div class="text">
+                  <p>{{ $data->syarat_ketentuan }}</p>
+                </div>
+              </div>
+              @empty
+              <div class="nodata gap-3" data-aos="fade-up" data-aos-duration="500">
+                <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="">
+                <p>Syarat dan ketentuan masih kosong</p>
+              </div>
+              @endforelse
             </div>
           </div>
         </div>

@@ -23,7 +23,8 @@
             <div class="col-md-3 col-12 mt-3">
               <div class="dataTables_length" id="dataTableExample_length">
                 <select name="dataTableExample_length" aria-controls="dataTableExample" class="form-select m-0" id="selectTarget">
-                  <option value="1" {{ !request('ct') ? 'selected' : '' }}>Siswa</option>
+                  <option value="all" {{  !request('ct') ? 'selected' : '' }}>semua</option>
+                  <option value="1" {{ request('ct') == 1 ? 'selected' : '' }}>Siswa</option>
                   <option value="2" {{ request('ct') == 2 ? 'selected' : '' }}>Industri</option>
                 </select>
               </div>
@@ -109,7 +110,7 @@
       var selectedCategoryId = this.value;
       var currentUrl = window.location.href;
       var newUrl;
-      if (selectedCategoryId == 1) {
+      if (selectedCategoryId == 'all') {
         newUrl = currentUrl.replace(/ct=[^&]*/, '');
       } else {
         var ctParam = 'ct=' + selectedCategoryId;
