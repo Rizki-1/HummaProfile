@@ -17,7 +17,7 @@
           <div class="col-12 col-md-12 mb-3">
             <label for="nama_mou" class="form-label">Nama Mou</label>
             <input type="text" class="form-control @error('nama_mou') is-invalid @enderror" name="nama_mou"
-              placeholder="Smkn 1 Probolinggo" value="{{ old('nama_mou') }}">
+              placeholder="SMKN 1 GENDING" value="{{ old('nama_mou') }}">
             @error('nama_mou')
               <div>
                 <p class="text-danger mt-2">{{ $message }}</p>
