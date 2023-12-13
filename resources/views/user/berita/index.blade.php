@@ -102,9 +102,14 @@
             <h3 class="title" data-aos="fade-up" data-aos-duration="600">Kategori Berita</h3>
           </div>
           <ul class="sidebar-tag" data-aos="fade-up" data-aos-duration="800">
-            @foreach ($kategori as $data)
-              <li><a href="{{ route('filter-category', $data->name) }}">{{ $data->name }}</a></li>
-            @endforeach
+            @forelse ($kategori as $data)
+            <li><a href="{{ route('filter-category', $data->name) }}">{{ $data->name }}</a></li>
+            @empty
+            <div class="nodata gap-3 text-center">
+                <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="">
+                <p>Tidak ada data berita</p>
+              </div>
+            @endforelse
           </ul>
         </div>
       </div>

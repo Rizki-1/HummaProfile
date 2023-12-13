@@ -51,7 +51,8 @@
                   </div>
                   <div class="blog-meta d-flex" data-aos="fade-up-right" data-aos-duration="800" style="flex-wrap: wrap;">
                     @foreach ($berita->kategori as $item)
-                      <a href="{{ route('filter-category', $item->name) }}" class="badge rounded-pill mb-1">{{ $item->name }}</a>
+                      <a href="{{ route('filter-category', $item->name) }}"
+                        class="badge rounded-pill mb-1">{{ $item->name }}</a>
                     @endforeach
                   </div>
                   <h3 class="title" style="overflow-wrap: anywhere; line-height: 42px;" data-aos="fade-up-right"
@@ -109,20 +110,22 @@
               <!-- Sidebar Widget End -->
 
               <!-- Sidebar Widget Start -->
-              <div class="sidebar-widget">
-                <!-- Widget Title Start -->
-                <div class="widget-title">
-                  <h3 class="title" data-aos="fade-up-left" data-aos-duration="700">Kategori Berita</h3>
+              @if ($kategoriBerita->count() > 0)
+                <div class="sidebar-widget">
+                  <!-- Widget Title Start -->
+                  <div class="widget-title">
+                    <h3 class="title" data-aos="fade-up-left" data-aos-duration="700">Kategori Berita</h3>
+                  </div>
+                  <!-- Widget Title End -->
+                  <!-- Widget Category Start -->
+                  <ul class="sidebar-tag" data-aos="fade-up-left" data-aos-duration="800">
+                    @foreach ($kategoriBerita as $data)
+                      <li><a href="{{ route('filter-category', $data->name) }}">{{ $data->name }}</a></li>
+                    @endforeach
+                  </ul>
+                  <!-- Widget Category End -->
                 </div>
-                <!-- Widget Title End -->
-                <!-- Widget Category Start -->
-                <ul class="sidebar-tag" data-aos="fade-up-left" data-aos-duration="800">
-                  @foreach ($kategoriBerita as $data)
-                    <li><a href="{{ route('filter-category', $data->name) }}">{{ $data->name }}</a></li>
-                  @endforeach
-                </ul>
-                <!-- Widget Category End -->
-              </div>
+              @endif
               <!-- Sidebar Widget End -->
             </div>
             <!-- Blog Sidebar End -->

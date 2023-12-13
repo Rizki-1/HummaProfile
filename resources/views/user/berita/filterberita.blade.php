@@ -29,44 +29,49 @@
             </div>
         </div>
         <div class="row justify-content-center" data-aos="fade-up" data-aos-duration="900">
-          @foreach ($beritas as $berita)
-            <div class="col-lg-4 col-md-6">
-              <!-- Single Blog Start -->
-              <div class="single-blog">
-                <div class="blog-image">
-                  <a style="height: 250px; width: 100%" href="{{ route('detailBerita', $berita->berita->title) }}"><img style="height: 100%; width: 100%; object-fit: cover;" src="{{ asset('storage/' . $berita->berita->thumbnail) }}"
-                      alt="{{ $berita->berita->title }}"></a>
-                  <div class="top-meta">
-                    <span class="date">
-                      <span>{{ \Carbon\Carbon::parse($berita->berita->created_at)->format('d') }}</span>
-                      {{ Str::limit(\Carbon\Carbon::parse($berita->berita->created_at)->locale('id')->isoFormat('MMMM'),3,'') }}
-                    </span>
-                  </div>
-                </div>
-                <div class="blog-content">
-                  <div class="blog-meta" style="display: flex; align-items: center;">
-                    @foreach ($berita->berita->kategori->take(2) as $item)
-                    <a href="{{ route('filter-category', $item->name) }}" class="badge rounded-pill mb-1 text-truncate"
-                        style="padding: 7px 13px; background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; font-size: 13px ;margin-right: 5px; font-weight: 700; max-width: 37%">{{ $item->name }}</a>
-                    @endforeach
-                    @if ($berita->berita->kategori->count() > 2)
-                      <a class="badge rounded-pill mb-1" style="color: black"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                          stroke-linejoin="round" class="feather feather-more-horizontal">
-                          <circle cx="12" cy="12" r="1"></circle>
-                          <circle cx="19" cy="12" r="1"></circle>
-                          <circle cx="5" cy="12" r="1"></circle>
-                        </svg></a>
-                    @endif
-                  </div>
-                  <h3 class="title"><a class="text-truncate" style="max-width: 100%;" href="{{ route('detailBerita', $berita->berita->title) }}">{{ $berita->berita->title }}</a></h3>
-                  <div class="blog-btn">
-                    <a class="blog-btn-link" href="{{ route('detailBerita', $berita->berita->title) }}">Selengkapnya <i class="fas fa-long-arrow-alt-right"></i></a>
-                  </div>
+          @forelse ($beritas as $berita)
+          <div class="col-lg-4 col-md-6">
+            <!-- Single Blog Start -->
+            <div class="single-blog">
+              <div class="blog-image">
+                <a style="height: 250px; width: 100%" href="{{ route('detailBerita', $berita->berita->title) }}"><img style="height: 100%; width: 100%; object-fit: cover;" src="{{ asset('storage/' . $berita->berita->thumbnail) }}"
+                    alt="{{ $berita->berita->title }}"></a>
+                <div class="top-meta">
+                  <span class="date">
+                    <span>{{ \Carbon\Carbon::parse($berita->berita->created_at)->format('d') }}</span>
+                    {{ Str::limit(\Carbon\Carbon::parse($berita->berita->created_at)->locale('id')->isoFormat('MMMM'),3,'') }}
+                  </span>
                 </div>
               </div>
-              <!-- Single Blog End -->
+              <div class="blog-content">
+                <div class="blog-meta" style="display: flex; align-items: center;">
+                  @foreach ($berita->berita->kategori->take(2) as $item)
+                  <a href="{{ route('filter-category', $item->name) }}" class="badge rounded-pill mb-1 text-truncate"
+                      style="padding: 7px 13px; background:linear-gradient(195deg, #086ad8 0%, #42b9ff 100%); color: #f4f4f4; font-size: 13px ;margin-right: 5px; font-weight: 700; max-width: 37%">{{ $item->name }}</a>
+                  @endforeach
+                  @if ($berita->berita->kategori->count() > 2)
+                    <a class="badge rounded-pill mb-1" style="color: black"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="feather feather-more-horizontal">
+                        <circle cx="12" cy="12" r="1"></circle>
+                        <circle cx="19" cy="12" r="1"></circle>
+                        <circle cx="5" cy="12" r="1"></circle>
+                      </svg></a>
+                  @endif
+                </div>
+                <h3 class="title"><a class="text-truncate" style="max-width: 100%;" href="{{ route('detailBerita', $berita->berita->title) }}">{{ $berita->berita->title }}</a></h3>
+                <div class="blog-btn">
+                  <a class="blog-btn-link" href="{{ route('detailBerita', $berita->berita->title) }}">Selengkapnya <i class="fas fa-long-arrow-alt-right"></i></a>
+                </div>
+              </div>
             </div>
-          @endforeach
+            <!-- Single Blog End -->
+          </div>
+          @empty
+          <div class="nodata gap-2 text-center">
+            <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="" style="width: 200px">
+            <p>Tidak ada data berita</p>
+          </div>
+          @endforelse
         </div>
         <div class="mt-4">
           <!-- Page Pagination Start -->
