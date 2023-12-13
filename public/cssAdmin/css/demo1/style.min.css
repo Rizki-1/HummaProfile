@@ -20321,7 +20321,7 @@ div.tox .buy-now-wrapper .tox-button svg {
     position: fixed;
     right: 0;
     left: 240px;
-    z-index: 978;
+    z-index: 999;
     box-shadow: 3px 0 10px 0 rgba(183, 192, 206, .2);
     transition: width .1s ease, left .1s ease
 }
@@ -23979,4 +23979,9 @@ div.tox .tox-dialog__body {
     font-weight: 600;
     font-size: 25px;
     color: #b3b6c5;
+}
+
+.EasyMDEContainer {
+    position: relative;
+    z-index: 100;
 }

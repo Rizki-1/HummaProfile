@@ -34,7 +34,7 @@
               <span class="fw-bold">Detail Perusahaan</span>
             </div>
             <div class="row mt-3">
-              <div class="col-md-12">
+              <div class="col-md-12 mt-1">
                 <label class="form-label">Alamat</label>
                 <textarea class="form-control @error('alamat') is-invalid @enderror" placeholder="Perum Permata Regency 1 Blok 10/28, Perun Gpa, Ngijo, Kec. Karang Ploso, Kabupaten Malang, Jawa Timur 65152" name="alamat" rows="3">{{ $profile->alamat }}</textarea>
                   @error('alamat')

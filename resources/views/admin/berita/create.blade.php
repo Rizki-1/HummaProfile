@@ -1,12 +1,6 @@
 @extends('layouts.nav-admin')
 
 @section('content')
-  <style>
-    .EasyMDEContainer {
-      position: relative;
-      z-index: 999;
-    }
-  </style>
   <title>{{ config('app.name', 'Laravel') }} - Berita</title>
   <link rel="stylesheet" href="{{ asset('cssAdmin/vendors/select2/select2.min.css') }}">
   <link rel="stylesheet" href="{{ asset('cssAdmin/vendors/easymde/easymde.min.css') }}">

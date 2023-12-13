@@ -9118,6 +9118,16 @@ only screen and (max-width: 767px) {
     padding-bottom: 75px;
 }
 
+@media screen and (max-width: 500px) {
+    .footer-widget-wrap {
+        padding-top: 10px !important;
+    }
+
+    .about-content-wrap {
+        text-align: center;
+    }
+}
+
 .footer-widget {
     margin-top: 30px;
 }
@@ -9565,34 +9575,4 @@ only screen and (max-width: 767px) {
 .deactivate {
     color: #ff2323 !important;
     font-weight: 700;
-}
-
-@media screen and (min-width: 576px) {
-    .desktop-footer {
-        display: block;
-    }
-
-    .mobile-footer {
-        display: none;
-    }
-}
-
-@media screen and (max-width: 575px) {
-    .footer-sign {
-        text-align: center;
-    }
-
-    .footer-widget-title {
-        text-align: center;
-    }
-
-    .operational-holder {
-        text-align: center;
-    }
-}
-
-@media screen and (max-width: 350px) {
-    .mobile-footer {
-        gap: 6vw;
-    }
 }

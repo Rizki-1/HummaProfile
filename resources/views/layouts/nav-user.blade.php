@@ -187,34 +187,7 @@
               <!-- Footer Widget End -->
             </div>
 
-            <div class="mobile-footer">
-              <div class="footer-widget">
-                <h4 class="footer-widget-title">Sosial Media</h4>
-
-                <div class="widget-link">
-                  <ul class="link">
-                    @foreach (\App\Models\Sosmed::all() as $data)
-                      <li>
-                        <a class="text-capitalize" target="_blank"
-                          href="{{ $data->link }}">{{ $data->name }}</a>
-                      </li>
-                    @endforeach
-                  </ul>
-                </div>
-              </div>
-              <div class="footer-widget">
-                <h4 class="footer-widget-title">Layanan Kami</h4>
-
-                <div class="widget-link">
-                  <ul class="link">
-                    <li><a href="{{ route('home.siswaIndex') }}">Magang/PKL</a></li>
-                    <li><a href="{{ route('home.industriIndex') }}">Kelas Industri</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-3 col-sm-6 desktop-footer">
+            <div class="col-lg-3 col-sm-6">
               <!-- Footer Widget Start -->
               <div class="footer-widget">
                 <h4 class="footer-widget-title">Sosial Media</h4>
@@ -232,7 +205,7 @@
               </div>
               <!-- Footer Widget End -->
             </div>
-            <div class="col-lg-3 col-sm-6 desktop-footer">
+            <div class="col-lg-3 col-sm-6">
               <!-- Footer Widget Start -->
               <div class="footer-widget">
                 <h4 class="footer-widget-title">Layanan Kami</h4>
