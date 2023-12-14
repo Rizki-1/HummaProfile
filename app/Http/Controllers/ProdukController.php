@@ -23,7 +23,7 @@ class ProdukController extends Controller
             $produks->where('nama_produk', 'LIKE', '%' . $request->input('query') . '%');
         }
 
-        $produks = $produks->paginate(5);
+        $produks = $produks->paginate(9);
 
         return view('admin.produk.index', compact('produks'));
     }

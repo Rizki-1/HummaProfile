@@ -18,7 +18,7 @@ class MouController extends Controller
             $mous->where('nama_mou', 'LIKE', '%' . $request->input('query') . '%');
         }
 
-        $mous = $mous->paginate(10);
+        $mous = $mous->paginate(9);
         return view('admin.list.mou.index', compact('mous'));
     }
 
