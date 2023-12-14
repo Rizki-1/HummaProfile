@@ -19,7 +19,7 @@ class TestimoniController extends Controller
                 ->orWhere('asal_sekolah', 'LIKE', '%' . $request->input('query') . '%');
         }
 
-        $testimoni = $testimoni->paginate(10);
+        $testimoni = $testimoni->paginate(9);
         return view('admin.list.testimoni.index', compact('testimoni'));
     }
 

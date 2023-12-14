@@ -23,7 +23,7 @@ class GalleryController extends Controller
         if ($request->ct) {
             $gallery->where('target_layanan_id', $request->ct);
         }
-        $gallery = $gallery->paginate(6);
+        $gallery = $gallery->paginate(9);
         return view('admin.gallery.index', compact('gallery', 'target'));
     }
 
