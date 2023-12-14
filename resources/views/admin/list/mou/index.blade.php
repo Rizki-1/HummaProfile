@@ -15,16 +15,16 @@
     </div>
   </div>
   <div class="card">
-    <div class="card-header">
-      @if ($mous->count() > 0 || request('query'))
+    @if ($mous->count() > 0 || request('query'))
+      <div class="card-header">
         <div class="d-flex justify-content-end mt-3 mb-3">
           <form method="get" class="form-inline d-flex flex-row gap-1">
             <input class="form-control" type="search" name="query" placeholder="Search" aria-label="Search" value="{{ request('query') }}">
             <button class="btn btn-outline-success py-0 my-sm-0" type="submit"><i class="mdi mdi-magnify fs-4"></i></button>
           </form>
         </div>
-      @endif
-    </div>
+      </div>
+    @endif
     <div class="row p-4">
       @forelse ($mous as $row)
         <div class="col-md-4 mb-4 flex-row">

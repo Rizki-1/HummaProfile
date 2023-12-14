@@ -16,91 +16,94 @@
     </div>
   </div>
   <div class="card">
-    <div class="card-header">
-      <div class="row mb-3 justify-content-between">
-        <div class="col-md-3 col-12 mt-3">
-          <div class="dataTables_length" id="dataTableExample_length">
-            <select name="dataTableExample_length" aria-controls="dataTableExample" class="form-select m-0" id="selectTarget">
-              <option value="all" {{  !request('ct') ? 'selected' : '' }}>Semua</option>
-              <option value="1" {{ request('ct') == 1 ? 'selected' : '' }}>Magang / Pkl</option>
-              <option value="2" {{ request('ct') == 2 ? 'selected' : '' }}>Kelas Industry</option>
-            </select>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  <form action="{{ route('gallery.create') }}" method="get">
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div class="col-md-12 mb-3">
-              <label for="filter" class="form-label">Tampilkan Di</label>
-              <select required name="target_layanan_id" class="form-select @error('target_layanan_id') is-invalid @enderror" id="iddata">
-                <option value="" disabled selected>--Pilih salah satu--</option>
-                @foreach ($target as $item)
-                  <option value="{{ $item->id }}">{{ $item->target }}</option>
-                @endforeach
+    @if ($gallery->count() > 0)
+      <div class="card-header">
+        <div class="row mb-3 justify-content-between">
+          <div class="col-md-3 col-12 mt-3">
+            <div class="dataTables_length" id="dataTableExample_length">
+              <select name="dataTableExample_length" aria-controls="dataTableExample" class="form-select m-0" id="selectTarget">
+                <option value="all" {{ !request('ct') ? 'selected' : '' }}>Semua</option>
+                <option value="1" {{ request('ct') == 1 ? 'selected' : '' }}>Magang / Pkl</option>
+                <option value="2" {{ request('ct') == 2 ? 'selected' : '' }}>Kelas Industry</option>
               </select>
-              @error('target_layanan_id')
-                <div class="invalid-feedback">
-                  <p>{{ $message }}</p>
-                </div>
-              @enderror
             </div>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Save changes</button>
+
+        </div>
+      </div>
+    @endif
+    <form action="{{ route('gallery.create') }}" method="get">
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="col-md-12 mb-3">
+                <label for="filter" class="form-label">Tampilkan Di</label>
+                <select required name="target_layanan_id" class="form-select @error('target_layanan_id') is-invalid @enderror" id="iddata">
+                  <option value="" disabled selected>--Pilih salah satu--</option>
+                  @foreach ($target as $item)
+                    <option value="{{ $item->id }}">{{ $item->target }}</option>
+                  @endforeach
+                </select>
+                @error('target_layanan_id')
+                  <div class="invalid-feedback">
+                    <p>{{ $message }}</p>
+                  </div>
+                @enderror
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </form>
-  <div class="p-4">
-    <div class="row">
-      @forelse ($gallery as $row)
-        <div class="col-md-4 mb-4">
-          <div class="card">
-            <div class="image-container">
-              <img src="{{ asset('storage/galery/' . $row->picture) }}" class="image-content" alt="Thumbnail {{ $row->id }}">
-            </div>
-            <div class="image-hover">
-              <div class="image-detail">
-                <div class="detail-container">
-                  <div class="action-container">
-                    <a href="{{ route('gallery.edit', $row->id) }}"><i class="link-icon edit-icon" data-feather="edit"></i></a>
-                    <form nameProduk="{{ $row->nama_produk }}" action="{{ route('gallery.destroy', $row->id) }}" method="POST" class="hapus">
-                      @csrf
-                      @method('DELETE')
-                      <button type="submit" class="button-delete"><i class="link-icon trash-icon" data-feather="trash"></i></button>
-                    </form>
+    </form>
+    <div class="p-4">
+      <div class="row">
+        @forelse ($gallery as $row)
+          <div class="col-md-4 mb-4">
+            <div class="card">
+              <div class="image-container">
+                <img src="{{ asset('storage/galery/' . $row->picture) }}" class="image-content" alt="Thumbnail {{ $row->id }}">
+              </div>
+              <div class="image-hover">
+                <div class="image-detail">
+                  <div class="detail-container">
+                    <div class="action-container">
+                      <a href="{{ route('gallery.edit', $row->id) }}"><i class="link-icon edit-icon" data-feather="edit"></i></a>
+                      <form nameProduk="{{ $row->nama_produk }}" action="{{ route('gallery.destroy', $row->id) }}" method="POST" class="hapus">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="button-delete"><i class="link-icon trash-icon" data-feather="trash"></i></button>
+                      </form>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+        @empty
+          @if (!request('query'))
+            <div class="nodata mb-5">
+              <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="Tidak ada data">
+              <p class="mt-3">Gallery belum ada</p>
+            </div>
+          @else
+            <div class="nodata mb-5">
+              <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="Tidak ada data">
+              <p class="mt-3">Gallery</p>
+            </div>
+          @endif
+        @endforelse
+        <div>
+          {{ $gallery->links('vendor.pagination.bootstrap-5') }}
         </div>
-      @empty
-        @if (!request('query'))
-          <div class="nodata mb-5">
-            <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="Tidak ada data">
-            <p class="mt-3">Gallery belum ada</p>
-          </div>
-        @else
-        <div class="nodata mb-5">
-            <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="Tidak ada data">
-            <p class="mt-3">Gallery</p>
-          </div>
-        @endif
-      @endforelse
-      <div>
-        {{ $gallery->links('vendor.pagination.bootstrap-5') }}
       </div>
     </div>
   </div>
