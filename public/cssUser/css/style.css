@@ -6913,7 +6913,7 @@ textarea:-ms-input-placeholder {
 .techwix-choose-us-section-02 .choose-us-left .text {
     font-size: 16px;
     line-height: 30px;
-    margin-top: 40px;
+    margin-top: 30px;
     padding-right: 65px;
 }
 
@@ -9145,7 +9145,7 @@ only screen and (max-width: 767px) {
 
 .widget-info ul li .info-icon i {
     display: inline-block;
-    color: #086ad8;
+    color: #00b2ef;
     font-size: 18px;
     margin-right: 10px;
     margin-top: 2px;
@@ -9575,4 +9575,8 @@ only screen and (max-width: 767px) {
 .deactivate {
     color: #ff2323 !important;
     font-weight: 700;
+}
+
+.text-tentang {
+    font-size: 16px;
 }

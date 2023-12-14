@@ -463,7 +463,7 @@
               <div class="section-title">
                 <h3 class="sub-title operational-holder" data-aos="fade-up-right" data-aos-duration="500">Waktu
                   Operasional</h3>
-                <h2 class="title operational-holder" data-aos="fade-up-right" data-aos-duration="800">Waktu operasional
+                <h2 class="title operational-holder mb-4" data-aos="fade-up-right" data-aos-duration="800">Waktu operasional
                   hummatech</h2>
               </div>
               @foreach ($operational as $sm)
