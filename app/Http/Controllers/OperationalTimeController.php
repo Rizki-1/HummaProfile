@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\OperationalTime;
+use App\Http\Requests\OperationalTimeRequest;
 use App\Http\Requests\StoreOperationalTimeRequest;
 use App\Http\Requests\UpdateOperationalTimeRequest;
 
@@ -65,7 +66,7 @@ class OperationalTimeController extends Controller
         return view('admin.operational.index', compact('operational', 'detail'));
     }
 
-    public function closeProccess(Request $request)
+    public function closeProccess(OperationalTimeRequest $request)
     {
         OperationalTime::findOrFail($request->something)->update([
             'message' => $request->pesan,
