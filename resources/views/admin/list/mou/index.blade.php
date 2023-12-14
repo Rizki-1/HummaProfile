@@ -14,16 +14,18 @@
       <a href="{{ route('mou.create') }}" class="btn btn-outline-primary">Tambah Mou</a>
     </div>
   </div>
-  <div class="card p-4">
-    @if ($mous->count() > 0 || request('query'))
-      <div class="d-flex justify-content-end mb-3">
-        <form method="get" class="form-inline d-flex flex-row">
-          <input class="form-control mr-sm-2 py-0" type="search" name="query" placeholder="Search" aria-label="Search" value="{{ request('query') }}">
-          <button class="btn btn-outline-success py-0 my-sm-0" type="submit"><i class="mdi mdi-magnify fs-4"></i></button>
-        </form>
-      </div>
-    @endif
-    <div class="row">
+  <div class="card">
+    <div class="card-header">
+      @if ($mous->count() > 0 || request('query'))
+        <div class="d-flex justify-content-end mt-3 mb-3">
+          <form method="get" class="form-inline d-flex flex-row gap-1">
+            <input class="form-control" type="search" name="query" placeholder="Search" aria-label="Search" value="{{ request('query') }}">
+            <button class="btn btn-outline-success py-0 my-sm-0" type="submit"><i class="mdi mdi-magnify fs-4"></i></button>
+          </form>
+        </div>
+      @endif
+    </div>
+    <div class="row p-4">
       @forelse ($mous as $row)
         <div class="col-md-4 mb-4 flex-row">
           <div class="card">
@@ -56,7 +58,7 @@
             <p class="mt-3">Mou belum ada</p>
           </div>
         @else
-        <div class="nodata mb-5">
+          <div class="nodata mb-5">
             <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="Tidak ada data">
             <p class="mt-3">Data tidak ada</p>
           </div>

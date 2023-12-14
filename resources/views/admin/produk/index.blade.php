@@ -17,16 +17,18 @@
       <a href="{{ route('produk.create') }}" class="btn btn-outline-primary">Tambah Produk</a>
     </div>
   </div>
-  <div class="card p-4">
-    @if ($produks->count() > 0 || request('query'))
-      <div class="d-flex justify-content-end mb-3">
-        <form method="get" class="form-inline d-flex flex-row">
-          <input class="form-control mr-sm-2 py-0" type="search" name="query" placeholder="Search" aria-label="Search" value="{{ request('query') }}">
-          <button class="btn btn-outline-primary py-0 my-sm-0" type="submit"><i class="mdi mdi-magnify fs-4"></i></button>
-        </form>
-      </div>
-    @endif
-    <div class="row">
+  <div class="card">
+    <div class="card-header">
+      @if ($produks->count() > 0 || request('query'))
+        <div class="d-flex justify-content-end mb-3 mt-3">
+          <form method="get" class="form-inline d-flex flex-row gap-1">
+            <input class="form-control mr-sm-2 py-0" type="search" name="query" placeholder="Search" aria-label="Search" value="{{ request('query') }}">
+            <button class="btn btn-outline-primary py-0 my-sm-0" type="submit"><i class="mdi mdi-magnify fs-4"></i></button>
+          </form>
+        </div>
+      @endif
+    </div>
+    <div class="row p-4">
       @forelse ($produks as $row)
         <div class="col-md-4 mb-4">
           <div class="card">

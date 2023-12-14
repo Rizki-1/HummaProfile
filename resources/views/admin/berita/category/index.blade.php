@@ -19,7 +19,7 @@
     <div class="row">
       @forelse ($category as $item)
         <div class="col-md-4">
-          <div class="card p-3 mb-4">
+          <div class="card p-3 mb-2 mt-2">
             <div class="category-container">
               <div class="category-item">
                 <p class="category-text text-center">{{ $item->name }}</p>

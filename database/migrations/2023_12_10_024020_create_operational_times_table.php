@@ -17,7 +17,7 @@ return new class extends Migration
             $table->time('open');
             $table->time('close');
             $table->boolean('status');
-            $table->string('message')->nullable();
+            $table->longText('message')->nullable();
             $table->timestamps();
         });
     }
