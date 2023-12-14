@@ -21,7 +21,8 @@ class KategoriBeritaUpdateRequest extends FormRequest
      */
     public function rules(): array
     {
-        $id = $this->route('category_beritum');
+        $id = $this->route('category');
+        
         return [
             'category_name' => 'required|unique:kategori_beritas,name,' . $id . ',id',
         ];

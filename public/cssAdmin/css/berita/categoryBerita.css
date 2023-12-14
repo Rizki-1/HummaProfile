@@ -17,6 +17,7 @@
 
 .row .card {
     overflow: hidden;
+    box-shadow: none;
 }
 
 .row .card:hover .category-hover {
