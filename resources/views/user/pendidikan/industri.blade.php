@@ -131,9 +131,9 @@
                 </div>
               </div>
               @empty
-              <div class="nodata gap-3" data-aos="fade-up" data-aos-duration="500">
+              <div class="nodata gap-3">
                 <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="">
-                <p>Syarat dan ketentuan masih kosong</p>
+                <p class="text-center">Syarat dan ketentuan masih kosong</p>
               </div>
               @endforelse
             </div>

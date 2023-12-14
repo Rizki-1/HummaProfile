@@ -65,9 +65,10 @@
             <!-- Choose Us Left End -->
           </div>
           <div class="col-lg-6 syarat-ketentuan-margin mt-3">
-            <h2 class="sub-title text-center" data-aos="fade-up-left" data-aos-duration="700">Syarat & Ketentuan</h2>
-            <div class="content-container p-2" style=" max-height: 400px; overflow-y: auto" data-aos="fade-up-left" data-aos-duration="700">
-              @foreach ($syarat as $key => $data)
+            <h2 class="sub-title text-center" data-aos="fade-up-left" data-aos-duration="500">Syarat & Ketentuan</h2>
+            <div class="content-container p-2" style=" max-height: 400px; overflow-y: auto" data-aos="fade-up-left"
+              data-aos-duration="700">
+              @forelse ($syarat as $key => $data)
                 <div class="syarat-custome mt-3 d-flex gap-4 justify-content-center align-items-center">
                   <div class="icon">
                     <h4>{{ ++$key }}.</h4>
@@ -76,7 +77,12 @@
                     <p>{{ $data->syarat_ketentuan }}</p>
                   </div>
                 </div>
-              @endforeach
+              @empty
+                <div class="nodata gap-3">
+                  <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="">
+                  <p class="text-center">Syarat dan ketentuan masih kosong</p>
+                </div>
+              @endforelse
             </div>
           </div>
         </div>
@@ -134,7 +140,8 @@
   <!-- Service End -->
 
   <!-- Testimonial Start  -->
-  <div class="section bg-cover techwix-testimonial-section-02 techwix-testimonial-section-03 techwix-testimonial-section-05 section-padding"
+  <div
+    class="section bg-cover techwix-testimonial-section-02 techwix-testimonial-section-03 techwix-testimonial-section-05 section-padding"
     style="padding: 40px; height: fit-content">
     <div class="container">
       <!-- Testimonial Wrap Start  -->

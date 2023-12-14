@@ -12,9 +12,7 @@
       </div>
       <div class="text">
         <h1 class="text-big">Humma<span>Tech</span></h1>
-        <p class="text-small">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, sit Lorem ipsum dolor sit
-          amet, consectetur adipisicing elit. Saepe, sit Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe,
-          sit.</p>
+        <p class="text-small">Tempat dimana setiap tantangan Digital diselesaikan dengan Inovasi, Keahlian pengembangan, dan sentuhan kreatif desain yang membuat perbedaan.</p>
       </div>
       <div class="slider-foto">
         <div class="nav-btn active"></div>

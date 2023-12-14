@@ -243,6 +243,7 @@ textarea:-ms-input-placeholder {
     line-height: 54px;
     font-family: "Barlow", sans-serif;
     font-weight: 600;
+    text-transform: capitalize;
     color: #0e0e0e;
 }
 
