@@ -9447,12 +9447,7 @@ only screen and (max-width: 767px) {
 }
 
 .truncation {
-    overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    text-overflow: ellipsis;
-    max-height: 125px;
     max-width: 100%;
 }
 
@@ -9523,18 +9518,6 @@ only screen and (max-width: 767px) {
     border-radius: 5px;
     overflow: hidden;
     margin-bottom: 8px;
-}
-
-.mobile-footer {
-    justify-content: center;
-    width: 100%;
-    display: flex;
-    gap: 20vw;
-    text-align: center;
-}
-
-.desktop-footer {
-    display: none;
 }
 
 .ot-container {
