@@ -6284,6 +6284,12 @@ textarea:-ms-input-placeholder {
     padding-top: 15px;
 }
 
+@media only screen and (max-width: 774px) {
+    .techwix-contact-section .contact-wrap .contact-info ul {
+        padding-top: 70px;
+    }
+}
+
 .techwix-contact-section .contact-wrap .contact-info ul li {
     margin-top: 15px;
     padding-right: 65px;

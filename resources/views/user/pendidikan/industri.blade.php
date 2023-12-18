@@ -3,12 +3,12 @@
 <title>HummaTech - Industri</title>
 
 @section('header')
-    <meta name="keywords" content="Pendaftaran kelas industri">
-    <meta name="keywords" content="MoU hummatech">
-    <meta property="og:title" content="kelas industri">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ request()->url() }}">
-    <meta property="og:site_name" content="pendaftaran MoU">
+  <meta name="keywords" content="Pendaftaran kelas industri">
+  <meta name="keywords" content="MoU hummatech">
+  <meta property="og:title" content="kelas industri">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ request()->url() }}">
+  <meta property="og:site_name" content="pendaftaran MoU">
 @endsection
 
 @section('content')
@@ -22,8 +22,7 @@
   <div class="section" style="padding-top: 0px;">
     <div class="video">
       <div class="dark-overlay"></div>
-      <video class="video-slide active" src="{{ asset('ImageGlobal/industri.mp4') }}" autoplay loop muted
-        playsinline></video>
+      <video class="video-slide active" src="{{ asset('ImageGlobal/industri.mp4') }}" autoplay loop muted playsinline></video>
       <video class="video-slide" src="{{ asset('ImageGlobal/industri_2.mp4') }}" autoplay loop muted playsinline></video>
       <div class="slider-video">
         <div class="nav-btn active"></div>
@@ -63,7 +62,8 @@
           <div class="col-lg-6 d-flex align-items-center justify-content-center">
             <!-- About Image Wrap Start -->
             <div class="about-img-wrap">
-              <img class="shape-1" data-aos="fade-up-right" data-aos-duration="500" src="{{ asset('cssUser/images/shape/about-shape2.png') }}" alt="">
+              <img class="shape-1" data-aos="fade-up-right" data-aos-duration="500"
+                src="{{ asset('cssUser/images/shape/about-shape2.png') }}" alt="">
               <div class="about-img" data-aos="fade-up-right" data-aos-duration="800">
                 <img src="{{ asset('ImageGlobal/gallery/gallery_1.jpg') }}" alt="">
               </div>
@@ -107,7 +107,8 @@
   <!-- Kenapa Industri End -->
 
 
-  <div class="section techwix-choose-us-section-02 section-padding-02" style="padding-bottom: 110px; padding-top: 100px; background-color: #ffffff">
+  <div class="section techwix-choose-us-section-02 section-padding-02"
+    style="padding-bottom: 110px; padding-top: 100px; background-color: #ffffff">
     <div class="container">
       <!-- Choose Us Wrap Start -->
       <div class="choose-us-wrap">
@@ -124,28 +125,29 @@
               <p class="text mb-3" data-aos="fade-up-right" data-aos-duration="900">Kami menyediakan kesempatan untuk
                 meningkatkan keterampilan dan pengetahuan dalam dunia teknologi. Kelas industri kami menawarkan kurikulum
                 yang terkini dan diajarkan oleh para ahli industri yang berpengalaman.</p>
-              <div data-aos="fade-up-right" class="btn-pendaftaran" data-aos-duration="1000"><a
+              <div style="padding: 10px 0px;" data-aos="fade-up-right" class="btn-pendaftaran" data-aos-duration="1000"><a
                   href="https://class.hummatech.com/" target="_blank" class="btn btn-primary">Daftar</a></div>
             </div>
             <!-- Choose Us Left End -->
           </div>
           <div class="col-lg-6 syarat-ketentuan-margin">
             <h2 class="sub-title text-center" data-aos="fade-up-left" data-aos-duration="700">Syarat & Ketentuan</h2>
-            <div class="content-container p-2" style=" max-height: 400px; overflow-y: auto" data-aos="fade-up-left" data-aos-duration="800">
+            <div class="content-container p-2" style=" max-height: 400px; overflow-y: auto" data-aos="fade-up-left"
+              data-aos-duration="800">
               @forelse ($syarat as $key => $data)
-              <div class="syarat-custome mt-3 d-flex gap-4 justify-content-center align-items-center">
-                <div class="icon">
-                  <h4>{{ ++$key }}.</h4>
+                <div class="syarat-custome mt-3 d-flex gap-4 justify-content-center align-items-center">
+                  <div class="icon">
+                    <h4>{{ ++$key }}.</h4>
+                  </div>
+                  <div class="text">
+                    <p>{{ $data->syarat_ketentuan }}</p>
+                  </div>
                 </div>
-                <div class="text">
-                  <p>{{ $data->syarat_ketentuan }}</p>
-                </div>
-              </div>
               @empty
-              <div class="nodata gap-3">
-                <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="">
-                <p class="text-center">Syarat dan ketentuan masih kosong</p>
-              </div>
+                <div class="nodata gap-3">
+                  <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="">
+                  <p class="text-center">Syarat dan ketentuan masih kosong</p>
+                </div>
               @endforelse
             </div>
           </div>
@@ -227,115 +229,9 @@
                 </div>
               </div>
             @empty
-              <div class="col-xl-3 col-sm-12">
-                <div class="card-logo-sekolah">
-                  <div class="img-sekolah">
-                    <img src="{{ asset('cssUser/sekolah/smk-1.png') }}">
-                  </div>
-                  <div class="nama-sekolah">
-                    <p>SMKN 1 Bababoi Papope Bababoi Papope Bababoi</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-3 col-sm-12">
-                <div class="card-logo-sekolah">
-                  <div class="img-sekolah">
-                    <img src="{{ asset('cssUser/sekolah/smk-2.jpg') }}">
-                  </div>
-                  <div class="nama-sekolah">
-                    <p>SMKN 1 Bababoi Papope Bababoi Papope Bababoi</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-3 col-sm-12">
-                <div class="card-logo-sekolah">
-                  <div class="img-sekolah">
-                    <img src="{{ asset('cssUser/sekolah/smk-3.jpg') }}">
-                  </div>
-                  <div class="nama-sekolah">
-                    <p>SMKN 1 Bababoi Papope Bababoi Papope Bababoi</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-3 col-sm-12">
-                <div class="card-logo-sekolah">
-                  <div class="img-sekolah">
-                    <img src="{{ asset('cssUser/sekolah/smk-4.jpg') }}">
-                  </div>
-                  <div class="nama-sekolah">
-                    <p>SMKN 1 Bababoi Papope Bababoi Papope Bababoi</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-3 col-sm-12">
-                <div class="card-logo-sekolah">
-                  <div class="img-sekolah">
-                    <img src="{{ asset('cssUser/sekolah/smk-5.jpg') }}">
-                  </div>
-                  <div class="nama-sekolah">
-                    <p>SMKN 1 Bababoi Papope Bababoi Papope Bababoi</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-3 col-sm-12">
-                <div class="card-logo-sekolah">
-                  <div class="img-sekolah">
-                    <img src="{{ asset('cssUser/sekolah/smk-6.jpg') }}">
-                  </div>
-                  <div class="nama-sekolah">
-                    <p>SMKN 1 Bababoi Papope Bababoi Papope Bababoi</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-3 col-sm-12">
-                <div class="card-logo-sekolah">
-                  <div class="img-sekolah">
-                    <img src="{{ asset('cssUser/sekolah/smk-7.jpg') }}">
-                  </div>
-                  <div class="nama-sekolah">
-                    <p>SMKN 1 Bababoi Papope Bababoi Papope Bababoi</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-3 col-sm-12">
-                <div class="card-logo-sekolah">
-                  <div class="img-sekolah">
-                    <img src="{{ asset('cssUser/sekolah/smk-8.png') }}">
-                  </div>
-                  <div class="nama-sekolah">
-                    <p>SMKN 1 Bababoi Papope Bababoi Papope Bababoi</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-3 col-sm-12">
-                <div class="card-logo-sekolah">
-                  <div class="img-sekolah">
-                    <img src="{{ asset('cssUser/sekolah/smk-9.png') }}">
-                  </div>
-                  <div class="nama-sekolah">
-                    <p>SMKN 1 Bababoi Papope Bababoi Papope Bababoi</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-3 col-sm-12">
-                <div class="card-logo-sekolah">
-                  <div class="img-sekolah">
-                    <img src="{{ asset('cssUser/sekolah/smk-10.jpg') }}">
-                  </div>
-                  <div class="nama-sekolah">
-                    <p>SMKN 1 Bababoi Papope Bababoi Papope Bababoi</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-3 col-sm-12">
-                <div class="card-logo-sekolah">
-                  <div class="img-sekolah">
-                    <img src="{{ asset('cssUser/sekolah/smk-11.png') }}">
-                  </div>
-                  <div class="nama-sekolah">
-                    <p>SMKN 1 Bababoi Papope Bababoi Papope Bababoi</p>
-                  </div>
-                </div>
+              <div class="nodata gap-3" data-aos="fade-up" data-aos-duration="500">
+                <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="">
+                <p>Data sekolah industri tidak tersedia</p>
               </div>
             @endforelse
           </div>

@@ -3,11 +3,11 @@
 <title>HummaTech - Siswa</title>
 
 @section('header')
-    <meta name="keywords" content="Pendaftaran siswa magang">
-    <meta property="og:title" content="siswa magang">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ request()->url() }}">
-    <meta property="og:site_name" content="siswa magang hummatech">
+  <meta name="keywords" content="Pendaftaran siswa magang">
+  <meta property="og:title" content="siswa magang">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ request()->url() }}">
+  <meta property="og:site_name" content="siswa magang hummatech">
 @endsection
 
 @section('content')
@@ -66,10 +66,12 @@
                   terkait pendaftaran
                   magang di sini</h2>
               </div>
-              <p class="text mb-3" data-aos="fade-up-right" data-aos-duration="900">Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Facilis non, voluptate cupiditate, expedita similique sed cumque ad mollitia sequi
-                deleniti labore, odio autem. Incidunt, repudiandae a obcaecati aliquam nisi quisquam.</p>
-              <div class="btn-pendaftaran" data-aos="fade-up-right" data-aos-duration="1000"><a
+              <p class="text mb-3" data-aos="fade-up-right" data-aos-duration="900">
+                Kami dengan senang hati membuka kesempatan bagi siswa dan mahasiswa yang bersemangat untuk bergabung
+                dengan kami melalui program magang dan Praktek Kerja Lapangan (PKL). Di sini, kami percaya bahwa
+                pengalaman di dunia kerja adalah kunci untuk membangun fondasi yang kuat bagi masa depan Anda.
+              </p>
+              <div style="padding: 10px 0px;" class="btn-pendaftaran" data-aos="fade-up-right" data-aos-duration="1000"><a
                   href="https://pkl.hummatech.com/" target="_blank" class="btn btn-primary">Daftar</a></div>
             </div>
             <!-- Choose Us Left End -->
@@ -337,6 +339,69 @@
                   <div class="skeleton"></div>
                   <a href="" class="opacity-0">
                     <img src="{{ asset('ImageGlobal/gallery/gallery_3.jpg') }}" class="img-responsive">
+                  </a>
+                </li>
+                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}"
+                  data-src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}">
+                  <div class="skeleton"></div>
+                  <a href="" class="opacity-0">
+                    <img src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}" class="img-responsive">
+                  </a>
+                </li>
+                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}"
+                  data-src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}">
+                  <div class="skeleton"></div>
+                  <a href="" class="opacity-0">
+                    <img src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}" class="img-responsive">
+                  </a>
+                </li>
+                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}"
+                  data-src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}">
+                  <div class="skeleton"></div>
+                  <a href="" class="opacity-0">
+                    <img src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}" class="img-responsive">
+                  </a>
+                </li>
+                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}"
+                  data-src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}">
+                  <div class="skeleton"></div>
+                  <a href="" class="opacity-0">
+                    <img src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}" class="img-responsive">
+                  </a>
+                </li>
+                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}"
+                  data-src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}">
+                  <div class="skeleton"></div>
+                  <a href="" class="opacity-0">
+                    <img src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}" class="img-responsive">
+                  </a>
+                </li>
+                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}"
+                  data-src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}">
+                  <div class="skeleton"></div>
+                  <a href="" class="opacity-0">
+                    <img src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}" class="img-responsive">
+                  </a>
+                </li>
+                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}"
+                  data-src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}">
+                  <div class="skeleton"></div>
+                  <a href="" class="opacity-0">
+                    <img src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}" class="img-responsive">
+                  </a>
+                </li>
+                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}"
+                  data-src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}">
+                  <div class="skeleton"></div>
+                  <a href="" class="opacity-0">
+                    <img src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}" class="img-responsive">
+                  </a>
+                </li>
+                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}"
+                  data-src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}">
+                  <div class="skeleton"></div>
+                  <a href="" class="opacity-0">
+                    <img src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}" class="img-responsive">
                   </a>
                 </li>
                 <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}"
