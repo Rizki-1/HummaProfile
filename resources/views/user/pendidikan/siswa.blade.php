@@ -348,69 +348,6 @@
                     <img src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}" class="img-responsive">
                   </a>
                 </li>
-                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}"
-                  data-src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}">
-                  <div class="skeleton"></div>
-                  <a href="" class="opacity-0">
-                    <img src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}" class="img-responsive">
-                  </a>
-                </li>
-                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}"
-                  data-src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}">
-                  <div class="skeleton"></div>
-                  <a href="" class="opacity-0">
-                    <img src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}" class="img-responsive">
-                  </a>
-                </li>
-                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}"
-                  data-src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}">
-                  <div class="skeleton"></div>
-                  <a href="" class="opacity-0">
-                    <img src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}" class="img-responsive">
-                  </a>
-                </li>
-                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}"
-                  data-src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}">
-                  <div class="skeleton"></div>
-                  <a href="" class="opacity-0">
-                    <img src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}" class="img-responsive">
-                  </a>
-                </li>
-                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}"
-                  data-src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}">
-                  <div class="skeleton"></div>
-                  <a href="" class="opacity-0">
-                    <img src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}" class="img-responsive">
-                  </a>
-                </li>
-                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}"
-                  data-src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}">
-                  <div class="skeleton"></div>
-                  <a href="" class="opacity-0">
-                    <img src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}" class="img-responsive">
-                  </a>
-                </li>
-                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}"
-                  data-src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}">
-                  <div class="skeleton"></div>
-                  <a href="" class="opacity-0">
-                    <img src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}" class="img-responsive">
-                  </a>
-                </li>
-                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}"
-                  data-src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}">
-                  <div class="skeleton"></div>
-                  <a href="" class="opacity-0">
-                    <img src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}" class="img-responsive">
-                  </a>
-                </li>
-                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}"
-                  data-src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}">
-                  <div class="skeleton"></div>
-                  <a href="" class="opacity-0">
-                    <img src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}" class="img-responsive">
-                  </a>
-                </li>
                 <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_5.jpg') }}"
                   data-src="{{ asset('ImageGlobal/gallery/gallery_5.jpg') }}">
                   <div class="skeleton"></div>
