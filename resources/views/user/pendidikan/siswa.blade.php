@@ -1,5 +1,15 @@
 @extends('layouts.nav-user')
+
 <title>HummaTech - Siswa</title>
+
+@section('header')
+    <meta name="keywords" content="Pendaftaran siswa magang">
+    <meta property="og:title" content="siswa magang">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ request()->url() }}">
+    <meta property="og:site_name" content="siswa magang hummatech">
+@endsection
+
 @section('content')
   {{-- <link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/forceNav.css') }}"> --}}
   <link rel="stylesheet" href="{{ asset('cssUser/css/pendidikan/style.css') }}">

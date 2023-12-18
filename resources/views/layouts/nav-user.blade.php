@@ -6,9 +6,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="google-site-verification" content="Z43U5vATQ5FiK5_kd7j-omQlq6dj4RWRYu-7WVakkt8" />
 
   @section('header')
+    <meta name="keywords" content="HummaTech">
     <meta name="description" content="Perusahaan HummaTech">
+    <meta property="og:title" content="hummatech">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ request()->url() }}">
+    <meta property="og:image" content="{{ asset('ImageGlobal/HummaTech-Logo.png') }}">
+    <meta property="og:site_name" content="Profile HummaTech">
     <title>HummaTech</title>
   @show
 
