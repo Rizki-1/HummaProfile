@@ -4,7 +4,7 @@
   <!-- Contact Start -->
   <link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/forceLogo.css') }}">
   <link rel="stylesheet" href="{{ asset('cssUser/css/landing-page/forceNav.css') }}">
-  <div class="section techwix-contact-section techwix-contact-section-02 section-padding">
+  <div class="section padding-settings techwix-contact-section techwix-contact-section-02 section-padding">
     <div class="container">
       <!-- Contact Wrap Start -->
       <div class="contact-wrap" style="background-image: url(assets/images/shape/contact-shape.png);">
