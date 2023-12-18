@@ -3,8 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="google-site-verification" content="Z43U5vATQ5FiK5_kd7j-omQlq6dj4RWRYu-7WVakkt8" />
 
-        <title>Laravel</title>
+        <title>HummaTech</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
