@@ -17,12 +17,12 @@
     }
 
     .nodata img {
-      height: 12rem;
+      height: 10rem;
     }
 
     .nodata p {
       font-weight: 600;
-      font-size: 25px;
+      font-size: 20px;
       color: #b3b6c5;
     }
   </style>
