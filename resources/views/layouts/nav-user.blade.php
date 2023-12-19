@@ -305,7 +305,7 @@
   <script src="{{ asset('cssUser/js/plugins/swiper-bundle.min.js') }}"></script>
   <script src="{{ asset('cssUser/js/plugins/aos.js') }}"></script>
   <script src="{{ asset('cssUser/js/plugins/waypoints.min.js') }}"></script>
-  <script src="{{ asset('cssUser/js/plugins/back-to-top.js') }}"></script>
+  {{-- <script src="{{ asset('cssUser/js/plugins/back-to-top.js') }}"></script> --}}
   <script src="{{ asset('cssUser/js/plugins/jquery.counterup.min.js') }}"></script>
   <script src="{{ asset('cssUser/js/plugins/appear.min.js') }}"></script>
   <script src="{{ asset('cssUser/js/plugins/jquery.magnific-popup.min.js') }}"></script>
