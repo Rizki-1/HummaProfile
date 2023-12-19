@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html class="landing-page-repsone" lang="en">
 
 <head>
   <meta charset="UTF-8">
