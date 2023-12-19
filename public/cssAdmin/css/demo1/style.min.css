@@ -20952,14 +20952,6 @@ div.tox .buy-now-wrapper .tox-button svg {
     background: #00a1ff
 }
 
-.sidebar .sidebar-body .nav {
-    display: none;
-}
-
-.sidebar-open .sidebar .sidebar-body .nav {
-    display: flex;
-}
-
 @media (max-width:991px) {
     .sidebar {
         z-index: 999;
@@ -20977,6 +20969,14 @@ div.tox .buy-now-wrapper .tox-button svg {
         -webkit-transition: none;
         transition: none;
         margin: 0
+    }
+    
+    .sidebar .sidebar-body .nav {
+        display: none;
+    }
+
+    .sidebar-open .sidebar .sidebar-body .nav {
+        display: flex;
     }
 }
 
