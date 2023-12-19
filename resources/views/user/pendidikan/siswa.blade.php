@@ -104,8 +104,7 @@
   </div>
 
   <!-- Service Start -->
-  <div class="section techwix-service-section siswa-index section-padding-02"
-    style="padding-bottom: 70px; padding-top: 20px">
+  <div class="section techwix-service-section siswa-index section-padding-02" style="padding-bottom: 70px; padding-top: 20px">
     <div class="container">
       <!-- Service Wrap Start -->
       <div class="service-wrap">
@@ -154,7 +153,7 @@
   <!-- Testimonial Start  -->
   <div
     class="section bg-cover techwix-testimonial-section-02 techwix-testimonial-section-03 techwix-testimonial-section-05 section-padding"
-    style="padding: 40px; height: fit-content">
+    style="padding: 40px 0; height: fit-content">
     <div class="container">
       <!-- Testimonial Wrap Start  -->
       <div class="testimonial-wrap-02">
