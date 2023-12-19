@@ -21,8 +21,7 @@
   <div class="section" style="padding-top: 0px">
     <div class="video">
       <div class="dark-overlay"></div>
-      <video class="video-slide active" src="{{ asset('ImageGlobal/industri.mp4') }}" autoplay loop muted
-        playsinline></video>
+      <video class="video-slide active" src="{{ asset('ImageGlobal/industri.mp4') }}" autoplay loop muted playsinline></video>
       <video class="video-slide" src="{{ asset('ImageGlobal/industri_2.mp4') }}" autoplay loop muted playsinline></video>
       <div class="slider-video">
         <div class="nav-btn active"></div>
@@ -30,8 +29,7 @@
       </div>
     </div>
 
-    <div class="depan text-depan-video"
-      style="position: absolute; z-index: 3; top: 50%; left: 50%; transform: translate(-50%, -50%)">
+    <div class="depan text-depan-video" style="position: absolute; z-index: 3; top: 50%; left: 50%; transform: translate(-50%, -50%)">
       <div class="container">
         <div class="page-banner-wrap">
           <div class="row">
@@ -51,8 +49,7 @@
   </div>
   <!-- Page Banner End -->
 
-  <div class="section techwix-choose-us-section-02 section-padding-02"
-    style="padding-bottom: 110px; background-color: #ffffff;">
+  <div class="section techwix-choose-us-section-02 section-padding-02" style="padding-bottom: 110px; background-color: #ffffff;">
     <div class="container">
       <!-- Choose Us Wrap Start -->
       <div class="choose-us-wrap">
@@ -71,15 +68,13 @@
                 dengan kami melalui program magang dan Praktek Kerja Lapangan (PKL). Di sini, kami percaya bahwa
                 pengalaman di dunia kerja adalah kunci untuk membangun fondasi yang kuat bagi masa depan Anda.
               </p>
-              <div style="padding: 10px 0px;" class="btn-pendaftaran" data-aos="fade-up-right" data-aos-duration="1000"><a
-                  href="https://pkl.hummatech.com/" target="_blank" class="btn btn-primary">Daftar</a></div>
+              <div style="padding: 10px 0px;" class="btn-pendaftaran" data-aos="fade-up-right" data-aos-duration="1000"><a href="https://pkl.hummatech.com/" target="_blank" class="btn btn-primary">Daftar</a></div>
             </div>
             <!-- Choose Us Left End -->
           </div>
           <div class="col-lg-6 syarat-ketentuan-margin mt-3">
             <h2 class="sub-title text-center" data-aos="fade-up-left" data-aos-duration="500">Syarat & Ketentuan</h2>
-            <div class="content-container p-2" style=" max-height: 400px; overflow-y: auto" data-aos="fade-up-left"
-              data-aos-duration="700">
+            <div class="content-container p-2" style=" max-height: 400px; overflow-y: auto" data-aos="fade-up-left" data-aos-duration="700">
               @forelse ($syarat as $key => $data)
                 <div class="syarat-custome mt-3 d-flex gap-4 justify-content-center align-items-center">
                   <div class="icon">
@@ -123,8 +118,7 @@
                   <div class="service-item layanan-industri-siswa">
                     <div class="service-content">
                       <div class="image-layanan">
-                        <img style="width: 100%; height: 100%; object-fit: cover"
-                          src="{{ asset('storage/layanan/' . $data->foto_layanan) }}" alt="">
+                        <img style="width: 100%; height: 100%; object-fit: cover" src="{{ asset('storage/layanan/' . $data->foto_layanan) }}" alt="">
                       </div>
                       <h3 class="title"><a class="layanan-truncation-title">{{ $data->nama_layanan }}</a></h3>
                       <p class="layanan-truncation-text">{{ $data->descripsi_layanan }}</p>
@@ -151,9 +145,7 @@
   <!-- Service End -->
 
   <!-- Testimonial Start  -->
-  <div
-    class="section bg-cover techwix-testimonial-section-02 techwix-testimonial-section-03 techwix-testimonial-section-05 section-padding"
-    style="padding: 40px 0; height: fit-content">
+  <div class="section bg-cover techwix-testimonial-section-02 techwix-testimonial-section-03 techwix-testimonial-section-05 section-padding" style="padding: 40px 0; height: fit-content">
     <div class="container">
       <!-- Testimonial Wrap Start  -->
       <div class="testimonial-wrap-02">
@@ -302,82 +294,39 @@
       <!-- Service Wrap Start -->
       <div class="service-wrap">
         <div class="section-title text-center">
-          <h2 class="title" data-aos="fade-up" data-aos-duration="700"
-            style="padding: 20px; text-transform: capitalize">Gallery Magang
+          <h2 class="title" data-aos="fade-up" data-aos-duration="700" style="padding: 20px; text-transform: capitalize">Gallery Magang
             <span style="color: #22B3E2">Humma</span>Tech
           </h2>
         </div>
         <div class="service-content-wrap" data-aos="fade-up" data-aos-duration="1000">
-          <div id="gallery" class="container-fluid">
-            <ul id="lightgallery" class="list-unstyled">
-              @forelse ($gallery as $data)
-                <li class="gallery-item" data-responsive="{{ asset('storage/galery/' . $data->picture) }}"
-                  data-src="{{ asset('storage/galery/' . $data->picture) }}">
-                  <div class="skeleton"></div>
-                  <a href="" class="opacity-0">
-                    <img src="{{ asset('storage/galery/' . $data->picture) }}" class="img-responsive">
-                  </a>
-                </li>
-              @empty
-                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_1.jpg') }}"
-                  data-src="{{ asset('ImageGlobal/gallery/gallery_1.jpg') }}">
-                  <div class="skeleton"></div>
-                  <a href="" class="opacity-0">
-                    <img src="{{ asset('ImageGlobal/gallery/gallery_1.jpg') }}" class="img-responsive">
-                  </a>
-                </li>
-                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_2.jpg') }}"
-                  data-src="{{ asset('ImageGlobal/gallery/gallery_2.jpg') }}">
-                  <div class="skeleton"></div>
-                  <a href="" class="opacity-0">
-                    <img src="{{ asset('ImageGlobal/gallery/gallery_2.jpg') }}" class="img-responsive">
-                  </a>
-                </li>
-                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_3.jpg') }}"
-                  data-src="{{ asset('ImageGlobal/gallery/gallery_3.jpg') }}">
-                  <div class="skeleton"></div>
-                  <a href="" class="opacity-0">
-                    <img src="{{ asset('ImageGlobal/gallery/gallery_3.jpg') }}" class="img-responsive">
-                  </a>
-                </li>
-                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}"
-                  data-src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}">
-                  <div class="skeleton"></div>
-                  <a href="" class="opacity-0">
-                    <img src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}" class="img-responsive">
-                  </a>
-                </li>
-                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_5.jpg') }}"
-                  data-src="{{ asset('ImageGlobal/gallery/gallery_5.jpg') }}">
-                  <div class="skeleton"></div>
-                  <a href="" class="opacity-0">
-                    <img src="{{ asset('ImageGlobal/gallery/gallery_5.jpg') }}" class="img-responsive">
-                  </a>
-                </li>
-                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_6.jpg') }}"
-                  data-src="{{ asset('ImageGlobal/gallery/gallery_6.jpg') }}">
-                  <div class="skeleton"></div>
-                  <a href="" class="opacity-0">
-                    <img src="{{ asset('ImageGlobal/gallery/gallery_6.jpg') }}" class="img-responsive">
-                  </a>
-                </li>
-                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_7.jpg') }}"
-                  data-src="{{ asset('ImageGlobal/gallery/gallery_7.jpg') }}">
-                  <div class="skeleton"></div>
-                  <a href="" class="opacity-0">
-                    <img src="{{ asset('ImageGlobal/gallery/gallery_7.jpg') }}" class="img-responsive">
-                  </a>
-                </li>
-                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_8.jpg') }}"
-                  data-src="{{ asset('ImageGlobal/gallery/gallery_8.jpg') }}">
-                  <div class="skeleton"></div>
-                  <a href="" class="opacity-0">
-                    <img src="{{ asset('ImageGlobal/gallery/gallery_8.jpg') }}" class="img-responsive">
-                  </a>
-                </li>
-              @endforelse
-            </ul>
-          </div>
+          @if ($gallery->count() > 0)
+            <div id="gallery" class="container-fluid">
+              <ul id="lightgallery" class="list-unstyled">
+                @forelse ($gallery->take(16) as $data)
+                  <li class="gallery-item" data-responsive="{{ asset('storage/galery/' . $data->picture) }}" data-src="{{ asset('storage/galery/' . $data->picture) }}">
+                    <div class="skeleton"></div>
+                    <a href="" class="opacity-0">
+                      <img src="{{ asset('storage/galery/' . $data->picture) }}" class="img-responsive">
+                    </a>
+                  </li>
+                @empty
+                  {{-- Nothing in here --}}
+                @endforelse
+              </ul>
+            </div>
+            @if ($gallery->count() > 16)
+              <div class="mt-5">
+                <div class="gallery-more-text text-center" style="margin-top: 30px">
+                  <p>Gallery lainnya <a href="{{ route('gallery.magang') }}">Disini <i class="fas fa-long-arrow-alt-right"></i></a> </p>
+                </div>
+              </div>
+            @endif
+          @else
+            <div class="nodata gap-3" data-aos="fade-up" data-aos-duration="500">
+              <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="">
+              <p>Gallery tidak ada</p>
+            </div>
+          @endif
         </div>
         <div class="d-flex justify-content-center mt-5">
         </div>

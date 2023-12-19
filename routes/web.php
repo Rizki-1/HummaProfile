@@ -96,6 +96,8 @@ Route::get('/produk', [HomeController::class, 'indexProduk'])->name('produkIndex
 Route::get('/contact', [HomeController::class, 'indexContact'])->name('contactIndex');
 Route::get('/berita', [HomeController::class, 'indexBerita'])->name('beritaIndex');
 Route::get('/berita/{name}', [HomeController::class, 'detailBerita'])->name('detailBerita');
+Route::get('/gallery/magang', [HomeController::class, 'galleryMagang'])->name('gallery.magang');
+Route::get('/gallery/industri', [HomeController::class, 'galleryIndustri'])->name('gallery.industri');
 Route::post('/inbox', [InboxController::class,'store'])->name('inbox.store');
 // Route::get('/layanan', [HomeController::class, 'indexLayanan'])->name('layananIndex');
 Route::get('/produk/{name}', [HomeController::class, 'detailProduk'])->name('produk.detail');

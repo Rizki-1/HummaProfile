@@ -30,8 +30,7 @@
       </div>
     </div>
 
-    <div class="depan text-depan-video"
-      style="position: absolute; z-index: 3; top: 50%; left: 50%; transform: translate(-50%, -50%)">
+    <div class="depan text-depan-video" style="position: absolute; z-index: 3; top: 50%; left: 50%; transform: translate(-50%, -50%)">
       <div class="container">
         <div class="page-banner-wrap">
           <div class="row">
@@ -62,8 +61,7 @@
           <div class="col-lg-6 d-flex align-items-center justify-content-center">
             <!-- About Image Wrap Start -->
             <div class="about-img-wrap">
-              <img class="shape-1" data-aos="fade-up-right" data-aos-duration="500"
-                src="{{ asset('cssUser/images/shape/about-shape2.png') }}" alt="">
+              <img class="shape-1" data-aos="fade-up-right" data-aos-duration="500" src="{{ asset('cssUser/images/shape/about-shape2.png') }}" alt="">
               <div class="about-img" data-aos="fade-up-right" data-aos-duration="800">
                 <img src="{{ asset('ImageGlobal/gallery/gallery_1.jpg') }}" alt="">
               </div>
@@ -106,9 +104,7 @@
   </div>
   <!-- Kenapa Industri End -->
 
-
-  <div class="section techwix-choose-us-section-02 section-padding-02"
-    style="padding-bottom: 110px; padding-top: 100px; background-color: #ffffff">
+  <div class="section techwix-choose-us-section-02 section-padding-02" style="padding-bottom: 110px; padding-top: 100px; background-color: #ffffff">
     <div class="container">
       <!-- Choose Us Wrap Start -->
       <div class="choose-us-wrap">
@@ -125,15 +121,13 @@
               <p class="text mb-3" data-aos="fade-up-right" data-aos-duration="900">Kami menyediakan kesempatan untuk
                 meningkatkan keterampilan dan pengetahuan dalam dunia teknologi. Kelas industri kami menawarkan kurikulum
                 yang terkini dan diajarkan oleh para ahli industri yang berpengalaman.</p>
-              <div style="padding: 10px 0px;" data-aos="fade-up-right" class="btn-pendaftaran" data-aos-duration="1000"><a
-                  href="https://class.hummatech.com/" target="_blank" class="btn btn-primary">Daftar</a></div>
+              <div style="padding: 10px 0px;" data-aos="fade-up-right" class="btn-pendaftaran" data-aos-duration="1000"><a href="https://class.hummatech.com/" target="_blank" class="btn btn-primary">Daftar</a></div>
             </div>
             <!-- Choose Us Left End -->
           </div>
           <div class="col-lg-6 syarat-ketentuan-margin">
             <h2 class="sub-title text-center" data-aos="fade-up-left" data-aos-duration="700">Syarat & Ketentuan</h2>
-            <div class="content-container p-2" style=" max-height: 400px; overflow-y: auto" data-aos="fade-up-left"
-              data-aos-duration="800">
+            <div class="content-container p-2" style=" max-height: 400px; overflow-y: auto" data-aos="fade-up-left" data-aos-duration="800">
               @forelse ($syarat as $key => $data)
                 <div class="syarat-custome mt-3 d-flex gap-4 justify-content-center align-items-center">
                   <div class="icon">
@@ -158,8 +152,7 @@
   </div>
 
   <!-- Service Start -->
-  <div class="section techwix-service-section industry-index section-padding-02"
-    style="padding-bottom: 70px; padding-top: 20px">
+  <div class="section techwix-service-section industry-index section-padding-02" style="padding-bottom: 70px; padding-top: 20px">
     <div class="container">
       <!-- Service Wrap Start -->
       <div class="service-wrap">
@@ -178,8 +171,7 @@
                   <div class="service-item layanan-industri-siswa">
                     <div class="service-content">
                       <div class="image-layanan">
-                        <img style="width: 100%; height: 100%; object-fit: cover"
-                          src="{{ asset('storage/layanan/' . $data->foto_layanan) }}" alt="">
+                        <img style="width: 100%; height: 100%; object-fit: cover" src="{{ asset('storage/layanan/' . $data->foto_layanan) }}" alt="">
                       </div>
                       <h3 class="title"><a class="layanan-truncation-title">{{ $data->nama_layanan }}</a></h3>
                       <p class="layanan-truncation-text">{{ $data->descripsi_layanan }}</p>
@@ -211,8 +203,7 @@
       <!-- Service Wrap Start -->
       <div class="service-wrap">
         <div class="section-title text-center">
-          <h2 class="title" data-aos="fade-up" data-aos-duration="700"
-            style="padding: 20px; text-transform: capitalize">Institusi pendidikan yang mengikuti program kelas industri.
+          <h2 class="title" data-aos="fade-up" data-aos-duration="700" style="padding: 20px; text-transform: capitalize">Institusi pendidikan yang mengikuti program kelas industri.
           </h2>
         </div>
         <div class="service-content-wrap" data-aos="fade-up" data-aos-duration="1000">
@@ -251,82 +242,39 @@
       <!-- Service Wrap Start -->
       <div class="service-wrap">
         <div class="section-title text-center">
-          <h2 class="title" data-aos="fade-up" data-aos-duration="700"
-            style="padding: 20px; text-transform: capitalize">Gallery Kelas Industri
+          <h2 class="title" data-aos="fade-up" data-aos-duration="700" style="padding: 20px; text-transform: capitalize">Gallery Kelas Industri
             <span style="color: #22B3E2">Humma</span>Tech
           </h2>
         </div>
         <div class="service-content-wrap" data-aos="fade-up" data-aos-duration="1000">
-          <div id="gallery" class="container-fluid">
-            <ul id="lightgallery" class="list-unstyled">
-              @forelse ($gallery as $data)
-                <li class="gallery-item" data-responsive="{{ asset('storage/galery/' . $data->picture) }}"
-                  data-src="{{ asset('storage/galery/' . $data->picture) }}">
-                  <div class="skeleton"></div>
-                  <a href="" class="opacity-0">
-                    <img src="{{ asset('storage/galery/' . $data->picture) }}" class="img-responsive">
-                  </a>
-                </li>
-              @empty
-                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_1.jpg') }}"
-                  data-src="{{ asset('ImageGlobal/gallery/gallery_1.jpg') }}">
-                  <div class="skeleton"></div>
-                  <a href="" class="opacity-0">
-                    <img src="{{ asset('ImageGlobal/gallery/gallery_1.jpg') }}" class="img-responsive">
-                  </a>
-                </li>
-                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_2.jpg') }}"
-                  data-src="{{ asset('ImageGlobal/gallery/gallery_2.jpg') }}">
-                  <div class="skeleton"></div>
-                  <a href="" class="opacity-0">
-                    <img src="{{ asset('ImageGlobal/gallery/gallery_2.jpg') }}" class="img-responsive">
-                  </a>
-                </li>
-                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_3.jpg') }}"
-                  data-src="{{ asset('ImageGlobal/gallery/gallery_3.jpg') }}">
-                  <div class="skeleton"></div>
-                  <a href="" class="opacity-0">
-                    <img src="{{ asset('ImageGlobal/gallery/gallery_3.jpg') }}" class="img-responsive">
-                  </a>
-                </li>
-                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}"
-                  data-src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}">
-                  <div class="skeleton"></div>
-                  <a href="" class="opacity-0">
-                    <img src="{{ asset('ImageGlobal/gallery/gallery_4.jpg') }}" class="img-responsive">
-                  </a>
-                </li>
-                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_5.jpg') }}"
-                  data-src="{{ asset('ImageGlobal/gallery/gallery_5.jpg') }}">
-                  <div class="skeleton"></div>
-                  <a href="" class="opacity-0">
-                    <img src="{{ asset('ImageGlobal/gallery/gallery_5.jpg') }}" class="img-responsive">
-                  </a>
-                </li>
-                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_6.jpg') }}"
-                  data-src="{{ asset('ImageGlobal/gallery/gallery_6.jpg') }}">
-                  <div class="skeleton"></div>
-                  <a href="" class="opacity-0">
-                    <img src="{{ asset('ImageGlobal/gallery/gallery_6.jpg') }}" class="img-responsive">
-                  </a>
-                </li>
-                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_7.jpg') }}"
-                  data-src="{{ asset('ImageGlobal/gallery/gallery_7.jpg') }}">
-                  <div class="skeleton"></div>
-                  <a href="" class="opacity-0">
-                    <img src="{{ asset('ImageGlobal/gallery/gallery_7.jpg') }}" class="img-responsive">
-                  </a>
-                </li>
-                <li class="gallery-item" data-responsive="{{ asset('ImageGlobal/gallery/gallery_8.jpg') }}"
-                  data-src="{{ asset('ImageGlobal/gallery/gallery_8.jpg') }}">
-                  <div class="skeleton"></div>
-                  <a href="" class="opacity-0">
-                    <img src="{{ asset('ImageGlobal/gallery/gallery_8.jpg') }}" class="img-responsive">
-                  </a>
-                </li>
-              @endforelse
-            </ul>
-          </div>
+          @if ($gallery->count() > 0)
+            <div id="gallery" class="container-fluid">
+              <ul id="lightgallery" class="list-unstyled">
+                @forelse ($gallery->take(16) as $data)
+                  <li class="gallery-item" data-responsive="{{ asset('storage/galery/' . $data->picture) }}" data-src="{{ asset('storage/galery/' . $data->picture) }}">
+                    <div class="skeleton"></div>
+                    <a href="" class="opacity-0">
+                      <img src="{{ asset('storage/galery/' . $data->picture) }}" class="img-responsive">
+                    </a>
+                  </li>
+                @empty
+                  {{-- Nothing here --}}
+                @endforelse
+              </ul>
+            </div>
+            @if ($gallery->count() > 16)
+              <div class="mt-5">
+                <div class="gallery-more-text text-center" style="margin-top: 30px">
+                  <p>Gallery lainnya <a href="{{ route('gallery.industri') }}">Disini <i class="fas fa-long-arrow-alt-right"></i></a> </p>
+                </div>
+              </div>
+            @endif
+          @else
+            <div class="nodata gap-3" data-aos="fade-up" data-aos-duration="500">
+              <img src="{{ asset('cssUser/images/zerodata.png') }}" alt="">
+              <p>Gallery tidak ada</p>
+            </div>
+          @endif
         </div>
         <div class="d-flex justify-content-center mt-5">
         </div>

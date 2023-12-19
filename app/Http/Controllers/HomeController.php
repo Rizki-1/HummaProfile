@@ -52,6 +52,18 @@ class HomeController extends Controller
         return view('user.pendidikan.siswa', compact('layananSiswa', 'testimoni', 'gallery', 'syarat'));
     }
 
+    public function galleryMagang()
+    {
+        $gallery = Gallery::where('target_layanan_id', 1)->orderBy('created_at', 'desc')->paginate(16);
+        return view('user.gallery.gallery', compact('gallery'));
+    }
+
+    public function galleryIndustri()
+    {
+        $gallery = Gallery::where('target_layanan_id', 2)->orderBy('created_at', 'desc')->paginate(16);
+        return view('user.gallery.gallery', compact('gallery'));
+    }
+
     public function indexIndustri()
     {
         $syarat = SyaratKetentuan::where('target_layanan_id', 2)->get();
@@ -91,7 +103,7 @@ class HomeController extends Controller
     public function detailBerita(Request $request, $name)
     {
         $berita = Berita::where('title', $name)->first();
-        if(!$berita){
+        if (!$berita) {
             return abort(404);
         }
         $beritaAll = Berita::all();
@@ -103,9 +115,10 @@ class HomeController extends Controller
         return view('user.berita.detail', compact('berita', 'beritaAll', 'beritaRandom', 'kategoriBerita'));
     }
 
-    public function detailProduk(string $name) {
-        $produk = Produk::with('galery')->where('nama_produk',$name)->first();
-        if(!$produk){
+    public function detailProduk(string $name)
+    {
+        $produk = Produk::with('galery')->where('nama_produk', $name)->first();
+        if (!$produk) {
             return back();
         }
         $produkLainnya = Produk::inRandomOrder()->whereNot('nama_produk', $name)->get();

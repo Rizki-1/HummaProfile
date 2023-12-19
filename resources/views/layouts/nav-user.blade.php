@@ -65,10 +65,10 @@
               <li class="{{ request()->routeIs('homeindex') ? 'active-menu' : '' }}">
                 <a href="/">Beranda</a>
               </li>
-              <li class="{{ request()->routeIs('home.siswaIndex') ? 'active-menu' : '' }}">
+              <li class="{{ request()->routeIs('home.siswaIndex') || request()->routeIs('gallery.magang') ? 'active-menu' : '' }}">
                 <a href="{{ route('home.siswaIndex') }}">Magang/PKL</a>
               </li>
-              <li class="{{ request()->routeIs('home.industriIndex') ? 'active-menu' : '' }}">
+              <li class="{{ request()->routeIs('home.industriIndex') || request()->routeIs('gallery.industri') ? 'active-menu' : '' }}">
                 <a href="{{ route('home.industriIndex') }}">Kelas Industri</a>
               </li>
               <li class="{{ request()->routeIs('produkIndex') || request()->routeIs('produk.detail') ? 'active-menu' : '' }}">
@@ -144,10 +144,10 @@
             <li class="{{ request()->routeIs('homeindex') ? 'active' : '' }}">
               <a href="/">Beranda</a>
             </li>
-            <li class="{{ request()->routeIs('home.siswaIndex') ? 'active' : '' }}">
+            <li class="{{ request()->routeIs('home.siswaIndex') || request()->routeIs('gallery.magang') ? 'active' : '' }}">
               <a href="{{ route('home.siswaIndex') }}">Magang/PKL</a>
             </li>
-            <li class="{{ request()->routeIs('home.industriIndex') ? 'active' : '' }}">
+            <li class="{{ request()->routeIs('home.industriIndex') || request()->routeIs('gallery.industri') ? 'active' : '' }}">
               <a href="{{ route('home.industriIndex') }}">Kelas Industri</a>
             </li>
             <li class="{{ request()->routeIs('produkIndex') || request()->routeIs('produk.detail') ? 'active' : '' }}">
@@ -183,7 +183,7 @@
               <!-- Footer Widget Start -->
               <div class="footer-widget-about">
                 <a class="footer-logo" href="{{ route('homeindex') }}"><img src="{{ asset('cssUser/images/logohumma.png') }}" alt="Logo"></a>
-                <p>Layanan IT yang Terukur dan Terpercaya, Menghadirkan Solusi yang Membawa Bisnis Anda ke Tingkat
+                <p style="width: 80%">Layanan IT yang Terukur dan Terpercaya, Menghadirkan Solusi yang Membawa Bisnis Anda ke Tingkat
                   Selanjutnya.</p>
               </div>
               <!-- Footer Widget End -->
