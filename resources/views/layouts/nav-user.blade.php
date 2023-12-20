@@ -32,7 +32,7 @@
 
   <!-- Main Style CSS -->
   <link rel="stylesheet" href="{{ asset('cssUser/css/style.css') }}">
-  <link rel="shortcut icon" href="{{ asset('ImageGlobal/HummaTech-Logo.png') }}" type="image/x-icon"/>
+  <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon"/>
 </head>
 
 <body>
