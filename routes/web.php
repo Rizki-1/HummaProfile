@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SiteMapController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormController;
@@ -36,6 +37,7 @@ use App\Models\OperationalTime;
 */
 
 // Auth::routes();
+Route::get('/sitemap-ini', SiteMapController::class);
 Route::get('/login', [LoginController::class, 'showLoginForm']);
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 
