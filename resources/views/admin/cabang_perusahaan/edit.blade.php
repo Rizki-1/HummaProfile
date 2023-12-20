@@ -41,7 +41,7 @@
             <label for="latitude" class="form-label">Latitude</label>
             <input required type="text" class="form-control @error('latitude') is-invalid @enderror"
               placeholder="Contoh -7.900074" name="latitude" id="latitude"
-              value="{{ old('latitude', $cabang->latitude) }}" required disabled readonly>
+              value="{{ old('latitude', $cabang->latitude) }}" required  readonly>
             @error('latitude')
               <div class="invalid-feedback">
                 <p>{{ $message }}</p>
@@ -52,7 +52,7 @@
             <label for="longitude" class="form-label">Longitude</label>
             <input required type="text" class="form-control @error('longitude') is-invalid @enderror"
               placeholder="Contoh 112.606886" name="longitude" id="longitude"
-              value="{{ old('longitude', $cabang->longitude) }}" required disabled readonly>
+              value="{{ old('longitude', $cabang->longitude) }}" required readonly>
             @error('longitude')
               <div class="invalid-feedback">
                 <p>{{ $message }}</p>

@@ -34,12 +34,12 @@
           <div class="col-md-4">
             <label for="latitude" class="form-label">Latitude</label>
             <input required type="text" class="form-control" placeholder="Latitude perusahaan" name="latitude"
-              id="latitude" value="{{ old('latitude') }}" required disabled readonly>
+              id="latitude" value="{{ old('latitude') }}" required  readonly>
           </div>
           <div class="col-md-4">
             <label for="longitude" class="form-label">Longitude</label>
             <input required type="text" class="form-control" placeholder="Longitude perusahaan" name="longitude"
-              id="longitude" value="{{ old('longitude') }}" required disabled readonly>
+              id="longitude" value="{{ old('longitude') }}" required  readonly>
           </div>
         </div>
       </div>
