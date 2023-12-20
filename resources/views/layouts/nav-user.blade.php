@@ -11,9 +11,10 @@
   @section('header')
     <meta name="keywords" content="HummaTech">
     <meta name="description" content="Perusahaan HummaTech">
+    <meta name="author" content="Tim HummaCertify">
     <meta property="og:title" content="hummatech">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ request()->url() }}">
+    <meta property="og:url" content="https://hummatech.com/">
     <meta property="og:image" content="{{ asset('ImageGlobal/HummaTech-Logo.png') }}">
     <meta property="og:site_name" content="Profile HummaTech">
     <title>HummaTech</title>
@@ -31,7 +32,7 @@
 
   <!-- Main Style CSS -->
   <link rel="stylesheet" href="{{ asset('cssUser/css/style.css') }}">
-  <link rel="shortcut icon" href="{{ asset('ImageGlobal/HummaTech-Logo.png') }}" />
+  <link rel="shortcut icon" href="{{ asset('ImageGlobal/HummaTech-Logo.png') }}" type="image/x-icon"/>
 </head>
 
 <body>
