@@ -9,6 +9,7 @@ use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CabangPerusahaanController;
+use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\PengaturanController;
 use App\Http\Controllers\PersetujuanController;
@@ -41,6 +42,8 @@ Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::prefix('/admin')->middleware(['auth'])->group(function () {
     Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+    Route::get('reset-password', [ChangePasswordController::class, 'showForm'])->name('form-change-pass');
+    Route::post('reset-password', [ChangePasswordController::class, 'changePass'])->name('change-pass');
     Route::get('/persetujuan', function () {
         echo "Hello";
     });

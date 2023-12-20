@@ -226,6 +226,12 @@
                 </div>
                 <ul class="list-unstyled p-1">
                   <li class="dropdown-item py-2">
+                      <a href="{{ route('form-change-pass') }}" class="text-body ms-0" id="button-logout">
+                        <i class="me-2 icon-md" data-feather="repeat"></i>
+                        <span>Ganti Password</span>
+                      </a>
+                  </li>
+                  <li class="dropdown-item py-2">
                     <form action="{{ route('logout') }}" method="post">
                       @csrf
                       <button type="submit" class="text-body ms-0" id="button-logout">

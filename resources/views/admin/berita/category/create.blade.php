@@ -23,8 +23,8 @@
                 <div class="d-flex flex-row">
                   <div class="col-12 mb-4 pe-3 d-flex gap-3 align-items-center">
                     <div class="col-md-11">
-                      <label for="unknown" class="form-label">Kategori Berita</label>
-                      <input required type="text" class="form-control @error('category-group.' . $i . '.category_name') is-invalid @enderror" placeholder="{{ $category['category_name'] }}" name="category_name" value="{{ $category['category_name'] }}"
+                      <label for="category_name" class="form-label">Kategori Berita</label>
+                      <input type="text" id="category_name" class="form-control @error('category-group.' . $i . '.category_name') is-invalid @enderror" placeholder="{{ $category['category_name'] }}" name="category_name" value="{{ $category['category_name'] }}"
                         required>
                       @error('category-group.' . $i . '.category_name')
                         <div class="invalid-feedback">
@@ -33,7 +33,7 @@
                       @enderror
                     </div>
                     <div class="col-md-2">
-                      <input required id="button-hapus-detail" class="btn btn-outline-danger waves-effect waves-light d-flex justify-content-center align-items-center mt-2" data-repeater-delete type="button" value="Hapus" />
+                      <input id="button-hapus-detail" class="btn btn-outline-danger waves-effect waves-light d-flex justify-content-center align-items-center mt-2" data-repeater-delete type="button" value="Hapus" />
                     </div>
                   </div>
                 </div>
