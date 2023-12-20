@@ -1,9 +1,6 @@
 <?php
 
-use App\Http\Controllers\SiteMapController;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\FormController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InboxController;
 use App\Http\Controllers\BeritaController;
@@ -12,8 +9,6 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CabangPerusahaanController;
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\GalleryController;
-use App\Http\Controllers\PengaturanController;
-use App\Http\Controllers\PersetujuanController;
 use App\Http\Controllers\KategoriBeritaController;
 use App\Http\Controllers\LayananPerusahaanController;
 use App\Http\Controllers\ListController;
@@ -37,7 +32,6 @@ use App\Models\OperationalTime;
 */
 
 // Auth::routes();
-Route::get('/sitemap-ini', SiteMapController::class);
 Route::get('/login', [LoginController::class, 'showLoginForm']);
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 
