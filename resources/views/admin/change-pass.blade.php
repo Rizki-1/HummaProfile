@@ -3,7 +3,7 @@
 @section('content')
     <title>{{ config('app.name', 'Laravel') }} - Ubah Password</title>
     <link rel="stylesheet" href="{{ asset('cssAdmin/css/berita/categoryBerita.css') }}">
-    <div class="card px-4 py-3 mb-4 flex-row justify-content-between align-items-center">
+    <div class="card p-4 mb-4 flex-row justify-content-between align-items-center">
         <div>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb breadcrumb-dot mb-0">
