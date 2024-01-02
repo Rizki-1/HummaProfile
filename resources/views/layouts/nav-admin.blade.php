@@ -225,7 +225,7 @@
                   </div>
                 </div>
                 <ul class="list-unstyled p-1">
-                  <li class="dropdown-item py-2">
+                  <li class="dropdown-item py-2" style="padding: 0 20px;">
                       <a href="{{ route('form-change-pass') }}" class="text-body ms-0" id="button-logout">
                         <i class="me-2 icon-md" data-feather="repeat"></i>
                         <span>Ganti Password</span>

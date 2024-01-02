@@ -27,7 +27,7 @@
           </div>
           <div class="mb-3">
             <label class="form-label" for="asal_sekolah">Asal sekolah</label>
-            <input type="text" placeholder="Smkn 1 Probolinggo" class="form-control mb-3 @error('asal_sekolah') is-invalid  @enderror" value="{{ old('asal_sekolah') }}" name="asal_sekolah" required>
+            <input type="text" placeholder="Smkn 1 Mars" class="form-control mb-3 @error('asal_sekolah') is-invalid  @enderror" value="{{ old('asal_sekolah') }}" name="asal_sekolah" required>
             @error('asal_sekolah')
               <div class="invalid-feedback">
                 <p>{{ $message }}</p>
