@@ -71,7 +71,7 @@
         <div class="mb-3">
           <label for="easyMdeEditor" class="form-label">Deskripsi Produk</label>
           <textarea name="keterangan_produk" class="form-control @error('keterangan_produk') is-invalid @enderror"
-            id="easyMdeEditor" rows="2" placeholder="Hummaprofile adalah website company profile untuk Hummatech">{{ old('keterangan_produk') }}</textarea>
+            id="easyMdeEditor" rows="2" style="z-index: 80 !important" placeholder="Hummaprofile adalah website company profile untuk Hummatech">{{ old('keterangan_produk') }}</textarea>
           @error('keterangan_produk')
             <div class="invalid-feedback">
               <p>{{ $message }}</p>

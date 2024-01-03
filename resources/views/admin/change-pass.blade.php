@@ -26,7 +26,7 @@
                         </div>
                     @enderror
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 mt-3">
                     <label for="new_pass" class="form-label">Password Baru</label>
                     <input type="password" id="new_pass" name="new_pass" input required
                         class="form-control @error('new_pass') is-invalid @enderror" placeholder="Password baru Anda">
@@ -36,7 +36,7 @@
                         </div>
                     @enderror
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 mt-3">
                     <label for="confirmation_pass" class="form-label">Konfirmasi Password</label>
                     <input type="password" id="confirmation_pass" name="confirmation_pass" input required
                         class="form-control @error('confirmation_pass') is-invalid @enderror"
