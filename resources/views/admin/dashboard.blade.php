@@ -18,7 +18,7 @@
             </svg>
           </div>
           <div class="text-text">
-            <h5 class="card-title">Jumlah Produk</h5>
+            <h5 class="card-title">Produk</h5>
             <p class="card-text">{{ $produkCount }}</p>
           </div>
         </div>
@@ -37,7 +37,7 @@
             </svg>
           </div>
           <div class="text-text">
-            <h5 class="card-title">Jumlah Berita</h5>
+            <h5 class="card-title">Berita</h5>
             <p class="card-text">{{ $beritaCount }}</p>
           </div>
         </div>
@@ -57,7 +57,7 @@
             </svg>
           </div>
           <div class="text-text">
-            <h5 class="card-title">Jumlah inbox</h5>
+            <h5 class="card-title">Inbox</h5>
             <p class="card-text">{{ $inboxCount }}</p>
           </div>
         </div>

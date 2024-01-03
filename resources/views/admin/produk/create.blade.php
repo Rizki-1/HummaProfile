@@ -4,7 +4,7 @@
   <style>
     .EasyMDEContainer {
       position: relative;
-      z-index: 999;
+      z-index: 5 !important;
     }
   </style>
   <title>{{ config('app.name', 'Laravel') }} - Produk Create</title>
