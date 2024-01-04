@@ -16,7 +16,7 @@
         <form action="{{ route('change-pass') }}" method="post" class="flex-column">
             @csrf
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 mt-3">
                     <label for="old_pass" class="form-label">Password Lama</label>
                     <input type="password" id="old_pass" name="old_pass" input required
                         class="form-control @error('old_pass') is-invalid @enderror" placeholder="Password lama Anda">
